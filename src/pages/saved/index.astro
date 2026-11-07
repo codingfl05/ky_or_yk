@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="저장목록" nav="saved" hideToggle>
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="fav" aria-selected="true">즐겨찾기 <span data-count="fav"></span></button>
+    <button type="button" role="tab" data-tab="wrong" aria-selected="false">틀린 것 <span data-count="wrong"></span></button>
+  </div>
+  <div class="toolbar" id="tools" hidden>
+    <span id="hint"></span>
+    <a class="btn" id="flash-link" href="#">플래시카드</a>
+  </div>
+  <div class="cards" id="list"></div>
+  <p class="empty" id="empty" hidden></p>
+  <script>
+    import '../../client/saved';
+  </script>
+</Base>

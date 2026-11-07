@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import { icons } from '../../lib/icons';
+import { base, cardsIn, content } from '../../lib/site';
+
+export function getStaticPaths() {
+  return content().subjects.map((s) => ({ params: { subject: s.id } }));
+}
+const subject = content().subjects.find((s) => s.id === Astro.params.subject)!;
+const single = subject.chapters.length === 1;
+const total = cardsIn(subject.id).length;
+---
+<Base title={subject.name} subtitle={subject.name_en} back={base} nav="home">
+  {single ? (
+    <>
+      <meta http-equiv="refresh" content={`0; url=${base}${subject.id}/${subject.chapters[0].id}/`} />
+      <p class="empty"><a href={`${base}${subject.id}/${subject.chapters[0].id}/`}>카드 목록으로 이동</a></p>
+    </>
+  ) : (
+    <>
+      <div class="toolbar">
+        <span>{subject.chapters.length}개 단원 · {total}개 카드</span>
+        {total > 0 && <a class="btn" href={`${base}flash/?subject=${subject.id}`}>플래시카드</a>}
+      </div>
+      <div class="rows">
+        {subject.chapters.map((c) => {
+          const n = cardsIn(subject.id, c.id).length;
+          return (
+            <a class:list={['row', { disabled: n === 0 }]} href={`${base}${subject.id}/${c.id}/`}>
+              <div class="row-main">
+                <div class="row-title">{c.name}</div>
+                {c.name_en && <div class="row-sub">{c.name_en}</div>}
+              </div>
+              <span class="row-count">{n}</span>
+              <span class="chev" set:html={icons.chevron} />
+            </a>
+          );
+        })}
+      </div>
+    </>
+  )}
+</Base>

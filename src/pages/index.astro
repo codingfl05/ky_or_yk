@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { icons } from '../lib/icons';
+import { base, content, subjectHref } from '../lib/site';
+
+const { subjects, cards } = content();
+const unverified = cards.filter((c) => !c.verified).length;
+const count = (sid: string) => cards.filter((c) => c.subject === sid).length;
+---
+<Base title="공식노트" nav="home">
+  {unverified > 0 && (
+    <a class="notice" href={`${base}review/`}>검토 필요 카드 {unverified}개 →</a>
+  )}
+  <p class="section-title">과목</p>
+  <div class="rows">
+    {subjects.map((s) => (
+      <a class="row" href={subjectHref(s.id)}>
+        <div class="row-main">
+          <div class="row-title">{s.name}</div>
+          <div class="row-sub">
+            {s.name_en}{s.chapters.length > 1 && ` · ${s.chapters.length}개 단원`}
+          </div>
+        </div>
+        <span class="row-count">{count(s.id)}</span>
+        <span class="chev" set:html={icons.chevron} />
+      </a>
+    ))}
+  </div>
+  <p class="section-title">전체 {cards.length}개 카드</p>
+</Base>

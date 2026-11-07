@@ -1,0 +1,96 @@
+# 편입 공식노트 (ky_or_yk)
+
+연세대/고려대 전기전자공학부 편입 대비용, 과목별 공식·정리·법칙을 폰에서 찾아보고 암기하는 정적 사이트.
+
+- 사이트: https://codingfl05.github.io/ky_or_yk/
+- 과목: 미적분학, 선형대수학, 미분방정식(공업수학), 일반물리
+- 기능: 과목/단원별 카드, 검색(한/영/태그), 플래시카드(정·역방향), 공식 가리기, 즐겨찾기·틀린 것, 다크 모드, 글자 크기, 백업(JSON)
+
+## 로컬 실행
+
+Node 22.23.4 이상 필요.
+
+```bash
+npm install
+npm run dev        # http://localhost:4321/ky_or_yk/
+```
+
+같은 Wi-Fi의 폰에서 보려면 `npm run dev -- --host` 후 표시되는 Network 주소로 접속.
+
+```bash
+npm run validate   # 카드 검사만
+npm run build      # 검사 + 빌드 (dist/)
+npm run preview    # 빌드 결과 미리보기
+```
+
+## 카드 추가
+
+작성 규칙(필드, LaTeX 스타일, 한/영 keyword)은 [CLAUDE.md](CLAUDE.md)에 있다.
+
+1. 파일 생성
+
+   ```bash
+   npm run new -- physics electromagnetism phys-em-ampere-law
+   ```
+
+   `content/physics/electromagnetism/phys-em-ampere-law.md`가 템플릿으로 만들어진다.
+   인자 없이 `npm run new`를 실행하면 과목/단원 id와 prefix 목록이 나온다.
+
+2. 내용 채우기 (frontmatter + `## 조건` / `## 설명` / `## 유도` / `## 예제`)
+
+3. 검사
+
+   ```bash
+   npm run validate
+   ```
+
+   에러가 있으면 `파일경로 [카드id] 필드: 메시지` 형식으로 모두 출력된다.
+
+4. 커밋 & push → 자동 배포
+
+### Notion / PDF에서 가져오기
+
+- `sources/notion/`, `sources/pdf/`에 파일을 넣고 Claude 세션에서 변환을 요청한다. 각 폴더의 README 참고.
+- 자동 추출한 카드는 `verified: false`로 들어가고 사이트에 "검토 필요" 배지가 뜬다. 확인 후 `true`로 바꾼다.
+
+### 과목/단원 추가·삭제
+
+`config/subjects.yaml`만 수정한다. 단원을 지우면 그 폴더의 카드가 validate 에러가 되니 카드도 같이 옮기거나 지운다.
+
+## 배포 (GitHub Pages)
+
+`.github/workflows/deploy.yml`이 `main`과 `claude/**` 브랜치 push 때 `validate → build → Pages 배포`를 실행한다. validate가 실패하면 배포되지 않는다.
+
+처음 한 번만 설정:
+
+1. GitHub repo → Settings → Pages → Build and deployment → Source를 GitHub Actions로 변경
+2. Settings → Environments → `github-pages` → Deployment branches에 배포할 브랜치가 허용되어 있는지 확인
+   (기본은 default branch만 허용)
+3. Actions 탭에서 워크플로를 다시 실행하거나 새로 push
+
+## 폰에 설치
+
+- iPhone: Safari로 사이트 열기 → 공유 → 홈 화면에 추가
+- Android: Chrome 메뉴 → 홈 화면에 추가 / 앱 설치
+
+즐겨찾기·틀린 것은 그 브라우저의 localStorage에만 저장된다. iPhone은 Safari와 홈 화면 앱의 저장소가 서로 별개다.
+기기나 앱을 옮길 때는 설정 → 백업에서 내보내기/가져오기를 쓴다 (파일 또는 복사·붙여넣기).
+
+## 구조
+
+```
+config/subjects.yaml      과목 → 단원, id prefix
+content/<과목>/<단원>/     카드 (1카드 = 1파일)
+templates/card.md         카드 템플릿
+sources/notion|pdf/       원본 자료
+scripts/validate.ts       검사
+scripts/new-card.ts       카드 생성
+scripts/make-icons.mjs    앱 아이콘 생성 (Playwright 필요, 평소엔 불필요)
+src/lib/content.ts        로더 + 검증 (KaTeX 빌드 타임 렌더링)
+src/lib/render-card.ts    카드 HTML (빌드/브라우저 공용)
+src/client/               브라우저 스크립트 (저장, 검색, 플래시카드 등)
+src/pages/                화면
+public/                   manifest, 아이콘
+```
+
+빌드 결과의 `data/index.json`(검색용 목록)과 `data/<과목>.json`(수식 HTML 포함 전체 카드)은 검색·플래시카드·저장목록이 필요한 과목만 불러간다.

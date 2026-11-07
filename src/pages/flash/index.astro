@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="플래시카드" nav="flash">
+  <!-- 설정 -->
+  <section id="setup">
+    <div class="field">
+      <label for="f-subject">과목</label>
+      <select id="f-subject"><option value="">전체 과목</option></select>
+    </div>
+    <div class="field">
+      <label for="f-chapter">단원</label>
+      <select id="f-chapter" disabled><option value="">전체 단원</option></select>
+    </div>
+    <div class="field">
+      <span class="label">모음</span>
+      <div class="seg" data-key="pool">
+        <button type="button" data-v="all">전체</button>
+        <button type="button" data-v="fav">즐겨찾기만</button>
+        <button type="button" data-v="wrong">틀린 것만</button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label">중요도</span>
+      <div class="seg" data-key="imp">
+        <button type="button" data-v="1">전체</button>
+        <button type="button" data-v="2">2 이상</button>
+        <button type="button" data-v="3">3만</button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label">방향</span>
+      <div class="seg" data-key="dir">
+        <button type="button" data-v="fwd">이름 → 공식</button>
+        <button type="button" data-v="rev">공식 → 이름</button>
+      </div>
+    </div>
+    <div class="field switch-row">
+      <label for="f-shuffle" style="margin:0;font-size:0.92rem;color:var(--text);font-weight:500">셔플</label>
+      <input id="f-shuffle" class="switch" type="checkbox" />
+    </div>
+    <button id="start" class="btn primary block" type="button" disabled>불러오는 중…</button>
+    <p class="flash-hint">"몰랐음"은 틀린 것 목록에 추가되고, 틀린 것은 "알았음"을 연속 2번 누르면 목록에서 빠집니다.</p>
+  </section>
+
+  <!-- 진행 -->
+  <section id="session" hidden>
+    <div class="flash-top">
+      <span id="pos"></span>
+      <button id="quit" class="btn" type="button">종료</button>
+    </div>
+    <div class="progress"><i id="bar"></i></div>
+    <div id="card" class="flash" role="button" tabindex="0" aria-label="탭해서 뒤집기"></div>
+    <p class="flash-hint">카드를 탭하면 뒤집힙니다</p>
+    <div class="answer-bar">
+      <button id="unknown" class="btn-unknown" type="button">몰랐음</button>
+      <button id="known" class="btn-known" type="button">알았음</button>
+    </div>
+  </section>
+
+  <!-- 결과 -->
+  <section id="done" hidden>
+    <div class="result">
+      <div class="big" id="r-score"></div>
+      <div class="stats"><span>알았음 <b class="ok" id="r-ok"></b></span><span>몰랐음 <b class="ng" id="r-ng"></b></span></div>
+    </div>
+    <div class="stack">
+      <button id="retry-wrong" class="btn primary block" type="button">몰랐던 것만 다시</button>
+      <button id="retry" class="btn block" type="button">같은 설정으로 다시</button>
+      <button id="back" class="btn block" type="button">설정으로</button>
+    </div>
+  </section>
+
+  <script>
+    import '../../client/flash';
+  </script>
+</Base>

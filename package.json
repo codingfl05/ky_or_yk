@@ -1,0 +1,39 @@
+{
+  "name": "ky_or_yk",
+  "version": "1.0.0",
+  "description": "편입 대비 수학·물리 공식 노트 (모바일 정적 사이트)",
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "tsx scripts/validate.ts",
+    "build": "npm run validate && astro build",
+    "preview": "astro preview",
+    "new": "tsx scripts/new-card.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingfl05/ky_or_yk.git"
+  },
+  "dependencies": {
+    "astro": "^7.4.7",
+    "fuse.js": "^7.5.0",
+    "katex": "^0.19.1",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.2.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}

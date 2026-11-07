@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import { renderCard } from '../../lib/render-card';
+import { base, content } from '../../lib/site';
+
+const cards = content().cards.filter((c) => !c.verified);
+---
+<Base title="검토 필요" subtitle="verified: false 카드" back={base} hideToggle>
+  <p class="toolbar">확인한 카드는 파일에서 <code>verified: true</code>로 바꾸세요.</p>
+  {cards.length === 0 ? (
+    <p class="empty">검토할 카드가 없습니다.</p>
+  ) : (
+    <div class="cards" set:html={cards.map((c) => renderCard(c, { showPath: true })).join('')} />
+  )}
+</Base>

@@ -1,0 +1,17 @@
+{
+  "name": "편입 공식노트",
+  "short_name": "공식노트",
+  "description": "편입 대비 수학·물리 공식 노트",
+  "lang": "ko",
+  "start_url": "/ky_or_yk/",
+  "scope": "/ky_or_yk/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,94 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+import { icons } from '../lib/icons';
+import { BUILD_ID } from '../lib/build';
+
+interface Props {
+  title: string;
+  /** 헤더 왼쪽 뒤로가기 링크 */
+  back?: string;
+  /** 하단 nav 활성 탭 */
+  nav?: 'home' | 'search' | 'flash' | 'saved';
+  /** 헤더에 가리기 토글 표시 */
+  hideToggle?: boolean;
+  /** 헤더 아래 작은 부제 */
+  subtitle?: string;
+}
+const { title, back, nav, hideToggle = false, subtitle } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const pageTitle = title === '공식노트' ? '공식노트' : `${title} · 공식노트`;
+const tabs = [
+  { key: 'home', href: base, label: '홈', icon: icons.home },
+  { key: 'search', href: `${base}search/`, label: '검색', icon: icons.search },
+  { key: 'flash', href: `${base}flash/`, label: '플래시카드', icon: icons.flash },
+  { key: 'saved', href: `${base}saved/`, label: '저장목록', icon: icons.saved },
+];
+---
+<!doctype html>
+<html lang="ko" data-base={base} data-build={BUILD_ID}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{pageTitle}</title>
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="공식노트" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href={`${base}manifest.webmanifest`} />
+    <link rel="icon" type="image/png" sizes="192x192" href={`${base}icons/icon-192.png`} />
+    <link rel="apple-touch-icon" href={`${base}icons/apple-touch-icon.png`} />
+    <script is:inline>
+      // 첫 페인트 전에 테마/글자크기/가리기 적용 (깜빡임 방지)
+      (function () {
+        try {
+          var s = (JSON.parse(localStorage.getItem('kyyk:v1') || '{}').settings) || {};
+          var r = document.documentElement;
+          if (s.theme === 'light' || s.theme === 'dark') r.dataset.theme = s.theme;
+          var scales = [0.9, 1, 1.12, 1.25];
+          if (scales[s.fontStep]) r.style.fontSize = scales[s.fontStep] * 100 + '%';
+          r.dataset.hide = s.hideFormulas ? '1' : '0';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-side">
+        {back && <a class="ic" href={back} aria-label="뒤로" set:html={icons.back} />}
+      </div>
+      <div class="topbar-title">
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
+      </div>
+      <div class="topbar-side right">
+        {hideToggle && (
+          <button class="ic hide-toggle" type="button" data-hide-toggle aria-pressed="false" aria-label="공식 가리기">
+            <span class="when-off" set:html={icons.eye} />
+            <span class="when-on" set:html={icons.eyeOff} />
+          </button>
+        )}
+        <a class="ic" href={`${base}settings/`} aria-label="설정" set:html={icons.gear} />
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <nav class="bottomnav" aria-label="주요 메뉴">
+      {tabs.map((t) => (
+        <a href={t.href} class:list={[{ active: nav === t.key }]} aria-current={nav === t.key ? 'page' : undefined}>
+          <span set:html={t.icon} />
+          <span class="lbl">{t.label}</span>
+        </a>
+      ))}
+    </nav>
+
+    <script>
+      import '../client/ui';
+    </script>
+  </body>
+</html>
