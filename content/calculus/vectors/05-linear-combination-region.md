@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\mathbf{c} = r\mathbf{a} + s\mathbf{b}: \quad r + s = 1 \to \text{line},\quad r, s \ge 0,\ r + s \le 1 \to \text{triangle},\quad 0 \le r, s \le 1 \to \text{parallelogram}
+\mathbf{c} = r\mathbf{a} + s\mathbf{b}
+$$
+
+$$
+r + s = 1 \to \text{line}, \qquad r, s \ge 0,\ r + s \le 1 \to \text{triangle}, \qquad 0 \le r, s \le 1 \to \text{parallelogram}
 $$
 
 ## conditions

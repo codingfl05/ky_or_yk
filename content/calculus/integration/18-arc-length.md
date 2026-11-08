@@ -16,7 +16,15 @@ L = \int \sqrt{(dx)^2 + (dy)^2}
 $$
 
 $$
-L = \int_a^b \sqrt{1 + \{f'(x)\}^2}\,dx, \qquad L = \int_\alpha^\beta \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt, \qquad L = \int_\alpha^\beta \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\,d\theta
+L = \int_a^b \sqrt{1 + \{f'(x)\}^2}\,dx
+$$
+
+$$
+L = \int_\alpha^\beta \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt
+$$
+
+$$
+L = \int_\alpha^\beta \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\,d\theta
 $$
 
 ## conditions

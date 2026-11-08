@@ -142,3 +142,45 @@ export async function loadFull(ids: string[]): Promise<CardView[]> {
   const byId = new Map(lists.flat().map((c) => [c.id, c]));
   return ids.map((id) => byId.get(id)).filter((c): c is CardView => !!c);
 }
+
+// ---------------------------------------------------------------- 폰: 긴 공식 맞추기
+// 폰 화면(폭 640px 이하)에서만, 블록 수식이 칸보다 넓으면 글자 크기를 줄여 한 화면에 들어오게 한다.
+// 너무 길면(MIN_SCALE 미만) 그 크기에서 멈추고 나머지는 가로 스크롤. 웹(넓은 화면)에서는 아무것도 하지 않는다.
+const phone = matchMedia('(max-width: 640px)');
+const MIN_SCALE = 0.5;
+
+function fitOne(fx: HTMLElement) {
+  const k = fx.querySelector<HTMLElement>('.katex-display > .katex');
+  if (!k) return;
+  k.style.fontSize = '';
+  if (!phone.matches) return;
+  const style = getComputedStyle(fx);
+  const avail = fx.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+  const need = k.scrollWidth;
+  if (avail <= 0 || need <= avail) return;
+  const scale = Math.max(avail / need, MIN_SCALE);
+  k.style.fontSize = `${parseFloat(getComputedStyle(k).fontSize) * scale}px`;
+}
+
+const fitObserver = new ResizeObserver((entries) => {
+  for (const e of entries) {
+    const w = Math.round(e.contentRect.width);
+    const el = e.target as HTMLElement;
+    if (el.dataset.fitW === String(w)) continue; // 높이만 바뀐 경우(우리가 글자를 줄인 결과)는 무시
+    el.dataset.fitW = String(w);
+    fitOne(el);
+  }
+});
+function watchFormulas(scope: ParentNode) {
+  scope.querySelectorAll<HTMLElement>('.fx').forEach((fx) => fitObserver.observe(fx));
+}
+new MutationObserver((muts) => {
+  for (const m of muts) m.addedNodes.forEach((n) => n instanceof HTMLElement && watchFormulas(n.matches('.fx') ? n.parentElement! : n));
+}).observe(document.body, { childList: true, subtree: true });
+watchFormulas(document);
+phone.addEventListener('change', () =>
+  document.querySelectorAll<HTMLElement>('.fx').forEach((fx) => {
+    delete fx.dataset.fitW;
+    fitOne(fx);
+  }),
+);

@@ -24,7 +24,11 @@ $$
 $$
 
 $$
-\int \sinh x\,dx = \cosh x + C, \quad \int \cosh x\,dx = \sinh x + C, \quad \int \tanh x\,dx = \ln \cosh x + C, \quad \int \coth x\,dx = \ln|\sinh x| + C
+\int \sinh x\,dx = \cosh x + C, \qquad \int \cosh x\,dx = \sinh x + C
+$$
+
+$$
+\int \tanh x\,dx = \ln \cosh x + C, \qquad \int \coth x\,dx = \ln|\sinh x| + C
 $$
 
 ## conditions

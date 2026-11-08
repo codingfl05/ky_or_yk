@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-0 \le f(x) \le g(x): \quad \int_a^\infty g \text{ converges} \Rightarrow \int_a^\infty f \text{ converges}, \qquad \int_a^\infty f \text{ diverges} \Rightarrow \int_a^\infty g \text{ diverges}
+0 \le f(x) \le g(x): \quad \int_a^\infty g \text{ converges} \Rightarrow \int_a^\infty f \text{ converges}
+$$
+
+$$
+0 \le f(x) \le g(x): \quad \int_a^\infty f \text{ diverges} \Rightarrow \int_a^\infty g \text{ diverges}
 $$
 
 $$

@@ -1093,3 +1093,57 @@ textarea {
   background: var(--surface-2);
   color: var(--text);
 }
+
+/* ------------------------------------------------------------ 폰 전용 (웹은 그대로) */
+@media (max-width: 640px) {
+  /* 상단 제목: 말줄임 대신 두 줄까지 */
+  .topbar-title h1 {
+    white-space: normal;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .topbar-title p {
+    white-space: normal;
+  }
+  /* 공식 영역 좌우 여백 축소 (글자 맞춤은 client/ui.ts) */
+  .fx {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .prose .fx,
+  .st-formula .fx {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .st-formula {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* 표: 가로 스크롤 대신 화면 폭에 맞추고 셀 안에서 줄바꿈 */
+  .prose table {
+    display: table;
+    width: 100%;
+    table-layout: auto;
+    font-size: 0.82rem;
+  }
+  .prose th,
+  .prose td {
+    padding: 3px 4px;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .prose td .katex,
+  .prose th .katex {
+    font-size: 1em;
+  }
+  /* 긴 인라인 수식·URL이 문단 밖으로 나가지 않게 */
+  .prose {
+    overflow-wrap: anywhere;
+  }
+  .study-card {
+    padding: 12px 10px 14px;
+  }
+}

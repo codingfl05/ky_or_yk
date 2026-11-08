@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\sin 2x = 2\sin x \cos x, \qquad \cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x, \qquad \tan 2x = \frac{2\tan x}{1 - \tan^2 x}
+\sin 2x = 2\sin x \cos x, \qquad \tan 2x = \frac{2\tan x}{1 - \tan^2 x}
+$$
+
+$$
+\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x
 $$
 
 $$
