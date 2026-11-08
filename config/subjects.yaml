@@ -10,7 +10,7 @@ subjects:
     name: 미적분학
     name_en: Calculus
     chapters:
-      - { id: all, name: 전체, prefix: calc }
+      - { id: series, name: 급수, name_en: Series, prefix: calc }
 
   - id: linear-algebra
     name: 선형대수학
