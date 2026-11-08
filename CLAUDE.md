@@ -70,7 +70,7 @@ frontmatter에는 LaTeX를 쓰지 않는다 (`\`, `$`가 있으면 validate 에�
 | `tags` | - | 검색용. 한국어 동의어 + 영어 keyword를 섞어서 |
 | `importance` | O | 1~3 정수. 3 = 시험에 자주 나오는 핵심, 2 = 알아야 함, 1 = 참고 |
 | `related` | - | 관련 카드 id. 카드 간 링크가 된다. 없는 id는 빌드 경고 (에러 아님) |
-| `source` | O | `manual` / `notion` / `notion:<페이지명>` / `<파일명>.pdf` / `<파일명>.pdf#p12` (범위는 `#p12-13`) |
+| `source` | O | `manual` / `notion` / `notion:<페이지명>` / `book:<교재명 쪽>` (교재 사진·스크린샷) / `<파일명>.pdf` / `<파일명>.pdf#p12` (범위는 `#p12-13`) |
 | `verified` | - | 기본 true. PDF·Notion에서 가져온 카드는 `false`. 사용자가 확인 후 true로 바꾼다 |
 
 모르는 필드를 넣으면 validate 에러다 (strict).
@@ -219,6 +219,7 @@ YAML 주의: frontmatter 문자열에 `:`나 `#`이 들어가면 큰따옴표로
 - PDF (`sources/pdf/`): 공식을 추출해 카드로 만들 때 전부 `verified: false`, `source: <파일명>.pdf#p<페이지>`.
   강의 자료의 기호·부호 규약을 따르되, 교재와 다르면 `## conditions`에 명시한다.
 - Notion (`sources/notion/`): 같은 방식, `source: notion:<페이지명>`, `verified: false`.
+- 교재 사진·스크린샷: 같은 방식, `source: book:<교재명 쪽>` (예: `book:BLIS편입 적분 6-02`), `verified: false`. 교재의 오류는 바로잡아 쓰고 `## conditions`나 `## supplement`에 교재 표기와 다른 점을 적는다.
 - 이미 같은 내용의 카드가 있으면 새로 만들지 말고 기존 카드를 보강하고 사용자에게 알린다.
 - 확실하지 않은 공식·조건은 지어내지 말고 사용자에게 묻는다.
 

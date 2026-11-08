@@ -116,8 +116,8 @@ export function escapeHtml(s: string): string {
 
 // ---------------------------------------------------------------- card schema
 
-const SOURCE_RE = /^(manual|notion(:.+)?|.+\.pdf(#p\d+(-\d+)?)?)$/i;
-const SOURCE_MSG = "'manual', 'notion', 'notion:<페이지>', '<파일>.pdf' 또는 '<파일>.pdf#p12' 형식";
+const SOURCE_RE = /^(manual|notion(:.+)?|book:.+|.+\.pdf(#p\d+(-\d+)?)?)$/i;
+const SOURCE_MSG = "'manual', 'notion', 'notion:<페이지>', 'book:<교재명 쪽>', '<파일>.pdf' 또는 '<파일>.pdf#p12' 형식";
 const NO_TEX = (v: string) => !/[\\$]/.test(v);
 const NO_TEX_MSG = 'frontmatter에는 LaTeX를 쓰지 않습니다 (\\ 또는 $ 금지). 수식은 본문에서';
 const plain = () => z.string().min(1).refine(NO_TEX, NO_TEX_MSG);
