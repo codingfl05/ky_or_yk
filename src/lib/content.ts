@@ -190,7 +190,7 @@ function walkMarkdown(dir: string): string[] {
 }
 
 /**
- * @param base 사이트 base 경로 (예: "/ky_or_yk/"). 링크 생성에 쓴다.
+ * @param base 사이트 base 경로 (예: "/"). 링크 생성에 쓴다.
  */
 export function loadContent(base = '/'): LoadResult {
   const subjects = loadSubjects();

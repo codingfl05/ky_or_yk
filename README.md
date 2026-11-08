@@ -2,7 +2,7 @@
 
 연세대/고려대 전기전자공학부 편입 대비용, 과목별 공식·정리·법칙을 폰에서 찾아보고 암기하는 정적 사이트.
 
-- 사이트: https://codingfl05.github.io/ky_or_yk/
+- 사이트: Render Static Site (주소는 Render 대시보드에서 확인, `*.onrender.com`)
 - 과목: 미적분학, 선형대수학, 미분방정식(공업수학), 일반물리
 - 기능: 과목/단원별 카드, 검색(한/영/태그), 플래시카드(정·역방향), 공식 가리기, 즐겨찾기·틀린 것, 다크 모드, 글자 크기, 백업(JSON)
 
@@ -12,7 +12,7 @@ Node 22.23.4 이상 필요.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321/ky_or_yk/
+npm run dev        # http://localhost:4321/
 ```
 
 같은 Wi-Fi의 폰에서 보려면 `npm run dev -- --host` 후 표시되는 Network 주소로 접속.
@@ -57,16 +57,20 @@ npm run preview    # 빌드 결과 미리보기
 
 `config/subjects.yaml`만 수정한다. 단원을 지우면 그 폴더의 카드가 validate 에러가 되니 카드도 같이 옮기거나 지운다.
 
-## 배포 (GitHub Pages)
+## 배포 (Render)
 
-`.github/workflows/deploy.yml`이 `main`과 `claude/**` 브랜치 push 때 `validate → build → Pages 배포`를 실행한다. validate가 실패하면 배포되지 않는다.
+`render.yaml`에 설정이 있다. Render가 연결된 브랜치에 push될 때마다 `npm ci && npm run build`(validate 포함)를 실행하고 `dist/`를 배포한다.
+validate가 실패하면 빌드가 실패하고, 이전 버전이 그대로 유지된다.
 
 처음 한 번만 설정:
 
-1. GitHub repo → Settings → Pages → Build and deployment → Source를 GitHub Actions로 변경
-2. Settings → Environments → `github-pages` → Deployment branches에 배포할 브랜치가 허용되어 있는지 확인
-   (기본은 default branch만 허용)
-3. Actions 탭에서 워크플로를 다시 실행하거나 새로 push
+1. https://render.com 가입 (GitHub 계정으로 로그인)
+2. Dashboard → New → Blueprint → 이 repo 선택 → `render.yaml`이 인식되면 Apply
+   - private repo여도 된다 (Render GitHub 앱에 repo 접근 권한을 주면 됨)
+3. 배포할 브랜치를 확인 (기본: repo의 default branch). 바꾸려면 서비스 Settings → Branch
+4. 배포가 끝나면 표시되는 `https://<이름>.onrender.com` 주소로 접속
+
+이후로는 push만 하면 자동 배포된다.
 
 ## 폰에 설치
 

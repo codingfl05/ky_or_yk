@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-편입(연세대/고려대 전기전자) 대비 공식 노트. 모바일용 정적 사이트 (Astro + KaTeX 빌드 타임 렌더링, GitHub Pages).
+편입(연세대/고려대 전기전자) 대비 공식 노트. 모바일용 정적 사이트 (Astro + KaTeX 빌드 타임 렌더링, Render Static Site 배포, 설정은 `render.yaml`).
 이 문서는 카드를 추가·수정하는 모든 세션이 지켜야 할 규칙이다. 규칙을 바꾸면 이 문서도 같이 고친다.
 
 ## 작업 후 반드시
@@ -10,7 +10,7 @@ npm run validate   # schema + LaTeX + related 검사. 에러 0개여야 함
 npm run build      # validate + astro build
 ```
 
-validate가 실패하면 CI 배포도 실패한다. 커밋 전에 꼭 돌린다.
+validate가 실패하면 Render 빌드도 실패해서 배포되지 않는다. 커밋 전에 꼭 돌린다.
 
 ## 구조
 

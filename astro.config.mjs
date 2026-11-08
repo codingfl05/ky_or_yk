@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages: https://codingfl05.github.io/ky_or_yk/
+// Render Static Site에 루트 경로(/)로 배포한다. 배포 설정은 render.yaml.
 export default defineConfig({
-  site: 'https://codingfl05.github.io',
-  base: '/ky_or_yk',
+  base: '/',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
 });
