@@ -10,6 +10,8 @@ subjects:
     name: 미적분학
     name_en: Calculus
     chapters:
+      - { id: differentiation, name: 미분, name_en: Differentiation, prefix: calc-diff }
+      - { id: integration, name: 적분, name_en: Integration, prefix: calc-int }
       - { id: series, name: 급수, name_en: Series, prefix: calc }
 
   - id: linear-algebra

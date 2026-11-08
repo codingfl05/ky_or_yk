@@ -78,7 +78,7 @@ verified: false
 physics/mechanics (phys-mech), physics/rotation (phys-rot), physics/waves (phys-wave),
 physics/thermodynamics (phys-thermo), physics/electromagnetism (phys-em), physics/circuits (phys-circ),
 physics/thermo-entropy (thermo, 엔트로피·열기관),
-calculus/series (calc, 급수), linear-algebra/all (la),
+calculus/differentiation (calc-diff, 미분), calculus/integration (calc-int, 적분), calculus/series (calc, 급수), linear-algebra/all (la),
 diffeq/first-order (de-first), diffeq/linear (de-linear), diffeq/laplace (de-laplace),
 diffeq/systems (de-system), diffeq/series (de-series)
 맞는 단원이 없으면 가장 가까운 단원에 넣고 supplement에 적는다.
