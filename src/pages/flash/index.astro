@@ -5,6 +5,14 @@ import Base from '../../layouts/Base.astro';
   <!-- 설정 -->
   <section id="setup">
     <div class="field">
+      <span class="label">종류</span>
+      <div class="seg" data-key="kind">
+        <button type="button" data-v="formula">공식</button>
+        <button type="button" data-v="problem">문제</button>
+        <button type="button" data-v="all">전체</button>
+      </div>
+    </div>
+    <div class="field">
       <label for="f-subject">과목</label>
       <select id="f-subject"><option value="">전체 과목</option></select>
     </div>
@@ -21,15 +29,15 @@ import Base from '../../layouts/Base.astro';
       </div>
     </div>
     <div class="field">
-      <span class="label">중요도</span>
+      <span class="label" id="imp-label">중요도</span>
       <div class="seg" data-key="imp">
         <button type="button" data-v="1">전체</button>
         <button type="button" data-v="2">2 이상</button>
         <button type="button" data-v="3">3만</button>
       </div>
     </div>
-    <div class="field">
-      <span class="label">방향</span>
+    <div class="field" id="dir-field">
+      <span class="label">방향 (공식 카드)</span>
       <div class="seg" data-key="dir">
         <button type="button" data-v="fwd">이름 → 공식</button>
         <button type="button" data-v="rev">공식 → 이름</button>

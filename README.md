@@ -1,10 +1,10 @@
 # 편입 공식노트 (ky_or_yk)
 
-연세대/고려대 전기전자공학부 편입 대비용, 과목별 공식·정리·법칙을 폰에서 찾아보고 암기하는 정적 사이트.
+연세대/고려대 전기전자공학부 편입 대비용, 과목별 공식을 암기하고 어려운 문제를 복습하는 정적 사이트.
 
 - 사이트: Render Static Site (주소는 Render 대시보드에서 확인, `*.onrender.com`)
 - 과목: 미적분학, 선형대수학, 미분방정식(공업수학), 일반물리
-- 기능: 과목/단원별 카드, 검색(한/영/태그), 플래시카드(질문 → 공식, 공식 → 이름), 공식 가리기, 즐겨찾기·틀린 것, 검토 모드, 다크 모드, 글자 크기, 백업(JSON)
+- 기능: 과목/단원별 공식 카드, 문제 카드(문제 → 핵심 아이디어·정답·풀이), 검색(한/영/태그), 플래시카드(질문 → 공식, 공식 → 이름), 공식 가리기, 즐겨찾기·틀린 것, 검토 모드, 다크 모드, 글자 크기, 백업(JSON)
 
 ## 로컬 실행
 
@@ -49,6 +49,23 @@ npm run preview    # 빌드 결과 미리보기
 
 4. 커밋 & push → 자동 배포
 
+### 문제 추가 (Gemini → Claude)
+
+1. Gemini(Gem)나 Antigravity에 [docs/gemini-instructions.md](docs/gemini-instructions.md)의 지시문을 넣어 둔다.
+2. 문제 사진 + 내 풀이·해설을 Gemini에 보내면 "묶음" 텍스트가 나온다.
+3. 둘 중 하나:
+   - Claude 채팅에 묶음을 붙여넣고 문제 사진을 첨부한 뒤 "올려" (`/ingest`)
+   - Antigravity가 `inbox/<날짜>` 브랜치로 push → Claude에게 "inbox 브랜치 처리해"
+4. Claude가 `npm run ingest`(묶음 풀기, 사진 리사이즈·연결) → 가벼운 검토 → `main`에 push → 자동 배포.
+
+직접 할 때:
+
+```bash
+npm run ingest -- inbox/bundle.md inbox/IMG_1234.jpg   # 또는 inbox/에 넣고 npm run ingest
+```
+
+사진은 JPG/PNG/스크린샷만 된다 (HEIC 불가: iPhone 설정 > 카메라 > 포맷 > 높은 호환성).
+
 ### Notion / PDF에서 가져오기
 
 - `sources/notion/`, `sources/pdf/`에 파일을 넣고 Claude 세션에서 변환을 요청한다. 각 폴더의 README 참고.
@@ -92,6 +109,10 @@ templates/card.md         카드 템플릿
 sources/notion|pdf/       원본 자료
 scripts/validate.ts       검사
 scripts/new-card.ts       카드 생성
+scripts/ingest.ts         Gemini 묶음 → 카드 + 이미지 (npm run ingest)
+content/problems/         문제 카드 (이미지는 public/img/problems/)
+docs/gemini-instructions.md  Gemini/Antigravity 지시문
+inbox/                    묶음·사진 임시 폴더 (git 제외)
 scripts/make-icons.mjs    앱 아이콘 생성 (Playwright 필요, 평소엔 불필요)
 src/lib/content.ts        로더 + 검증 (KaTeX 빌드 타임 렌더링)
 src/lib/render-card.ts    카드 HTML (빌드/브라우저 공용)

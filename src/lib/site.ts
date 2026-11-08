@@ -1,6 +1,6 @@
 import { getContent } from './content';
 import { BUILD_ID } from './build';
-import type { CardView, IndexPayload } from './types';
+import type { CardKind, CardView, IndexPayload } from './types';
 
 export const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
@@ -8,8 +8,11 @@ export function content() {
   return getContent(base);
 }
 
-export function cardsIn(subject: string, chapter?: string): CardView[] {
-  return content().cards.filter((c) => c.subject === subject && (!chapter || c.chapter === chapter));
+/** kind를 주지 않으면 공식·문제 모두 */
+export function cardsIn(subject: string, chapter?: string, kind?: CardKind): CardView[] {
+  return content().cards.filter(
+    (c) => c.subject === subject && (!chapter || c.chapter === chapter) && (!kind || c.kind === kind),
+  );
 }
 
 export function indexPayload(): IndexPayload {
@@ -17,8 +20,8 @@ export function indexPayload(): IndexPayload {
   return {
     build: BUILD_ID,
     subjects: subjects.map((s) => ({ id: s.id, name: s.name, chapters: s.chapters.map((c) => ({ id: c.id, name: c.name })) })),
-    cards: cards.map(({ id, subject, chapter, subjectName, chapterName, title_ko, title_en, tags, importance, verified }) => ({
-      id, subject, chapter, subjectName, chapterName, title_ko, title_en, tags, importance, verified,
+    cards: cards.map(({ kind, id, subject, chapter, subjectName, chapterName, title_ko, title_en, tags, importance, verified, source }) => ({
+      kind, id, subject, chapter, subjectName, chapterName, title_ko, title_en, tags, importance, verified, source,
     })),
   };
 }

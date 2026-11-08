@@ -8,7 +8,7 @@ export function getStaticPaths() {
 }
 const subject = content().subjects.find((s) => s.id === Astro.params.subject)!;
 const single = subject.chapters.length === 1;
-const total = cardsIn(subject.id).length;
+const total = cardsIn(subject.id, undefined, 'formula').length;
 ---
 <Base title={subject.name} subtitle={subject.name_en} back={base} nav="home">
   {single ? (
@@ -20,11 +20,11 @@ const total = cardsIn(subject.id).length;
     <>
       <div class="toolbar">
         <span>{subject.chapters.length}개 단원 · {total}개 카드</span>
-        {total > 0 && <a class="btn" href={`${base}flash/?subject=${subject.id}`}>플래시카드</a>}
+        {total > 0 && <a class="btn" href={`${base}flash/?kind=formula&subject=${subject.id}`}>플래시카드</a>}
       </div>
       <div class="rows">
         {subject.chapters.map((c) => {
-          const n = cardsIn(subject.id, c.id).length;
+          const n = cardsIn(subject.id, c.id, 'formula').length;
           return (
             <a class:list={['row', { disabled: n === 0 }]} href={`${base}${subject.id}/${c.id}/`}>
               <div class="row-main">

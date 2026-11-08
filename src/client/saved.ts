@@ -51,7 +51,7 @@ async function redraw() {
 flashLink.href = `${BASE}flash/`;
 flashLink.addEventListener('click', () => {
   const f = getState().settings.flash ?? {};
-  updateSettings({ flash: { ...f, subject: '', chapter: '', pool: tab } });
+  updateSettings({ flash: { ...f, kind: 'all', subject: '', chapter: '', pool: tab } });
 });
 
 document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((b) =>

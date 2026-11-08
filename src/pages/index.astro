@@ -5,13 +5,26 @@ import { base, content, subjectHref } from '../lib/site';
 
 const { subjects, cards } = content();
 const unverified = cards.filter((c) => !c.verified).length;
-const count = (sid: string) => cards.filter((c) => c.subject === sid).length;
+const formulas = cards.filter((c) => c.kind === 'formula');
+const problems = cards.filter((c) => c.kind === 'problem');
+const count = (sid: string) => formulas.filter((c) => c.subject === sid).length;
 ---
 <Base title="공식노트" nav="home">
   {unverified > 0 && (
     <a class="notice" href={`${base}review/`}>검토 필요 카드 {unverified}개 →</a>
   )}
-  <p class="section-title">과목</p>
+  <p class="section-title">문제 복습</p>
+  <div class="rows">
+    <a class:list={['row', { disabled: problems.length === 0 }]} href={`${base}problems/`}>
+      <div class="row-main">
+        <div class="row-title">문제</div>
+        <div class="row-sub">과목·단원별 문제 · 핵심 아이디어 · 정답</div>
+      </div>
+      <span class="row-count">{problems.length}</span>
+      <span class="chev" set:html={icons.chevron} />
+    </a>
+  </div>
+  <p class="section-title">공식</p>
   <div class="rows">
     {subjects.map((s) => (
       <a class="row" href={subjectHref(s.id)}>
@@ -26,5 +39,5 @@ const count = (sid: string) => cards.filter((c) => c.subject === sid).length;
       </a>
     ))}
   </div>
-  <p class="section-title">전체 {cards.length}개 카드</p>
+  <p class="section-title">공식 {formulas.length}개 · 문제 {problems.length}개</p>
 </Base>

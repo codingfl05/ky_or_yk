@@ -944,3 +944,51 @@ textarea {
   flex-direction: column;
   gap: 8px;
 }
+
+/* ------------------------------------------------------------ 문제 카드 */
+.problem {
+  padding: 2px 12px 8px;
+  font-size: 0.94rem;
+}
+.prob-imgs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+.prob-imgs img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.reveal {
+  display: block;
+  width: calc(100% - 24px);
+  margin: 0 12px 10px;
+  min-height: 38px;
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.card.open .reveal {
+  display: none;
+}
+.card-body section.answer {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+.card-body section.mistakes {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--wrong-soft);
+}
+.flash .fl-problem {
+  font-size: 0.95rem;
+}

@@ -71,6 +71,7 @@ loadIndex()
         { name: 'title_ko', weight: 3 },
         { name: 'title_en', weight: 3 },
         { name: 'tags', weight: 2 },
+        { name: 'source', weight: 1 },
         { name: 'chapterName', weight: 0.5 },
         { name: 'subjectName', weight: 0.3 },
       ],

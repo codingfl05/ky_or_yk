@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-편입(연세대/고려대 전기전자) 대비 공식 노트. 모바일용 정적 사이트 (Astro + KaTeX 빌드 타임 렌더링, Render Static Site 배포, 설정은 `render.yaml`).
+편입(연세대/고려대 전기전자) 대비 공식 노트 + 문제 복습. 모바일용 정적 사이트 (Astro + KaTeX 빌드 타임 렌더링, Render Static Site 배포, 설정은 `render.yaml`).
 이 문서는 카드를 추가·수정하는 모든 세션이 지켜야 할 규칙이다. 규칙을 바꾸면 이 문서도 같이 고친다.
 
 ## 작업 후 반드시
@@ -17,9 +17,12 @@ validate가 실패하면 Render 빌드도 실패해서 배포되지 않는다. �
 - `config/subjects.yaml`: 과목 → 단원 목록, 순서, 단원별 id prefix. 과목/단원 추가·삭제·순서는 여기서.
 - `content/<과목id>/<단원id>/_chapter.md`: 단원 이름·소개 (선택). 있으면 config의 `name`보다 우선.
 - `content/<과목id>/<단원id>/<NN>-<slug>.md`: 카드 1개 = 파일 1개. `NN`(두 자리)이 단원 안 순서.
+- `content/problems/<과목id>/<단원id>/<NN>-<slug>.md`: 문제 카드. 이미지는 `public/img/problems/`.
 - `templates/card.md`: 새 카드 템플릿. `npm run new -- <과목id> <단원id> <카드id>`로 다음 번호 파일을 만든다.
 - `src/lib/content.ts`: 로더 + 검증기 (schema는 여기의 `CardFrontmatter`, `ChapterFrontmatter`). 빌드와 validate가 같은 코드를 쓴다.
 - `sources/notion/`, `sources/pdf/`: 원본 자료. 여기서 카드로 변환한다.
+- `inbox/`: Gemini/Antigravity 결과물 임시 폴더 (git 제외). `scripts/ingest.ts`(`npm run ingest`)가 처리한다.
+- `docs/gemini-instructions.md`: Gemini/Antigravity에게 주는 문제 카드 작성 지시문.
 
 ## 카드 형식
 
@@ -114,6 +117,66 @@ source: "notion:뿌리물리 스토리텔링 노트 — 15강"
 - `chapter_id`, `subject`는 폴더 이름과 같아야 한다. `title_en`, `source`는 선택.
 - 단원 순서와 prefix는 여전히 `config/subjects.yaml`에서 관리한다. `_chapter.md`가 있으면 config의 `name`은 생략 가능.
 
+## 문제 카드
+
+공식 카드와 별도. 위치는 `content/problems/<과목>/<단원>/<NN>-<slug>.md` (과목/단원은 config에 있는 것).
+
+```markdown
+---
+id: prob-thermo-carnot-two-reservoirs
+title_ko: "두 열저장체 사이 카르노 기관의 효율"
+source: "2024 연세대 편입 3번"
+difficulty: 3
+tags: [카르노, carnot]
+related: [thermo-carnot-efficiency]
+images: [prob-thermo-carnot-two-reservoirs-1.webp]
+verified: false
+---
+
+## problem
+## answer
+## key-idea
+## solution
+## mistakes
+## supplement
+```
+
+| 필드 | 필수 | 규칙 |
+|---|---|---|
+| `id` | O | `prob-`로 시작. 보통 `prob-<단원prefix>-<slug>`. 공식 카드와 통틀어 유일 |
+| `title_ko` | O | 문제를 한 줄로 요약한 제목 |
+| `source` | O | 시험명·연도·번호 또는 교재명 (자유 형식, LaTeX 금지) |
+| `difficulty` | O | 1~3 (3 = 어려움) |
+| `tags`, `related` | - | 공식 카드와 같음. 문제 → 공식 related는 공식 카드에 "이 공식을 쓰는 문제"로 역링크된다 |
+| `images` | - | `public/img/problems/` 안의 파일명. 없는 파일이면 에러 |
+| `verified` | - | Gemini가 만든 카드는 `false` |
+
+섹션: `problem`(항상 보임, 이미지 포함), `answer`, `key-idea`, `solution`(접힘), `mistakes`, `supplement`(검토 모드에서만).
+`problem` 또는 `images` 중 하나는 필수, `answer`가 없으면 경고. 플래시카드: 앞면 = 문제, 뒷면 = 핵심 아이디어 + 정답.
+
+## 문제 올리기 (Gemini 결과물 최종 검토) — `/ingest`
+
+사용자가 Gemini 묶음(붙여넣은 텍스트 또는 첨부 .md)과 문제 사진을 주거나, "inbox 브랜치 처리해"라고 하면 이 절차를 따른다.
+비용을 아끼는 게 목적이다: 사진은 열어 보지 않고, 검토는 가볍게 한다.
+
+1. 입력 준비
+   - 붙여넣은 텍스트: 그대로 `inbox/bundle-<날짜시각>.md`로 저장. 첨부 파일·사진은 업로드 경로를 그대로 인자로 쓴다.
+   - inbox 브랜치: `git fetch origin 'refs/heads/inbox/*:refs/remotes/origin/inbox/*'` 후 각 브랜치의 `main` 대비 diff를 본다 (이미 ingest된 상태).
+2. `npm run ingest -- <묶음.md> <사진...>` (inbox/를 썼으면 인자 없이 `npm run ingest -- --clean`)
+   - "사진을 찾지 못했습니다"면: 업로드 파일명이 Gemini가 쓴 이름과 다른 경우다. 사진 수가 1장이면 바로 `--map`.
+     여러 장이면 각 사진을 가로 384px 정도로 줄인 사본(스크래치 폴더)만 보고 매칭해서 `--map=<이름>=<경로>`.
+   - 실패하면 아무 파일도 쓰지 않으니 고쳐서 다시 실행하면 된다.
+3. 가벼운 검토 (새 `.md`만 읽는다. 사진은 열지 않는다)
+   - `npm run validate` 에러 0개. KaTeX 에러는 문법만 최소로 고친다.
+   - 폴더(과목/단원)가 내용과 맞는지, `answer`가 `solution` 마지막 결과와 맞는지, 옮겨 적다 깨진 흔적(빈 수식, 반복된 문장)이 없는지.
+   - `related`: `grep -rh "^id:" content/`로 공식 카드 id를 보고, 이 문제에 실제로 쓰이는 공식 카드 id를 1~3개 채운다.
+   - 사용자 풀이 내용은 고치지 않는다. 틀려 보이면 고치지 말고 보고만 한다 (필요하면 `## supplement`에 한 줄).
+   - `verified: false`는 그대로 둔다 (사용자가 앱에서 확인 후 바꿈).
+4. `npm run build` 통과 확인 → 커밋 (`문제 N개 추가: <출처 요약>`) → `main`에 push (Render 자동 배포).
+   inbox 브랜치였다면 `main`에 merge해서 push한 뒤 원격 inbox 브랜치를 지운다 (`git push origin --delete inbox/...`).
+   현재 세션의 작업 브랜치가 따로 지정돼 있으면 그 브랜치에도 push한다.
+5. 사용자에게 보고: 추가한 문제 목록(제목·출처·난이도), 고친 것, 이상해 보였던 것.
+
 ## 한국어 + 영어 keyword 규칙
 
 - 본문은 한국어로 쓴다.
@@ -152,5 +215,6 @@ YAML 주의: frontmatter 문자열에 `:`나 `#`이 들어가면 큰따옴표로
 
 ## 기타
 
+- 사이트는 개인 복습용이다. `noindex` 메타와 `public/robots.txt`로 검색 노출을 막지만, 주소를 아는 사람은 볼 수 있다.
 - 사용자 상태(즐겨찾기/틀린 것)는 카드 id로 저장된다. 이미 배포된 카드의 id를 바꾸면 그 카드의 기록이 사라지니 id 변경은 피한다.
 - 디자인: 장식 최소, 정보 밀도 높게. 스타일은 `src/styles/global.css`의 토큰(`--bg` 등)으로만 색을 쓴다 (다크 모드 대응).

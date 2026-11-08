@@ -5,7 +5,7 @@ const { subjects } = content();
 ---
 <Base title="검색" nav="search" hideToggle>
   <div class="search-box">
-    <input id="q" type="search" placeholder="이름, 영어 keyword, 태그 (예: 가우스, gauss, 전기장)" autocomplete="off" enterkeyhint="search" />
+    <input id="q" type="search" placeholder="이름, keyword, 태그, 출처 (예: 가우스, 2024 연세대)" autocomplete="off" enterkeyhint="search" />
     <div class="chips" id="filters">
       <button class="chip" type="button" data-subject="" aria-pressed="true">전체</button>
       {subjects.map((s) => <button class="chip" type="button" data-subject={s.id} aria-pressed="false">{s.name}</button>)}

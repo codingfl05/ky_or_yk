@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { icons } from '../../lib/icons';
+import { base, cardsIn, content } from '../../lib/site';
+
+// 문제가 있는 과목/단원만 보여준다
+const groups = content()
+  .subjects.map((s) => ({
+    s,
+    chapters: s.chapters.map((c) => ({ c, n: cardsIn(s.id, c.id, 'problem').length })).filter((x) => x.n > 0),
+  }))
+  .filter((g) => g.chapters.length > 0);
+const total = groups.reduce((a, g) => a + g.chapters.reduce((b, x) => b + x.n, 0), 0);
+---
+<Base title="문제" subtitle="복습용 문제" back={base} nav="home">
+  {total === 0 ? (
+    <p class="empty">아직 문제가 없습니다.<br /><code>content/problems/&lt;과목&gt;/&lt;단원&gt;/</code> 에 추가하세요.</p>
+  ) : (
+    <>
+      <div class="toolbar">
+        <span>{total}개 문제</span>
+        <a class="btn" href={`${base}flash/?kind=problem`}>플래시카드</a>
+      </div>
+      {groups.map((g) => (
+        <>
+          <p class="section-title">{g.s.name}</p>
+          <div class="rows">
+            {g.chapters.map(({ c, n }) => (
+              <a class="row" href={`${base}problems/${g.s.id}/${c.id}/`}>
+                <div class="row-main">
+                  <div class="row-title">{c.name}</div>
+                  {c.name_en && <div class="row-sub">{c.name_en}</div>}
+                </div>
+                <span class="row-count">{n}</span>
+                <span class="chev" set:html={icons.chevron} />
+              </a>
+            ))}
+          </div>
+        </>
+      ))}
+    </>
+  )}
+</Base>

@@ -10,19 +10,21 @@ const { subject: sid, chapter: cid } = Astro.params;
 const subject = content().subjects.find((s) => s.id === sid)!;
 const chapter = subject.chapters.find((c) => c.id === cid)!;
 const single = subject.chapters.length === 1;
-const cards = cardsIn(sid!, cid);
+const cards = cardsIn(sid!, cid, 'formula');
+const probs = cardsIn(sid!, cid, 'problem').length;
 const title = single ? subject.name : chapter.name;
 const subtitle = single ? subject.name_en : `${subject.name} · ${chapter.name_en ?? ''}`.replace(/ · $/, '');
 ---
 <Base title={title} subtitle={subtitle} back={single ? base : `${base}${sid}/`} nav="home" hideToggle>
   {chapter.introHtml && <div class="chapter-intro prose" set:html={chapter.introHtml} />}
+  {probs > 0 && <a class="notice" href={`${base}problems/${sid}/${cid}/`}>이 단원 문제 {probs}개 →</a>}
   {cards.length === 0 ? (
     <p class="empty">아직 카드가 없습니다.<br /><code>content/{sid}/{cid}/</code> 에 추가하세요.</p>
   ) : (
     <>
       <div class="toolbar">
         <span>{cards.length}개 카드 · 탭하면 펼침</span>
-        <a class="btn" href={`${base}flash/?subject=${sid}&chapter=${cid}`}>플래시카드</a>
+        <a class="btn" href={`${base}flash/?kind=formula&subject=${sid}&chapter=${cid}`}>플래시카드</a>
       </div>
       <div class="cards" set:html={cards.map((c) => renderCard(c)).join('')} />
     </>

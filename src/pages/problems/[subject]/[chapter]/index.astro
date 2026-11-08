@@ -1,0 +1,27 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { renderCard } from '../../../../lib/render-card';
+import { base, cardsIn, content } from '../../../../lib/site';
+
+// 문제가 있는 단원만 페이지를 만든다
+export function getStaticPaths() {
+  return content().subjects.flatMap((s) =>
+    s.chapters
+      .filter((c) => cardsIn(s.id, c.id, 'problem').length > 0)
+      .map((c) => ({ params: { subject: s.id, chapter: c.id } })),
+  );
+}
+const { subject: sid, chapter: cid } = Astro.params;
+const subject = content().subjects.find((s) => s.id === sid)!;
+const chapter = subject.chapters.find((c) => c.id === cid)!;
+const cards = cardsIn(sid!, cid, 'problem');
+const formulas = cardsIn(sid!, cid, 'formula').length;
+---
+<Base title={`${chapter.name} 문제`} subtitle={subject.name} back={`${base}problems/`} nav="home">
+  {formulas > 0 && <a class="notice" href={`${base}${sid}/${cid}/`}>이 단원 공식 {formulas}개 →</a>}
+  <div class="toolbar">
+    <span>{cards.length}개 문제 · 탭하면 핵심·정답</span>
+    <a class="btn" href={`${base}flash/?kind=problem&subject=${sid}&chapter=${cid}`}>플래시카드</a>
+  </div>
+  <div class="cards" set:html={cards.map((c) => renderCard(c)).join('')} />
+</Base>

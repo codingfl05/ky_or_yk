@@ -7,7 +7,8 @@
     "validate": "tsx scripts/validate.ts",
     "build": "npm run validate && astro build",
     "preview": "astro preview",
-    "new": "tsx scripts/new-card.ts"
+    "new": "tsx scripts/new-card.ts",
+    "ingest": "tsx scripts/ingest.ts"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "sharp": "^0.35.5",
     "tsx": "^4.23.15"
   },
   "private": true,

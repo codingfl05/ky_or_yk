@@ -1,10 +1,13 @@
 import { loadFull, loadIndex } from './ui';
 import { getState, isFav, isWrong, markKnown, markUnknown, updateSettings } from './storage';
+import { problemImages } from '../lib/render-card';
 import type { CardMeta, CardView, IndexPayload } from '../lib/types';
 
 type Pool = 'all' | 'fav' | 'wrong';
 type Dir = 'fwd' | 'rev';
+type Kind = 'formula' | 'problem' | 'all';
 interface Opts {
+  kind: Kind;
   subject: string;
   chapter: string;
   pool: Pool;
@@ -26,6 +29,7 @@ const cardEl = $('#card');
 let data: IndexPayload;
 const saved = (getState().settings.flash ?? {}) as Partial<Opts>;
 const opts: Opts = {
+  kind: saved.kind ?? 'formula',
   subject: saved.subject ?? '',
   chapter: saved.chapter ?? '',
   pool: saved.pool ?? 'all',
@@ -35,6 +39,11 @@ const opts: Opts = {
 };
 // URL(?subject=&chapter=)로 들어오면 그 범위로
 const qp = new URLSearchParams(location.search);
+const qKind = qp.get('kind');
+if (qKind === 'formula' || qKind === 'problem' || qKind === 'all') {
+  opts.kind = qKind;
+  opts.pool = 'all';
+}
 if (qp.has('subject')) {
   opts.subject = qp.get('subject') ?? '';
   opts.chapter = qp.get('chapter') ?? '';
@@ -56,6 +65,7 @@ function fillChapters() {
 function deckFor(o: Opts): CardMeta[] {
   return data.cards.filter(
     (c) =>
+      (o.kind === 'all' || c.kind === o.kind) &&
       (!o.subject || c.subject === o.subject) &&
       (!o.chapter || c.chapter === o.chapter) &&
       c.importance >= o.imp &&
@@ -67,12 +77,14 @@ function renderSetup() {
   selSubject.value = opts.subject;
   fillChapters();
   document.querySelectorAll<HTMLElement>('.seg[data-key]').forEach((seg) => {
-    const key = seg.dataset.key as 'pool' | 'imp' | 'dir';
+    const key = seg.dataset.key as 'pool' | 'imp' | 'dir' | 'kind';
     seg.querySelectorAll<HTMLButtonElement>('button').forEach((b) => {
       b.setAttribute('aria-pressed', String(String(opts[key]) === b.dataset.v));
     });
   });
   shuffleBox.checked = opts.shuffle;
+  $('#imp-label').textContent = opts.kind === 'problem' ? '난이도' : opts.kind === 'all' ? '중요도 / 난이도' : '중요도';
+  $('#dir-field').hidden = opts.kind === 'problem';
   const n = deckFor(opts).length;
   startBtn.disabled = n === 0;
   startBtn.textContent = n === 0 ? '해당하는 카드가 없습니다' : `시작 (${n}장)`;
@@ -100,6 +112,7 @@ document.querySelectorAll<HTMLElement>('.seg[data-key]').forEach((seg) => {
     if (key === 'imp') opts.imp = Number(b.dataset.v);
     else if (key === 'pool') opts.pool = b.dataset.v as Pool;
     else if (key === 'dir') opts.dir = b.dataset.v as Dir;
+    else if (key === 'kind') opts.kind = b.dataset.v as Kind;
     renderSetup();
   });
 });
@@ -152,23 +165,34 @@ function draw() {
   const c = deck[idx];
   $('#pos').textContent = `${idx + 1} / ${deck.length}`;
   $('#bar').style.width = `${(idx / deck.length) * 100}%`;
-  const title = `<div class="fl-title">${esc(c.title_ko)}</div><div class="fl-en">${esc(c.title_en)}</div>`;
-  const question = c.question ? `<div class="fl-q">${esc(c.question)}</div>` : '';
-  const cond = c.conditionsHtml ? `<div class="fl-cond"><h4>조건</h4><div class="prose">${c.conditionsHtml}</div></div>` : '';
-  const formula = c.formulaHtml ? `<div class="formula">${c.formulaHtml}</div>` : '';
-  const exp = c.explanationHtml ? `<div class="fl-exp"><h4>설명</h4><div class="prose">${c.explanationHtml}</div></div>` : '';
   const badge = c.verified ? '' : ' <span class="badge-review">검토 필요</span>';
-  // 앞면: question이 있으면 question, 없으면 이름 + 조건 / 뒷면: 공식 + 설명
-  const front = c.question ? question : `${title}${cond}`;
   let html: string;
-  if (opts.dir === 'fwd') {
+  if (c.kind === 'problem') {
+    // 문제: 앞면 = 문제(+이미지), 뒷면 = 핵심 아이디어 + 정답 (풀이는 접힘)
+    const head = `<div class="fl-mini">${esc(c.title_ko)} · ${esc(c.source)}${badge}</div>`;
+    const sec = (label: string, h?: string) => (h ? `<div class="fl-exp"><h4>${label}</h4><div class="prose">${h}</div></div>` : '');
     html = flipped
-      ? `<span class="side">뒷면</span><div class="fl-mini">${esc(c.title_ko)}${badge}</div>${formula}${exp}`
-      : `<span class="side">앞면</span>${front}`;
+      ? `<span class="side">뒷면</span>${head}${sec('핵심 아이디어', c.keyIdeaHtml)}${sec('정답', c.answerHtml)}${
+          c.solutionHtml ? `<details class="sub"><summary>풀이</summary><div class="prose">${c.solutionHtml}</div></details>` : ''
+        }`
+      : `<span class="side">앞면 · 문제</span>${head}<div class="fl-problem prose">${c.problemHtml}${problemImages(c)}</div>`;
   } else {
-    html = flipped
-      ? `<span class="side">뒷면</span>${title}${question}${cond}${exp}`
-      : `<span class="side">앞면 · 이 공식의 이름은?</span>${formula}`;
+    const title = `<div class="fl-title">${esc(c.title_ko)}</div><div class="fl-en">${esc(c.title_en)}</div>`;
+    const question = c.question ? `<div class="fl-q">${esc(c.question)}</div>` : '';
+    const cond = c.conditionsHtml ? `<div class="fl-cond"><h4>조건</h4><div class="prose">${c.conditionsHtml}</div></div>` : '';
+    const formula = c.formulaHtml ? `<div class="formula">${c.formulaHtml}</div>` : '';
+    const exp = c.explanationHtml ? `<div class="fl-exp"><h4>설명</h4><div class="prose">${c.explanationHtml}</div></div>` : '';
+    // 앞면: question이 있으면 question, 없으면 이름 + 조건 / 뒷면: 공식 + 설명
+    const front = c.question ? question : `${title}${cond}`;
+    if (opts.dir === 'fwd') {
+      html = flipped
+        ? `<span class="side">뒷면</span><div class="fl-mini">${esc(c.title_ko)}${badge}</div>${formula}${exp}`
+        : `<span class="side">앞면</span>${front}`;
+    } else {
+      html = flipped
+        ? `<span class="side">뒷면</span>${title}${question}${cond}${exp}`
+        : `<span class="side">앞면 · 이 공식의 이름은?</span>${formula}`;
+    }
   }
   cardEl.innerHTML = html;
   cardEl.classList.toggle('back', flipped);
@@ -179,8 +203,8 @@ function flip() {
   draw();
 }
 cardEl.addEventListener('click', (e) => {
-  // 수식 가로 스크롤 중 링크 탭 등은 무시하지 않아도 됨: 카드 전체가 뒤집기 영역
-  if ((e.target as HTMLElement).closest('a')) return;
+  // 링크(이미지 원본 열기), 풀이 펼치기는 뒤집기에서 제외
+  if ((e.target as HTMLElement).closest('a, details')) return;
   flip();
 });
 cardEl.addEventListener('keydown', (e) => {
