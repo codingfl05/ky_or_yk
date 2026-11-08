@@ -6,10 +6,10 @@ import { base, content } from '../../lib/site';
 const cards = content().cards.filter((c) => !c.verified);
 ---
 <Base title="검토 필요" subtitle="verified: false 카드" back={base} hideToggle>
-  <p class="toolbar">확인한 카드는 파일에서 <code>verified: true</code>로 바꾸세요.</p>
+  <p class="toolbar">보완 내용(원본 노트에 없던 부분)이 함께 표시됩니다. 확인한 카드는 파일에서 <code>verified: true</code>로 바꾸세요.</p>
   {cards.length === 0 ? (
     <p class="empty">검토할 카드가 없습니다.</p>
   ) : (
-    <div class="cards" set:html={cards.map((c) => renderCard(c, { showPath: true })).join('')} />
+    <div class="cards review-page" set:html={cards.map((c) => renderCard(c, { showPath: true })).join('')} />
   )}
 </Base>

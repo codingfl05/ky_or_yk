@@ -12,6 +12,7 @@ export function applySettings() {
   else root.dataset.theme = s.theme;
   root.style.fontSize = `${FONT_SCALES[s.fontStep] * 100}%`;
   root.dataset.hide = s.hideFormulas ? '1' : '0';
+  root.dataset.review = s.reviewMode ? '1' : '0';
   const dark = s.theme === 'dark' || (s.theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#111214' : '#ffffff');
   document.querySelectorAll<HTMLButtonElement>('[data-hide-toggle]').forEach((b) => {
@@ -58,6 +59,13 @@ document.addEventListener('click', (e) => {
 
   if (act === 'fav') return toggleFav(id);
   if (act === 'wrong') return toggleWrong(id);
+  if (act === 'review') {
+    // 검토 필요 배지: 그 카드의 보완 내용을 펼치고/접는다
+    const show = !card.classList.contains('show-supp');
+    card.classList.toggle('show-supp', show);
+    if (show) setOpen(card, true);
+    return;
+  }
   if (act === 'toggle') return setOpen(card, !card.classList.contains('open'));
   if (act === 'formula') {
     // 가리기 모드: 탭한 수식만 보이기
@@ -74,6 +82,13 @@ document.addEventListener('click', (e) => {
 document.addEventListener('kyyk:state', () => {
   applySettings();
   syncCards();
+});
+document.addEventListener('keydown', (e) => {
+  const el = e.target as HTMLElement;
+  if ((e.key === 'Enter' || e.key === ' ') && el.matches?.('[role="button"][data-act]')) {
+    e.preventDefault();
+    el.click();
+  }
 });
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySettings);
 

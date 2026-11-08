@@ -5,6 +5,10 @@ export interface ChapterInfo {
   name: string;
   name_en?: string;
   prefix: string;
+  /** _chapter.md 본문 (HTML) */
+  introHtml?: string;
+  /** _chapter.md의 source */
+  source?: string;
 }
 
 export interface SubjectInfo {
@@ -23,6 +27,8 @@ export interface CardView {
   chapterName: string;
   title_ko: string;
   title_en: string;
+  /** 플래시카드 앞면용 질문 */
+  question?: string;
   tags: string[];
   importance: 1 | 2 | 3;
   verified: boolean;
@@ -30,10 +36,13 @@ export interface CardView {
   /** 카드가 있는 단원 페이지의 앵커 링크 */
   href: string;
   formulaHtml: string;
-  conditionsHtml: string;
-  explanationHtml: string;
+  conditionsHtml?: string;
+  explanationHtml?: string;
+  storyHtml?: string;
   derivationHtml?: string;
   exampleHtml?: string;
+  /** 원본 노트에 없던 보완 내용. 검토 모드에서만 보인다 */
+  supplementHtml?: string;
   related: { id: string; title: string; href: string }[];
 }
 

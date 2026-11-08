@@ -15,6 +15,10 @@ const unverified = cards.filter((c) => !c.verified).length;
         <button type="button" data-v="dark">다크</button>
       </div>
     </div>
+    <div class="field switch-row">
+      <label for="review-mode" style="margin:0;font-size:0.92rem;color:var(--text);font-weight:500">검토 모드 <span class="small muted">(보완 내용 표시)</span></label>
+      <input id="review-mode" class="switch" type="checkbox" />
+    </div>
     <div class="field" style="margin-bottom:0">
       <span class="label">글자 크기</span>
       <div class="seg" id="font">

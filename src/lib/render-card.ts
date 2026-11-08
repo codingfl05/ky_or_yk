@@ -11,20 +11,24 @@ export function importanceDots(n: number): string {
 }
 
 export function renderCard(c: CardView, opts: { showPath?: boolean } = {}): string {
-  const badge = c.verified ? '' : '<span class="badge-review">검토 필요</span>';
+  // 배지를 탭하면 그 카드의 supplement(보완 내용)를 펼친다. 버튼 안의 버튼은 안 되므로 span + role.
+  const badge = c.verified
+    ? ''
+    : `<span class="badge-review" role="button" tabindex="0" data-act="review" title="탭하면 보완 내용 표시">검토 필요</span>`;
   const path = opts.showPath
     ? `<a class="card-path" href="${esc(c.href)}">${esc(c.subjectName)} · ${esc(c.chapterName)}</a>`
     : '';
-  const derivation = c.derivationHtml
-    ? `<details class="sub"><summary>유도</summary><div class="prose">${c.derivationHtml}</div></details>`
-    : '';
-  const example = c.exampleHtml
-    ? `<section><h4>예제</h4><div class="prose">${c.exampleHtml}</div></section>`
-    : '';
+  const sec = (label: string, html?: string, cls = '') =>
+    html ? `<section${cls ? ` class="${cls}"` : ''}><h4>${label}</h4><div class="prose">${html}</div></section>` : '';
+  const fold = (label: string, html?: string) =>
+    html ? `<details class="sub"><summary>${label}</summary><div class="prose">${html}</div></details>` : '';
   const related = c.related.length
     ? `<section><h4>관련</h4><div class="chips">${c.related
         .map((r) => `<a class="chip" href="${esc(r.href)}">${esc(r.title)}</a>`)
         .join('')}</div></section>`
+    : '';
+  const supplement = c.supplementHtml
+    ? `<section class="supp"><h4>보완 내용 (원본 노트에 없던 부분)</h4><div class="prose">${c.supplementHtml}</div></section>`
     : '';
   const tags = c.tags.length ? `<div class="tags">${c.tags.map((t) => `<span>#${esc(t)}</span>`).join('')}</div>` : '';
 
@@ -40,11 +44,10 @@ export function renderCard(c: CardView, opts: { showPath?: boolean } = {}): stri
 </div>
 </div>
 ${path}
-<div class="formula" data-act="formula">${c.formulaHtml}</div>
+${c.formulaHtml ? `<div class="formula" data-act="formula">${c.formulaHtml}</div>` : ''}
 <div class="card-body" hidden>
-<section><h4>조건</h4><div class="prose">${c.conditionsHtml}</div></section>
-<section><h4>설명</h4><div class="prose">${c.explanationHtml}</div></section>
-${derivation}${example}${related}
+${sec('조건', c.conditionsHtml)}${sec('설명', c.explanationHtml)}${sec('💬 스토리', c.storyHtml, 'story')}
+${fold('유도', c.derivationHtml)}${fold('예제', c.exampleHtml)}${related}${supplement}
 <div class="card-foot">${tags}<span class="src">출처: ${esc(c.source)}</span></div>
 </div>
 </article>`;

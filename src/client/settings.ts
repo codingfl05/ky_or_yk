@@ -15,6 +15,7 @@ function render() {
   const s = getState();
   $('#theme').querySelectorAll<HTMLButtonElement>('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === s.settings.theme)));
   $('#font').querySelectorAll<HTMLButtonElement>('button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.v) === s.settings.fontStep)));
+  $<HTMLInputElement>('#review-mode').checked = s.settings.reviewMode;
   $('#summary').textContent = `현재: 즐겨찾기 ${Object.keys(s.favorites).length}개 · 틀린 것 ${Object.keys(s.wrong).length}개`;
 }
 
@@ -25,6 +26,10 @@ $('#theme').addEventListener('click', (e) => {
 $('#font').addEventListener('click', (e) => {
   const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button');
   if (b) updateSettings({ fontStep: Number(b.dataset.v) });
+});
+
+$<HTMLInputElement>('#review-mode').addEventListener('change', (e) => {
+  updateSettings({ reviewMode: (e.target as HTMLInputElement).checked });
 });
 
 // ---------------------------------------------------------------- export

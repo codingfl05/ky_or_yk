@@ -4,7 +4,7 @@
 
 - 사이트: Render Static Site (주소는 Render 대시보드에서 확인, `*.onrender.com`)
 - 과목: 미적분학, 선형대수학, 미분방정식(공업수학), 일반물리
-- 기능: 과목/단원별 카드, 검색(한/영/태그), 플래시카드(정·역방향), 공식 가리기, 즐겨찾기·틀린 것, 다크 모드, 글자 크기, 백업(JSON)
+- 기능: 과목/단원별 카드, 검색(한/영/태그), 플래시카드(질문 → 공식, 공식 → 이름), 공식 가리기, 즐겨찾기·틀린 것, 검토 모드, 다크 모드, 글자 크기, 백업(JSON)
 
 ## 로컬 실행
 
@@ -33,10 +33,10 @@ npm run preview    # 빌드 결과 미리보기
    npm run new -- physics electromagnetism phys-em-ampere-law
    ```
 
-   `content/physics/electromagnetism/phys-em-ampere-law.md`가 템플릿으로 만들어진다.
+   `content/physics/electromagnetism/02-ampere-law.md`처럼 그 단원의 다음 번호로 템플릿 파일이 만들어진다.
    인자 없이 `npm run new`를 실행하면 과목/단원 id와 prefix 목록이 나온다.
 
-2. 내용 채우기 (frontmatter + `## 조건` / `## 설명` / `## 유도` / `## 예제`)
+2. 내용 채우기: frontmatter(수식 금지) + 본문 섹션 `## formula` / `## conditions` / `## explanation` / `## story` / `## derivation` / `## example` / `## supplement` (없는 섹션은 생략)
 
 3. 검사
 
@@ -44,7 +44,8 @@ npm run preview    # 빌드 결과 미리보기
    npm run validate
    ```
 
-   에러가 있으면 `파일경로 [카드id] 필드: 메시지` 형식으로 모두 출력된다.
+   에러가 있으면 `파일경로 [카드id] 필드: 메시지` 형식으로 모두 출력된다 (KaTeX 에러 포함).
+   아직 없는 카드를 `related`에 넣으면 경고만 나오고 빌드는 된다.
 
 4. 커밋 & push → 자동 배포
 
@@ -52,10 +53,12 @@ npm run preview    # 빌드 결과 미리보기
 
 - `sources/notion/`, `sources/pdf/`에 파일을 넣고 Claude 세션에서 변환을 요청한다. 각 폴더의 README 참고.
 - 자동 추출한 카드는 `verified: false`로 들어가고 사이트에 "검토 필요" 배지가 뜬다. 확인 후 `true`로 바꾼다.
+- 원본에 없던 보완 내용은 `## supplement`에 적는다. 검토 모드(설정), "검토 필요" 배지 탭, 검토 페이지에서만 보인다.
 
 ### 과목/단원 추가·삭제
 
-`config/subjects.yaml`만 수정한다. 단원을 지우면 그 폴더의 카드가 validate 에러가 되니 카드도 같이 옮기거나 지운다.
+`config/subjects.yaml`에서 순서와 id prefix를 관리한다. 단원 이름·소개는 `content/<과목>/<단원>/_chapter.md`에 둘 수 있다 (있으면 config의 name보다 우선).
+단원을 지우면 그 폴더의 카드가 validate 에러가 되니 카드도 같이 옮기거나 지운다.
 
 ## 배포 (Render)
 
@@ -84,7 +87,7 @@ validate가 실패하면 빌드가 실패하고, 이전 버전이 그대로 유�
 
 ```
 config/subjects.yaml      과목 → 단원, id prefix
-content/<과목>/<단원>/     카드 (1카드 = 1파일)
+content/<과목>/<단원>/     카드 <NN>-<slug>.md (1카드 = 1파일) + _chapter.md (단원 소개)
 templates/card.md         카드 템플릿
 sources/notion|pdf/       원본 자료
 scripts/validate.ts       검사

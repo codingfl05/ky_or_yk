@@ -41,7 +41,7 @@ const tabs = [
     <link rel="icon" type="image/png" sizes="192x192" href={`${base}icons/icon-192.png`} />
     <link rel="apple-touch-icon" href={`${base}icons/apple-touch-icon.png`} />
     <script is:inline>
-      // 첫 페인트 전에 테마/글자크기/가리기 적용 (깜빡임 방지)
+      // 첫 페인트 전에 테마/글자크기/가리기/검토 모드 적용 (깜빡임 방지)
       (function () {
         try {
           var s = (JSON.parse(localStorage.getItem('kyyk:v1') || '{}').settings) || {};
@@ -50,6 +50,7 @@ const tabs = [
           var scales = [0.9, 1, 1.12, 1.25];
           if (scales[s.fontStep]) r.style.fontSize = scales[s.fontStep] * 100 + '%';
           r.dataset.hide = s.hideFormulas ? '1' : '0';
+          r.dataset.review = s.reviewMode ? '1' : '0';
         } catch (e) {}
       })();
     </script>

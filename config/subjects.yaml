@@ -2,6 +2,7 @@
 # - 과목/단원을 추가·삭제·순서변경하려면 이 파일만 고치면 된다.
 # - 단원 폴더: content/<subject id>/<chapter id>/
 # - prefix: 그 단원 카드 id가 반드시 시작해야 하는 접두어 (예: phys-em-gauss-law)
+# - name/name_en: content/<과목>/<단원>/_chapter.md가 있으면 그 title_ko/title_en이 우선 (그때는 생략 가능)
 # - 단원이 1개뿐인 과목은 홈에서 바로 카드 목록으로 들어간다.
 
 subjects:
@@ -37,3 +38,5 @@ subjects:
       - { id: thermodynamics, name: 열역학, name_en: Thermodynamics, prefix: phys-thermo }
       - { id: electromagnetism, name: 전자기학, name_en: Electromagnetism, prefix: phys-em }
       - { id: circuits, name: 회로, name_en: Circuits, prefix: phys-circ }
+      # 이름·소개는 content/physics/thermo-entropy/_chapter.md. 위치는 임시(맨 끝)
+      - { id: thermo-entropy, prefix: thermo }

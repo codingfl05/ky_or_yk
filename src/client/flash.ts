@@ -153,18 +153,21 @@ function draw() {
   $('#pos').textContent = `${idx + 1} / ${deck.length}`;
   $('#bar').style.width = `${(idx / deck.length) * 100}%`;
   const title = `<div class="fl-title">${esc(c.title_ko)}</div><div class="fl-en">${esc(c.title_en)}</div>`;
-  const cond = `<div class="fl-cond"><h4>조건</h4><div class="prose">${c.conditionsHtml}</div></div>`;
-  const formula = `<div class="formula">${c.formulaHtml}</div>`;
-  const exp = `<div class="fl-exp"><h4>설명</h4><div class="prose">${c.explanationHtml}</div></div>`;
+  const question = c.question ? `<div class="fl-q">${esc(c.question)}</div>` : '';
+  const cond = c.conditionsHtml ? `<div class="fl-cond"><h4>조건</h4><div class="prose">${c.conditionsHtml}</div></div>` : '';
+  const formula = c.formulaHtml ? `<div class="formula">${c.formulaHtml}</div>` : '';
+  const exp = c.explanationHtml ? `<div class="fl-exp"><h4>설명</h4><div class="prose">${c.explanationHtml}</div></div>` : '';
   const badge = c.verified ? '' : ' <span class="badge-review">검토 필요</span>';
+  // 앞면: question이 있으면 question, 없으면 이름 + 조건 / 뒷면: 공식 + 설명
+  const front = c.question ? question : `${title}${cond}`;
   let html: string;
   if (opts.dir === 'fwd') {
     html = flipped
       ? `<span class="side">뒷면</span><div class="fl-mini">${esc(c.title_ko)}${badge}</div>${formula}${exp}`
-      : `<span class="side">앞면</span>${title}${cond}`;
+      : `<span class="side">앞면</span>${front}`;
   } else {
     html = flipped
-      ? `<span class="side">뒷면</span>${title}${cond}${exp}`
+      ? `<span class="side">뒷면</span>${title}${question}${cond}${exp}`
       : `<span class="side">앞면 · 이 공식의 이름은?</span>${formula}`;
   }
   cardEl.innerHTML = html;

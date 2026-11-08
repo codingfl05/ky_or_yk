@@ -13,6 +13,8 @@ export interface Settings {
   /** 0~3: 작게 / 보통 / 크게 / 아주 크게 */
   fontStep: number;
   hideFormulas: boolean;
+  /** 검토 모드: 모든 카드의 supplement(보완 내용) 표시 */
+  reviewMode: boolean;
   flash?: Record<string, unknown>;
 }
 
@@ -31,7 +33,7 @@ const defaults = (): State => ({
   version: 1,
   favorites: {},
   wrong: {},
-  settings: { theme: 'system', fontStep: 1, hideFormulas: false },
+  settings: { theme: 'system', fontStep: 1, hideFormulas: false, reviewMode: false },
 });
 
 function sanitize(raw: any): State {
@@ -49,6 +51,7 @@ function sanitize(raw: any): State {
   if (['system', 'light', 'dark'].includes(st.theme)) s.settings.theme = st.theme;
   if (Number.isInteger(st.fontStep) && st.fontStep >= 0 && st.fontStep < FONT_SCALES.length) s.settings.fontStep = st.fontStep;
   s.settings.hideFormulas = !!st.hideFormulas;
+  s.settings.reviewMode = !!st.reviewMode;
   if (st.flash && typeof st.flash === 'object') s.settings.flash = st.flash;
   return s;
 }
