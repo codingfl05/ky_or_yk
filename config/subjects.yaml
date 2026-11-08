@@ -13,6 +13,8 @@ subjects:
       - { id: differentiation, name: 미분, name_en: Differentiation, prefix: calc-diff }
       - { id: integration, name: 적분, name_en: Integration, prefix: calc-int }
       - { id: series, name: 급수, name_en: Series, prefix: calc }
+      - { id: vectors, name: 벡터와 공간도형, name_en: Vectors and space geometry, prefix: calc-vec }
+      - { id: multivariable, name: 다변수 미적분, name_en: Multivariable calculus, prefix: calc-mv }
 
   - id: linear-algebra
     name: 선형대수학

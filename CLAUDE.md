@@ -79,7 +79,7 @@ frontmatter에는 LaTeX를 쓰지 않는다 (`\`, `$`가 있으면 validate 에�
 
 `config/subjects.yaml`이 원본이다. 현재:
 
-- 미적분학: 미분 `calc-diff-`, 적분 `calc-int-`, 급수 `calc-` / 선형대수학 `la-`
+- 미적분학: 미분 `calc-diff-`, 적분 `calc-int-`, 급수 `calc-`, 벡터와 공간도형 `calc-vec-`, 다변수 미적분 `calc-mv-` / 선형대수학 `la-`
 - 미분방정식: 1계 `de-first-`, 고계 선형 `de-linear-`, 라플라스 `de-laplace-`, 연립 `de-system-`, 급수해 `de-series-`
 - 일반물리: 역학 `phys-mech-`, 회전 `phys-rot-`, 파동 `phys-wave-`, 열역학 `phys-thermo-`, 전자기 `phys-em-`, 회로 `phys-circ-`, 열역학 완결(엔트로피와 열기관) `thermo-`
 
