@@ -55,7 +55,7 @@ npm run preview    # 빌드 결과 미리보기
 2. 문제 사진 + 내 풀이·해설을 Gemini에 보내면 "묶음" 텍스트가 나온다.
 3. 둘 중 하나:
    - Claude 채팅에 묶음을 붙여넣고 문제 사진을 첨부한 뒤 "올려" (`/ingest`)
-   - Antigravity가 `inbox/<날짜>` 브랜치로 push → Claude에게 "inbox 브랜치 처리해"
+   - Antigravity(클라우드)가 묶음과 문제 사진을 `inbox/<날짜>` 브랜치로 push → Claude에게 "inbox 브랜치 처리해"
 4. Claude가 `npm run ingest`(묶음 풀기, 사진 리사이즈·연결) → 가벼운 검토 → `main`에 push → 자동 배포.
 
 직접 할 때:
@@ -112,7 +112,7 @@ scripts/new-card.ts       카드 생성
 scripts/ingest.ts         Gemini 묶음 → 카드 + 이미지 (npm run ingest)
 content/problems/         문제 카드 (이미지는 public/img/problems/)
 docs/gemini-instructions.md  Gemini/Antigravity 지시문
-inbox/                    묶음·사진 임시 폴더 (git 제외)
+inbox/                    묶음·사진 임시 폴더 (main에는 README만)
 scripts/make-icons.mjs    앱 아이콘 생성 (Playwright 필요, 평소엔 불필요)
 src/lib/content.ts        로더 + 검증 (KaTeX 빌드 타임 렌더링)
 src/lib/render-card.ts    카드 HTML (빌드/브라우저 공용)

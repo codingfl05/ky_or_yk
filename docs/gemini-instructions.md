@@ -6,7 +6,7 @@
 ## 흐름
 
 - 채팅 경로: Gemini 웹/앱에 문제 사진 + 내 풀이·해설 사진을 보냄 → Gemini가 "묶음"을 출력 → 그 텍스트(또는 .md 파일)와 문제 사진을 Claude 채팅에 붙여넣고/첨부하고 "올려"
-- Antigravity 경로: 저장소의 `inbox/`에 사진을 넣고 Antigravity에게 카드 생성 요청 → Antigravity가 `npm run ingest` → `inbox/<날짜>` 브랜치로 push → Claude에게 "inbox 브랜치 처리해"
+- Antigravity 경로(클라우드, 터미널 없음): Antigravity에 사진과 풀이를 보내고 카드 생성 요청 → Antigravity가 묶음과 문제 사진을 `inbox/`에 넣어 `inbox/<날짜>` 브랜치로 push → Claude에게 "inbox 브랜치 처리해" (Claude가 `npm run ingest`)
 
 ---
 
@@ -85,15 +85,5 @@ diffeq/systems (de-system), diffeq/series (de-series)
 
 ## Antigravity 추가 규칙
 
-Antigravity는 저장소의 `.agents/rules/problem-cards.md`를 워크스페이스 규칙으로 자동으로 읽는다 (이 문서를 참조함).
-자동으로 안 읽히면 아래 블록을 Antigravity의 Rules 설정에 붙여넣는다.
-
-```text
-[저장소 작업 규칙]
-- 묶음을 inbox/bundle-<YYYYMMDD-HHMM>.md 로 저장하고, 문제 사진은 inbox/에 원래 파일명 그대로 둔다.
-- 처음 한 번 npm ci. 그다음 npm run ingest -- --clean 을 실행한다.
-  에러가 나면 메시지대로 묶음을 고쳐 다시 실행한다. 사진 이름 불일치는 --map=<images 이름>=<사진 경로>.
-- npm run validate 에러가 0개여야 한다 (경고는 괜찮음).
-- 새 브랜치 inbox/<YYYYMMDD-HHMM> 를 만들어 content/problems/ 와 public/img/problems/ 의 변경만 커밋하고 그 브랜치를 push한다.
-- main 브랜치에 직접 push하지 않는다. 다른 파일(코드, CLAUDE.md 등)을 고치지 않는다.
-```
+Antigravity 규칙은 저장소의 `.agents/rules/problem-cards.md`에 있다 (이 문서를 참조함).
+워크스페이스 규칙이 자동으로 읽히지 않으면 그 파일 내용을 Antigravity의 Rules 설정에 붙여넣는다.

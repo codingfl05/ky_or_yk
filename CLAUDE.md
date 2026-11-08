@@ -21,7 +21,7 @@ validate가 실패하면 Render 빌드도 실패해서 배포되지 않는다. �
 - `templates/card.md`: 새 카드 템플릿. `npm run new -- <과목id> <단원id> <카드id>`로 다음 번호 파일을 만든다.
 - `src/lib/content.ts`: 로더 + 검증기 (schema는 여기의 `CardFrontmatter`, `ChapterFrontmatter`). 빌드와 validate가 같은 코드를 쓴다.
 - `sources/notion/`, `sources/pdf/`: 원본 자료. 여기서 카드로 변환한다.
-- `inbox/`: Gemini/Antigravity 결과물 임시 폴더 (git 제외). `scripts/ingest.ts`(`npm run ingest`)가 처리한다.
+- `inbox/`: Gemini/Antigravity 결과물 임시 폴더. `scripts/ingest.ts`(`npm run ingest`)가 처리한다. `main`에는 README만 둔다.
 - `docs/gemini-instructions.md`: Gemini/Antigravity에게 주는 문제 카드 작성 지시문.
 - `.agents/rules/problem-cards.md`: Antigravity 워크스페이스 규칙 (위 지시문을 참조). 지시문을 바꾸면 같이 확인.
 
@@ -162,7 +162,10 @@ verified: false
 
 1. 입력 준비
    - 붙여넣은 텍스트: 그대로 `inbox/bundle-<날짜시각>.md`로 저장. 첨부 파일·사진은 업로드 경로를 그대로 인자로 쓴다.
-   - inbox 브랜치: `git fetch origin 'refs/heads/inbox/*:refs/remotes/origin/inbox/*'` 후 각 브랜치의 `main` 대비 diff를 본다 (이미 ingest된 상태).
+   - inbox 브랜치 (Antigravity 클라우드, ingest 안 된 상태): `main` 최신에서 시작해
+     `git fetch origin 'refs/heads/inbox/*:refs/remotes/origin/inbox/*'` → `git checkout origin/inbox/<이름> -- inbox/`로 묶음·사진만 가져온다.
+     브랜치를 merge하지 않는다 (원본 사진이 main 기록에 남지 않게).
+     images가 "사진1"처럼 되어 있고 inbox/에 사진이 없으면, 사용자에게 문제 사진 첨부를 요청해 `--map`으로 연결한다.
 2. `npm run ingest -- <묶음.md> <사진...>` (inbox/를 썼으면 인자 없이 `npm run ingest -- --clean`)
    - "사진을 찾지 못했습니다"면: 업로드 파일명이 Gemini가 쓴 이름과 다른 경우다. 사진 수가 1장이면 바로 `--map`.
      여러 장이면 각 사진을 가로 384px 정도로 줄인 사본(스크래치 폴더)만 보고 매칭해서 `--map=<이름>=<경로>`.
@@ -174,7 +177,8 @@ verified: false
    - 사용자 풀이 내용은 고치지 않는다. 틀려 보이면 고치지 말고 보고만 한다 (필요하면 `## supplement`에 한 줄).
    - `verified: false`는 그대로 둔다 (사용자가 앱에서 확인 후 바꿈).
 4. `npm run build` 통과 확인 → 커밋 (`문제 N개 추가: <출처 요약>`) → `main`에 push (Render 자동 배포).
-   inbox 브랜치였다면 `main`에 merge해서 push한 뒤 원격 inbox 브랜치를 지운다 (`git push origin --delete inbox/...`).
+   커밋 전에 `inbox/`에 README 말고 남은 파일이 없는지 확인한다 (`--clean`이 지움).
+   inbox 브랜치였다면 push 후 원격 inbox 브랜치를 지운다 (`git push origin --delete inbox/...`).
    현재 세션의 작업 브랜치가 따로 지정돼 있으면 그 브랜치에도 push한다.
 5. 사용자에게 보고: 추가한 문제 목록(제목·출처·난이도), 고친 것, 이상해 보였던 것.
 

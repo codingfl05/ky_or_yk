@@ -4,6 +4,3 @@ dist/
 .DS_Store
 *.log
 
-# Gemini/Antigravity 결과물 임시 폴더 (npm run ingest가 처리)
-inbox/*
-!inbox/README.md

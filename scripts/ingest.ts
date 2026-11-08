@@ -294,7 +294,7 @@ async function main() {
   if (errors.length || problems.length) process.exit(1);
 
   if (clean && usedInbox) {
-    for (const f of files) fs.rmSync(f);
+    for (const f of files) if (path.basename(f).toLowerCase() !== 'readme.md') fs.rmSync(f);
     console.log('\ninbox/ 비움');
   }
   console.log('\n✓ 완료');
