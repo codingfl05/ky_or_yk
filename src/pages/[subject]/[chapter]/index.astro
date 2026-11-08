@@ -24,7 +24,10 @@ const subtitle = single ? subject.name_en : `${subject.name} · ${chapter.name_e
     <>
       <div class="toolbar">
         <span>{cards.length}개 카드 · 탭하면 펼침</span>
-        <a class="btn" href={`${base}flash/?kind=formula&subject=${sid}&chapter=${cid}`}>플래시카드</a>
+        <span class="btn-row-inline">
+          <a class="btn" href={`${base}study/?kind=formula&subject=${sid}&chapter=${cid}`}>학습 모드</a>
+          <a class="btn" href={`${base}flash/?kind=formula&subject=${sid}&chapter=${cid}`}>플래시카드</a>
+        </span>
       </div>
       <div class="cards" set:html={cards.map((c) => renderCard(c)).join('')} />
     </>

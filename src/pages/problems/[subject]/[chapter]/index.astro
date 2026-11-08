@@ -21,7 +21,10 @@ const formulas = cardsIn(sid!, cid, 'formula').length;
   {formulas > 0 && <a class="notice" href={`${base}${sid}/${cid}/`}>이 단원 공식 {formulas}개 →</a>}
   <div class="toolbar">
     <span>{cards.length}개 문제 · 탭하면 핵심·정답</span>
-    <a class="btn" href={`${base}flash/?kind=problem&subject=${sid}&chapter=${cid}`}>플래시카드</a>
+    <span class="btn-row-inline">
+          <a class="btn" href={`${base}study/?kind=problem&subject=${sid}&chapter=${cid}`}>학습 모드</a>
+          <a class="btn" href={`${base}flash/?kind=problem&subject=${sid}&chapter=${cid}`}>플래시카드</a>
+        </span>
   </div>
   <div class="cards" set:html={cards.map((c) => renderCard(c)).join('')} />
 </Base>

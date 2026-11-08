@@ -992,3 +992,104 @@ textarea {
 .flash .fl-problem {
   font-size: 0.95rem;
 }
+
+/* ------------------------------------------------------------ 학습 모드 */
+.btn-row-inline {
+  display: inline-flex;
+  gap: 6px;
+}
+.study-card {
+  position: relative;
+  min-height: 52vh;
+  padding: 14px 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.study-card .st-acts {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+}
+.study-card .st-acts .ic {
+  width: 40px;
+  height: 40px;
+  color: var(--muted);
+  opacity: 0.45;
+}
+.study-card .st-acts .ic[aria-pressed='true'] {
+  opacity: 1;
+}
+.study-card .act-fav[aria-pressed='true'] {
+  color: var(--star);
+}
+.study-card .act-fav[aria-pressed='true'] svg {
+  fill: currentColor;
+}
+.study-card .act-wrong[aria-pressed='true'] {
+  color: var(--wrong);
+}
+.st-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-right: 84px;
+}
+.st-sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.st-q {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 6px 0 10px;
+}
+.st-problem {
+  margin-bottom: 8px;
+}
+.st-formula {
+  margin: 8px -14px 6px;
+  padding: 6px 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+}
+.study-card section {
+  margin-top: 10px;
+}
+.study-card section h4 {
+  font-size: 0.74rem;
+  font-weight: 650;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.study-card section.story,
+.study-card section.answer,
+.study-card section.mistakes {
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.study-card section.story {
+  background: var(--surface);
+}
+.study-card section.answer {
+  background: var(--accent-soft);
+}
+.study-card section.mistakes {
+  background: var(--wrong-soft);
+}
+.study-wrap .answer-bar .btn {
+  flex: 1;
+  min-height: 48px;
+}
+.study-wrap .answer-bar {
+  background: var(--bg);
+  padding: 8px 0;
+  margin-top: 4px;
+}
+.study-wrap .answer-bar .btn:not(.primary) {
+  background: var(--surface-2);
+  color: var(--text);
+}

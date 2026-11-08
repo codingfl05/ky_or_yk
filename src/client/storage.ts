@@ -16,6 +16,8 @@ export interface Settings {
   /** 검토 모드: 모든 카드의 supplement(보완 내용) 표시 */
   reviewMode: boolean;
   flash?: Record<string, unknown>;
+  /** 학습 모드: 단원별 마지막 위치 (키: kind/subject/chapter) */
+  study?: Record<string, number>;
 }
 
 export interface State {
@@ -53,6 +55,10 @@ function sanitize(raw: any): State {
   s.settings.hideFormulas = !!st.hideFormulas;
   s.settings.reviewMode = !!st.reviewMode;
   if (st.flash && typeof st.flash === 'object') s.settings.flash = st.flash;
+  if (st.study && typeof st.study === 'object') {
+    s.settings.study = {};
+    for (const [k, v] of Object.entries(st.study)) if (Number.isInteger(v) && (v as number) >= 0) s.settings.study[k] = v as number;
+  }
   return s;
 }
 
