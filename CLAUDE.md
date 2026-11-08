@@ -121,6 +121,8 @@ source: "notion:뿌리물리 스토리텔링 노트 — 15강"
 ## 문제 카드
 
 공식 카드와 별도. 위치는 `content/problems/<과목>/<단원>/<NN>-<slug>.md` (과목/단원은 config에 있는 것).
+문제 원문은 사용자가 책으로 회독한다. 카드는 글로만: 출처, 문제 요약 1~2줄(`problem`), 정답 한 줄, 핵심 아이디어(화살표 흐름), 막힌 곳.
+전체 풀이(`solution`)와 사진은 기본적으로 쓰지 않는다 (그림이 꼭 필요한 문제만 책 그림 사진을 첨부).
 
 ```markdown
 ---
@@ -152,8 +154,8 @@ verified: false
 | `images` | - | `public/img/problems/` 안의 파일명. 없는 파일이면 에러 |
 | `verified` | - | Gemini가 만든 카드는 `false` |
 
-섹션: `problem`(항상 보임, 이미지 포함), `answer`, `key-idea`, `solution`(접힘), `mistakes`, `supplement`(검토 모드에서만).
-`problem` 또는 `images` 중 하나는 필수, `answer`가 없으면 경고. 플래시카드: 앞면 = 문제, 뒷면 = 핵심 아이디어 + 정답.
+섹션: `problem`(문제 요약, 항상 보임), `answer`, `key-idea`(화살표 흐름), `solution`(선택, 접힘), `mistakes`, `supplement`(검토 모드에서만).
+`problem` 또는 `images` 중 하나는 필수, `answer`·`key-idea`가 없으면 경고. 플래시카드: 앞면 = 출처 + 문제 요약, 뒷면 = 핵심 아이디어 + 막힌 곳 + 정답.
 
 ## 문제 올리기 (Gemini 결과물 최종 검토) — `/ingest`
 
@@ -162,17 +164,19 @@ verified: false
 
 1. 입력 준비
    - 붙여넣은 텍스트: 그대로 `inbox/bundle-<날짜시각>.md`로 저장. 첨부 파일·사진은 업로드 경로를 그대로 인자로 쓴다.
-   - inbox 브랜치 (Antigravity 클라우드, ingest 안 된 상태): `main` 최신에서 시작해
-     `git fetch origin 'refs/heads/inbox/*:refs/remotes/origin/inbox/*'` → `git checkout origin/inbox/<이름> -- inbox/`로 묶음·사진만 가져온다.
-     브랜치를 merge하지 않는다 (원본 사진이 main 기록에 남지 않게).
-     images가 "사진1"처럼 되어 있고 inbox/에 사진이 없으면, 사용자에게 문제 사진 첨부를 요청해 `--map`으로 연결한다.
+   - inbox 브랜치 (Antigravity 클라우드, 기본 경로): `main` 최신에서 시작해
+     `git fetch origin 'refs/heads/inbox/*:refs/remotes/origin/inbox/*'` → `git checkout origin/inbox/<이름> -- inbox/`로 묶음만 가져온다.
+     브랜치를 merge하지 않는다.
+     images에 "사진1" 등이 있으면 사용자가 그 순서로 첨부한 그림 사진을 `--map=사진1=<경로>`로 연결하고,
+     384px 정도로 줄인 사본만 보고 카드 요약과 맞는 그림인지 확인한다 (첨부가 없으면 요청).
 2. `npm run ingest -- <묶음.md> <사진...>` (inbox/를 썼으면 인자 없이 `npm run ingest -- --clean`)
    - "사진을 찾지 못했습니다"면: 업로드 파일명이 Gemini가 쓴 이름과 다른 경우다. 사진 수가 1장이면 바로 `--map`.
      여러 장이면 각 사진을 가로 384px 정도로 줄인 사본(스크래치 폴더)만 보고 매칭해서 `--map=<이름>=<경로>`.
    - 실패하면 아무 파일도 쓰지 않으니 고쳐서 다시 실행하면 된다.
 3. 가벼운 검토 (새 `.md`만 읽는다. 사진은 열지 않는다)
    - `npm run validate` 에러 0개. KaTeX 에러는 문법만 최소로 고친다.
-   - 폴더(과목/단원)가 내용과 맞는지, `answer`가 `solution` 마지막 결과와 맞는지, 옮겨 적다 깨진 흔적(빈 수식, 반복된 문장)이 없는지.
+   - 폴더(과목/단원)가 내용과 맞는지, 요약·정답·핵심 아이디어가 서로 맞는지, 깨진 흔적(빈 수식, 반복된 문장)이 없는지.
+   - 핵심 아이디어가 화살표 흐름(1~3단계)이 아니라 긴 풀이로 써져 있으면 알려준다 (내용은 고치지 않음).
    - `related`: `grep -rh "^id:" content/`로 공식 카드 id를 보고, 이 문제에 실제로 쓰이는 공식 카드 id를 1~3개 채운다.
    - 사용자 풀이 내용은 고치지 않는다. 틀려 보이면 고치지 말고 보고만 한다 (필요하면 `## supplement`에 한 줄).
    - `verified: false`는 그대로 둔다 (사용자가 앱에서 확인 후 바꿈).

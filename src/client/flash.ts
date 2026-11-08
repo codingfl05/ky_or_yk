@@ -168,11 +168,11 @@ function draw() {
   const badge = c.verified ? '' : ' <span class="badge-review">검토 필요</span>';
   let html: string;
   if (c.kind === 'problem') {
-    // 문제: 앞면 = 문제(+이미지), 뒷면 = 핵심 아이디어 + 정답 (풀이는 접힘)
+    // 문제: 앞면 = 출처 + 문제 요약(+그림), 뒷면 = 핵심 아이디어 + 막힌 곳 + 정답 (풀이는 접힘)
     const head = `<div class="fl-mini">${esc(c.title_ko)} · ${esc(c.source)}${badge}</div>`;
     const sec = (label: string, h?: string) => (h ? `<div class="fl-exp"><h4>${label}</h4><div class="prose">${h}</div></div>` : '');
     html = flipped
-      ? `<span class="side">뒷면</span>${head}${sec('핵심 아이디어', c.keyIdeaHtml)}${sec('정답', c.answerHtml)}${
+      ? `<span class="side">뒷면</span>${head}${sec('핵심 아이디어', c.keyIdeaHtml)}${sec('내가 막힌 곳', c.mistakesHtml)}${sec('정답', c.answerHtml)}${
           c.solutionHtml ? `<details class="sub"><summary>풀이</summary><div class="prose">${c.solutionHtml}</div></details>` : ''
         }`
       : `<span class="side">앞면 · 문제</span>${head}<div class="fl-problem prose">${c.problemHtml}${problemImages(c)}</div>`;

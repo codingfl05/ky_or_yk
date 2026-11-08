@@ -440,6 +440,7 @@ export function loadContent(base = '/'): LoadResult {
     const html = renderSections(r.body, PROBLEM_SECTION_NAMES, id, err);
     if (!html.problem && fm.images.length === 0) err('body', '"## problem" 섹션이나 images 중 하나는 있어야 합니다', id);
     if (!html.answer) warnings.push({ file: rel, id, field: 'body', message: '"## answer" 섹션이 없습니다' });
+    if (!html['key-idea']) warnings.push({ file: rel, id, field: 'body', message: '"## key-idea" 섹션이 없습니다' });
 
     orderOf.set(id, loc.nn);
     raws.push({

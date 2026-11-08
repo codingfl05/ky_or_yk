@@ -63,10 +63,10 @@ ${acts}
 </div>
 ${pathOf(c, opts)}
 <div class="problem prose">${c.problemHtml}${problemImages(c)}</div>
-<button class="reveal" type="button" data-act="toggle">핵심 · 정답 보기</button>
+<button class="reveal" type="button" data-act="toggle">핵심 아이디어 · 정답 보기</button>
 <div class="card-body" hidden>
-${sec('핵심 아이디어', c.keyIdeaHtml)}${sec('정답', c.answerHtml, 'answer')}
-${fold('풀이', c.solutionHtml)}${sec('내가 막힌 곳', c.mistakesHtml, 'mistakes')}
+${sec('핵심 아이디어', c.keyIdeaHtml)}${sec('내가 막힌 곳', c.mistakesHtml, 'mistakes')}${sec('정답', c.answerHtml, 'answer')}
+${fold('풀이', c.solutionHtml)}
 ${chips('관련 공식·문제', c.related)}${supplementOf(c)}
 <div class="card-foot">${tagsOf(c)}<span class="src">출처: ${esc(c.source)}</span></div>
 </div>
