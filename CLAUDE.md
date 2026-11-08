@@ -23,6 +23,7 @@ validate가 실패하면 Render 빌드도 실패해서 배포되지 않는다. �
 - `sources/notion/`, `sources/pdf/`: 원본 자료. 여기서 카드로 변환한다.
 - `inbox/`: Gemini/Antigravity 결과물 임시 폴더 (git 제외). `scripts/ingest.ts`(`npm run ingest`)가 처리한다.
 - `docs/gemini-instructions.md`: Gemini/Antigravity에게 주는 문제 카드 작성 지시문.
+- `.agents/rules/problem-cards.md`: Antigravity 워크스페이스 규칙 (위 지시문을 참조). 지시문을 바꾸면 같이 확인.
 
 ## 카드 형식
 

@@ -85,7 +85,8 @@ diffeq/systems (de-system), diffeq/series (de-series)
 
 ## Antigravity 추가 규칙
 
-Antigravity에는 위 지시문에 더해 아래를 붙인다.
+Antigravity는 저장소의 `.agents/rules/problem-cards.md`를 워크스페이스 규칙으로 자동으로 읽는다 (이 문서를 참조함).
+자동으로 안 읽히면 아래 블록을 Antigravity의 Rules 설정에 붙여넣는다.
 
 ```text
 [저장소 작업 규칙]
