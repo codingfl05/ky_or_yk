@@ -15,6 +15,7 @@ subjects:
       - { id: series, name: 급수, name_en: Series, prefix: calc }
       - { id: vectors, name: 벡터와 공간도형, name_en: Vectors and space geometry, prefix: calc-vec }
       - { id: multivariable, name: 다변수 미적분, name_en: Multivariable calculus, prefix: calc-mv }
+      - { id: vector-calculus, name: 선적분과 면적분, name_en: Line and surface integrals, prefix: calc-vc }
 
   - id: linear-algebra
     name: 선형대수학
