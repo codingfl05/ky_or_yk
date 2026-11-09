@@ -4,7 +4,7 @@ title_ko: "무한 직선 도선이 직사각형 고리에 주는 알짜 자기�
 source: "문제 165 (교재명 미상)"
 difficulty: 2
 tags: [자기력, 평행 도선, 직사각형 고리, 직선 도선 자기장, 미소 요소, magnetic force, parallel currents, current loop]
-related: []
+related: [phys-em-infinitesimal-elements]
 images: []
 verified: false
 ---
