@@ -21,7 +21,14 @@ subjects:
     name: 선형대수학
     name_en: Linear Algebra
     chapters:
-      - { id: all, name: 전체, prefix: la }
+      # 단원 이름·소개는 각 폴더의 _chapter.md (노션 '선대' 정리 문서 01~07)
+      - { id: vectors-matrices, prefix: la-vm }
+      - { id: vector-spaces, prefix: la-vs }
+      - { id: projection-quadratic, prefix: la-pq }
+      - { id: linear-de, prefix: la-de }
+      - { id: decompositions, prefix: la-dec }
+      - { id: general-spaces, prefix: la-gs }
+      - { id: inner-product-spectral, prefix: la-ip }
 
   - id: diffeq
     name: 미분방정식
