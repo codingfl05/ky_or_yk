@@ -4,7 +4,7 @@ title_ko: "회전하는 두 동심 대전 고리의 축 위 전위·전기장·�
 source: "문제 159 (교재명 미상)"
 difficulty: 2
 tags: [대전 고리, 전위, 전기장, 자기장, 회전 전하, 원형 전류, charged ring, potential, rotating charge, current loop]
-related: [phys-em-infinitesimal-elements]
+related: [phys-em-infinitesimal-elements, phys-em-symmetry-cancellation]
 images: []
 verified: false
 ---
