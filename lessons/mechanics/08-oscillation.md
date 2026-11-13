@@ -10,7 +10,7 @@ cards: [phys-wave-shm, phys-wave-spring-shm, phys-wave-shm-energy, phys-wave-pen
 
 각속도 $\omega$로 등속 원운동하는 점을 옆에서 보면, 그 그림자는 왔다 갔다 한다.
 
-::fig shm-circle | 원 위의 점이 각 ωt만큼 돌면 그림자의 위치는 x_m cos(ωt + φ)다.
+::fig shm-circle | 원 위의 점이 각 $\omega t + \phi$에 있을 때 그림자의 위치는 $x_m\cos(\omega t + \phi)$다. (그림은 $\phi = 0$)
 
 $$
 x(t) = x_m\cos(\omega t + \phi)

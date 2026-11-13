@@ -39,7 +39,7 @@ $$
 | 고리 (축 위) | $\dfrac{kqz}{(z^2+R^2)^{3/2}}$ | $\dfrac{kq}{\sqrt{z^2+R^2}}$ |
 | 원판 (축 위) | $\dfrac{\sigma}{2\varepsilon_0}\left(1-\dfrac{z}{\sqrt{z^2+R^2}}\right)$ | $\dfrac{\sigma}{2\varepsilon_0}\left(\sqrt{z^2+R^2}-z\right)$ |
 
-$V$에 거리가 한 번 더 곱해진 것이 $E$의 크기와 비슷한 차수다 ($E$와 $V$는 거리 한 개만큼 단위 차이).
+$E$는 $V$를 거리로 한 번 더 나눈 꼴이다 ($E$와 $V$는 거리 한 개만큼 단위 차이, $E = -\dfrac{dV}{dr}$).
 
 ## supplement
 교재 내용을 옮기고, 쉬운 설명·스토리는 Claude가 추가했습니다.
