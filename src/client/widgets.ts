@@ -349,6 +349,142 @@ const resonance: Init = (el) => {
   draw();
 };
 
+// ------------------------------------------------------------------ 7. 포물선 운동
+
+const projectile: Init = (el) => {
+  let deg = 45;
+  const v0 = 20, g = 9.8;
+  const view = document.createElement('div');
+  const draw = () => {
+    const th = (deg * Math.PI) / 180;
+    const R = (v0 * v0 * Math.sin(2 * th)) / g;
+    const H = (v0 * v0 * Math.sin(th) ** 2) / (2 * g);
+    const T = (2 * v0 * Math.sin(th)) / g;
+    const Rmax = (v0 * v0) / g; // 45도 도달 거리
+    const sx = 270 / Rmax, sy = 110 / Rmax; // 같은 비율이 되도록
+    const sc = Math.min(sx, sy * 2.2);
+    const X = (x: number) => (30 + x * sc).toFixed(1);
+    const Y = (y: number) => (138 - y * sc).toFixed(1);
+    let d = '', dComp = '';
+    for (let i = 0; i <= 60; i++) {
+      const t = (T * i) / 60;
+      d += `${i ? 'L' : 'M'}${X(v0 * Math.cos(th) * t)},${Y(v0 * Math.sin(th) * t - 0.5 * g * t * t)}`;
+      const th2 = Math.PI / 2 - th, T2 = (2 * v0 * Math.sin(th2)) / g, t2 = (T2 * i) / 60;
+      dComp += `${i ? 'L' : 'M'}${X(v0 * Math.cos(th2) * t2)},${Y(v0 * Math.sin(th2) * t2 - 0.5 * g * t2 * t2)}`;
+    }
+    const tTop = T / 2;
+    const top = { x: v0 * Math.cos(th) * tTop, y: H };
+    view.innerHTML =
+      svgBox(
+        150,
+        `<line x1="20" y1="138" x2="310" y2="138" class="c-mut" stroke="currentColor"/>
+<path d="${dComp}" class="c-mut" stroke="currentColor" stroke-width="1.4" stroke-dasharray="4 4" fill="none"/>
+<path d="${d}" class="c-acc" stroke="currentColor" stroke-width="2.2" fill="none"/>
+<line x1="${X(top.x)}" y1="${Y(top.y)}" x2="${(Number(X(top.x)) + 26).toFixed(1)}" y2="${Y(top.y)}" class="c-pos" stroke="currentColor" stroke-width="2"/>
+<circle cx="${X(top.x)}" cy="${Y(top.y)}" r="4" class="c-pos" fill="currentColor"/>
+<text x="${(Number(X(top.x)) + 30).toFixed(1)}" y="${(Number(Y(top.y)) + 4).toFixed(1)}" class="c-pos" fill="currentColor" font-size="10">최고점: 수평 속도만</text>`,
+      ) +
+      `<p class="w-read"><b>θ = ${deg}°</b> (처음 속력 ${v0} m/s, g = 9.8)<br>
+최고 높이 <b>${fmt(H, 1)} m</b> · 도달 거리 <b>${fmt(R, 1)} m</b> · 체공 시간 <b>${fmt(T, 2)} s</b><br>
+<span class="k-mut">┅</span> 점선은 ${90 - deg}°로 던진 경우: 도달 거리가 같다${deg === 45 ? ' (45°는 자기 자신, 도달 거리 최대)' : ''}</p>`;
+  };
+  el.append(
+    view,
+    slider('던지는 각 θ', 5, 85, 1, deg, (v) => {
+      deg = v;
+      draw();
+    }),
+  );
+  draw();
+};
+
+// ------------------------------------------------------------------ 8. 1차원 충돌
+
+const collision: Init = (el) => {
+  let ratio = 1; // m1/m2
+  let e = 1;
+  const v1 = 1; // 2는 정지
+  const view = document.createElement('div');
+  const draw = () => {
+    const m1 = ratio, m2 = 1;
+    const vcm = (m1 * v1) / (m1 + m2);
+    const v1f = vcm - (e * m2 * v1) / (m1 + m2);
+    const v2f = vcm + (e * m1 * v1) / (m1 + m2);
+    const K0 = 0.5 * m1 * v1 * v1;
+    const K1 = 0.5 * m1 * v1f * v1f + 0.5 * m2 * v2f * v2f;
+    const lost = 1 - K1 / K0;
+    const kind = e === 1 ? '탄성 충돌' : e === 0 ? '완전 비탄성 충돌 (붙음)' : '비탄성 충돌';
+    const bar = (name: string, v: number) => {
+      const w = Math.min(Math.abs(v) / 2, 1) * 50;
+      const left = v >= 0 ? 50 : 50 - w;
+      return `<div class="w-bar ${v > 0.001 ? 'up' : v < -0.001 ? 'down' : 'same'}"><span class="nm">${name}</span><span class="track"><i style="left:${left}%;width:${w}%"></i><em style="left:50%"></em></span><span class="val">${v >= 0 ? '+' : ''}${fmt(v)}v</span></div>`;
+    };
+    view.innerHTML =
+      `<div class="w-bars">${bar('m₁ 충돌 후', v1f)}${bar('m₂ 충돌 후', v2f)}</div>
+<p class="w-read"><b>${kind}</b> · m₁ = ${fmt(ratio)} m₂, m₂는 처음에 정지, m₁은 속도 +v<br>
+운동량: 전 ${fmt(m1 * v1)} → 후 ${fmt(m1 * v1f + m2 * v2f)} (<b>항상 보존</b>)<br>
+운동 에너지: 처음의 <b>${fmt((1 - lost) * 100, 0)}%</b> 남음 (${fmt(lost * 100, 0)}% 손실)<br>
+${e === 1 && Math.abs(ratio - 1) < 0.01 ? '같은 질량의 탄성 충돌: 속도를 맞바꾼다.' : e === 1 && ratio < 1 ? '가벼운 쪽이 튕겨 나온다.' : ''}</p>`;
+  };
+  el.append(
+    view,
+    slider('질량비 m₁/m₂', 0.25, 4, 0.25, ratio, (v) => {
+      ratio = v;
+      draw();
+    }),
+    slider('반발 계수 e', 0, 1, 0.1, e, (v) => {
+      e = Math.round(v * 10) / 10;
+      draw();
+    }),
+  );
+  draw();
+};
+
+// ------------------------------------------------------------------ 9. 빗면 구름 경주
+
+const rollingRace: Init = (el) => {
+  const bodies = [
+    { name: '미끄러지는 상자 (마찰 없음)', c: 0 },
+    { name: '속이 찬 구', c: 2 / 5 },
+    { name: '원판·원기둥', c: 1 / 2 },
+    { name: '구껍질', c: 2 / 3 },
+    { name: '고리·속 빈 원통', c: 1 },
+  ];
+  let t = 0;
+  let timer = 0;
+  const view = document.createElement('div');
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'btn primary w-next';
+  btn.textContent = '굴리기';
+  const draw = () => {
+    // 같은 빗면: 거리 = 1/2 a t², a = g sinθ / (1 + c). 가장 빠른 것이 끝에 닿는 시간을 1로 둔다.
+    view.innerHTML =
+      `<div class="w-bars">` +
+      bodies
+        .map((b) => {
+          const frac = Math.min((t * t) / (1 + b.c), 1);
+          const share = b.c / (1 + b.c);
+          return `<div class="w-bar ${b.c === 0 ? 'up' : 'down'}"><span class="nm">${b.name}</span><span class="track"><i style="width:${frac * 100}%"></i></span><span class="val">${frac >= 1 ? '도착' : fmt(frac * 100, 0) + '%'}</span><span class="why">I/MR² = ${b.c === 0 ? '0' : fmt(b.c)} · 에너지 중 회전 몫 ${fmt(share * 100, 0)}%</span></div>`;
+        })
+        .join('') +
+      `</div><p class="w-read">질량과 반지름은 순서에 영향이 없다. <b>I/MR²이 작을수록</b> 높이 에너지를 회전에 덜 뺏겨 빨리 내려온다.</p>`;
+  };
+  btn.addEventListener('click', () => {
+    cancelAnimationFrame(timer);
+    t = 0;
+    const start = performance.now();
+    const step = (now: number) => {
+      t = Math.min((now - start) / 1600, Math.SQRT2);
+      draw();
+      if (t < Math.SQRT2) timer = requestAnimationFrame(step);
+    };
+    timer = requestAnimationFrame(step);
+  });
+  el.append(view, btn);
+  draw();
+};
+
 const registry: Record<string, Init> = {
   'sphere-field': sphereField,
   dielectric,
@@ -356,6 +492,9 @@ const registry: Record<string, Init> = {
   transient,
   'right-hand': rightHand,
   resonance,
+  projectile,
+  collision,
+  'rolling-race': rollingRace,
 };
 
 export function initWidgets(scope: ParentNode = document) {

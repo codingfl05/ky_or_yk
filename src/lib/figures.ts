@@ -317,6 +317,150 @@ function phasor() {
   );
 }
 
+
+// ------------------------------------------------------------------ 역학 그림
+
+function inclineFbd() {
+  const th = (30 * Math.PI) / 180;
+  const ax = 30, ay = 150, bx = 290; // 빗면 바닥
+  const by = ay - (bx - ax) * Math.tan(th);
+  const cx = 170, cy = ay - (cx - ax) * Math.tan(th); // 접점
+  const ux = Math.cos(th), uy = -Math.sin(th); // 빗면 위쪽 방향
+  const nx = -Math.sin(th), ny = -Math.cos(th); // 빗면 바깥쪽 법선 (빗면에 수직, 위쪽)
+  const bc = { x: cx + nx * 16, y: cy + ny * 16 }; // 상자 중심
+  const box = [
+    [cx - ux * 18, cy - uy * 18],
+    [cx + ux * 18, cy + uy * 18],
+    [cx + ux * 18 + nx * 32, cy + uy * 18 + ny * 32],
+    [cx - ux * 18 + nx * 32, cy - uy * 18 + ny * 32],
+  ].map((p) => p.map(r1).join(',')).join(' ');
+  const g = 58;
+  return svg(
+    176,
+    '빗면 위 물체의 자유물체도: 중력을 빗면 방향과 수직 방향으로 나눈다',
+    `<polygon points="${ax},${ay} ${bx},${ay} ${bx},${r1(by)}" class="c-mut" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.5"/>` +
+      `<polygon points="${box}" class="c-text" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"/>` +
+      arrow(bc.x, bc.y, bc.x, bc.y + g, 'c-text', 2) +
+      text(bc.x + 6, bc.y + g + 4, 'mg', 'c-text', 'start') +
+      arrow(bc.x, bc.y, bc.x - ux * g * Math.sin(th), bc.y - uy * g * Math.sin(th), 'c-acc', 1.8) +
+      text(r1(bc.x - ux * g * Math.sin(th) - 6), r1(bc.y - uy * g * Math.sin(th) + 14), 'mg sinθ', 'c-acc', 'end') +
+      arrow(bc.x, bc.y, bc.x - nx * g * Math.cos(th), bc.y - ny * g * Math.cos(th), 'c-acc', 1.8) +
+      text(r1(bc.x - nx * g * Math.cos(th) + 6), r1(bc.y - ny * g * Math.cos(th) + 12), 'mg cosθ', 'c-acc', 'start') +
+      arrow(bc.x, bc.y, bc.x + nx * 50, bc.y + ny * 50, 'c-pos', 1.8) +
+      text(r1(bc.x + nx * 50 - 4), r1(bc.y + ny * 50), 'N', 'c-pos', 'end') +
+      arrow(cx + ux * 20, cy + uy * 20, cx + ux * 56, cy + uy * 56, 'c-ok', 1.8) +
+      text(r1(cx + ux * 60 + 4), r1(cy + uy * 60 + 2), 'f', 'c-ok', 'start') +
+      `<path d="M ${ax + 34} ${ay} A 34 34 0 0 0 ${r1(ax + 34 * Math.cos(th))} ${r1(ay - 34 * Math.sin(th))}" class="c-mut" stroke="currentColor" stroke-width="1.2"/>` +
+      text(ax + 42, ay - 6, 'θ', 'c-mut', 'start') +
+      text(160, 170, 'N = mg cosθ, 빗면 방향 알짜힘 = mg sinθ − f', 'c-mut', 'middle', 10),
+  );
+}
+
+function rollingSpeeds() {
+  const c = { x: 150, y: 92 }, R = 52;
+  return svg(
+    170,
+    '굴러가는 바퀴: 맨 위는 2v, 중심은 v, 바닥 접점은 0',
+    line(20, c.y + R, 300, c.y + R, 'c-mut') +
+      circle(c.x, c.y, R, 'c-text') +
+      dot(c.x, c.y, 'c-text', 3) +
+      `<path d="M ${c.x + 30} ${c.y - 20} A 36 36 0 0 1 ${c.x + 34} ${c.y + 12}" class="c-mut" stroke="currentColor" stroke-width="1.3"/>` +
+      head(c.x + 34, c.y + 12, Math.PI / 2 + 0.3, 'c-mut', 6) +
+      text(c.x + 42, c.y - 2, 'ω', 'c-mut', 'start') +
+      arrow(c.x, c.y - R, c.x + 104, c.y - R, 'c-acc', 2.2) +
+      text(c.x + 108, c.y - R + 4, '2v', 'c-acc', 'start', 12) +
+      arrow(c.x, c.y, c.x + 52, c.y, 'c-acc', 2.2) +
+      text(c.x + 58, c.y + 16, 'v = Rω', 'c-acc', 'start', 12) +
+      dot(c.x, c.y + R, 'c-pos', 4) +
+      text(c.x, c.y + R + 16, '접점: 순간 정지 → 정지 마찰력은 일을 안 함', 'c-pos', 'middle', 10) +
+      text(12, 18, '직선 운동 v + 회전 Rω를 점마다 더한다', 'c-mut', 'start', 10),
+  );
+}
+
+function shmCircle() {
+  const c = { x: 96, y: 92 }, R = 58, a = (40 * Math.PI) / 180;
+  const p = { x: c.x + R * Math.cos(a), y: c.y - R * Math.sin(a) };
+  return svg(
+    186,
+    '등속 원운동의 그림자가 단진동이다',
+    circle(c.x, c.y, R, 'c-mut', dash) +
+      line(c.x - R - 14, c.y, c.x + R + 14, c.y, 'c-mut') +
+      line(c.x, c.y, p.x, p.y, 'c-text') +
+      dot(p.x, p.y, 'c-acc', 5) +
+      line(p.x, p.y, p.x, c.y, 'c-acc', dash) +
+      dot(p.x, c.y, 'c-pos', 5) +
+      `<path d="M ${c.x + 22} ${c.y} A 22 22 0 0 0 ${r1(c.x + 22 * Math.cos(a))} ${r1(c.y - 22 * Math.sin(a))}" class="c-text" stroke="currentColor" stroke-width="1.2"/>` +
+      text(c.x + 28, c.y - 6, 'ωt', 'c-text', 'start', 10) +
+      text(r1(p.x), c.y + 18, `x = ${sub('x', 'm')} cos ωt`, 'c-pos', 'middle', 10) +
+      text(c.x, c.y + R + 22, '원 위의 점 (각속도 ω)', 'c-acc', 'middle', 10) +
+      // 오른쪽: 시간 그래프
+      line(246, 30, 246, 156, 'c-mut') +
+      `<polyline points="${Array.from({ length: 41 }, (_, i) => `${r1(246 + 50 * Math.cos((i / 40) * 2 * Math.PI))},${r1(30 + i * 3.15)}`).join(' ')}" class="c-pos" stroke="currentColor" stroke-width="2"/>` +
+      text(246, 22, '그림자를 시간으로 펼치면', 'c-mut', 'middle', 10) +
+      text(304, 160, 't ↓', 'c-mut', 'end', 10),
+  );
+}
+
+function standingModes() {
+  const row = (y: number, L: number, kind: 'ff' | 'fo', n: number, label: string) => {
+    const x0 = 30, h = 13;
+    let up = '', dn = '';
+    for (let i = 0; i <= 60; i++) {
+      const x = x0 + (L * i) / 60;
+      const t = i / 60;
+      const amp = kind === 'ff' ? Math.sin(n * Math.PI * t) : Math.sin(((2 * n - 1) * Math.PI * t) / 2);
+      up += `${r1(x)},${r1(y - h * amp)} `;
+      dn += `${r1(x)},${r1(y + h * amp)} `;
+    }
+    return (
+      line(x0, y, x0 + L, y, 'c-mut', dash) +
+      `<polyline points="${up}" class="c-acc" stroke="currentColor" stroke-width="1.8"/>` +
+      `<polyline points="${dn}" class="c-acc" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.5"/>` +
+      line(x0, y - 18, x0, y + 18, 'c-text', 'stroke-width="3"') +
+      (kind === 'ff' ? line(x0 + L, y - 18, x0 + L, y + 18, 'c-text', 'stroke-width="3"') : '') +
+      text(x0 + L + 10, y + 4, label, 'c-text', 'start', 10)
+    );
+  };
+  return svg(
+    214,
+    '정상파: 양 끝 고정과 한쪽 끝 열림의 가능한 모양',
+    text(30, 14, '양 끝 고정 (또는 양 끝 열림): λ = 2L/n', 'c-mut', 'start', 10) +
+      row(36, 200, 'ff', 1, 'n=1') +
+      row(68, 200, 'ff', 2, 'n=2') +
+      row(100, 200, 'ff', 3, 'n=3') +
+      text(30, 132, '한쪽 끝 닫힘: λ = 4L/n (n 홀수)', 'c-mut', 'start', 10) +
+      row(154, 200, 'fo', 1, 'n=1') +
+      row(188, 200, 'fo', 2, 'n=3'),
+  );
+}
+
+function bernoulliPipe() {
+  const top = (x: number) => (x < 110 ? 60 : x < 150 ? 60 + ((x - 110) / 40) * 22 : x < 210 ? 82 : x < 250 ? 82 - ((x - 210) / 40) * 22 : 60);
+  let t = '', b = '';
+  for (let x = 20; x <= 300; x += 5) {
+    t += `${x},${r1(top(x))} `;
+    b += `${x},${r1(180 - top(x))} `;
+  }
+  return svg(
+    186,
+    '좁은 곳은 빠르고 압력이 낮아 세운 관의 물 높이가 낮다',
+    `<polyline points="${t}" class="c-text" stroke="currentColor" stroke-width="2"/>` +
+      `<polyline points="${b}" class="c-text" stroke="currentColor" stroke-width="2"/>` +
+      // 세운 관 두 개
+      `<rect x="60" y="14" width="12" height="46" class="c-acc" fill="currentColor" fill-opacity="0.25" stroke="none"/>` +
+      line(60, 4, 60, 60, 'c-text') + line(72, 4, 72, 60, 'c-text') +
+      `<rect x="174" y="44" width="12" height="38" class="c-acc" fill="currentColor" fill-opacity="0.25" stroke="none"/>` +
+      line(174, 4, 174, 82, 'c-text') + line(186, 4, 186, 82, 'c-text') +
+      arrow(36, 120, 80, 120, 'c-acc') +
+      arrow(160, 120, 226, 120, 'c-acc', 2.2) +
+      text(58, 140, 'A 큼 → v 작음', 'c-text', 'middle', 10) +
+      text(194, 140, 'A 작음 → v 큼', 'c-text', 'middle', 10) +
+      text(84, 30, 'P 높음', 'c-acc', 'start', 10) +
+      text(198, 56, 'P 낮음', 'c-acc', 'start', 10) +
+      text(160, 176, 'A₁v₁ = A₂v₂, P + ½ρv² 일정', 'c-mut', 'middle', 10),
+  );
+}
+
 export const figures: Record<string, string> = {
   coulomb: coulomb(),
   'ring-axis': ringAxis(),
@@ -330,4 +474,9 @@ export const figures: Record<string, string> = {
   'wire-field': wireField(),
   'rail-rod': railRod(),
   phasor: phasor(),
+  'incline-fbd': inclineFbd(),
+  'rolling-speeds': rollingSpeeds(),
+  'shm-circle': shmCircle(),
+  'standing-modes': standingModes(),
+  'bernoulli-pipe': bernoulliPipe(),
 };

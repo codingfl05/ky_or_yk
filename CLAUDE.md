@@ -189,9 +189,9 @@ verified: false
 
 ## 학습 섹션 (이야기 레슨) — `/learn/`
 
-공식 카드(사전)와 별개인 "읽는 책". 비유와 스토리로 개념을 설명하고, 문제 풀 때 쓰는 도구 3개가 붙는다. 현재 트랙은 전자기학 하나.
+공식 카드(사전)와 별개인 "읽는 책". 비유와 스토리로 개념을 설명하고, 문제 풀 때 쓰는 도구 3개가 붙는다. 현재 트랙은 역학(`lessons/mechanics`, 교재 1~11장)과 전자기학(`lessons/electromagnetism`, 13~18장). 트랙 순서는 `_track.md`의 `order`.
 
-- `lessons/<트랙>/_track.md`: 트랙 제목·소개 (`id`는 폴더 이름과 같아야 함, `title`, `subtitle`).
+- `lessons/<트랙>/_track.md`: 트랙 제목·소개 (`id`는 폴더 이름과 같아야 함, `title`, `subtitle`, `order`).
 - `lessons/<트랙>/<NN>-<slug>.md`: 레슨 1편. frontmatter는 `id`(전역 유일, 읽음 기록의 키라서 바꾸지 않는다), `title`, `hook`(한 줄 요약 문장), `minutes`, `cards`(관련 공식 카드 id. 그 카드를 쓰는 문제 카드가 자동으로 함께 표시된다).
   - 본문은 자유 마크다운. 소제목은 `###`. `##`는 `## summary`(한 줄 정리)와 `## quiz`(`Q: …` / `A: …` 쌍)만 허용.
   - `::fig <이름> | 캡션`: `src/lib/figures.ts`의 그림(인라인 SVG, 색은 `.c-*` 클래스로 토큰을 따름).
@@ -199,7 +199,7 @@ verified: false
 - `lessons/<트랙>/flow.yaml`: 공식 선택 흐름도. 노드 `id`, `title`, `body`(마크다운), `options[{label, to}]`, `cards`, `lessons`. 시작 노드는 `start`, 선택지 없는 노드가 결론.
 - `lessons/<트랙>/pairs.md`, `sheet.md`: 헷갈리는 쌍 비교, 한 장 요약. `## 제목` 단위로 카드가 된다. 표 안의 수식에는 `|` 대신 `\lvert`, `\rvert`를 쓴다.
 - 로더·검증은 `src/lib/lessons.ts` (`npm run validate`에 포함). 페이지는 `src/pages/learn/`, 클라이언트는 `src/client/learn.ts`.
-- 글투: 한국어 "~다"체. 트랙 소개의 비유 표(전위 = 높이, 전류 = 물, 축전기 = 물탱크, 코일 = 물레방아 등)를 모든 레슨에서 일관되게 쓴다. 수식 규칙은 카드와 같다.
+- 글투: 한국어 "~다"체. 트랙마다 소개의 비유 표(역학: 운동 에너지 = 지갑, 퍼텐셜 = 통장 / 전자기: 전위 = 높이, 전류 = 물, 축전기 = 물탱크, 코일 = 물레방아 등)를 그 트랙의 모든 레슨에서 일관되게 쓴다. 수식 규칙은 카드와 같다.
 - 레슨 내용은 Claude가 쓴 것이다. 물리 내용을 고칠 때는 관련 공식 카드와 어긋나지 않는지 확인한다.
 
 ## 한국어 + 영어 keyword 규칙

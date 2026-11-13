@@ -14,7 +14,7 @@ import { figures } from './figures';
 const LESSONS_DIR = path.join(process.cwd(), 'lessons');
 const LESSON_FILE_RE = /^(\d{2})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$/;
 /** src/client/widgets.ts에 구현된 위젯 이름 */
-export const WIDGETS = ['sphere-field', 'dielectric', 'lenz', 'transient', 'right-hand', 'resonance'] as const;
+export const WIDGETS = ['sphere-field', 'dielectric', 'lenz', 'transient', 'right-hand', 'resonance', 'projectile', 'collision', 'rolling-race'] as const;
 
 type Link = { id: string; title: string; href: string };
 
@@ -46,6 +46,7 @@ export interface DocSection {
 }
 export interface TrackView {
   id: string;
+  order: number;
   title: string;
   subtitle?: string;
   introHtml: string;
@@ -61,7 +62,7 @@ export interface LessonsResult {
   warnings: ContentError[];
 }
 
-const TrackFm = z.strictObject({ id: z.string().regex(/^[a-z0-9-]+$/), title: z.string().min(1), subtitle: z.string().optional() });
+const TrackFm = z.strictObject({ id: z.string().regex(/^[a-z0-9-]+$/), title: z.string().min(1), subtitle: z.string().optional(), order: z.number().int().default(100) });
 const LessonFm = z.strictObject({
   id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
   title: z.string().min(1),
@@ -144,6 +145,7 @@ export function loadLessons(base = '/', content: Pick<LoadResult, 'cards'>): Les
     const trackHref = `${b}learn/${ent.name}/`;
     const track: TrackView = {
       id: ent.name,
+      order: tFm.data.order,
       title: tFm.data.title,
       subtitle: tFm.data.subtitle,
       introHtml: md(tRaw.body.trim(), tErr, '본문'),
@@ -275,5 +277,6 @@ export function loadLessons(base = '/', content: Pick<LoadResult, 'cards'>): Les
     }
     tracks.push(track);
   }
+  tracks.sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
   return { tracks, errors, warnings };
 }

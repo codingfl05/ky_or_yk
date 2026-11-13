@@ -1,0 +1,543 @@
+# 역학 공식 선택 흐름도. 시작 노드는 start.
+
+- id: start
+  title: 문제가 무엇을 구하라고 하는가?
+  body: 구하는 양부터 고른다. 같은 상황이라도 무엇을 묻느냐에 따라 꺼낼 도구가 다르다.
+  options:
+    - { label: "위치, 속도, 시간 (운동의 모습)", to: kin }
+    - { label: "가속도, 힘, 장력, 마찰력", to: force }
+    - { label: "속력이나 높이 (처음과 끝 상태)", to: energy }
+    - { label: "충돌, 합체, 폭발, 튕김", to: momentum }
+    - { label: "회전 (각가속도, 돌림힘, 구름)", to: rot }
+    - { label: "평형, 넘어지지 않을 조건", to: eq }
+    - { label: "행성, 위성, 탈출", to: grav }
+    - { label: "진동 (주기, 진폭)", to: shm }
+    - { label: "파동 (속력, 간섭, 정상파, 도플러)", to: wave }
+    - { label: "유체 (압력, 부력, 흐름)", to: fluid }
+
+# ------------------------------------------------------------ 운동학
+- id: kin
+  title: 가속도가 어떤가?
+  options:
+    - { label: "일정하다 (1차원)", to: kin-const }
+    - { label: "비스듬히 던졌다, 수평으로 던졌다", to: kin-proj }
+    - { label: "시간에 따라 변한다 (식이나 그래프로 주어짐)", to: kin-var }
+    - { label: "움직이는 관찰자가 본다", to: kin-rel }
+
+- id: kin-const
+  title: 문제에 없는 양으로 식을 고른다
+  body: |
+    | 없는 양 | 식 |
+    |---|---|
+    | 거리 | $v = v_0 + at$ |
+    | 나중 속도 | $\Delta x = v_0t + \frac{1}{2}at^2$ |
+    | 가속도 | $\Delta x = \frac{1}{2}(v_0 + v)t$ |
+    | 시간 | $v^2 - v_0^2 = 2a\Delta x$ |
+
+    두 물체가 만나는 문제: 같은 시각의 위치를 같다고 놓는다. 부호(방향)를 처음에 정해 두고 끝까지 지킨다.
+  cards: [phys-mech-uniform-acceleration]
+  lessons: [mech-kinematics]
+
+- id: kin-proj
+  title: 축을 나누고 시간으로 묶는다
+  body: |
+    $$
+    x = (v_0\cos\theta)t, \qquad y = (v_0\sin\theta)t - \frac{1}{2}gt^2
+    $$
+
+    1. 연직 방향에서 시간을 구한다 (떨어지는 높이, 최고점 $v_y = 0$).
+    2. 그 시간을 수평 방향에 넣는다.
+
+    같은 높이로 떨어지면 $H = \dfrac{v_0^2\sin^2\theta}{2g}$, $R = \dfrac{v_0^2\sin2\theta}{g}$, $T = \dfrac{2v_0\sin\theta}{g}$.
+  cards: [phys-mech-projectile]
+  lessons: [mech-kinematics]
+
+- id: kin-var
+  title: 미분은 기울기, 적분은 넓이
+  body: |
+    - $v = \dfrac{dx}{dt}$, $a = \dfrac{dv}{dt}$ (그래프의 기울기).
+    - $\Delta x = \int v\,dt$, $\Delta v = \int a\,dt$ (그래프의 넓이, 축 아래는 음수).
+    - 이동 거리(경로 길이)를 물으면 속도가 음수인 구간의 넓이도 양수로 더한다.
+  cards: [phys-mech-uniform-acceleration]
+  lessons: [mech-kinematics]
+
+- id: kin-rel
+  title: 가운데 글자가 맞물리게 더한다
+  body: |
+    $$
+    \mathbf{v}_{PA} = \mathbf{v}_{PB} + \mathbf{v}_{BA}
+    $$
+
+    2차원이면 벡터 삼각형을 그린다. 만나는지 묻는 문제는 한쪽에 올라탄 관찰자로 바꿔 생각한다.
+  cards: [phys-mech-relative-velocity]
+  lessons: [mech-kinematics]
+
+# ------------------------------------------------------------ 힘
+- id: force
+  title: 물체가 몇 개인가?
+  options:
+    - { label: "하나 (수평면, 빗면, 엘리베이터)", to: f-one }
+    - { label: "여러 개가 함께 움직인다 (줄, 도르래, 붙은 상자)", to: f-many }
+    - { label: "원운동한다", to: f-circ }
+    - { label: "마찰로 미끄러지는지 묻는다", to: f-fric }
+
+- id: f-one
+  title: 받는 힘을 다 그리고 축마다 F = ma
+  body: |
+    1. 물체가 "받는" 힘만 그린다: 중력, 수직항력, 마찰, 장력, 탄성력, 외력.
+    2. 가속도 방향을 한 축으로 (빗면이면 빗면 방향).
+    3. 축마다 $\sum F = ma$, 가속도가 없는 축은 $\sum F = 0$.
+
+    빗면: $N = mg\cos\theta$ (다른 힘이 없을 때), 빗면 방향 $mg\sin\theta$. 마찰 없으면 $a = g\sin\theta$.
+
+    엘리베이터: $N - mg = ma$ (위로 가속하면 무거워짐).
+  cards: [phys-mech-newton-second-law, phys-mech-normal-friction]
+  lessons: [mech-force]
+
+- id: f-many
+  title: 한 덩어리 → 가속도, 하나만 떼서 → 내력
+  body: |
+    1. 전체를 하나로: $a = \dfrac{F_{\text{ext}}}{M_{\text{total}}}$ (줄의 장력, 접촉력은 지워짐).
+    2. 내력이 필요하면 그 힘을 받는 물체 하나만 떼어 $F = ma$.
+
+    애트우드: $a = \dfrac{(m_1 - m_2)g}{m_1 + m_2}$, $T = \dfrac{2m_1m_2g}{m_1 + m_2}$.
+
+    도르래에 질량이 있으면 회전 노드로: 도르래의 $TR = I\alpha$와 $a = R\alpha$를 함께 쓴다.
+  cards: [phys-mech-connected-bodies, phys-rot-torque]
+  lessons: [mech-force, mech-rotation]
+
+- id: f-circ
+  title: 중심 방향 알짜힘 = mv²/r
+  body: |
+    1. 중심으로 당기는 힘을 찾는다 (장력, 중력, 마찰, 수직항력의 중심 방향 성분).
+    2. 그 합 $= \dfrac{mv^2}{r}$. 원심력은 그리지 않는다.
+
+    - 커브길 최대 속력 $\sqrt{\mu_sgr}$.
+    - 연직 원 꼭대기를 지나는 최소 속력 $\sqrt{gr}$ (장력·수직항력 0). 바닥에서는 에너지 보존으로 $\sqrt{5gr}$.
+    - 원뿔 진자: $T\cos\theta = mg$, $T\sin\theta = \dfrac{mv^2}{r}$.
+  cards: [phys-rot-centripetal-force]
+  lessons: [mech-rotation]
+
+- id: f-fric
+  title: 필요한 마찰력과 최대 정지 마찰력을 비교
+  body: |
+    1. 마찰이 없으면 어느 쪽으로 움직일지 → 마찰은 반대쪽.
+    2. 정지해 있으려면 필요한 마찰력 $f_{\text{need}}$를 구한다.
+    3. $f_{\text{need}} \le \mu_sN$이면 정지 (마찰력 = $f_{\text{need}}$), 크면 미끄러지고 $f = \mu_kN$.
+
+    빗면에서 미끄러지기 시작하는 각: $\tan\theta = \mu_s$. 수직항력이 바뀌는 상황(비스듬히 당김)인지 꼭 확인.
+  cards: [phys-mech-normal-friction]
+  lessons: [mech-force]
+
+# ------------------------------------------------------------ 에너지
+- id: energy
+  title: 처음과 끝 사이에 무슨 힘이 일을 하는가?
+  options:
+    - { label: "중력, 용수철만 (마찰 없음)", to: e-cons }
+    - { label: "마찰이나 사람이 미는 힘이 있다", to: e-nc }
+    - { label: "힘이 위치에 따라 변한다 (그래프로 주어짐)", to: e-work }
+    - { label: "일률, 엔진 출력", to: e-power }
+
+- id: e-cons
+  title: 역학적 에너지 보존
+  body: |
+    $$
+    \frac{1}{2}mv_i^2 + mgh_i + \frac{1}{2}kx_i^2 = \frac{1}{2}mv_f^2 + mgh_f + \frac{1}{2}kx_f^2
+    $$
+
+    - 경로 모양은 상관없다. 높이 차만 본다.
+    - 원운동을 끝까지 하는지 물으면 구심력 조건을 함께 쓴다.
+    - 구르는 물체면 회전 에너지 $\frac{1}{2}I\omega^2$도 넣는다.
+    - 중간에 충돌이 있으면 충돌 구간은 운동량으로 따로.
+  cards: [phys-mech-energy-conservation, phys-mech-conservative-potential]
+  lessons: [mech-energy]
+
+- id: e-nc
+  title: 비보존력의 일만큼 역학적 에너지가 변한다
+  body: |
+    $$
+    W_{\text{nc}} = \Delta K + \Delta U
+    $$
+
+    운동 마찰력이면 $W_{\text{nc}} = -f_kd = -\mu_kNd$ ($d$는 미끄러진 경로 길이). 잃은 에너지는 열.
+
+    알짜일만 알면 $W_{\text{net}} = \Delta K$로 더 간단할 때도 있다.
+  cards: [phys-mech-energy-conservation, phys-mech-work-energy-theorem]
+  lessons: [mech-energy]
+
+- id: e-work
+  title: 일은 넓이, 힘은 퍼텐셜의 기울기
+  body: |
+    $$
+    W = \int F\,dx, \qquad F = -\frac{dU}{dx}
+    $$
+
+    - $F$–$x$ 그래프의 넓이가 일, 그 일이 운동 에너지 변화.
+    - $U$–$x$ 그래프: 힘은 내리막 방향, 기울기 0인 곳이 평형점 (오목이면 안정). 역학적 에너지 선보다 $U$가 높은 곳으로는 못 간다.
+  cards: [phys-mech-work, phys-mech-conservative-potential]
+  lessons: [mech-energy]
+
+- id: e-power
+  title: 일률 = 에너지 변화의 빠르기
+  body: |
+    $$
+    P = \frac{dW}{dt} = Fv, \qquad P = \tau\omega
+    $$
+
+    등속으로 끄는 엔진의 출력 = 마찰·항력이 가져가는 빠르기. 경사를 등속으로 오르면 $P = mgv\sin\theta$ (+ 마찰분).
+  cards: [phys-mech-power]
+  lessons: [mech-energy]
+
+# ------------------------------------------------------------ 운동량
+- id: momentum
+  title: 어떤 상황인가?
+  options:
+    - { label: "두 물체가 부딪히거나 붙거나 터진다", to: p-cons }
+    - { label: "한 물체가 받은 힘·충격의 크기", to: p-imp }
+    - { label: "충돌 뒤에 진자·용수철·미끄러짐이 이어진다", to: p-two }
+    - { label: "질량 중심의 위치나 운동", to: p-com }
+
+- id: p-cons
+  title: 운동량 보존 + (필요하면) 반발 계수
+  body: |
+    $$
+    m_1v_{1i} + m_2v_{2i} = m_1v_{1f} + m_2v_{2f}
+    $$
+
+    미지수가 둘이면 식이 하나 더 필요하다.
+    - 붙으면: $v_{1f} = v_{2f}$.
+    - 탄성이면: $v_{1f} - v_{2f} = -(v_{1i} - v_{2i})$ (운동 에너지 식 대신).
+    - 반발 계수 $e$가 주어지면: $v_{1f} - v_{2f} = -e(v_{1i} - v_{2i})$.
+
+    2차원은 $x$, $y$ 따로. 정지한 것이 터지면 처음 운동량 0.
+  cards: [phys-mech-momentum-conservation]
+  lessons: [mech-momentum]
+
+- id: p-imp
+  title: 충격량 = 운동량 변화
+  body: |
+    $$
+    J = \int F\,dt = \Delta p, \qquad F_{\text{avg}} = \frac{\Delta p}{\Delta t}
+    $$
+
+    튕겨 나오면 방향이 바뀌므로 $|\Delta p| = m(v_i + v_f)$. $F$–$t$ 그래프가 주어지면 넓이가 충격량.
+  cards: [phys-mech-momentum-impulse]
+  lessons: [mech-momentum]
+
+- id: p-two
+  title: 충돌 순간은 운동량, 그 뒤는 에너지
+  body: |
+    1. 충돌 직전 속도 (필요하면 에너지 보존으로).
+    2. 충돌: 운동량 보존으로 직후 속도. 이 순간 운동 에너지는 보존되지 않을 수 있다.
+    3. 충돌 직후 → 끝: 에너지 보존 (진자 높이 $\frac{1}{2}Mv^2 = Mgh$, 용수철 진폭 $\frac{1}{2}Mv^2 = \frac{1}{2}kx_m^2$).
+
+    처음부터 끝까지 에너지 한 식으로 풀면 틀린다.
+  cards: [phys-mech-momentum-conservation, phys-mech-energy-conservation, phys-wave-shm-energy]
+  lessons: [mech-momentum, mech-oscillation]
+
+- id: p-com
+  title: 질량 가중 평균, 외력만 따른다
+  body: |
+    $$
+    x_{\text{com}} = \frac{\sum m_ix_i}{\sum m_i}, \qquad \mathbf{F}_{\text{ext}} = M\mathbf{a}_{\text{com}}
+    $$
+
+    - 외력이 없으면 질량 중심은 움직이지 않거나 등속 (배 위에서 걷기: 배가 반대로 밀림).
+    - 구멍 뚫린 판: 구멍을 음의 질량으로 빼기.
+  cards: [phys-mech-center-of-mass]
+  lessons: [mech-momentum]
+
+# ------------------------------------------------------------ 회전
+- id: rot
+  title: 회전에서 무엇을 묻는가?
+  options:
+    - { label: "관성모멘트", to: r-inertia }
+    - { label: "각가속도, 도르래가 달린 계의 가속도", to: r-torque }
+    - { label: "굴러 내려온 속력, 빗면 경주", to: r-roll }
+    - { label: "모양이 바뀌며 도는 속도가 변한다, 붙는다", to: r-angmom }
+
+- id: r-inertia
+  title: 표 + 평행축 정리 + 더하기
+  body: |
+    $$
+    I_{\text{ring}} = MR^2,\ I_{\text{disk}} = \frac{1}{2}MR^2,\ I_{\text{sphere}} = \frac{2}{5}MR^2,\ I_{\text{shell}} = \frac{2}{3}MR^2,\ I_{\text{rod}} = \frac{1}{12}ML^2
+    $$
+
+    - 축이 질량 중심이 아니면 $I = I_{\text{com}} + Md^2$ (막대 끝 $\frac{1}{3}ML^2$).
+    - 여러 부분이면 각각 더한다. 점 질량은 $mr^2$.
+  cards: [phys-rot-moment-of-inertia, phys-rot-parallel-axis]
+  lessons: [mech-rotation]
+
+- id: r-torque
+  title: 물체는 F = ma, 회전체는 τ = Iα, 그리고 a = Rα
+  body: |
+    1. 매달린 물체: $mg - T = ma$.
+    2. 도르래·원판: $TR = I\alpha$ (줄이 두 개면 돌림힘 차이).
+    3. 미끄러지지 않으면 $a = R\alpha$.
+
+    결과 $a = \dfrac{mg}{m + I/R^2}$. 돌림힘은 $\tau = rF\sin\phi$ (수직 성분만).
+  cards: [phys-rot-torque, phys-rot-moment-of-inertia]
+  lessons: [mech-rotation]
+
+- id: r-roll
+  title: 미끄러지지 않으면 에너지 보존 + v = Rω
+  body: |
+    $$
+    Mgh = \frac{1}{2}Mv^2 + \frac{1}{2}I\omega^2 \ \Rightarrow\ v = \sqrt{\frac{2gh}{1 + I/(MR^2)}}
+    $$
+
+    - 빗면 가속도 $a = \dfrac{g\sin\theta}{1 + I/(MR^2)}$.
+    - 빠른 순서: 미끄러지는 물체 > 속이 찬 구 > 원판 > 구껍질 > 고리. 질량·반지름 무관.
+    - 정지 마찰력은 일을 하지 않는다.
+  cards: [phys-rot-rolling, phys-rot-rotational-energy]
+  lessons: [mech-rolling-angular]
+
+- id: r-angmom
+  title: 외부 돌림힘이 없으면 Iω 보존
+  body: |
+    $$
+    I_i\omega_i = I_f\omega_f, \qquad L_{\text{point}} = r_\perp mv
+    $$
+
+    - 팔을 오므리면 빨라지고 운동 에너지는 증가.
+    - 원판 위에 원판을 붙이면 각속도는 보존식으로, 운동 에너지는 감소.
+    - 회전판에 뛰어오르는 사람, 문에 박히는 총알: 사람·총알의 각운동량 $r_\perp mv$를 더해 보존.
+    - 바퀴를 뒤집으면: 전체 $L$ 보존 → 몸이 $2L$을 받는다.
+  cards: [phys-rot-angular-momentum]
+  lessons: [mech-rolling-angular]
+
+# ------------------------------------------------------------ 평형
+- id: eq
+  title: 힘의 합 0, 돌림힘의 합 0
+  body: |
+    $$
+    \sum F_x = 0, \qquad \sum F_y = 0, \qquad \sum\tau = 0
+    $$
+
+    1. 모든 힘을 그린다. 무게는 무게 중심에.
+    2. 모르는 힘이 가장 많이 모인 점(경첩, 받침점, 벽과 닿는 점)을 돌림힘 기준으로 잡는다.
+    3. 돌림힘 식 → 힘 식 순서로 푼다.
+
+    넘어지기 직전: 받치는 힘이 한쪽 모서리로 몰리고 반대쪽은 0. 사다리: 미끄러지기 직전 마찰력 = $\mu_sN$.
+  cards: [phys-mech-static-equilibrium, phys-rot-torque]
+  lessons: [mech-rotation]
+
+# ------------------------------------------------------------ 중력
+- id: grav
+  title: 무엇을 묻는가?
+  options:
+    - { label: "높은 곳·다른 행성의 중력가속도, 지구 속", to: g-field }
+    - { label: "원궤도 속력, 주기, 에너지", to: g-orbit }
+    - { label: "탈출, 아주 높이 쏘아 올림", to: g-escape }
+
+- id: g-field
+  title: 중심에서 잰 거리로 만유인력
+  body: |
+    $$
+    g(r) = \frac{GM}{r^2}\ (r \ge R), \qquad g(r) = \frac{GM}{R^3}r\ (r < R)
+    $$
+
+    - 높이 $h$면 $r = R + h$. 비례식이 빠르다 ($g \propto \frac{M}{R^2}$).
+    - 지구 관통 터널: 단진동, $\omega = \sqrt{\dfrac{GM}{R^3}}$.
+  cards: [phys-mech-gravitation]
+  lessons: [mech-gravity]
+
+- id: g-orbit
+  title: 중력 = 구심력
+  body: |
+    $$
+    \frac{GMm}{r^2} = \frac{mv^2}{r}, \qquad v = \sqrt{\frac{GM}{r}}, \qquad T^2 = \frac{4\pi^2}{GM}r^3
+    $$
+
+    $$
+    K = \frac{GMm}{2r}, \qquad U = -\frac{GMm}{r}, \qquad E = -\frac{GMm}{2r}
+    $$
+
+    같은 중심 천체끼리는 비례식 ($v \propto r^{-1/2}$, $T \propto r^{3/2}$). 타원이면 $r$ 대신 긴반지름, 가까운 점·먼 점 속력은 각운동량 보존 $r_1v_1 = r_2v_2$.
+  cards: [phys-mech-orbits-kepler, phys-mech-gravitational-potential]
+  lessons: [mech-gravity]
+
+- id: g-escape
+  title: 무한대에서 멈추는 조건 (E = 0)
+  body: |
+    $$
+    \frac{1}{2}mv^2 - \frac{GMm}{R} = 0 \ \Rightarrow\ v_{\text{esc}} = \sqrt{\frac{2GM}{R}}
+    $$
+
+    아주 높이 쏘아 올려 도달하는 최고 높이: $\frac{1}{2}mv^2 - \frac{GMm}{R} = -\frac{GMm}{R + h}$. 높이가 크면 $mgh$를 쓰지 않는다.
+  cards: [phys-mech-gravitational-potential]
+  lessons: [mech-gravity]
+
+# ------------------------------------------------------------ 진동
+- id: shm
+  title: 무엇이 진동하는가?
+  options:
+    - { label: "용수철에 달린 물체 (수평, 수직, 여러 용수철)", to: s-spring }
+    - { label: "진자 (줄, 막대, 비틀림)", to: s-pend }
+    - { label: "위치·속도·에너지를 시간이나 위치로 묻는다", to: s-state }
+    - { label: "그 외 (터널, 뜬 물체, LC)", to: s-general }
+
+- id: s-spring
+  title: ω = √(k/m)
+  body: |
+    $$
+    \omega = \sqrt{\frac{k}{m}}, \qquad T = 2\pi\sqrt{\frac{m}{k}}
+    $$
+
+    - 수직: 평형점이 $\frac{mg}{k}$ 내려갈 뿐, 주기 같음.
+    - 직렬 $\frac{1}{k_1} + \frac{1}{k_2}$의 역수, 병렬 $k_1 + k_2$. 반으로 자르면 $2k$.
+    - 충돌로 질량이 바뀌면 $\omega$가 바뀌고, 진폭은 충돌 직후 위치·속도로 다시 구한다.
+  cards: [phys-wave-spring-shm]
+  lessons: [mech-oscillation]
+
+- id: s-pend
+  title: 복원 상수 ÷ 관성
+  body: |
+    $$
+    T_{\text{simple}} = 2\pi\sqrt{\frac{L}{g}}, \qquad T_{\text{physical}} = 2\pi\sqrt{\frac{I}{mgd}}, \qquad T_{\text{torsion}} = 2\pi\sqrt{\frac{I}{\kappa}}
+    $$
+
+    $I$는 매달린 축 기준 (평행축 정리), $d$는 축에서 질량 중심까지. 가속하는 엘리베이터는 $g \to g \pm a$.
+  cards: [phys-wave-pendulums, phys-rot-parallel-axis]
+  lessons: [mech-oscillation]
+
+- id: s-state
+  title: 원운동의 그림자로 읽는다
+  body: |
+    $$
+    x = x_m\cos(\omega t + \phi), \qquad v_{\max} = \omega x_m, \qquad a_{\max} = \omega^2x_m
+    $$
+
+    $$
+    \frac{1}{2}mv^2 + \frac{1}{2}kx^2 = \frac{1}{2}kx_m^2, \qquad v = \omega\sqrt{x_m^2 - x^2}
+    $$
+
+    - $\phi$: $t = 0$의 위치와 속도 방향으로 정한다.
+    - 위치 $x$에서 퍼텐셜 비율 $\left(\frac{x}{x_m}\right)^2$.
+  cards: [phys-wave-shm, phys-wave-shm-energy]
+  lessons: [mech-oscillation]
+
+- id: s-general
+  title: a = −(상수)x 꼴을 만든다
+  body: |
+    평형점에서 $x$만큼 벗어났을 때 알짜힘(또는 돌림힘)을 구해 $F = -Cx$ 꼴로 정리 → $\omega = \sqrt{\dfrac{C}{m}}$.
+
+    - 지구 관통 터널: $C = \dfrac{GMm}{R^3}$.
+    - 물에 뜬 단면적 $A$ 막대: 더 잠긴 만큼 부력 증가 $C = \rho gA$.
+    - LC 회로: $m \to L$, $k \to \frac{1}{C}$.
+  cards: [phys-wave-shm, phys-mech-gravitation]
+  lessons: [mech-oscillation]
+
+# ------------------------------------------------------------ 파동
+- id: wave
+  title: 파동의 무엇을 묻는가?
+  options:
+    - { label: "식에서 속력·파장·진동수 읽기, 줄의 속력", to: w-basic }
+    - { label: "두 파원의 간섭, 여러 파동의 합", to: w-int }
+    - { label: "줄·관의 공명 진동수 (정상파)", to: w-stand }
+    - { label: "움직이는 음원·관찰자", to: w-dop }
+    - { label: "에너지, 세기", to: w-power }
+
+- id: w-basic
+  title: v = fλ = ω/k, 속력은 매질이 정한다
+  body: |
+    $$
+    y = y_m\sin(kx - \omega t), \qquad k = \frac{2\pi}{\lambda}, \qquad v = \frac{\omega}{k} = f\lambda, \qquad v_{\text{string}} = \sqrt{\frac{T}{\mu}}
+    $$
+
+    - $kx - \omega t$면 $+x$ 방향.
+    - 매질이 바뀌면 진동수 그대로, 파장이 바뀐다.
+    - 줄 한 점의 최대 속력 $\omega y_m$ (파동 속력과 다름).
+  cards: [phys-wave-traveling-wave, phys-wave-string-speed]
+  lessons: [mech-waves]
+
+- id: w-int
+  title: 경로차 → 위상차 → 위상자 합
+  body: |
+    $$
+    \phi = \frac{2\pi\,\Delta L}{\lambda}, \qquad y_m' = 2y_m\left|\cos\frac{\phi}{2}\right|
+    $$
+
+    - 보강: $\Delta L = m\lambda$, 상쇄: $\Delta L = (m + \frac{1}{2})\lambda$.
+    - 파원이 처음부터 위상차가 있으면 더한다.
+    - 셋 이상이면 화살표를 이어 붙인다. 닫히면 0.
+    - 관측점이 파원들과 같은 직선 위면 경로차는 위치와 무관하게 파원 간격.
+  cards: [phys-wave-interference]
+  lessons: [mech-waves]
+
+- id: w-stand
+  title: 끝에 마디·배를 놓고 그린다
+  body: |
+    - 고정·닫힌 끝 = 마디, 자유·열린 끝 = 배.
+    - 양 끝 같은 종류: $\lambda_n = \dfrac{2L}{n}$, $f_n = \dfrac{nv}{2L}$ (모든 $n$).
+    - 한쪽만 닫힘: $\lambda_n = \dfrac{4L}{n}$, $f_n = \dfrac{nv}{4L}$ ($n$ 홀수).
+    - 인접한 두 공명 진동수의 차이 = 기본 진동수 (양 끝 같은 종류), 또는 그 2배 (한쪽 닫힘).
+  cards: [phys-wave-standing-wave, phys-wave-string-speed]
+  lessons: [mech-waves]
+
+- id: w-dop
+  title: 관찰자는 분자, 음원은 분모
+  body: |
+    $$
+    f' = f\,\frac{v \pm v_D}{v \mp v_S}
+    $$
+
+    부호는 "가까워지면 높게". 반사는 두 단계 (벽이 듣고, 벽이 다시 낸다). 비스듬하면 잇는 직선 방향 성분만.
+  cards: [phys-wave-doppler]
+  lessons: [mech-waves]
+
+- id: w-power
+  title: 진폭 제곱, 진동수 제곱, 거리 제곱 반비례
+  body: |
+    $$
+    P_{\text{avg}} = \frac{1}{2}\mu v\omega^2y_m^2, \qquad I = \frac{P}{4\pi r^2}
+    $$
+  cards: [phys-wave-wave-power-intensity]
+  lessons: [mech-waves]
+
+# ------------------------------------------------------------ 유체
+- id: fluid
+  title: 유체가 가만히 있는가, 흐르는가?
+  options:
+    - { label: "정지: 깊이에 따른 압력, U자관, 유압기", to: fl-static }
+    - { label: "정지: 뜨고 가라앉기, 부력", to: fl-buoy }
+    - { label: "흐름: 관의 굵기, 속력, 압력, 구멍에서 나오는 물", to: fl-flow }
+
+- id: fl-static
+  title: 같은 유체, 같은 높이 → 같은 압력
+  body: |
+    $$
+    P = P_0 + \rho gh, \qquad \frac{F_i}{A_i} = \frac{F_o}{A_o}
+    $$
+
+    - U자관: 경계면 높이에서 양쪽 압력을 같게 놓는다.
+    - 유압기: 힘은 넓이 비만큼, 이동 거리는 반대 비만큼 (일은 같음).
+  cards: [phys-fluid-hydrostatic-pressure, phys-fluid-pascal]
+  lessons: [mech-fluids]
+
+- id: fl-buoy
+  title: 부력 = 잠긴 부피만큼의 유체 무게
+  body: |
+    $$
+    F_b = \rho_{\text{fluid}}V_{\text{sub}}g, \qquad \frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{obj}}}{\rho_{\text{fluid}}}\ (\text{floating})
+    $$
+
+    - 매달린 물체의 장력 = 무게 − 부력.
+    - 물그릇 저울: 매단 물체를 담그면 눈금 + 부력.
+    - 떠 있는 물체를 눌렀다 놓으면 단진동 ($C = \rho gA$).
+  cards: [phys-fluid-buoyancy]
+  lessons: [mech-fluids]
+
+- id: fl-flow
+  title: 연속 방정식 → 베르누이
+  body: |
+    $$
+    A_1v_1 = A_2v_2, \qquad P_1 + \frac{1}{2}\rho v_1^2 + \rho gy_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho gy_2
+    $$
+
+    1. 연속 방정식으로 속력 비.
+    2. 베르누이로 압력 차.
+    - 대기에 열린 곳의 압력은 $P_0$. 넓은 탱크 수면 속력은 0.
+    - 탱크 구멍: $v = \sqrt{2gh}$, 그 뒤 물줄기는 포물선 운동.
+  cards: [phys-fluid-continuity, phys-fluid-bernoulli]
+  lessons: [mech-fluids]
