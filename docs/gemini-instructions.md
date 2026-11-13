@@ -75,7 +75,7 @@ verified: false
 - 벡터 \mathbf{E}, 상수 \varepsilon_0, \mu_0. 행렬 \begin{pmatrix}...\end{pmatrix}. MathJax 전용 명령 금지.
 
 [과목/단원 폴더와 단원 prefix]
-physics/mechanics (phys-mech), physics/rotation (phys-rot), physics/waves (phys-wave),
+physics/mechanics (phys-mech), physics/rotation (phys-rot), physics/waves (phys-wave, 진동·파동), physics/fluids (phys-fluid),
 physics/thermodynamics (phys-thermo), physics/electromagnetism (phys-em), physics/circuits (phys-circ),
 physics/thermo-entropy (thermo, 엔트로피·열기관),
 calculus/differentiation (calc-diff, 미분), calculus/integration (calc-int, 적분), calculus/series (calc, 급수), calculus/vectors (calc-vec, 벡터·공간도형), calculus/multivariable (calc-mv, 다변수 미적분), calculus/vector-calculus (calc-vc, 선적분·면적분), linear-algebra/vectors-matrices (la-vm), linear-algebra/vector-spaces (la-vs), linear-algebra/projection-quadratic (la-pq), linear-algebra/linear-de (la-de), linear-algebra/decompositions (la-dec), linear-algebra/general-spaces (la-gs), linear-algebra/inner-product-spectral (la-ip),

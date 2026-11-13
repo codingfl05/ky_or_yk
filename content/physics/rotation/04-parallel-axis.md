@@ -4,7 +4,7 @@ title_ko: 평행축 정리
 title_en: Parallel-axis theorem
 importance: 3
 tags: [관성모멘트, 회전축, moment of inertia, rotational inertia]
-related: []
+related: [phys-rot-moment-of-inertia, phys-rot-rolling]
 source: manual
 ---
 

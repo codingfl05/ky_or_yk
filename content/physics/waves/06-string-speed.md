@@ -4,7 +4,7 @@ title_ko: 줄의 파동 방정식과 파동 속력
 title_en: Wave equation on a string / wave speed
 importance: 3
 tags: [파동방정식, 장력, 선밀도, 횡파, wave equation, tension, linear density, transverse wave]
-related: [phys-mech-newton-second-law]
+related: [phys-wave-traveling-wave, phys-wave-standing-wave, phys-mech-newton-second-law]
 source: manual
 ---
 

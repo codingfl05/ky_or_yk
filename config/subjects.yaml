@@ -46,7 +46,8 @@ subjects:
     chapters:
       - { id: mechanics, name: 역학, name_en: Mechanics, prefix: phys-mech }
       - { id: rotation, name: 회전운동, name_en: Rotational motion, prefix: phys-rot }
-      - { id: waves, name: 파동, name_en: Waves, prefix: phys-wave }
+      - { id: waves, name: 진동과 파동, name_en: Oscillations and waves, prefix: phys-wave }
+      - { id: fluids, name: 유체, name_en: Fluids, prefix: phys-fluid }
       - { id: thermodynamics, name: 열역학, name_en: Thermodynamics, prefix: phys-thermo }
       - { id: electromagnetism, name: 전자기학, name_en: Electromagnetism, prefix: phys-em }
       - { id: circuits, name: 회로, name_en: Circuits, prefix: phys-circ }

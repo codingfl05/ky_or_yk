@@ -4,7 +4,7 @@ title_ko: 뉴턴 운동 제2법칙
 title_en: Newton's second law
 importance: 3
 tags: [힘, 가속도, 운동량, 운동방정식, force, acceleration, momentum]
-related: [phys-wave-string-speed]
+related: [phys-mech-newton-first-third, phys-mech-connected-bodies, phys-mech-momentum-impulse]
 source: manual
 ---
 

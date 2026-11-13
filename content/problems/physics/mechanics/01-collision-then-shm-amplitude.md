@@ -4,7 +4,7 @@ title_ko: "완전 비탄성 충돌 후 한 덩어리 단진동의 진폭"
 source: "BLIS 진단 평가 3회 1번"
 difficulty: 2
 tags: [단진동, 진폭, 완전 비탄성 충돌, 운동량 보존, 역학적 에너지, simple harmonic motion, amplitude, inelastic collision, momentum]
-related: []
+related: [phys-mech-momentum-conservation, phys-wave-spring-shm, phys-wave-shm-energy]
 images: []
 verified: false
 ---

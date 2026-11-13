@@ -4,7 +4,7 @@ title_ko: "일직선 위 같은 위상 음원 4개의 간섭 진폭"
 source: "BLIS 진단 평가 3회 3번"
 difficulty: 2
 tags: [간섭, 경로차, 위상차, 위상자, 음파, interference, path difference, phase difference, phasor]
-related: []
+related: [phys-wave-interference]
 images: []
 verified: false
 ---
