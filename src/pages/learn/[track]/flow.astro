@@ -1,0 +1,38 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { lessons } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return lessons().tracks.filter((t) => t.flow.length).map((t) => ({ params: { track: t.id } }));
+}
+const track = lessons().tracks.find((t) => t.id === Astro.params.track)!;
+---
+<Base title="공식 선택 흐름도" subtitle={track.title} back={track.href} nav="learn">
+  <div class="flow" data-flow>
+    <div class="flow-bar">
+      <button class="btn" type="button" data-flow-back disabled>← 이전</button>
+      <button class="btn" type="button" data-flow-reset>처음으로</button>
+      <span class="flow-path muted small" data-flow-path></span>
+    </div>
+    {track.flow.map((n) => (
+      <section class="flow-node" data-node={n.id} hidden={n.id !== 'start'}>
+        <h2>{n.title}</h2>
+        {n.bodyHtml && <div class="prose" set:html={n.bodyHtml} />}
+        {n.options.length > 0 && (
+          <div class="flow-opts">
+            {n.options.map((o) => <button class="flow-opt" type="button" data-to={o.to}>{o.label}</button>)}
+          </div>
+        )}
+        {n.cards.length > 0 && (
+          <div class="flow-links"><h4>공식 카드</h4><div class="chips">{n.cards.map((c) => <a class="chip" href={c.href}>{c.title}</a>)}</div></div>
+        )}
+        {n.lessons.length > 0 && (
+          <div class="flow-links"><h4>이야기로 다시 읽기</h4><div class="chips">{n.lessons.map((c) => <a class="chip" href={c.href}>{c.title}</a>)}</div></div>
+        )}
+      </section>
+    ))}
+  </div>
+  <script>
+    import '../../../client/learn';
+  </script>
+</Base>

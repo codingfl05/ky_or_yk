@@ -1,0 +1,55 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { icons } from '../../../lib/icons';
+import { base, lessons } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return lessons().tracks.map((t) => ({ params: { track: t.id } }));
+}
+const track = lessons().tracks.find((t) => t.id === Astro.params.track)!;
+const total = track.lessons.reduce((a, l) => a + l.minutes, 0);
+const tools = [
+  { href: `${track.href}flow/`, title: '공식 선택 흐름도', sub: '문제 상황 → 어떤 공식을 꺼낼지 고르기', n: track.flow.length },
+  { href: `${track.href}pairs/`, title: '헷갈리는 쌍 비교', sub: '비슷해서 섞이는 공식을 나란히', n: track.pairs.length },
+  { href: `${track.href}sheet/`, title: '한 장 요약', sub: '문제 풀기 직전 훑어보는 공식 모음', n: track.sheet.length },
+].filter((t) => t.n > 0);
+---
+<Base title={track.title} subtitle={`이야기 레슨 ${track.lessons.length}편 + 문제풀이 도구`} back={`${base}learn/`} nav="learn">
+  <div class="chapter-intro prose" set:html={track.introHtml} />
+
+  <p class="section-title">문제 풀 때 펴 보는 도구</p>
+  <div class="rows">
+    {tools.map((t) => (
+      <a class="row" href={t.href}>
+        <div class="row-main">
+          <div class="row-title">{t.title}</div>
+          <div class="row-sub">{t.sub}</div>
+        </div>
+        <span class="chev" set:html={icons.chevron} />
+      </a>
+    ))}
+  </div>
+
+  <p class="section-title">
+    이야기 레슨 {track.lessons.length}편 · 약 {total}분 · <span data-track-count data-lesson-ids={track.lessons.map((l) => l.id).join(' ')}>0/{track.lessons.length}</span> 읽음
+  </p>
+  <div class="progress learn-progress"><i data-track-bar data-lesson-ids={track.lessons.map((l) => l.id).join(' ')} /></div>
+  <div class="rows">
+    {track.lessons.map((l) => (
+      <a class="row lesson-row" href={l.href} data-lesson-id={l.id}>
+        <span class="lesson-n">
+          <span class="num">{l.n}</span>
+          <span class="chk" set:html={icons.check} />
+        </span>
+        <div class="row-main">
+          <div class="row-title">{l.title}</div>
+          <div class="row-sub">{l.hook}</div>
+        </div>
+        <span class="row-count">{l.minutes}분</span>
+      </a>
+    ))}
+  </div>
+  <script>
+    import '../../../client/learn';
+  </script>
+</Base>

@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { icons } from '../../lib/icons';
+import { lessons } from '../../lib/site';
+
+const { tracks } = lessons();
+---
+<Base title="학습" subtitle="이야기로 읽는 물리" nav="learn">
+  <p class="learn-lead">공식을 외우기 전에, 왜 그렇게 생겼는지를 비유와 이야기로 먼저 읽는다. 통학길에 한 편씩 읽고, 문제 풀 때는 흐름도와 요약을 펴 본다.</p>
+  <div class="rows">
+    {tracks.map((t) => (
+      <a class="row" href={t.href} data-track-row data-lesson-ids={t.lessons.map((l) => l.id).join(' ')}>
+        <div class="row-main">
+          <div class="row-title">{t.title}</div>
+          <div class="row-sub">{t.subtitle ?? ''} · 레슨 {t.lessons.length}편</div>
+        </div>
+        <span class="row-count" data-track-count>0/{t.lessons.length}</span>
+        <span class="chev" set:html={icons.chevron} />
+      </a>
+    ))}
+  </div>
+  <p class="section-title">다른 단원(역학, 열역학 등)은 아직 준비 중</p>
+  <script>
+    import '../../client/learn';
+  </script>
+</Base>

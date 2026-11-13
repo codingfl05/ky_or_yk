@@ -21,6 +21,7 @@ validate가 실패하면 Render 빌드도 실패해서 배포되지 않는다. �
 - `templates/card.md`: 새 카드 템플릿. `npm run new -- <과목id> <단원id> <카드id>`로 다음 번호 파일을 만든다.
 - `src/lib/content.ts`: 로더 + 검증기 (schema는 여기의 `CardFrontmatter`, `ChapterFrontmatter`). 빌드와 validate가 같은 코드를 쓴다.
 - `sources/notion/`, `sources/pdf/`: 원본 자료. 여기서 카드로 변환한다.
+- `lessons/`: 학습 섹션(이야기 레슨) 원고. 아래 "학습 섹션" 참고.
 - `inbox/`: Gemini/Antigravity 결과물 임시 폴더. `scripts/ingest.ts`(`npm run ingest`)가 처리한다. `main`에는 README만 둔다.
 - `docs/gemini-instructions.md`: Gemini/Antigravity에게 주는 문제 카드 작성 지시문.
 - `.agents/rules/problem-cards.md`: Antigravity 워크스페이스 규칙 (위 지시문을 참조). 지시문을 바꾸면 같이 확인.
@@ -185,6 +186,21 @@ verified: false
    inbox 브랜치였다면 push 후 원격 inbox 브랜치를 지운다 (`git push origin --delete inbox/...`).
    현재 세션의 작업 브랜치가 따로 지정돼 있으면 그 브랜치에도 push한다.
 5. 사용자에게 보고: 추가한 문제 목록(제목·출처·난이도), 고친 것, 이상해 보였던 것.
+
+## 학습 섹션 (이야기 레슨) — `/learn/`
+
+공식 카드(사전)와 별개인 "읽는 책". 비유와 스토리로 개념을 설명하고, 문제 풀 때 쓰는 도구 3개가 붙는다. 현재 트랙은 전자기학 하나.
+
+- `lessons/<트랙>/_track.md`: 트랙 제목·소개 (`id`는 폴더 이름과 같아야 함, `title`, `subtitle`).
+- `lessons/<트랙>/<NN>-<slug>.md`: 레슨 1편. frontmatter는 `id`(전역 유일, 읽음 기록의 키라서 바꾸지 않는다), `title`, `hook`(한 줄 요약 문장), `minutes`, `cards`(관련 공식 카드 id. 그 카드를 쓰는 문제 카드가 자동으로 함께 표시된다).
+  - 본문은 자유 마크다운. 소제목은 `###`. `##`는 `## summary`(한 줄 정리)와 `## quiz`(`Q: …` / `A: …` 쌍)만 허용.
+  - `::fig <이름> | 캡션`: `src/lib/figures.ts`의 그림(인라인 SVG, 색은 `.c-*` 클래스로 토큰을 따름).
+  - `::widget <이름> | 캡션`: `src/client/widgets.ts`의 인터랙티브 위젯. 이름은 `src/lib/lessons.ts`의 `WIDGETS`에도 등록한다.
+- `lessons/<트랙>/flow.yaml`: 공식 선택 흐름도. 노드 `id`, `title`, `body`(마크다운), `options[{label, to}]`, `cards`, `lessons`. 시작 노드는 `start`, 선택지 없는 노드가 결론.
+- `lessons/<트랙>/pairs.md`, `sheet.md`: 헷갈리는 쌍 비교, 한 장 요약. `## 제목` 단위로 카드가 된다. 표 안의 수식에는 `|` 대신 `\lvert`, `\rvert`를 쓴다.
+- 로더·검증은 `src/lib/lessons.ts` (`npm run validate`에 포함). 페이지는 `src/pages/learn/`, 클라이언트는 `src/client/learn.ts`.
+- 글투: 한국어 "~다"체. 트랙 소개의 비유 표(전위 = 높이, 전류 = 물, 축전기 = 물탱크, 코일 = 물레방아 등)를 모든 레슨에서 일관되게 쓴다. 수식 규칙은 카드와 같다.
+- 레슨 내용은 Claude가 쓴 것이다. 물리 내용을 고칠 때는 관련 공식 카드와 어긋나지 않는지 확인한다.
 
 ## 한국어 + 영어 keyword 규칙
 

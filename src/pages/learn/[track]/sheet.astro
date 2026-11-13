@@ -1,0 +1,22 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { lessons } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return lessons().tracks.filter((t) => t.sheet.length).map((t) => ({ params: { track: t.id } }));
+}
+const track = lessons().tracks.find((t) => t.id === Astro.params.track)!;
+---
+<Base title="한 장 요약" subtitle={track.title} back={track.href} nav="learn">
+  <nav class="doc-toc chips">
+    {track.sheet.map((s, i) => <a class="chip" href={`#s${i + 1}`}>{s.title}</a>)}
+  </nav>
+  <div class="doc doc-sheet">
+    {track.sheet.map((s, i) => (
+      <section class="doc-sec" id={`s${i + 1}`}>
+        <h2>{s.title}</h2>
+        <div class="prose" set:html={s.html} />
+      </section>
+    ))}
+  </div>
+</Base>

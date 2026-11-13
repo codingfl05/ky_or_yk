@@ -85,7 +85,7 @@ function renderTex(tex: string, displayMode: boolean): { html: string; error?: s
 }
 
 /** Markdown(+ $..$ / $$..$$) → HTML. 수식 에러는 errors에 쌓는다. */
-function markdownToHtml(md: string): { html: string; errors: string[] } {
+export function markdownToHtml(md: string): { html: string; errors: string[] } {
   const errors: string[] = [];
   const remarkKatex = () => (tree: any) => {
     visit(tree, ['math', 'inlineMath'], (node: any, index, parent: any) => {

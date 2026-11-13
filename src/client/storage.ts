@@ -24,6 +24,8 @@ export interface State {
   version: 1;
   favorites: Record<string, number>;
   wrong: Record<string, WrongEntry>;
+  /** 학습 섹션: 다 읽은 레슨 id → 시각 */
+  lessons: Record<string, number>;
   settings: Settings;
 }
 
@@ -35,6 +37,7 @@ const defaults = (): State => ({
   version: 1,
   favorites: {},
   wrong: {},
+  lessons: {},
   settings: { theme: 'system', fontStep: 1, hideFormulas: false, reviewMode: false },
 });
 
@@ -48,6 +51,9 @@ function sanitize(raw: any): State {
     for (const [k, v] of Object.entries<any>(raw.wrong)) {
       if (v && typeof v === 'object') s.wrong[k] = { added: Number(v.added) || Date.now(), streak: Number(v.streak) || 0 };
     }
+  }
+  if (raw.lessons && typeof raw.lessons === 'object') {
+    for (const [k, v] of Object.entries(raw.lessons)) if (typeof v === 'number') s.lessons[k] = v;
   }
   const st = raw.settings ?? {};
   if (['system', 'light', 'dark'].includes(st.theme)) s.settings.theme = st.theme;
@@ -124,6 +130,14 @@ export function markKnown(id: string): boolean {
   return cleared;
 }
 
+export const isLessonDone = (id: string) => id in state.lessons;
+
+export function setLessonDone(id: string, done: boolean) {
+  if (done) state.lessons[id] = Date.now();
+  else delete state.lessons[id];
+  save();
+}
+
 export function updateSettings(patch: Partial<Settings>) {
   state.settings = { ...state.settings, ...patch };
   save();
@@ -139,6 +153,7 @@ export function exportJson(): string {
       exportedAt: new Date().toISOString(),
       favorites: state.favorites,
       wrong: state.wrong,
+      lessons: state.lessons,
       settings: state.settings,
     },
     null,

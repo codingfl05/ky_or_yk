@@ -1,0 +1,622 @@
+# 공식 선택 흐름도. 노드: id, title, body(마크다운), options[{label, to}], cards[공식 카드 id], lessons[레슨 id]
+# 선택지가 없는 노드가 결론이다. 시작 노드 id는 start.
+
+- id: start
+  title: 문제가 무엇을 구하라고 하는가?
+  body: 구하는 양부터 고른다. 문제에 주어진 상황이 아니라 "답으로 내야 하는 것"이 기준이다.
+  options:
+    - { label: "전기장 E", to: e-field }
+    - { label: "전위 V, 퍼텐셜 에너지, 전하의 속력", to: potential }
+    - { label: "전기장 속 전하의 힘과 운동", to: e-motion }
+    - { label: "축전기 (전기용량, 전하, 전압, 에너지)", to: cap }
+    - { label: "직류 회로 (전류, 전압, 전력, 저항)", to: dc }
+    - { label: "자기장 B", to: b-field }
+    - { label: "자기력, 자기장 속의 운동", to: b-force }
+    - { label: "유도 기전력, 유도 전류", to: induction }
+    - { label: "스위치를 닫은 뒤의 시간 변화 (RC, RL, LC)", to: transient }
+    - { label: "교류 회로, 변압기", to: ac }
+
+# ------------------------------------------------------------ 전기장
+- id: e-field
+  title: 전기장을 만드는 전하가 어떻게 놓여 있는가?
+  options:
+    - { label: "점전하 몇 개", to: e-point }
+    - { label: "구, 무한 직선, 무한 평면처럼 대칭이 좋다", to: e-gauss }
+    - { label: "고리, 원판, 막대, 원호 (유한한 덩어리)", to: e-slice }
+    - { label: "도체나 도체 껍질이 끼어 있다", to: e-conductor }
+    - { label: "전위 V가 위치의 함수로 주어져 있다", to: e-from-v }
+
+- id: e-point
+  title: 점전하마다 구해서 벡터로 더한다
+  body: |
+    1. 각 전하가 그 점에 만드는 전기장의 방향을 그린다 (+에서 멀어지는 쪽, −로 향하는 쪽).
+    2. 크기는 각각 $E = \dfrac{k|q|}{r^2}$.
+    3. 더하기 전에 대칭으로 지워지는 쌍을 먼저 지운다. 남은 것만 성분으로 나눠 더한다.
+
+    전기장이 0이 되는 점을 찾는 문제: 같은 부호 두 전하면 둘 사이, 다른 부호면 바깥쪽 중 전하량이 작은 쪽 너머에 있다.
+  cards: [phys-em-electric-field, phys-em-symmetry-cancellation]
+  lessons: [em-field]
+
+- id: e-gauss
+  title: 가우스 법칙 3단계
+  body: |
+    1. 대칭을 닮은 가우스 면을 구하려는 점을 지나게 잡는다 (구 → 구면, 직선 → 원기둥, 평면 → 납작한 원기둥).
+    2. 면 안의 전하 $q_{\text{enc}}$를 센다. 밀도가 주어지면 (밀도) × (면 안의 부피·넓이·길이).
+    3. $\varepsilon_0 E A = q_{\text{enc}}$. $A$는 전기장이 뚫고 나가는 넓이만.
+
+    $$
+    E_{\text{line}} = \frac{\lambda}{2\pi\varepsilon_0 r}, \qquad E_{\text{sheet}} = \frac{\sigma}{2\varepsilon_0}, \qquad E_{\text{sphere}} = \begin{cases}\dfrac{kq}{R^3}r & (r<R)\\ \dfrac{kq}{r^2} & (r\ge R)\end{cases}
+    $$
+
+    여러 개가 있으면 (평행한 두 직선, 두 평면) 각각 구해서 벡터로 더한다.
+  cards: [phys-em-gauss-law, phys-em-gauss-applications]
+  lessons: [em-gauss]
+
+- id: e-slice
+  title: 쪼개서 더한다. 축 위의 점이면 전위부터
+  body: |
+    1. 공식을 아는 조각으로 쪼갠다 (막대 → 점, 원판 → 고리).
+    2. $dq = \lambda\,ds$ 또는 $\sigma\,dA$.
+    3. 조각에서 점까지의 거리를 적분 변수로 쓴다.
+    4. 대칭으로 지워지는 성분을 지우고 남는 성분만 적분한다.
+
+    $$
+    E_{\text{arc}} = \frac{2k\lambda}{R}\sin\frac{\theta}{2}, \qquad E_{\text{ring}} = \frac{kqz}{(z^2+R^2)^{3/2}}, \qquad E_{\text{disk}} = \frac{\sigma}{2\varepsilon_0}\left(1-\frac{z}{\sqrt{z^2+R^2}}\right)
+    $$
+
+    지름길: 축 위의 점이라면 전위 $V(z)$를 먼저 구하고 (스칼라라 쉽다) $E_z = -\dfrac{dV}{dz}$로 미분한다.
+  cards: [phys-em-infinitesimal-elements, phys-em-symmetry-cancellation, phys-em-potential-distributions]
+  lessons: [em-field, em-potential]
+
+- id: e-conductor
+  title: 도체 살 속은 E = 0. 안에서부터 가우스 면을 키운다
+  body: |
+    - 도체 내부: $E = 0$. 계산하지 않는다.
+    - 도체 살 속에 가우스 면을 잡으면 면 안의 알짜 전하가 0 → 껍질 안쪽 면의 전하 = −(그 안에 든 전하).
+    - 껍질 바깥 면의 전하 = (껍질 전체 전하) − (안쪽 면의 전하).
+    - 그 밖의 구간은 "면 안의 알짜 전하"를 점전하처럼 써서 $E = \dfrac{k\,q_{\text{enc}}}{r^2}$.
+    - 도체 표면 바로 밖: $E = \dfrac{\sigma}{\varepsilon_0}$ (표면에 수직).
+  cards: [phys-em-conductors, phys-em-gauss-applications]
+  lessons: [em-conductor]
+
+- id: e-from-v
+  title: 전기장은 전위의 경사
+  body: |
+    $$
+    E_x = -\frac{\partial V}{\partial x}, \qquad E_y = -\frac{\partial V}{\partial y}, \qquad E_z = -\frac{\partial V}{\partial z}
+    $$
+
+    그래프가 주어지면 기울기에 음의 부호를 붙인다. 등전위면 그림이 주어지면 전기장은 면에 수직이고 전위가 낮아지는 쪽을 향하며, 크기는 $\dfrac{\Delta V}{\Delta s}$ (면 사이 간격이 좁을수록 세다).
+  cards: [phys-em-electric-potential]
+  lessons: [em-potential]
+
+# ------------------------------------------------------------ 전위·에너지
+- id: potential
+  title: 무엇이 주어졌는가?
+  options:
+    - { label: "전하의 배치 (점전하들, 고리, 원호, 원판)", to: v-sum }
+    - { label: "전기장 (균일하거나 식으로 주어짐)", to: v-from-e }
+    - { label: "도체, 구껍질", to: v-conductor }
+    - { label: "전하의 속력, 한 일, 퍼텐셜 에너지를 구한다", to: v-energy }
+
+- id: v-sum
+  title: 전위는 스칼라. 부호를 붙여 그냥 더한다
+  body: |
+    $$
+    V = \sum\frac{kq_i}{r_i}, \qquad V = \int\frac{k\,dq}{r}
+    $$
+
+    - 방향·성분·상쇄를 따지지 않는다. 음전하는 음수로 더한다.
+    - 모든 조각이 같은 거리에 있으면 (원호나 고리의 중심, 고리의 축 위) 적분할 필요 없이 $V = \dfrac{kQ}{r}$.
+    - 점전하 여러 개를 모으는 데 드는 일 = 계의 퍼텐셜 에너지 = 모든 쌍에 대해 $\dfrac{kq_iq_j}{r_{ij}}$의 합.
+  cards: [phys-em-potential-distributions, phys-em-electric-potential]
+  lessons: [em-potential]
+
+- id: v-from-e
+  title: 전기장을 거슬러 적분한다
+  body: |
+    $$
+    V_f - V_i = -\int_i^f \mathbf{E}\cdot d\mathbf{s}
+    $$
+
+    - 균일한 전기장: 전기장 방향으로 $d$만큼 가면 $\Delta V = -Ed$, 거슬러 가면 $+Ed$. 전기장에 수직으로 움직이면 변화 없음.
+    - 부호 확인: 전기장을 따라가면 전위는 내려간다.
+  cards: [phys-em-electric-potential]
+  lessons: [em-potential]
+
+- id: v-conductor
+  title: 도체는 통째로 같은 전위
+  body: |
+    - 도체 안과 표면은 전위가 같다. 도체 구(반지름 $R$, 전하 $q$) 안쪽 어디서나 $V = \dfrac{kq}{R}$ (표면 값 그대로).
+    - 밖에서는 점전하처럼 $V = \dfrac{kq}{r}$.
+    - 여러 껍질이 겹친 문제: 각 껍질이 만드는 전위를 따로 구해 더한다. 껍질 안쪽에 있는 점에는 그 껍질이 $\dfrac{kq}{R}$(상수)를, 바깥에 있는 점에는 $\dfrac{kq}{r}$를 준다.
+    - 도선으로 연결된 두 도체: 전위가 같아질 때까지 전하가 이동한다. 접지된 도체: $V = 0$.
+  cards: [phys-em-conductors, phys-em-potential-distributions]
+  lessons: [em-conductor, em-potential]
+
+- id: v-energy
+  title: 에너지 보존 한 줄
+  body: |
+    $$
+    U = qV, \qquad \Delta K = -q\,\Delta V, \qquad W_{\text{ext}} = q\,\Delta V\ (\text{천천히 옮길 때})
+    $$
+
+    - 전위차 $V$로 가속: $\frac{1}{2}mv^2 = |q|V$.
+    - 부호: 양전하는 전위가 낮은 쪽으로, 음전하는 높은 쪽으로 갈 때 빨라진다.
+    - 경로와 무관하다. 처음과 끝의 전위만 본다.
+  cards: [phys-em-electric-potential]
+  lessons: [em-potential]
+
+# ------------------------------------------------------------ 전기장 속 운동
+- id: e-motion
+  title: 어떤 운동인가?
+  options:
+    - { label: "균일한 전기장 속을 지나가는 전하 (판 사이)", to: m-uniform }
+    - { label: "속력이나 에너지만 필요하다", to: v-energy }
+    - { label: "전기 쌍극자의 회전", to: m-dipole }
+    - { label: "매달린 대전 공의 평형", to: m-balance }
+
+- id: m-uniform
+  title: 포물선 운동과 똑같다
+  body: |
+    전기장이 균일하면 힘이 일정하다. 중력 속 포물선 운동에서 $g$를 $\dfrac{qE}{m}$로 바꾼다.
+
+    $$
+    a = \frac{qE}{m}, \qquad t = \frac{L}{v_x}, \qquad y = \frac{1}{2}at^2 = \frac{qEL^2}{2mv_x^2}
+    $$
+
+    전기장에 수직인 방향은 등속, 나란한 방향은 등가속도. 음전하는 전기장 반대쪽으로 휜다. 중력을 무시해도 되는지는 문제에서 확인한다.
+  cards: [phys-em-electric-field]
+  lessons: [em-field]
+
+- id: m-dipole
+  title: 쌍극자는 전기장 방향으로 돈다
+  body: |
+    $$
+    \tau = pE\sin\theta, \qquad U = -pE\cos\theta
+    $$
+
+    - 돌림힘 최대: $\theta = 90^\circ$. 가장 안정: $\theta = 0$ (나란히).
+    - 각도를 바꾸는 데 필요한 일 = $U_f - U_i$. 나란한 상태에서 정반대로 뒤집으면 $2pE$.
+  cards: [phys-em-electric-dipole]
+  lessons: [em-field]
+
+- id: m-balance
+  title: 힘 그림을 그리고 평형 조건
+  body: |
+    전하를 띤 물체도 역학은 그대로다. 중력, 장력, 전기력($qE$ 또는 쿨롱 힘)을 그리고 성분별로 합력을 0으로 놓는다.
+
+    실에 매달려 각 $\theta$로 기울어진 공: $\tan\theta = \dfrac{F_{\text{electric}}}{mg}$.
+  cards: [phys-em-coulomb-law]
+  lessons: [em-charge]
+
+# ------------------------------------------------------------ 축전기
+- id: cap
+  title: 축전기의 무엇을 묻는가?
+  options:
+    - { label: "모양이 주어지고 전기용량 자체를 구한다", to: c-find }
+    - { label: "여러 축전기가 연결되어 있다", to: c-combine }
+    - { label: "유전체를 넣거나 판 간격·넓이를 바꾼다", to: c-change }
+    - { label: "충전된 축전기를 다른 축전기에 연결한다", to: c-share }
+
+- id: c-find
+  title: 전하를 가정하고 → E → V → C
+  body: |
+    1. 판에 $\pm q$가 있다고 가정.
+    2. 가우스 법칙으로 판 사이의 $E$.
+    3. $V = \int E\,ds$ (+판에서 −판까지).
+    4. $C = \dfrac{q}{V}$. $q$가 약분된다.
+
+    $$
+    C_{\text{plate}} = \frac{\varepsilon_0A}{d}, \qquad C_{\text{cyl}} = \frac{2\pi\varepsilon_0L}{\ln(b/a)}, \qquad C_{\text{sph}} = 4\pi\varepsilon_0\frac{ab}{b-a}
+    $$
+
+    유전체가 판 사이를 나눠 채우고 있으면: 넓이를 나눠 채웠으면 병렬, 간격을 나눠 채웠으면 직렬인 축전기 두 개로 본다.
+  cards: [phys-em-capacitance, phys-em-dielectric]
+  lessons: [em-capacitor]
+
+- id: c-combine
+  title: 병렬은 전압이 같고 더한다. 직렬은 전하가 같고 역수를 더한다
+  body: |
+    $$
+    C_{\parallel} = C_1 + C_2, \qquad \frac{1}{C_{\text{series}}} = \frac{1}{C_1} + \frac{1}{C_2}
+    $$
+
+    1. 안쪽 묶음부터 합쳐 하나의 $C_{\text{eq}}$로 만든다.
+    2. 전체 전하 $q = C_{\text{eq}}V$.
+    3. 다시 풀어 가며 나눈다: 직렬 묶음은 전하가 같고 ($V_i = \frac{q}{C_i}$), 병렬 묶음은 전압이 같다 ($q_i = C_iV$).
+  cards: [phys-circ-series-parallel, phys-em-capacitance]
+  lessons: [em-capacitor]
+
+- id: c-change
+  title: 먼저 묻는다. 배터리가 붙어 있는가?
+  body: |
+    | | 배터리 분리 | 배터리 연결 |
+    |---|---|---|
+    | 고정되는 것 | 전하 $q$ | 전압 $V$ |
+    | 쓰는 에너지 식 | $U = \dfrac{q^2}{2C}$ | $U = \dfrac{1}{2}CV^2$ |
+    | $C$가 커지면 | $V$ 감소, $U$ 감소 | $q$ 증가, $U$ 증가 |
+
+    새 $C$를 구한다 (유전체 $\kappa$배, 간격 $d$에 반비례, 넓이에 비례). 그다음 고정된 것을 붙잡고 $q = CV$로 나머지를 구한다.
+  cards: [phys-em-dielectric, phys-em-capacitor-energy]
+  lessons: [em-capacitor]
+
+- id: c-share
+  title: 전하 보존 + 전압이 같아질 때까지
+  body: |
+    전원을 떼고 축전기끼리 연결하면 전체 전하가 보존되고, 전하가 옮겨 가 두 축전기의 전압이 같아진다.
+
+    $$
+    V = \frac{q_1 + q_2}{C_1 + C_2}
+    $$
+
+    같은 극끼리 연결하면 전하를 더하고, 반대 극끼리 연결하면 뺀다. 처음 전압이 서로 달랐다면 연결 후 에너지는 줄어든다 (전하가 옮겨 가며 도선에서 열로 사라진다).
+  cards: [phys-circ-series-parallel, phys-em-capacitor-energy]
+  lessons: [em-capacitor]
+
+# ------------------------------------------------------------ 직류 회로
+- id: dc
+  title: 어떤 회로인가?
+  options:
+    - { label: "전원이 하나 (또는 직렬로만 연결)", to: dc-single }
+    - { label: "전원이 여러 갈래에 있어 저항을 합칠 수 없다", to: dc-kirchhoff }
+    - { label: "전력, 전구 밝기를 비교한다", to: dc-power }
+    - { label: "재료와 모양으로 저항을 구한다, 전류 밀도", to: dc-material }
+
+- id: dc-single
+  title: 합치고 → 전체 전류 → 다시 나눈다
+  body: |
+    1. 저항을 합쳐 $R_{\text{eq}}$ (직렬은 더하고, 병렬은 역수를 더한다). 내부 저항은 직렬 저항으로 넣는다.
+    2. 전체 전류 $i = \dfrac{\mathcal{E}}{R_{\text{eq}}}$.
+    3. 되돌아가며 나눈다: 직렬은 전류가 같고 전압이 저항 비, 병렬은 전압이 같고 전류가 저항의 역수 비.
+
+    특정 점의 전위를 물으면: 기준점(0)에서 출발해 전원을 지나면 $+\mathcal{E}$, 저항을 전류 방향으로 지나면 $-iR$을 더해 간다.
+  cards: [phys-circ-kirchhoff, phys-circ-series-parallel, phys-em-ohm-law]
+  lessons: [em-current]
+
+- id: dc-kirchhoff
+  title: 전류를 가정하고 두 규칙으로 연립
+  body: |
+    1. 가지마다 전류의 이름과 방향을 아무렇게나 정한다.
+    2. 갈림길: 들어온 전류 = 나간 전류.
+    3. 고리마다 한 바퀴: 전원을 −에서 +로 지나면 $+\mathcal{E}$, 저항을 전류 방향으로 지나면 $-iR$ (거슬러 지나면 $+iR$). 합이 0.
+    4. 미지수 개수만큼 식을 세워 푼다. 음수가 나오면 실제 방향이 반대다.
+
+    두 점 사이의 전위차는 한쪽에서 다른 쪽으로 걸어가며 같은 규칙으로 더한다.
+  cards: [phys-circ-kirchhoff]
+  lessons: [em-current]
+
+- id: dc-power
+  title: 무엇이 같은지 보고 식을 고른다
+  body: |
+    $$
+    P = iV = i^2R = \frac{V^2}{R}
+    $$
+
+    - 직렬로 연결된 것끼리: 전류가 같다 → $P = i^2R$ → 저항이 큰 쪽이 크다.
+    - 병렬로 연결된 것끼리: 전압이 같다 → $P = \dfrac{V^2}{R}$ → 저항이 작은 쪽이 크다.
+    - 전원이 공급하는 전력: $P = \mathcal{E}i$. 저항들이 쓰는 전력의 합과 같다.
+  cards: [phys-em-ohm-law]
+  lessons: [em-current]
+
+- id: dc-material
+  title: 길이에 비례, 단면적에 반비례
+  body: |
+    $$
+    R = \rho\frac{L}{A}, \qquad J = \frac{i}{A} = nev_d, \qquad E = \rho J
+    $$
+
+    - $L$은 전류가 흐르는 방향의 길이, $A$는 그 방향에 수직인 단면적. 같은 물체도 전류 방향에 따라 저항이 다르다.
+    - 전류 밀도가 위치마다 다르면 $i = \int J\,dA$ (원형 단면은 $dA = 2\pi r\,dr$).
+  cards: [phys-em-ohm-law, phys-em-current-drift]
+  lessons: [em-current]
+
+# ------------------------------------------------------------ 자기장
+- id: b-field
+  title: 자기장을 만드는 전류가 어떤 모양인가?
+  options:
+    - { label: "긴 직선 도선, 굵은 도선의 안쪽, 솔레노이드, 토로이드", to: b-ampere }
+    - { label: "원호, 원형 고리, 직선과 호의 조합", to: b-biot }
+    - { label: "도선 여러 개가 만드는 합성 자기장", to: b-multi }
+    - { label: "넓게 퍼진 전류 (판), 회전하는 전하", to: b-slice }
+
+- id: b-ampere
+  title: 앙페르 법칙 3단계
+  body: |
+    1. 자기장이 일정하고 나란한 앙페르 고리를 잡는다 (직선 → 동심원, 솔레노이드 → 직사각형).
+    2. 고리를 꿰뚫는 알짜 전류 $i_{\text{enc}}$. 전류 밀도가 균일하면 넓이 비율로, 아니면 $\int J\,dA$.
+    3. $B\cdot(\text{length}) = \mu_0 i_{\text{enc}}$.
+
+    $$
+    B_{\text{wire}} = \begin{cases}\dfrac{\mu_0 i}{2\pi R^2}r & (r<R)\\ \dfrac{\mu_0 i}{2\pi r} & (r\ge R)\end{cases}, \qquad B_{\text{solenoid}} = \mu_0 ni, \qquad B_{\text{toroid}} = \frac{\mu_0Ni}{2\pi r}
+    $$
+  cards: [phys-em-ampere-law]
+  lessons: [em-magnetic-field]
+
+- id: b-biot
+  title: 조각별로 구해 더한다. 연장선 위의 직선은 0
+  body: |
+    $$
+    B_{\text{arc}} = \frac{\mu_0 i\,\phi}{4\pi R}, \qquad B_{\text{loop}} = \frac{\mu_0 i}{2R}, \qquad B_{\text{axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
+    $$
+
+    1. 도선을 직선 부분과 원호 부분으로 나눈다.
+    2. 연장선이 관측점을 지나는 직선 부분은 기여가 0.
+    3. 원호는 중심각 $\phi$(라디안)에 비례. 반원 $\dfrac{\mu_0 i}{4R}$, 사분원 $\dfrac{\mu_0 i}{8R}$.
+    4. 끝에서 수직으로 $R$ 떨어진 반직선은 무한 직선의 절반 $\dfrac{\mu_0 i}{4\pi R}$.
+    5. 조각마다 오른손으로 방향(⊙/⊗)을 정해, 같은 방향이면 더하고 반대면 뺀다.
+  cards: [phys-em-biot-savart]
+  lessons: [em-magnetic-field]
+
+- id: b-multi
+  title: 도선마다 크기와 방향을 구해 벡터로 더한다
+  body: |
+    1. 각 도선이 그 점에 만드는 크기 $B = \dfrac{\mu_0 i}{2\pi r}$.
+    2. 방향: 도선에서 그 점으로 그은 선에 수직이고, 오른손이 감기는 쪽.
+    3. 벡터로 더한다. 두 자기장이 수직이면 피타고라스.
+
+    자기장이 0이 되는 점: 같은 방향 전류 두 개면 둘 사이, 반대 방향이면 바깥쪽 중 전류가 작은 쪽 너머.
+  cards: [phys-em-biot-savart]
+  lessons: [em-magnetic-field]
+
+- id: b-slice
+  title: 아는 모양으로 쪼갠다
+  body: |
+    - 폭이 있는 판 전류: 가는 직선 도선들로 쪼갠다. $di = \dfrac{i}{L}dr$, 각각 $dB = \dfrac{\mu_0\,di}{2\pi r}$.
+    - 회전하는 대전 고리: 전류로 바꾼다. $i = \dfrac{q}{T} = \dfrac{q\omega}{2\pi}$. 그다음은 원형 전류 공식.
+    - 회전하는 대전 원판: 고리 띠로 쪼갠다. $di = \sigma\omega r\,dr$.
+
+    모든 조각의 자기장 방향이 같은지 확인하고, 다르면 대칭으로 남는 성분만 적분한다.
+  cards: [phys-em-infinitesimal-elements, phys-em-biot-savart]
+  lessons: [em-magnetic-field, em-field]
+
+# ------------------------------------------------------------ 자기력
+- id: b-force
+  title: 힘을 받는 것이 무엇인가?
+  options:
+    - { label: "움직이는 전하 하나", to: f-charge }
+    - { label: "전류가 흐르는 도선, 평행한 두 도선", to: f-wire }
+    - { label: "전류 고리 (돌림힘, 자기 쌍극자)", to: f-loop }
+    - { label: "전기장과 자기장이 함께 있다", to: f-cross }
+
+- id: f-charge
+  title: 방향은 오른손, 운동은 원
+  body: |
+    $$
+    F = |q|vB\sin\phi, \qquad r = \frac{mv}{|q|B}, \qquad T = \frac{2\pi m}{|q|B}
+    $$
+
+    - 방향: 네 손가락을 $\mathbf{v}$에서 $\mathbf{B}$ 쪽으로 감으면 엄지. 음전하는 반대.
+    - 속력과 운동 에너지는 변하지 않는다.
+    - 전압 $V$로 가속한 뒤 들어오면 $\frac{1}{2}mv^2 = qV$와 함께 쓴다. 반원을 돌고 나온 위치는 $2r$.
+    - 운동 에너지 $K$가 주어지면 $v = \sqrt{\dfrac{2K}{m}}$.
+  cards: [phys-em-lorentz-force]
+  lessons: [em-magnetic-force]
+
+- id: f-wire
+  title: 한쪽이 자기장을 만들고 다른 쪽이 받는다
+  body: |
+    $$
+    F = iLB\sin\phi, \qquad \frac{F}{L} = \frac{\mu_0 i_ai_b}{2\pi d}
+    $$
+
+    - 방향은 전류 방향을 $\mathbf{v}$처럼 써서 오른손으로.
+    - 평행 도선: 같은 방향이면 인력, 반대 방향이면 척력.
+    - 직선 도선 옆의 직사각형 고리: 도선과 나란한 두 변의 힘만 남고 (가까운 변이 더 큼), 수직인 두 변은 서로 상쇄.
+    - 도선을 띄우는 문제: $iLB = mg$.
+  cards: [phys-em-force-on-current, phys-em-symmetry-cancellation]
+  lessons: [em-magnetic-force, em-magnetic-field]
+
+- id: f-loop
+  title: 고리는 나침반 바늘
+  body: |
+    $$
+    \mu = NiA, \qquad \tau = \mu B\sin\theta, \qquad U = -\mu B\cos\theta
+    $$
+
+    - $\boldsymbol\mu$의 방향: 네 손가락을 전류 방향으로 감으면 엄지. $\theta$는 $\boldsymbol\mu$와 $\mathbf{B}$ 사이의 각 (고리 면과 이루는 각이 아니다).
+    - 균일한 자기장에서 알짜힘은 0, 돌림힘만 있다.
+    - 고리 여러 개: 전류 방향이 같으면 $\mu$를 더하고 반대면 뺀다.
+  cards: [phys-em-magnetic-dipole]
+  lessons: [em-magnetic-force]
+
+- id: f-cross
+  title: 전기력과 자기력의 평형
+  body: |
+    $$
+    qE = qvB \ \Rightarrow\ v = \frac{E}{B}
+    $$
+
+    - 속도 선택기: 이 속력인 입자만 직진한다. 더 빠르면 자기력 쪽으로, 느리면 전기력 쪽으로 휜다.
+    - 홀 효과: 도선 속 전하가 한쪽에 쌓여 생긴 전기장이 자기력과 비긴다. $V_{\text{Hall}} = Ed = v_dBd$, 전하 밀도 $n = \dfrac{Bi}{Vle}$ ($l$: 자기장 방향 두께). 전압의 부호로 운반자의 부호를 안다.
+  cards: [phys-em-lorentz-force]
+  lessons: [em-magnetic-force]
+
+# ------------------------------------------------------------ 전자기 유도
+- id: induction
+  title: 자기선속이 왜 변하는가?
+  body: 어느 경우든 먼저 "고리를 지나는 선속이 변하는가"를 확인한다. 변하지 않으면 답은 0이다.
+  options:
+    - { label: "자기장의 세기가 시간에 따라 변한다", to: i-b }
+    - { label: "막대나 고리가 움직여 넓이가 변한다", to: i-motion }
+    - { label: "고리나 막대가 회전한다", to: i-rot }
+    - { label: "방향만 묻는다", to: i-lenz }
+    - { label: "유도 전기장, 코일의 자체·상호 유도", to: i-self }
+
+- id: i-b
+  title: 넓이는 그대로, 자기장만 미분
+  body: |
+    $$
+    |\mathcal{E}| = NA\left|\frac{dB}{dt}\right|, \qquad i = \frac{|\mathcal{E}|}{R}
+    $$
+
+    - $A$는 자기장이 실제로 지나가는 넓이다. 고리가 자기장 영역보다 크면 영역의 넓이를 쓴다.
+    - 자기장이 면에 비스듬하면 $\cos\theta$를 곱한다.
+    - $B$–$t$ 그래프가 주어지면 기울기가 클수록 기전력이 크다. 수평 구간은 0.
+    - 솔레노이드 안의 자기장이 변하는 경우: $\dfrac{dB}{dt} = \mu_0 n\dfrac{di}{dt}$.
+  cards: [phys-em-faraday-law]
+  lessons: [em-induction]
+
+- id: i-motion
+  title: 운동 기전력 BLv, 힘은 항상 방해
+  body: |
+    $$
+    \mathcal{E} = BLv, \qquad i = \frac{BLv}{R}, \qquad F = \frac{B^2L^2v}{R}, \qquad P = Fv = i^2R
+    $$
+
+    - $L$은 속도에 수직인 방향의 길이 (자기장 경계를 지나고 있는 변의 길이).
+    - 고리가 자기장 영역에 들어가는 중·나오는 중에만 전류가 흐른다. 완전히 안에 있으면 0.
+    - 떨어지는 막대의 종단 속력: $mg = \dfrac{B^2L^2v}{R}$.
+    - 넓이가 다른 식으로 변하면 $\mathcal{E} = B\dfrac{dA}{dt}$로 직접 미분한다.
+  cards: [phys-em-motional-emf, phys-em-faraday-law]
+  lessons: [em-induction]
+
+- id: i-rot
+  title: "회전: 쓸고 지나가는 넓이 또는 각도의 변화"
+  body: |
+    - 한쪽 끝을 축으로 도는 막대 (길이 $L$): 초당 쓸고 지나가는 넓이가 $\frac{1}{2}L^2\omega$이므로
+
+    $$
+    \mathcal{E} = \frac{1}{2}B\omega L^2
+    $$
+
+    - 자기장 속에서 도는 코일 (발전기): $\Phi = NBA\cos\omega t$ → $\mathcal{E} = NBA\omega\sin\omega t$, 최댓값 $NBA\omega$.
+  cards: [phys-em-motional-emf, phys-em-faraday-law]
+  lessons: [em-induction]
+
+- id: i-lenz
+  title: 렌츠 법칙 4단계
+  body: |
+    1. 고리 안을 지나는 원래 자기장의 방향.
+    2. 그 선속이 늘어나는가, 줄어드는가.
+    3. 유도 자기장: 늘면 반대 방향, 줄면 같은 방향.
+    4. 오른손 엄지를 유도 자기장으로 → 네 손가락이 전류 방향.
+
+    검산: 유도 전류가 받는 힘은 항상 원인이 된 움직임을 방해한다 (다가오면 밀고, 멀어지면 당긴다).
+  cards: [phys-em-faraday-law]
+  lessons: [em-induction]
+
+- id: i-self
+  title: 소용돌이 전기장과 코일
+  body: |
+    - 유도 전기장 (원형 대칭): $E\cdot 2\pi r = \left|\dfrac{d\Phi_B}{dt}\right|$. 자기장 영역 안($r<R$)은 $E = \dfrac{r}{2}\dfrac{dB}{dt}$, 밖은 $E = \dfrac{R^2}{2r}\dfrac{dB}{dt}$.
+    - 자체 유도: $\mathcal{E}_L = -L\dfrac{di}{dt}$, 솔레노이드 $L = \mu_0n^2Al$.
+    - 상호 유도: $\mathcal{E}_2 = -M\dfrac{di_1}{dt}$. $M$은 "코일 1의 전류 1 A가 코일 2에 만드는 총 선속 $N_2\Phi_{21}$".
+    - 저장 에너지 $U = \frac{1}{2}Li^2$, 에너지 밀도 $u = \dfrac{B^2}{2\mu_0}$.
+  cards: [phys-em-induced-electric-field, phys-em-inductance]
+  lessons: [em-induction, em-transient]
+
+# ------------------------------------------------------------ 과도 현상
+- id: transient
+  title: 어느 시점을 묻는가?
+  options:
+    - { label: "스위치를 닫은 직후, 또는 충분한 시간이 지난 뒤", to: t-limits }
+    - { label: "중간의 어떤 시각 (식이 필요)", to: t-formula }
+    - { label: "저항 없이 코일과 축전기만 (LC 진동)", to: t-lc }
+
+- id: t-limits
+  title: 소자를 도선이나 끊긴 선으로 바꿔 그린다
+  body: |
+    | | 직후 ($t = 0$) | 한참 뒤 ($t\to\infty$) |
+    |---|---|---|
+    | 빈 축전기 | 도선 | 끊긴 선 |
+    | 코일 | 끊긴 선 | 도선 |
+
+    바꿔 그린 회로는 저항만 있는 직류 회로다. 평소대로 푼다.
+
+    스위치를 다시 여는 문제: 여는 순간 축전기는 방금 전의 전압을, 코일은 방금 전의 전류를 그대로 유지한다. 그 값을 가진 전원처럼 놓고 푼다.
+  cards: [phys-circ-rc-circuit, phys-circ-rl-circuit]
+  lessons: [em-transient]
+
+- id: t-formula
+  title: 처음 값에서 끝 값으로 가는 지수 곡선
+  body: |
+    $$
+    x(t) = x_\infty + (x_0 - x_\infty)e^{-t/\tau}, \qquad \tau_{RC} = RC, \qquad \tau_{RL} = \frac{L}{R}
+    $$
+
+    처음 값 $x_0$와 끝 값 $x_\infty$만 정하면 된다 (앞 단계의 "도선/끊긴 선" 방법으로 구한다).
+
+    - RC 충전: $q = CV_0(1 - e^{-t/RC})$, $i = \dfrac{V_0}{R}e^{-t/RC}$
+    - RC 방전: $q = q_0e^{-t/RC}$
+    - RL 켜기: $i = \dfrac{V_0}{R}(1 - e^{-tR/L})$, RL 끄기: $i = i_0e^{-tR/L}$
+    - 절반이 되는 시간: $t = \tau\ln 2$.
+  cards: [phys-circ-rc-circuit, phys-circ-rl-circuit]
+  lessons: [em-transient]
+
+- id: t-lc
+  title: 용수철 진동으로 번역한다
+  body: |
+    $$
+    \omega = \frac{1}{\sqrt{LC}}, \qquad q = Q\cos\omega t, \qquad i = -\omega Q\sin\omega t, \qquad \frac{q^2}{2C} + \frac{1}{2}Li^2 = \frac{Q^2}{2C}
+    $$
+
+    - 전하 최대 ↔ 전류 0, 전하 0 ↔ 전류 최대 ($I = \omega Q$).
+    - 에너지 비율 문제: 전기 에너지 비율 $= \left(\dfrac{q}{Q}\right)^2$, 자기 에너지 비율 $= \left(\dfrac{i}{I}\right)^2$, 둘의 합은 1.
+    - 코일 전압의 크기는 축전기 전압과 같다: $L\left|\dfrac{di}{dt}\right| = \dfrac{q}{C}$.
+  cards: [phys-circ-lc-oscillation]
+  lessons: [em-transient]
+
+# ------------------------------------------------------------ 교류
+- id: ac
+  title: 어떤 교류 회로인가?
+  options:
+    - { label: "소자가 하나 (R 또는 C 또는 L)", to: ac-single }
+    - { label: "R, L, C가 직렬", to: ac-rlc }
+    - { label: "공명, 평균 전력, rms", to: ac-power }
+    - { label: "변압기, 송전", to: ac-transformer }
+
+- id: ac-single
+  title: 리액턴스로 크기, 위상은 소자의 성격으로
+  body: |
+    $$
+    V_R = IR, \qquad V_C = IX_C = \frac{I}{\omega C}, \qquad V_L = IX_L = I\omega L
+    $$
+
+    - 저항: 전류와 전압이 동시.
+    - 축전기: 전류가 $90^\circ$ 먼저. 전압이 $\sin$이면 전류는 $\cos$.
+    - 코일: 전류가 $90^\circ$ 늦게. 전압이 $\sin$이면 전류는 $-\cos$.
+    - $\omega = 2\pi f$를 잊지 않는다.
+  cards: [phys-circ-ac-elements]
+  lessons: [em-ac]
+
+- id: ac-rlc
+  title: 임피던스 → 전류 → 각 소자의 전압
+  body: |
+    $$
+    Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I = \frac{V_m}{Z}, \qquad \tan\phi = \frac{X_L - X_C}{R}
+    $$
+
+    1. $X_L = \omega L$, $X_C = \dfrac{1}{\omega C}$.
+    2. $Z$, 그리고 $I$.
+    3. 각 전압의 최댓값 $IR$, $IX_L$, $IX_C$. L과 C를 묶은 전압은 $I|X_L - X_C|$.
+    4. $X_L > X_C$면 전류가 전압보다 늦고, 반대면 앞선다.
+
+    각 전압의 최댓값을 그냥 더하면 전원 전압보다 클 수 있다. 화살표(위상자)로 더해야 한다.
+  cards: [phys-circ-rlc-series]
+  lessons: [em-ac]
+
+- id: ac-power
+  title: 공명은 X_L = X_C, 전력은 저항만
+  body: |
+    $$
+    \omega_{\text{res}} = \frac{1}{\sqrt{LC}}, \qquad P_{\text{avg}} = I_{\text{rms}}^2R = V_{\text{rms}}I_{\text{rms}}\cos\phi, \qquad \cos\phi = \frac{R}{Z}
+    $$
+
+    - rms = 최댓값 ÷ $\sqrt2$. 전압·전류 모두.
+    - 공명에서 $Z = R$ (최소), 전류 최대, $\phi = 0$, 전력 최대.
+    - 축전기와 코일의 평균 소모 전력은 0.
+  cards: [phys-circ-rlc-series]
+  lessons: [em-ac]
+
+- id: ac-transformer
+  title: 전압은 감은 수에 비례, 전력은 그대로
+  body: |
+    $$
+    \frac{V_2}{V_1} = \frac{N_2}{N_1}, \qquad \frac{I_2}{I_1} = \frac{N_1}{N_2}, \qquad R_{\text{eq}} = \left(\frac{N_1}{N_2}\right)^2R
+    $$
+
+    - 송전 문제: 보내는 전력 $P = VI$에서 송전선 전류 $I = \dfrac{P}{V}$, 손실 $I^2R_{\text{line}}$.
+    - 부하의 저항은 2차 쪽에서 $R = \dfrac{V_2}{I_2}$, 1차 쪽에서 보면 $\dfrac{V_1}{I_1}$.
+  cards: [phys-circ-transformer]
+  lessons: [em-ac]

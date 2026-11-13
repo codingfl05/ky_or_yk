@@ -1,17 +1,34 @@
 ---
 import Base from '../layouts/Base.astro';
 import { icons } from '../lib/icons';
-import { base, content, subjectHref } from '../lib/site';
+import { base, content, lessons, subjectHref } from '../lib/site';
 
 const { subjects, cards } = content();
 const unverified = cards.filter((c) => !c.verified).length;
 const formulas = cards.filter((c) => c.kind === 'formula');
 const problems = cards.filter((c) => c.kind === 'problem');
+const tracks = lessons().tracks;
 const count = (sid: string) => formulas.filter((c) => c.subject === sid).length;
 ---
 <Base title="공식노트" nav="home">
   {unverified > 0 && (
     <a class="notice" href={`${base}review/`}>검토 필요 카드 {unverified}개 →</a>
+  )}
+  {tracks.length > 0 && (
+    <>
+      <p class="section-title">물리 학습 · 이야기로 읽기</p>
+      <div class="rows">
+        {tracks.map((t) => (
+          <a class="row" href={t.href}>
+            <div class="row-main">
+              <div class="row-title">{t.title}</div>
+              <div class="row-sub">{t.subtitle ?? ''} · 레슨 {t.lessons.length}편 + 흐름도·비교·요약</div>
+            </div>
+            <span class="chev" set:html={icons.chevron} />
+          </a>
+        ))}
+      </div>
+    </>
   )}
   <p class="section-title">문제 복습</p>
   <div class="rows">

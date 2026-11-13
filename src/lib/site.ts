@@ -1,4 +1,5 @@
-import { getContent } from './content';
+import { getContent, formatError } from './content';
+import { loadLessons, type LessonsResult } from './lessons';
 import { BUILD_ID } from './build';
 import type { CardKind, CardView, IndexPayload } from './types';
 
@@ -6,6 +7,16 @@ export const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 export function content() {
   return getContent(base);
+}
+
+let lessonCache: LessonsResult | null = null;
+/** 학습 섹션(이야기 레슨). 에러가 있으면 빌드를 멈춘다. */
+export function lessons(): LessonsResult {
+  if (lessonCache && process.env.NODE_ENV === 'production') return lessonCache;
+  const r = loadLessons(base, content());
+  if (r.errors.length) throw new Error(`레슨 에러 ${r.errors.length}개 (npm run validate 로 확인):\n` + r.errors.map(formatError).join('\n'));
+  lessonCache = r;
+  return r;
 }
 
 /** kind를 주지 않으면 공식·문제 모두 */

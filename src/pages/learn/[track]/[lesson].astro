@@ -1,0 +1,63 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { lessons } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return lessons().tracks.flatMap((t) => t.lessons.map((l) => ({ params: { track: t.id, lesson: l.slug } })));
+}
+const track = lessons().tracks.find((t) => t.id === Astro.params.track)!;
+const i = track.lessons.findIndex((l) => l.slug === Astro.params.lesson);
+const lesson = track.lessons[i];
+const prev = track.lessons[i - 1];
+const next = track.lessons[i + 1];
+---
+<Base title={lesson.title} subtitle={`${track.title} ${lesson.n}/${track.lessons.length} · ${lesson.minutes}분`} back={track.href} nav="learn">
+  <article class="lesson" data-lesson={lesson.id}>
+    <p class="lesson-hook">{lesson.hook}</p>
+    <div class="prose lesson-body" set:html={lesson.bodyHtml} />
+
+    {lesson.summaryHtml && (
+      <section class="lesson-summary">
+        <h2>한 줄 정리</h2>
+        <div class="prose" set:html={lesson.summaryHtml} />
+      </section>
+    )}
+
+    {lesson.quiz.length > 0 && (
+      <section class="lesson-quiz">
+        <h2>확인 퀴즈 <small>먼저 답을 떠올리고 탭</small></h2>
+        {lesson.quiz.map((q, k) => (
+          <details class="quiz">
+            <summary><span class="qn">Q{k + 1}</span><span class="prose" set:html={q.q} /></summary>
+            <div class="prose" set:html={q.a} />
+          </details>
+        ))}
+      </section>
+    )}
+
+    {lesson.cards.length > 0 && (
+      <section class="lesson-links">
+        <h2>공식 카드로 확인</h2>
+        <div class="chips">{lesson.cards.map((c) => <a class="chip" href={c.href}>{c.title}</a>)}</div>
+      </section>
+    )}
+    {lesson.problems.length > 0 && (
+      <section class="lesson-links">
+        <h2>이 내용을 쓰는 문제</h2>
+        <div class="chips">{lesson.problems.map((c) => <a class="chip" href={c.href}>{c.title}</a>)}</div>
+      </section>
+    )}
+
+    <button class="btn primary lesson-done" type="button" data-lesson-done={lesson.id} aria-pressed="false">
+      <span class="when-off">다 읽었어요</span>
+      <span class="when-on">읽음 ✓ (탭하면 취소)</span>
+    </button>
+    <nav class="lesson-nav">
+      {prev ? <a class="btn" href={prev.href}>← {prev.n}. {prev.title}</a> : <span />}
+      {next ? <a class="btn" href={next.href}>{next.n}. {next.title} →</a> : <a class="btn" href={track.href}>목차로 →</a>}
+    </nav>
+  </article>
+  <script>
+    import '../../../client/learn';
+  </script>
+</Base>

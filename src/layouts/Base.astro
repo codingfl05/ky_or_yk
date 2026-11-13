@@ -9,7 +9,7 @@ interface Props {
   /** 헤더 왼쪽 뒤로가기 링크 */
   back?: string;
   /** 하단 nav 활성 탭 */
-  nav?: 'home' | 'search' | 'flash' | 'saved';
+  nav?: 'home' | 'learn' | 'search' | 'flash' | 'saved';
   /** 헤더에 가리기 토글 표시 */
   hideToggle?: boolean;
   /** 헤더 아래 작은 부제 */
@@ -20,6 +20,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const pageTitle = title === '공식노트' ? '공식노트' : `${title} · 공식노트`;
 const tabs = [
   { key: 'home', href: base, label: '홈', icon: icons.home },
+  { key: 'learn', href: `${base}learn/`, label: '학습', icon: icons.learn },
   { key: 'search', href: `${base}search/`, label: '검색', icon: icons.search },
   { key: 'flash', href: `${base}flash/`, label: '플래시카드', icon: icons.flash },
   { key: 'saved', href: `${base}saved/`, label: '저장목록', icon: icons.saved },
