@@ -30,7 +30,7 @@ const chips = (label: string, list: { title: string; href: string }[]) =>
 const badgeOf = (c: CardView) =>
   c.verified
     ? ''
-    : `<span class="badge-review" role="button" tabindex="0" data-act="review" title="탭하면 보완 내용 표시">검토 필요</span>`;
+    : `<span class="badge-review" role="button" tabindex="0" data-act="review" title="검토 필요 (탭하면 보완 내용 표시)" aria-label="검토 필요"></span>`;
 const pathOf = (c: CardView, opts: Opts) =>
   opts.showPath ? `<a class="card-path" href="${esc(c.href)}">${c.kind === 'problem' ? '문제 · ' : ''}${esc(c.subjectName)} · ${esc(c.chapterName)}</a>` : '';
 const supplementOf = (c: CardView) =>

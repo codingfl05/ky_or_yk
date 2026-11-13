@@ -12,6 +12,7 @@ const prev = track.lessons[i - 1];
 const next = track.lessons[i + 1];
 ---
 <Base title={lesson.title} subtitle={`${track.title} ${lesson.n}/${track.lessons.length} · ${lesson.minutes}분`} back={track.href} nav="learn">
+  <div class="read-progress" aria-hidden="true"><i data-read-progress /></div>
   <article class="lesson" data-lesson={lesson.id}>
     <p class="lesson-hook">{lesson.hook}</p>
     <div class="prose lesson-body" set:html={lesson.bodyHtml} />

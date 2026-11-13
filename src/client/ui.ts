@@ -184,3 +184,19 @@ phone.addEventListener('change', () =>
     fitOne(fx);
   }),
 );
+
+// 읽기 화면(레슨·학습 모드·비교표·요약): 아래로 스크롤하면 하단 탭을 숨기고, 위로 올리면 다시 보인다.
+if (document.querySelector('.lesson, .study-wrap, .doc')) {
+  let lastY = scrollY;
+  addEventListener(
+    'scroll',
+    () => {
+      const y = scrollY;
+      const atBottom = y + innerHeight >= document.documentElement.scrollHeight - 4;
+      if (y < 80 || y < lastY - 6 || atBottom) root.classList.remove('nav-hidden');
+      else if (y > lastY + 6) root.classList.add('nav-hidden');
+      lastY = y;
+    },
+    { passive: true },
+  );
+}

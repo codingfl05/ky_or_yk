@@ -11,9 +11,13 @@ const tracks = lessons().tracks;
 const count = (sid: string) => formulas.filter((c) => c.subject === sid).length;
 ---
 <Base title="공식노트" nav="home">
-  {unverified > 0 && (
-    <a class="notice" href={`${base}review/`}>검토 필요 카드 {unverified}개 →</a>
-  )}
+  <a class="row continue-row" data-continue={JSON.stringify(tracks.map((t) => ({ title: t.title, lessons: t.lessons.map((l) => ({ id: l.id, n: l.n, title: l.title, href: l.href, minutes: l.minutes })) })))} hidden>
+    <div class="row-main">
+      <div class="row-sub" data-continue-label>이어서 읽기</div>
+      <div class="row-title" data-continue-title></div>
+    </div>
+    <span class="chev" set:html={icons.chevron} />
+  </a>
   {tracks.length > 0 && (
     <>
       <p class="section-title">물리 학습 · 이야기로 읽기</p>
@@ -56,5 +60,11 @@ const count = (sid: string) => formulas.filter((c) => c.subject === sid).length;
       </a>
     ))}
   </div>
-  <p class="section-title">공식 {formulas.length}개 · 문제 {problems.length}개</p>
+  <p class="section-title">
+    공식 {formulas.length}개 · 문제 {problems.length}개
+    {unverified > 0 && <> · <a class="review-link" href={`${base}review/`}><span class="badge-review" /> 검토 필요 {unverified}개</a></>}
+  </p>
+  <script>
+    import '../client/learn';
+  </script>
 </Base>

@@ -115,9 +115,7 @@ p {
   align-items: center;
   min-height: calc(var(--topbar-h) + env(safe-area-inset-top));
   padding: env(safe-area-inset-top) max(8px, env(safe-area-inset-right)) 0 max(8px, env(safe-area-inset-left));
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
-  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 .topbar-side {
@@ -213,9 +211,7 @@ main {
   grid-template-columns: repeat(5, 1fr);
   height: calc(var(--nav-h) + env(safe-area-inset-bottom));
   padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  background: color-mix(in srgb, var(--bg) 94%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
-  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  background: var(--bg);
   border-top: 1px solid var(--border);
 }
 .bottomnav a {
@@ -225,7 +221,7 @@ main {
   justify-content: center;
   gap: 1px;
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.72rem;
 }
 .bottomnav a > span:first-child {
   display: inline-flex;
@@ -383,16 +379,21 @@ main {
   vertical-align: 1px;
 }
 .badge-review {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 0 6px;
-  border-radius: 4px;
-  font-size: 0.68rem;
-  font-weight: 650;
-  line-height: 1.6;
-  vertical-align: 2px;
-  background: var(--review-soft);
-  color: var(--review);
+  /* 검토 필요 표시: 색칠된 점. 누르는 영역은 점보다 넓게 잡는다 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: -6px -4px -6px 0;
+  vertical-align: middle;
+}
+.badge-review::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--review);
 }
 .imp {
   display: inline-flex;
@@ -437,8 +438,9 @@ main {
 }
 .card-path {
   display: block;
-  padding: 0 12px;
-  font-size: 0.74rem;
+  padding: 6px 12px;
+  margin: -4px 0;
+  font-size: 0.78rem;
   color: var(--muted);
 }
 
@@ -491,7 +493,7 @@ html[data-hide='1'] .formula .fx:not(.revealed) {
   margin-top: 6px;
 }
 .card-body h4 {
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 650;
   color: var(--muted);
   margin-bottom: 1px;
@@ -572,8 +574,8 @@ html[data-review='1'] .supp,
 .badge-review[data-act] {
   cursor: pointer;
 }
-.card.show-supp .badge-review {
-  outline: 1px solid var(--review);
+.card.show-supp .badge-review::before {
+  box-shadow: 0 0 0 3px var(--review-soft), 0 0 0 4px var(--review);
 }
 
 /* 단원 소개 (_chapter.md) */
@@ -590,12 +592,12 @@ html[data-review='1'] .supp,
 .chip {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  padding: 0 10px;
-  border-radius: 15px;
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 19px;
   background: var(--surface-2);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   border: 1px solid transparent;
 }
 button.chip[aria-pressed='true'] {
@@ -610,7 +612,7 @@ button.chip[aria-pressed='true'] {
   gap: 4px 10px;
   align-items: baseline;
   justify-content: space-between;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--muted);
 }
 .tags {
@@ -1578,6 +1580,87 @@ details.quiz > div {
 .doc-sheet .doc-sec .prose td .katex,
 .doc-sheet .doc-sec .prose th .katex {
   font-size: 1em;
+}
+
+/* ------------------------------------------------------------ 모바일 다듬기 */
+.review-link {
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+}
+.review-link .badge-review {
+  width: 14px;
+  height: 14px;
+  margin: 0 4px 0 0;
+}
+.continue-row {
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  margin-bottom: 4px;
+}
+.continue-row .row-sub {
+  color: var(--accent);
+  font-weight: 600;
+}
+/* 읽기 화면: 스크롤 방향에 따라 하단 탭 숨김 */
+.bottomnav {
+  transition: transform 0.22s ease;
+}
+html.nav-hidden .bottomnav {
+  transform: translateY(100%);
+}
+.answer-bar {
+  transition: bottom 0.22s ease;
+}
+html.nav-hidden .answer-bar {
+  bottom: calc(env(safe-area-inset-bottom) + 8px);
+}
+/* 레슨 읽기 진행 막대 (상단 바 바로 아래) */
+.read-progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(var(--topbar-h) + env(safe-area-inset-top));
+  height: 3px;
+  z-index: 19;
+  pointer-events: none;
+}
+.read-progress > i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+}
+/* 플래시카드 설정: 시작 버튼을 하단 탭 위에 고정 */
+#setup #start {
+  position: sticky;
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 8px);
+  z-index: 5;
+  box-shadow: 0 0 0 6px var(--bg);
+}
+#setup .field {
+  margin-bottom: 11px;
+}
+/* 흐름도: 지금까지 고른 경로 */
+.flow-path {
+  font-size: 0.82rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 7px 10px;
+  margin: -4px 0 12px;
+  line-height: 1.45;
+}
+.lesson h2 small {
+  font-size: 0.75rem;
+}
+.small a,
+.section-title a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
 }
 
 /* ------------------------------------------------------------ 폰 전용 (웹은 그대로) */

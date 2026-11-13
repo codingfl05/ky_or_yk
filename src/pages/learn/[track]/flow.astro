@@ -12,8 +12,8 @@ const track = lessons().tracks.find((t) => t.id === Astro.params.track)!;
     <div class="flow-bar">
       <button class="btn" type="button" data-flow-back disabled>← 이전</button>
       <button class="btn" type="button" data-flow-reset>처음으로</button>
-      <span class="flow-path muted small" data-flow-path></span>
     </div>
+    <p class="flow-path" data-flow-path hidden></p>
     {track.flow.map((n) => (
       <section class="flow-node" data-node={n.id} hidden={n.id !== 'start'}>
         <h2>{n.title}</h2>

@@ -1,5 +1,5 @@
 // 학습 섹션: 읽음 표시, 진행률, 흐름도 이동, 위젯 초기화.
-import { isLessonDone, setLessonDone } from './storage';
+import { getState, isLessonDone, setLessonDone } from './storage';
 import { initWidgets } from './widgets';
 
 function syncProgress() {
@@ -35,11 +35,15 @@ function initFlow(root: HTMLElement) {
   const back = root.querySelector<HTMLButtonElement>('[data-flow-back]')!;
   const pathEl = root.querySelector<HTMLElement>('[data-flow-path]')!;
   let stack: string[] = ['start'];
+  /** 지금까지 고른 선택지의 글자 (stack[i] → stack[i+1]로 간 버튼) */
+  const labels = () =>
+    stack.slice(1).map((id, i) => nodes.get(stack[i])?.querySelector<HTMLElement>(`[data-to="${id}"]`)?.textContent?.trim() ?? id);
   const show = (push = true) => {
     const cur = stack[stack.length - 1];
     nodes.forEach((n, id) => (n.hidden = id !== cur));
     back.disabled = stack.length < 2;
-    pathEl.textContent = stack.length > 1 ? `${stack.length - 1}단계` : '';
+    pathEl.hidden = stack.length < 2;
+    pathEl.textContent = labels().join(' › ');
     if (push) history.replaceState(null, '', stack.length > 1 ? `#${stack.join('/')}` : location.pathname);
     window.scrollTo({ top: 0 });
   };
@@ -65,6 +69,52 @@ function initFlow(root: HTMLElement) {
   }
 }
 
+// ---- 홈의 "이어서 읽기": 가장 최근에 읽은 트랙의 다음 안 읽은 레슨 (없으면 첫 트랙의 첫 레슨)
+type ContinueTrack = { title: string; lessons: { id: string; n: number; title: string; href: string; minutes: number }[] };
+function syncContinue() {
+  const row = document.querySelector<HTMLAnchorElement>('[data-continue]');
+  if (!row) return;
+  let tracks: ContinueTrack[] = [];
+  try {
+    tracks = JSON.parse(row.dataset.continue || '[]');
+  } catch {
+    return;
+  }
+  const done = getState().lessons;
+  const withNext = tracks
+    .map((t) => ({
+      t,
+      next: t.lessons.find((l) => !(l.id in done)),
+      last: Math.max(0, ...t.lessons.map((l) => done[l.id] ?? 0)),
+      read: t.lessons.filter((l) => l.id in done).length,
+    }))
+    .filter((x) => x.next);
+  if (!withNext.length) {
+    row.hidden = true;
+    return;
+  }
+  const pick = withNext.sort((a, b) => b.last - a.last)[0];
+  row.href = pick.next!.href;
+  row.querySelector('[data-continue-label]')!.textContent =
+    `${pick.read ? '이어서 읽기' : '읽기 시작'} · ${pick.t.title} ${pick.read}/${pick.t.lessons.length} · ${pick.next!.minutes}분`;
+  row.querySelector('[data-continue-title]')!.textContent = `${pick.next!.n}. ${pick.next!.title}`;
+  row.hidden = false;
+}
+document.addEventListener('kyyk:state', syncContinue);
+
+// ---- 레슨 읽기 진행 막대
+const readBar = document.querySelector<HTMLElement>('[data-read-progress]');
+if (readBar) {
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    readBar.style.width = `${max > 0 ? Math.min(scrollY / max, 1) * 100 : 0}%`;
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+}
+
 document.querySelectorAll<HTMLElement>('[data-flow]').forEach(initFlow);
+syncContinue();
 initWidgets();
 syncProgress();

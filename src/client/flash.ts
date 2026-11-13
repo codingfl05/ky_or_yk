@@ -165,7 +165,7 @@ function draw() {
   const c = deck[idx];
   $('#pos').textContent = `${idx + 1} / ${deck.length}`;
   $('#bar').style.width = `${(idx / deck.length) * 100}%`;
-  const badge = c.verified ? '' : ' <span class="badge-review">검토 필요</span>';
+  const badge = c.verified ? '' : ' <span class="badge-review" title="검토 필요" aria-label="검토 필요"></span>';
   let html: string;
   if (c.kind === 'problem') {
     // 문제: 앞면 = 출처 + 문제 요약(+그림), 뒷면 = 핵심 아이디어 + 막힌 곳 + 정답 (풀이는 접힘)
