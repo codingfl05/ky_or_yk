@@ -4,7 +4,7 @@ title_ko: "폭 L인 무한 도체판 옆 같은 평면 위 점의 자기장"
 source: "문제 166 (교재명 미상)"
 difficulty: 2
 tags: [자기장, 도체판, 면전류, 직선 도선, 미소 요소, 적분, magnetic field, current sheet, infinite wire, integration]
-related: [phys-em-infinitesimal-elements]
+related: [phys-em-infinitesimal-elements, phys-em-biot-savart]
 images: []
 verified: false
 ---
