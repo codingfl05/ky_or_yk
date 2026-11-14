@@ -8,7 +8,8 @@
     "build": "npm run validate && astro build",
     "preview": "astro preview",
     "new": "tsx scripts/new-card.ts",
-    "ingest": "tsx scripts/ingest.ts"
+    "ingest": "tsx scripts/ingest.ts",
+    "check:width": "AUDIT_TEX=1 astro build && node scripts/check-width.cjs"
   },
   "repository": {
     "type": "git",

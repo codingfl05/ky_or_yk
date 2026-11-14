@@ -73,6 +73,16 @@ verified: false
 - 수식 안에 한글을 쓰지 않는다. 꼭 필요하면 \text{한글}.
 - 첨자의 단어는 \text: Q_{\text{in}}, T_{\text{H}}. 단위는 숫자와 \, 띄우고 \text: 300\,\text{K}
 - 벡터 \mathbf{E}, 상수 \varepsilon_0, \mu_0. 행렬 \begin{pmatrix}...\end{pmatrix}. MathJax 전용 명령 금지.
+- 폰 화면(좁은 폭)에서 본다. 블록 수식 한 줄에는 "분수 2~3개가 섞인 등식 하나" 정도만 들어간다.
+  - 공식 여러 개를 \qquad 로 한 줄에 나열하지 않는다. 공식마다 $$ 블록을 따로 쓴다 (블록 사이에 빈 줄).
+  - 등호가 3개 이상 이어지는 긴 식은 여러 줄로:
+    \begin{aligned}
+    &A = B \\
+    &\quad {}= C = D
+    \end{aligned}
+    (줄 맨 앞에 &, 이어지는 줄은 &\quad 뒤에 {}= 처럼 연산자를 앞에 둔다. 괄호·분수 안에서는 끊지 않는다.)
+  - 조건 (…) 은 식의 다음 줄에 붙인다. 화살표(\Rightarrow)만 있는 블록은 만들지 않는다.
+  - 표의 칸에 긴 분수식을 넣지 않는다 (목록으로 쓴다). 문단 안의 긴 인라인 수식은 블록으로 뺀다.
 
 [과목/단원 폴더와 단원 prefix]
 physics/mechanics (phys-mech), physics/rotation (phys-rot), physics/waves (phys-wave, 진동·파동), physics/fluids (phys-fluid),
