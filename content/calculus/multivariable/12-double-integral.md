@@ -12,11 +12,17 @@ verified: false
 
 ## formula
 $$
-\int_a^b\int_c^d f(x, y)\,dy\,dx = \int_c^d\int_a^b f(x, y)\,dx\,dy \qquad (R = [a, b]\times[c, d])
+\begin{aligned}
+&\int_a^b\int_c^d f(x, y)\,dy\,dx = \int_c^d\int_a^b f(x, y)\,dx\,dy \\
+&(R = [a, b]\times[c, d])
+\end{aligned}
 $$
 
 $$
-\iint_D f(x, y)\,dA = \int_a^b\int_{g_1(x)}^{g_2(x)} f(x, y)\,dy\,dx = \int_c^d\int_{h_1(y)}^{h_2(y)} f(x, y)\,dx\,dy
+\begin{aligned}
+&\iint_D f(x, y)\,dA = \int_a^b\int_{g_1(x)}^{g_2(x)} f(x, y)\,dy\,dx \\
+&\quad {}= \int_c^d\int_{h_1(y)}^{h_2(y)} f(x, y)\,dx\,dy
+\end{aligned}
 $$
 
 ## conditions

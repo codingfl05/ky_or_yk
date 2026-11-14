@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-\mu = NiA, \qquad \boldsymbol{\tau} = \boldsymbol{\mu}\times\mathbf{B}\ (\tau = NiAB\sin\theta), \qquad U = -\boldsymbol{\mu}\cdot\mathbf{B}
+\mu = NiA
+$$
+
+$$
+\boldsymbol{\tau} = \boldsymbol{\mu}\times\mathbf{B}\ (\tau = NiAB\sin\theta)
+$$
+
+$$
+U = -\boldsymbol{\mu}\cdot\mathbf{B}
 $$
 
 ## conditions

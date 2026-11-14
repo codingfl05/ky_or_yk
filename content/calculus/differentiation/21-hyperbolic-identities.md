@@ -12,11 +12,23 @@ verified: false
 
 ## formula
 $$
-\cosh^2 x - \sinh^2 x = 1, \qquad 1 - \tanh^2 x = \operatorname{sech}^2 x, \qquad \coth^2 x - 1 = \operatorname{csch}^2 x
+\cosh^2 x - \sinh^2 x = 1
 $$
 
 $$
-\sinh(x \pm y) = \sinh x \cosh y \pm \cosh x \sinh y, \qquad \cosh(x \pm y) = \cosh x \cosh y \pm \sinh x \sinh y
+1 - \tanh^2 x = \operatorname{sech}^2 x
+$$
+
+$$
+\coth^2 x - 1 = \operatorname{csch}^2 x
+$$
+
+$$
+\sinh(x \pm y) = \sinh x \cosh y \pm \cosh x \sinh y
+$$
+
+$$
+\cosh(x \pm y) = \cosh x \cosh y \pm \sinh x \sinh y
 $$
 
 $$

@@ -16,7 +16,10 @@ F_c = \frac{mv^2}{r} = mr\omega^2
 $$
 
 $$
-\text{vertical loop top: } mg + N = \frac{mv^2}{r} \ \Rightarrow\ v_{\text{top}} \ge \sqrt{gr}
+\begin{aligned}
+&\text{vertical loop top: } mg + N = \frac{mv^2}{r} \\
+&\quad {}\Rightarrow v_{\text{top}} \ge \sqrt{gr}
+\end{aligned}
 $$
 
 ## conditions

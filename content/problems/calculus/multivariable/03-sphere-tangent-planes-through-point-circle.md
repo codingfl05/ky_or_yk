@@ -30,7 +30,11 @@ $\dfrac{20\pi}{\sqrt{29}}$
 구의 반지름 $R$, 구의 중심에서 평면까지 거리 $d$이면 단면 원의 반지름은 피타고라스로 $r = \sqrt{R^2 - d^2}$.
 
 $$
-d = \frac{\lvert 2\cdot 0 + 3\cdot 0 + 4\cdot 0 - 4\rvert}{\sqrt{2^2 + 3^2 + 4^2}} = \frac{4}{\sqrt{29}}, \qquad r^2 = 4 - \frac{16}{29} = \frac{100}{29}
+d = \frac{\lvert 2\cdot 0 + 3\cdot 0 + 4\cdot 0 - 4\rvert}{\sqrt{2^2 + 3^2 + 4^2}} = \frac{4}{\sqrt{29}}
+$$
+
+$$
+r^2 = 4 - \frac{16}{29} = \frac{100}{29}
 $$
 
 ## mistakes

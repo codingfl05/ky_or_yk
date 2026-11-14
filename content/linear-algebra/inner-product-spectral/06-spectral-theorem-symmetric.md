@@ -12,15 +12,24 @@ verified: false
 
 ## formula
 $$
-A={}^tA \implies V\ \text{has an orthonormal basis of eigenvectors of}\ A
+\begin{aligned}
+&A={}^tA \implies V\ \text{has an orthonormal basis} \\
+&\qquad\qquad\quad \text{of eigenvectors of}\ A
+\end{aligned}
 $$
 
 $$
-\exists\, U\ (\text{real unitary}) \ \text{s.t.}\ {}^tUAU = U^{-1}AU = D\ (\text{diagonal})
+\begin{aligned}
+&\exists\, U\ (\text{real unitary}) \ \text{s.t.} \\
+&\quad {}^tUAU = U^{-1}AU = D\ (\text{diagonal})
+\end{aligned}
 $$
 
 $$
-\lambda_1\ne\lambda_2 \implies (\lambda_1-\lambda_2)\langle v_1,v_2\rangle=0 \implies v_1\perp v_2
+\begin{aligned}
+&\lambda_1\ne\lambda_2 \implies (\lambda_1-\lambda_2)\langle v_1,v_2\rangle=0 \\
+&\quad {}\implies v_1\perp v_2
+\end{aligned}
 $$
 
 ## conditions

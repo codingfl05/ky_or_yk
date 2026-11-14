@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-c_1\mathbf v_1 + c_2\mathbf v_2 + \cdots + c_k\mathbf v_k = \mathbf 0 \ \Rightarrow\ c_1=c_2=\cdots=c_k=0
+\begin{aligned}
+&c_1\mathbf v_1 + c_2\mathbf v_2 + \cdots + c_k\mathbf v_k = \mathbf 0 \\
+&\quad {}\Rightarrow c_1=c_2=\cdots=c_k=0
+\end{aligned}
 $$
 
 ## explanation

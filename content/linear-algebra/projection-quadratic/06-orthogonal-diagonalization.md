@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-A \text{ orthogonally diagonalizable} \iff A \text{ has } n \text{ orthonormal eigenvectors} \iff A \text{ is symmetric}
+\begin{aligned}
+&A \text{ orthogonally diagonalizable} \\
+&\quad {}\iff A \text{ has } n \text{ orthonormal eigenvectors} \\
+&\quad {}\iff A \text{ is symmetric}
+\end{aligned}
 $$
 
 $$

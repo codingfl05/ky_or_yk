@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-v_{\text{com}} = R\omega, \qquad K = \frac{1}{2}Mv_{\text{com}}^2 + \frac{1}{2}I_{\text{com}}\omega^2 = \frac{1}{2}I_P\omega^2
+v_{\text{com}} = R\omega
+$$
+
+$$
+K = \frac{1}{2}Mv_{\text{com}}^2 + \frac{1}{2}I_{\text{com}}\omega^2 = \frac{1}{2}I_P\omega^2
 $$
 
 $$

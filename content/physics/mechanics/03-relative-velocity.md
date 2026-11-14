@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-\mathbf{r}_{PA} = \mathbf{r}_{PB} + \mathbf{r}_{BA}, \qquad \mathbf{v}_{PA} = \mathbf{v}_{PB} + \mathbf{v}_{BA}, \qquad \mathbf{a}_{PA} = \mathbf{a}_{PB} + \mathbf{a}_{BA}
+\mathbf{r}_{PA} = \mathbf{r}_{PB} + \mathbf{r}_{BA}
+$$
+
+$$
+\mathbf{v}_{PA} = \mathbf{v}_{PB} + \mathbf{v}_{BA}
+$$
+
+$$
+\mathbf{a}_{PA} = \mathbf{a}_{PB} + \mathbf{a}_{BA}
 $$
 
 ## conditions

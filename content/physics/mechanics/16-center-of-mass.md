@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-x_{\text{com}} = \frac{\sum m_ix_i}{\sum m_i} = \frac{1}{M}\int x\,dm, \qquad \mathbf{F}_{\text{net,ext}} = M\mathbf{a}_{\text{com}}
+x_{\text{com}} = \frac{\sum m_ix_i}{\sum m_i} = \frac{1}{M}\int x\,dm
+$$
+
+$$
+\mathbf{F}_{\text{net,ext}} = M\mathbf{a}_{\text{com}}
 $$
 
 ## conditions

@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-f'' > 0 \Rightarrow \text{concave up (convex)}, \qquad f'' < 0 \Rightarrow \text{concave down}
+f'' > 0 \Rightarrow \text{concave up (convex)}
 $$
 
 $$
-\text{convex:} \ f\!\left(\frac{a+b}{2}\right) \le \frac{f(a) + f(b)}{2}, \qquad \text{concave:} \ f\!\left(\frac{a+b}{2}\right) \ge \frac{f(a) + f(b)}{2}
+f'' < 0 \Rightarrow \text{concave down}
+$$
+
+$$
+\text{convex:} \ f\!\left(\frac{a+b}{2}\right) \le \frac{f(a) + f(b)}{2}
+$$
+
+$$
+\text{concave:} \ f\!\left(\frac{a+b}{2}\right) \ge \frac{f(a) + f(b)}{2}
 $$
 
 ## conditions

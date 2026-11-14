@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\vec u \times \vec v = (\|\vec u\|\|\vec v\|\sin\theta)\,\mathbf n, \qquad \vec u \parallel \vec v \iff \vec u\times\vec v = \vec 0
+\vec u \times \vec v = (\|\vec u\|\|\vec v\|\sin\theta)\,\mathbf n
+$$
+
+$$
+\vec u \parallel \vec v \iff \vec u\times\vec v = \vec 0
 $$
 
 $$

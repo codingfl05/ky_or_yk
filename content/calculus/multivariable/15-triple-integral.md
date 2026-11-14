@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\iiint_E f\,dV = \int_c^d\int_{h_1(y)}^{h_2(y)}\int_{u_1(x, y)}^{u_2(x, y)} f(x, y, z)\,dz\,dx\,dy
+\begin{aligned}
+&\iiint_E f\,dV \\
+&\quad {}= \int_c^d\int_{h_1(y)}^{h_2(y)}\int_{u_1(x, y)}^{u_2(x, y)} f(x, y, z)\,dz\,dx\,dy
+\end{aligned}
 $$
 
 ## conditions

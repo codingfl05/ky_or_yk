@@ -16,7 +16,11 @@ S_{\text{parallelogram}} = |\mathbf{a}\times\mathbf{b}|, \qquad S_{\text{triangl
 $$
 
 $$
-V_{\text{parallelepiped}} = |\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|, \qquad V_{\text{tetrahedron}} = \frac{1}{6}|\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|
+V_{\text{parallelepiped}} = |\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|
+$$
+
+$$
+V_{\text{tetrahedron}} = \frac{1}{6}|\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|
 $$
 
 ## conditions

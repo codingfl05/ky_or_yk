@@ -11,7 +11,19 @@ verified: false
 
 ## formula
 $$
-\det(AB) = \det(A)\det(B), \qquad \det(A^{-1}) = \frac{1}{\det(A)}, \qquad \det(A^T) = \det(A), \qquad \det(kA) = k^n\det(A)
+\det(AB) = \det(A)\det(B)
+$$
+
+$$
+\det(A^{-1}) = \frac{1}{\det(A)}
+$$
+
+$$
+\det(A^T) = \det(A)
+$$
+
+$$
+\det(kA) = k^n\det(A)
 $$
 
 ## explanation

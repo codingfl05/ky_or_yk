@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-\pi\,\text{rad} = 180^\circ, \qquad 1^\circ = \frac{\pi}{180}\,\text{rad}, \qquad 1\,\text{rad} = \frac{180^\circ}{\pi} \approx 57.3^\circ
+\pi\,\text{rad} = 180^\circ
+$$
+
+$$
+1^\circ = \frac{\pi}{180}\,\text{rad}
+$$
+
+$$
+1\,\text{rad} = \frac{180^\circ}{\pi} \approx 57.3^\circ
 $$
 
 $$

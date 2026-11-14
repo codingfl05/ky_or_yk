@@ -45,7 +45,15 @@
     3. $\varepsilon_0 E A = q_{\text{enc}}$. $A$는 전기장이 뚫고 나가는 넓이만.
 
     $$
-    E_{\text{line}} = \frac{\lambda}{2\pi\varepsilon_0 r}, \qquad E_{\text{sheet}} = \frac{\sigma}{2\varepsilon_0}, \qquad E_{\text{sphere}} = \begin{cases}\dfrac{kq}{R^3}r & (r<R)\\ \dfrac{kq}{r^2} & (r\ge R)\end{cases}
+    E_{\text{line}} = \frac{\lambda}{2\pi\varepsilon_0 r}
+    $$
+
+    $$
+    E_{\text{sheet}} = \frac{\sigma}{2\varepsilon_0}
+    $$
+
+    $$
+    E_{\text{sphere}} = \begin{cases}\dfrac{kq}{R^3}r & (r<R)\\ \dfrac{kq}{r^2} & (r\ge R)\end{cases}
     $$
 
     여러 개가 있으면 (평행한 두 직선, 두 평면) 각각 구해서 벡터로 더한다.
@@ -61,7 +69,15 @@
     4. 대칭으로 지워지는 성분을 지우고 남는 성분만 적분한다.
 
     $$
-    E_{\text{arc}} = \frac{2k\lambda}{R}\sin\frac{\theta}{2}, \qquad E_{\text{ring}} = \frac{kqz}{(z^2+R^2)^{3/2}}, \qquad E_{\text{disk}} = \frac{\sigma}{2\varepsilon_0}\left(1-\frac{z}{\sqrt{z^2+R^2}}\right)
+    E_{\text{arc}} = \frac{2k\lambda}{R}\sin\frac{\theta}{2}
+    $$
+
+    $$
+    E_{\text{ring}} = \frac{kqz}{(z^2+R^2)^{3/2}}
+    $$
+
+    $$
+    E_{\text{disk}} = \frac{\sigma}{2\varepsilon_0}\left(1-\frac{z}{\sqrt{z^2+R^2}}\right)
     $$
 
     지름길: 축 위의 점이라면 전위 $V(z)$를 먼저 구하고 (스칼라라 쉽다) $E_z = -\dfrac{dV}{dz}$로 미분한다.
@@ -138,7 +154,15 @@
   title: 에너지 보존 한 줄
   body: |
     $$
-    U = qV, \qquad \Delta K = -q\,\Delta V, \qquad W_{\text{ext}} = q\,\Delta V\ (\text{천천히 옮길 때})
+    U = qV
+    $$
+
+    $$
+    \Delta K = -q\,\Delta V
+    $$
+
+    $$
+    W_{\text{ext}} = q\,\Delta V\ (\text{천천히 옮길 때})
     $$
 
     - 전위차 $V$로 가속: $\frac{1}{2}mv^2 = |q|V$.
@@ -208,7 +232,15 @@
     4. $C = \dfrac{q}{V}$. $q$가 약분된다.
 
     $$
-    C_{\text{plate}} = \frac{\varepsilon_0A}{d}, \qquad C_{\text{cyl}} = \frac{2\pi\varepsilon_0L}{\ln(b/a)}, \qquad C_{\text{sph}} = 4\pi\varepsilon_0\frac{ab}{b-a}
+    C_{\text{plate}} = \frac{\varepsilon_0A}{d}
+    $$
+
+    $$
+    C_{\text{cyl}} = \frac{2\pi\varepsilon_0L}{\ln(b/a)}
+    $$
+
+    $$
+    C_{\text{sph}} = 4\pi\varepsilon_0\frac{ab}{b-a}
     $$
 
     유전체가 판 사이를 나눠 채우고 있으면: 넓이를 나눠 채웠으면 병렬, 간격을 나눠 채웠으면 직렬인 축전기 두 개로 본다.
@@ -328,7 +360,15 @@
     3. $B\cdot(\text{length}) = \mu_0 i_{\text{enc}}$.
 
     $$
-    B_{\text{wire}} = \begin{cases}\dfrac{\mu_0 i}{2\pi R^2}r & (r<R)\\ \dfrac{\mu_0 i}{2\pi r} & (r\ge R)\end{cases}, \qquad B_{\text{solenoid}} = \mu_0 ni, \qquad B_{\text{toroid}} = \frac{\mu_0Ni}{2\pi r}
+    B_{\text{wire}} = \begin{cases}\dfrac{\mu_0 i}{2\pi R^2}r & (r<R)\\ \dfrac{\mu_0 i}{2\pi r} & (r\ge R)\end{cases}
+    $$
+
+    $$
+    B_{\text{solenoid}} = \mu_0 ni
+    $$
+
+    $$
+    B_{\text{toroid}} = \frac{\mu_0Ni}{2\pi r}
     $$
   cards: [phys-em-ampere-law]
   lessons: [em-magnetic-field]
@@ -337,7 +377,15 @@
   title: 조각별로 구해 더한다. 연장선 위의 직선은 0
   body: |
     $$
-    B_{\text{arc}} = \frac{\mu_0 i\,\phi}{4\pi R}, \qquad B_{\text{loop}} = \frac{\mu_0 i}{2R}, \qquad B_{\text{axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
+    B_{\text{arc}} = \frac{\mu_0 i\,\phi}{4\pi R}
+    $$
+
+    $$
+    B_{\text{loop}} = \frac{\mu_0 i}{2R}
+    $$
+
+    $$
+    B_{\text{axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
     $$
 
     1. 도선을 직선 부분과 원호 부분으로 나눈다.
@@ -461,7 +509,19 @@
   title: 운동 기전력 BLv, 힘은 항상 방해
   body: |
     $$
-    \mathcal{E} = BLv, \qquad i = \frac{BLv}{R}, \qquad F = \frac{B^2L^2v}{R}, \qquad P = Fv = i^2R
+    \mathcal{E} = BLv
+    $$
+
+    $$
+    i = \frac{BLv}{R}
+    $$
+
+    $$
+    F = \frac{B^2L^2v}{R}
+    $$
+
+    $$
+    P = Fv = i^2R
     $$
 
     - $L$은 속도에 수직인 방향의 길이 (자기장 경계를 지나고 있는 변의 길이).
@@ -532,7 +592,15 @@
   title: 처음 값에서 끝 값으로 가는 지수 곡선
   body: |
     $$
-    x(t) = x_\infty + (x_0 - x_\infty)e^{-t/\tau}, \qquad \tau_{RC} = RC, \qquad \tau_{RL} = \frac{L}{R}
+    x(t) = x_\infty + (x_0 - x_\infty)e^{-t/\tau}
+    $$
+
+    $$
+    \tau_{RC} = RC
+    $$
+
+    $$
+    \tau_{RL} = \frac{L}{R}
     $$
 
     처음 값 $x_0$와 끝 값 $x_\infty$만 정하면 된다 (앞 단계의 "도선/끊긴 선" 방법으로 구한다).
@@ -548,7 +616,19 @@
   title: 용수철 진동으로 번역한다
   body: |
     $$
-    \omega = \frac{1}{\sqrt{LC}}, \qquad q = Q\cos\omega t, \qquad i = -\omega Q\sin\omega t, \qquad \frac{q^2}{2C} + \frac{1}{2}Li^2 = \frac{Q^2}{2C}
+    \omega = \frac{1}{\sqrt{LC}}
+    $$
+
+    $$
+    q = Q\cos\omega t
+    $$
+
+    $$
+    i = -\omega Q\sin\omega t
+    $$
+
+    $$
+    \frac{q^2}{2C} + \frac{1}{2}Li^2 = \frac{Q^2}{2C}
     $$
 
     - 전하 최대 ↔ 전류 0, 전하 0 ↔ 전류 최대 ($I = \omega Q$).
@@ -570,7 +650,15 @@
   title: 리액턴스로 크기, 위상은 소자의 성격으로
   body: |
     $$
-    V_R = IR, \qquad V_C = IX_C = \frac{I}{\omega C}, \qquad V_L = IX_L = I\omega L
+    V_R = IR
+    $$
+
+    $$
+    V_C = IX_C = \frac{I}{\omega C}
+    $$
+
+    $$
+    V_L = IX_L = I\omega L
     $$
 
     - 저항: 전류와 전압이 동시.
@@ -584,7 +672,15 @@
   title: 임피던스 → 전류 → 각 소자의 전압
   body: |
     $$
-    Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I = \frac{V_m}{Z}, \qquad \tan\phi = \frac{X_L - X_C}{R}
+    Z = \sqrt{R^2 + (X_L - X_C)^2}
+    $$
+
+    $$
+    I = \frac{V_m}{Z}
+    $$
+
+    $$
+    \tan\phi = \frac{X_L - X_C}{R}
     $$
 
     1. $X_L = \omega L$, $X_C = \dfrac{1}{\omega C}$.
@@ -600,7 +696,15 @@
   title: 공명은 X_L = X_C, 전력은 저항만
   body: |
     $$
-    \omega_{\text{res}} = \frac{1}{\sqrt{LC}}, \qquad P_{\text{avg}} = I_{\text{rms}}^2R = V_{\text{rms}}I_{\text{rms}}\cos\phi, \qquad \cos\phi = \frac{R}{Z}
+    \omega_{\text{res}} = \frac{1}{\sqrt{LC}}
+    $$
+
+    $$
+    P_{\text{avg}} = I_{\text{rms}}^2R = V_{\text{rms}}I_{\text{rms}}\cos\phi
+    $$
+
+    $$
+    \cos\phi = \frac{R}{Z}
     $$
 
     - rms = 최댓값 ÷ $\sqrt2$. 전압·전류 모두.

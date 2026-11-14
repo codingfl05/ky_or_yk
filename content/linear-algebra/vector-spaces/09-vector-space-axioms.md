@@ -15,7 +15,10 @@ $$
 $$
 
 $$
-k(\mathbf u+\mathbf v)=k\mathbf u+k\mathbf v,\quad (k+l)\mathbf u = k\mathbf u+l\mathbf u,\quad k(l\mathbf u)=(kl)\mathbf u,\quad 1\cdot\mathbf u=\mathbf u
+\begin{aligned}
+&k(\mathbf u+\mathbf v)=k\mathbf u+k\mathbf v, \quad (k+l)\mathbf u = k\mathbf u+l\mathbf u, \\
+&k(l\mathbf u)=(kl)\mathbf u, \quad 1\cdot\mathbf u=\mathbf u
+\end{aligned}
 $$
 
 ## conditions

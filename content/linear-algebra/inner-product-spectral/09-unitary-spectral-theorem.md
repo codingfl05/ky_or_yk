@@ -11,11 +11,17 @@ verified: false
 
 ## formula
 $$
-U\ \text{unitary} \implies V\ \text{has an orthonormal basis of eigenvectors of}\ U
+\begin{aligned}
+&U\ \text{unitary} \implies V\ \text{has an orthonormal basis} \\
+&\qquad\qquad\qquad \text{of eigenvectors of}\ U
+\end{aligned}
 $$
 
 $$
-\|Uv\|=\|\lambda v\|=|\lambda|\|v\|=\|v\| \implies |\lambda|=1\ (\lambda=e^{i\theta})
+\begin{aligned}
+&\|Uv\|=\|\lambda v\|=|\lambda|\|v\|=\|v\| \\
+&\quad {}\implies |\lambda|=1\ (\lambda=e^{i\theta})
+\end{aligned}
 $$
 
 ## conditions

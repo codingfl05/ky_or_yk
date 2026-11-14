@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-A^{-1}=A^T \iff AA^T=A^TA=I \iff \text{rows (columns) of } A \text{ are orthonormal}
+\begin{aligned}
+&A^{-1}=A^T \iff AA^T=A^TA=I \\
+&\quad {}\iff \text{rows (columns) of } A \text{ are orthonormal}
+\end{aligned}
 $$
 
 ## explanation

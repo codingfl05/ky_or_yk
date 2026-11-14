@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-M(x,y)+N(x,y)y'=0 \text{ is exact} \iff M_y(x,y)=N_x(x,y)
+\begin{aligned}
+&M(x,y)+N(x,y)y'=0 \text{ is exact} \\
+&\quad {}\iff M_y(x,y)=N_x(x,y)
+\end{aligned}
 $$
 
 $$

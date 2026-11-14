@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\|\vec v\| = \sqrt{v_1^2+v_2^2+\cdots+v_n^2}, \qquad d(\vec u,\vec v)=\|\vec u-\vec v\|
+\|\vec v\| = \sqrt{v_1^2+v_2^2+\cdots+v_n^2}
+$$
+
+$$
+d(\vec u,\vec v)=\|\vec u-\vec v\|
 $$
 
 $$

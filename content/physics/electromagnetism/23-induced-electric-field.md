@@ -32,7 +32,11 @@ $$
 $n=500\,\text{m}^{-1}$, $\dfrac{di}{dt}=100\,\text{A/s}$, 단면적 $1\,\text{cm}^2$인 솔레노이드 바깥의 동심 원형 도선 (교재 예제):
 
 $$
-\frac{dB}{dt}=\mu_0n\frac{di}{dt}=2\pi\times10^{-2}\,\text{T/s}, \qquad \mathcal{E}=A\frac{dB}{dt}=2\pi\times10^{-6}\,\text{V}\approx6.3\,\mu\text{V}
+\frac{dB}{dt}=\mu_0n\frac{di}{dt}=2\pi\times10^{-2}\,\text{T/s}
+$$
+
+$$
+\mathcal{E}=A\frac{dB}{dt}=2\pi\times10^{-6}\,\text{V}\approx6.3\,\mu\text{V}
 $$
 
 반지름 $2\,\text{cm}$ 도선 위 전기장: $E=\dfrac{\mathcal{E}}{2\pi r}=5\times10^{-5}\,\text{V/m}$

@@ -12,7 +12,12 @@ verified: false
 
 ## formula
 $$
-A \text{ invertible} \iff \det(A)\neq0 \iff \operatorname{rank}(A)=n \iff \operatorname{nullity}(A)=0 \iff 0 \text{ is not an eigenvalue}
+\begin{aligned}
+&A \text{ invertible} \iff \det(A)\neq0 \\
+&\quad {}\iff \operatorname{rank}(A)=n \\
+&\quad {}\iff \operatorname{nullity}(A)=0 \\
+&\quad {}\iff 0 \text{ is not an eigenvalue}
+\end{aligned}
 $$
 
 ## conditions

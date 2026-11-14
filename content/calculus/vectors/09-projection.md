@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\operatorname{proj}_{\mathbf{a}}\mathbf{b} = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}|^2}\,\mathbf{a}, \qquad \operatorname{comp}_{\mathbf{a}}\mathbf{b} = |\mathbf{b}|\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}|}
+\operatorname{proj}_{\mathbf{a}}\mathbf{b} = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}|^2}\,\mathbf{a}
+$$
+
+$$
+\operatorname{comp}_{\mathbf{a}}\mathbf{b} = |\mathbf{b}|\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}|}
 $$
 
 ## conditions

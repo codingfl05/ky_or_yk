@@ -78,7 +78,10 @@ const KATEX_BASE: katex.KatexOptions = {
 
 function renderTex(tex: string, displayMode: boolean): { html: string; error?: string } {
   try {
-    return { html: katex.renderToString(tex, { ...KATEX_BASE, displayMode }) };
+    let html = katex.renderToString(tex, { ...KATEX_BASE, displayMode });
+    // 점검용: AUDIT_TEX=1로 빌드하면 블록 수식에 원본 TeX를 붙인다 (폰 너비 넘침 점검 스크립트가 읽는다)
+    if (displayMode && process.env.AUDIT_TEX) html = html.replace('<span class="katex-display">', `<span class="katex-display" data-tex="${escapeHtml(tex).replace(/"/g, '&quot;')}">`);
+    return { html };
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     return { html: `<code class="tex-error">${escapeHtml(tex)}</code>`, error: msg };

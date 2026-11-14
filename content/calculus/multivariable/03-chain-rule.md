@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}, \qquad \frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}
+\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}
 $$
 
 $$
-F(x, y, z) = 0: \quad \frac{\partial z}{\partial x} = -\frac{F_x}{F_z}, \qquad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z} \quad (F_z \neq 0)
+\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}
+$$
+
+$$
+F(x, y, z) = 0: \quad \frac{\partial z}{\partial x} = -\frac{F_x}{F_z}
+$$
+
+$$
+\frac{\partial z}{\partial y} = -\frac{F_y}{F_z} \quad (F_z \neq 0)
 $$
 
 ## conditions

@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\int_1^{\infty} \frac{dx}{x^p} \text{ converges} \iff p > 1, \qquad \int_0^{1} \frac{dx}{x^p} \text{ converges} \iff p < 1
+\int_1^{\infty} \frac{dx}{x^p} \text{ converges} \iff p > 1
+$$
+
+$$
+\int_0^{1} \frac{dx}{x^p} \text{ converges} \iff p < 1
 $$
 
 ## conditions

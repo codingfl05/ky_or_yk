@@ -12,15 +12,24 @@ verified: false
 
 ## formula
 $$
-y = \sin^{-1}x \iff x = \sin y, \quad -1 \le x \le 1, \quad -\frac{\pi}{2} \le y \le \frac{\pi}{2}
+\begin{aligned}
+&y = \sin^{-1}x \iff x = \sin y, \\
+&-1 \le x \le 1, \quad -\frac{\pi}{2} \le y \le \frac{\pi}{2}
+\end{aligned}
 $$
 
 $$
-y = \cos^{-1}x \iff x = \cos y, \quad -1 \le x \le 1, \quad 0 \le y \le \pi
+\begin{aligned}
+&y = \cos^{-1}x \iff x = \cos y, \\
+&-1 \le x \le 1, \quad 0 \le y \le \pi
+\end{aligned}
 $$
 
 $$
-y = \tan^{-1}x \iff x = \tan y, \quad -\infty < x < \infty, \quad -\frac{\pi}{2} < y < \frac{\pi}{2}
+\begin{aligned}
+&y = \tan^{-1}x \iff x = \tan y, \\
+&-\infty < x < \infty, \quad -\frac{\pi}{2} < y < \frac{\pi}{2}
+\end{aligned}
 $$
 
 ## conditions

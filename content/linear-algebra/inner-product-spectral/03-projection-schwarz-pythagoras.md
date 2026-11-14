@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-c = \frac{\langle v,w\rangle}{\langle w,w\rangle}\ (\text{projection coefficient}), \qquad |\langle v,w\rangle|\le \|v\|\|w\|, \qquad v\perp w \implies \|v+w\|^2=\|v\|^2+\|w\|^2
+c = \frac{\langle v,w\rangle}{\langle w,w\rangle}\ (\text{projection coefficient})
+$$
+
+$$
+|\langle v,w\rangle|\le \|v\|\|w\|
+$$
+
+$$
+v\perp w \implies \|v+w\|^2=\|v\|^2+\|w\|^2
 $$
 
 ## conditions

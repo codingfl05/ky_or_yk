@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots
+\begin{aligned}
+&f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n \\
+&\quad {}= f(a) + f'(a)(x-a) \\
+&\quad {}+ \frac{f''(a)}{2!}(x-a)^2 + \cdots
+\end{aligned}
 $$
 
 $$
-f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \cdots \quad (a = 0)
+\begin{aligned}
+&f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n \\
+&\quad {}= f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \cdots \\
+&(a = 0)
+\end{aligned}
 $$
 
 ## conditions

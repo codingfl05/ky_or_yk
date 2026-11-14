@@ -12,11 +12,23 @@ verified: false
 
 ## formula
 $$
-(f^{-1})^{-1} = f, \qquad f^{-1}(f(x)) = x, \qquad f(f^{-1}(x)) = x
+(f^{-1})^{-1} = f
 $$
 
 $$
-(f \circ g)^{-1} = g^{-1} \circ f^{-1}, \qquad (f \circ g \circ h)^{-1} = h^{-1} \circ g^{-1} \circ f^{-1}
+f^{-1}(f(x)) = x
+$$
+
+$$
+f(f^{-1}(x)) = x
+$$
+
+$$
+(f \circ g)^{-1} = g^{-1} \circ f^{-1}
+$$
+
+$$
+(f \circ g \circ h)^{-1} = h^{-1} \circ g^{-1} \circ f^{-1}
 $$
 
 ## conditions

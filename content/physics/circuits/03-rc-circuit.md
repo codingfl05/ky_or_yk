@@ -12,11 +12,23 @@ verified: false
 
 ## formula
 $$
-\text{charging: } q(t) = CV_0\left(1-e^{-t/RC}\right), \qquad i(t) = \frac{V_0}{R}e^{-t/RC}
+\text{charging: } q(t) = CV_0\left(1-e^{-t/RC}\right)
 $$
 
 $$
-\text{discharging: } q(t) = q_0e^{-t/RC}, \qquad i(t) = -\frac{q_0}{RC}e^{-t/RC}, \qquad \tau_C = RC
+i(t) = \frac{V_0}{R}e^{-t/RC}
+$$
+
+$$
+\text{discharging: } q(t) = q_0e^{-t/RC}
+$$
+
+$$
+i(t) = -\frac{q_0}{RC}e^{-t/RC}
+$$
+
+$$
+\tau_C = RC
 $$
 
 ## conditions
@@ -43,7 +55,11 @@ $$
 충전 고리 법칙: $V_0 - iR - \dfrac{q}{C} = 0$, $i=\dfrac{dq}{dt}$ →
 
 $$
-R\frac{dq}{dt}+\frac{q}{C}=V_0 \ \Rightarrow\ \int_0^q\frac{dq}{q-CV_0} = -\int_0^t\frac{dt}{RC} \ \Rightarrow\ q = CV_0\left(1-e^{-t/RC}\right)
+\begin{aligned}
+&R\frac{dq}{dt}+\frac{q}{C}=V_0 \\
+&\quad {}\Rightarrow \int_0^q\frac{dq}{q-CV_0} = -\int_0^t\frac{dt}{RC} \\
+&\quad {}\Rightarrow q = CV_0\left(1-e^{-t/RC}\right)
+\end{aligned}
 $$
 
 ## example

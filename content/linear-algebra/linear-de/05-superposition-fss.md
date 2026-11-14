@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-y = c_1y_1+c_2y_2 \quad (y_1, y_2 \text{ linearly independent solutions})
+\begin{aligned}
+&y = c_1y_1+c_2y_2 \\
+&(y_1, y_2 \text{ linearly independent solutions})
+\end{aligned}
 $$
 
 ## explanation

@@ -16,11 +16,31 @@ a^m = N \iff \log_a N = m
 $$
 
 $$
-\log_a (mn) = \log_a m + \log_a n, \qquad \log_a \frac{m}{n} = \log_a m - \log_a n, \qquad \log_a m^n = n \log_a m
+\log_a (mn) = \log_a m + \log_a n
 $$
 
 $$
-\log_a b = \frac{\ln b}{\ln a}, \qquad n^{\log_a m} = m^{\log_a n}, \qquad \log_a a = 1, \qquad \log_a 1 = 0
+\log_a \frac{m}{n} = \log_a m - \log_a n
+$$
+
+$$
+\log_a m^n = n \log_a m
+$$
+
+$$
+\log_a b = \frac{\ln b}{\ln a}
+$$
+
+$$
+n^{\log_a m} = m^{\log_a n}
+$$
+
+$$
+\log_a a = 1
+$$
+
+$$
+\log_a 1 = 0
 $$
 
 ## conditions

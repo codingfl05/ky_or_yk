@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-\langle v,w\rangle=\langle w,v\rangle, \qquad \langle u,v+w\rangle=\langle u,v\rangle+\langle u,w\rangle, \qquad \langle ku,v\rangle=k\langle u,v\rangle=\langle u,kv\rangle
+\langle v,w\rangle=\langle w,v\rangle
 $$
 
 $$
-\langle X,Y\rangle = X^TMY\ (M^T=M), \qquad \langle f,g\rangle=\int_a^b f(t)g(t)\,dt, \qquad \langle A,B\rangle=\operatorname{tr}(AB)
+\langle u,v+w\rangle=\langle u,v\rangle+\langle u,w\rangle
+$$
+
+$$
+\langle ku,v\rangle=k\langle u,v\rangle=\langle u,kv\rangle
+$$
+
+$$
+\langle X,Y\rangle = X^TMY\ (M^T=M)
+$$
+
+$$
+\langle f,g\rangle=\int_a^b f(t)g(t)\,dt
+$$
+
+$$
+\langle A,B\rangle=\operatorname{tr}(AB)
 $$
 
 ## conditions

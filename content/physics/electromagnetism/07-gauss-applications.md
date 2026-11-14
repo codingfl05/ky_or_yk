@@ -12,11 +12,23 @@ verified: false
 
 ## formula
 $$
-E_{\text{line}} = \frac{\lambda}{2\pi\varepsilon_0 r}, \qquad E_{\text{insulating sheet}} = \frac{\sigma}{2\varepsilon_0}, \qquad E_{\text{conductor surface}} = \frac{\sigma}{\varepsilon_0}
+E_{\text{line}} = \frac{\lambda}{2\pi\varepsilon_0 r}
 $$
 
 $$
-E_{\text{shell}} = \begin{cases} 0 & (r<R)\\ \dfrac{kq}{r^2} & (r>R)\end{cases}, \qquad E_{\text{solid sphere}} = \begin{cases} \dfrac{kq}{R^3}\,r & (r<R)\\ \dfrac{kq}{r^2} & (r\ge R)\end{cases}
+E_{\text{insulating sheet}} = \frac{\sigma}{2\varepsilon_0}
+$$
+
+$$
+E_{\text{conductor surface}} = \frac{\sigma}{\varepsilon_0}
+$$
+
+$$
+E_{\text{shell}} = \begin{cases} 0 & (r<R)\\ \dfrac{kq}{r^2} & (r>R)\end{cases}
+$$
+
+$$
+E_{\text{solid sphere}} = \begin{cases} \dfrac{kq}{R^3}\,r & (r<R)\\ \dfrac{kq}{r^2} & (r\ge R)\end{cases}
 $$
 
 ## conditions

@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-x = a \text{ is an inflection point} \iff f'' \text{ changes sign at } x = a
+\begin{aligned}
+&x = a \text{ is an inflection point} \\
+&\quad {}\iff f'' \text{ changes sign at } x = a
+\end{aligned}
 $$
 
 ## conditions

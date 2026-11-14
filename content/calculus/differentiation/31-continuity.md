@@ -16,7 +16,10 @@ $$
 $$
 
 $$
-\lim_{x \to a} g(f(x)) = g\!\left(\lim_{x \to a} f(x)\right) \quad (g\text{ continuous at } \lim_{x \to a} f(x))
+\begin{aligned}
+&\lim_{x \to a} g(f(x)) = g\!\left(\lim_{x \to a} f(x)\right) \\
+&(g\text{ continuous at } \lim_{x \to a} f(x))
+\end{aligned}
 $$
 
 ## conditions

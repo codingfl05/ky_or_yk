@@ -44,7 +44,15 @@ $$
 자주 쓰는 결과는 세 개다.
 
 $$
-B_{\text{wire}} = \frac{\mu_0 i}{2\pi R}, \qquad B_{\text{arc}} = \frac{\mu_0 i\,\phi}{4\pi R}, \qquad B_{\text{loop axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
+B_{\text{wire}} = \frac{\mu_0 i}{2\pi R}
+$$
+
+$$
+B_{\text{arc}} = \frac{\mu_0 i\,\phi}{4\pi R}
+$$
+
+$$
+B_{\text{loop axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
 $$
 
 - 원호 중심: 모든 조각이 같은 거리에 있고 모두 $\theta = 90^\circ$라서, 호의 각도 $\phi$(라디안)에 그냥 비례한다. 한 바퀴($\phi = 2\pi$)면 $\dfrac{\mu_0 i}{2R}$.

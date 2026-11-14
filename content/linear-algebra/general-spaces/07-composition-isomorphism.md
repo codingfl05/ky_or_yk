@@ -11,11 +11,18 @@ verified: false
 
 ## formula
 $$
-(G\circ F)(u) = G(F(u)), \qquad F^{r+s}=F^r\circ F^s, \quad F^0=I
+(G\circ F)(u) = G(F(u))
 $$
 
 $$
-\ker F=\{O\} \text{ and } F \text{ surjective} \implies F^{-1} \text{ exists (isomorphism)}
+F^{r+s}=F^r\circ F^s, \quad F^0=I
+$$
+
+$$
+\begin{aligned}
+&\ker F=\{O\} \text{ and } F \text{ surjective} \\
+&\quad {}\implies F^{-1} \text{ exists (isomorphism)}
+\end{aligned}
 $$
 
 ## conditions

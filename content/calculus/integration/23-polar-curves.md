@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-r = a\cos n\theta,\ a\sin n\theta: \quad \text{petals} = \begin{cases} n & (n \text{ odd}) \\ 2n & (n \text{ even}) \end{cases}
+\begin{aligned}
+&r = a\cos n\theta,\ a\sin n\theta: \\
+&\text{petals} = \begin{cases} n & (n \text{ odd}) \\ 2n & (n \text{ even}) \end{cases}
+\end{aligned}
 $$
 
 $$
@@ -20,7 +23,10 @@ A_{\text{rose}} = \begin{cases} \dfrac{\pi a^2}{4} & (n \text{ odd}) \\[1ex] \df
 $$
 
 $$
-\text{cardioid } r = a(1 + \cos\theta): \quad A = \frac{3\pi a^2}{2}, \quad L = 8a
+\begin{aligned}
+&\text{cardioid } r = a(1 + \cos\theta): \\
+&A = \frac{3\pi a^2}{2}, \quad L = 8a
+\end{aligned}
 $$
 
 $$

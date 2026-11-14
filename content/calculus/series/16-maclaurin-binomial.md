@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-(1+x)^k = 1 + kx + \frac{k(k-1)}{2!}x^2 + \frac{k(k-1)(k-2)}{3!}x^3 + \cdots = \sum_{n=0}^{\infty} \binom{k}{n} x^n
+\begin{aligned}
+&(1+x)^k = 1 + kx + \frac{k(k-1)}{2!}x^2 \\
+&\quad {}+ \frac{k(k-1)(k-2)}{3!}x^3 + \cdots \\
+&\quad {}= \sum_{n=0}^{\infty} \binom{k}{n} x^n
+\end{aligned}
 $$
 
 ## conditions

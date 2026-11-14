@@ -12,15 +12,25 @@ verified: false
 
 ## formula
 $$
-A \text{ positive definite} \iff |A_1|>0,\ |A_2|>0,\ \ldots,\ |A_n|>0
+\begin{aligned}
+&A \text{ positive definite} \\
+&\quad {}\iff |A_1|>0,\ |A_2|>0,\ \ldots,\ |A_n|>0
+\end{aligned}
 $$
 
 $$
-A \text{ negative definite} \iff |A_1|<0,\ |A_2|>0,\ |A_3|<0,\ \ldots \ (\text{alternating})
+\begin{aligned}
+&A \text{ negative definite} \iff \\
+&\quad |A_1|<0,\ |A_2|>0,\ |A_3|<0,\ \ldots \ (\text{alternating})
+\end{aligned}
 $$
 
 $$
-\text{all } \lambda_i>0 \Rightarrow \text{positive definite}, \quad \text{all } \lambda_i<0 \Rightarrow \text{negative definite}, \quad \text{mixed signs} \Rightarrow \text{indefinite}
+\begin{aligned}
+&\text{all } \lambda_i>0 \Rightarrow \text{positive definite}, \\
+&\text{all } \lambda_i<0 \Rightarrow \text{negative definite}, \\
+&\text{mixed signs} \Rightarrow \text{indefinite}
+\end{aligned}
 $$
 
 ## conditions

@@ -12,11 +12,31 @@ verified: false
 
 ## formula
 $$
-s = r\theta, \qquad v = r\omega, \qquad a_t = r\alpha, \qquad a_c = \frac{v^2}{r} = r\omega^2
+s = r\theta
 $$
 
 $$
-\omega = \omega_0 + \alpha t, \qquad \theta = \omega_0t + \frac{1}{2}\alpha t^2, \qquad \omega^2 - \omega_0^2 = 2\alpha\theta
+v = r\omega
+$$
+
+$$
+a_t = r\alpha
+$$
+
+$$
+a_c = \frac{v^2}{r} = r\omega^2
+$$
+
+$$
+\omega = \omega_0 + \alpha t
+$$
+
+$$
+\theta = \omega_0t + \frac{1}{2}\alpha t^2
+$$
+
+$$
+\omega^2 - \omega_0^2 = 2\alpha\theta
 $$
 
 ## conditions

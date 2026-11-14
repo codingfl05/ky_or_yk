@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-a\sin x + b\cos x = \sqrt{a^2 + b^2}\,\sin(x + \alpha), \qquad \cos\alpha = \frac{a}{\sqrt{a^2+b^2}},\ \sin\alpha = \frac{b}{\sqrt{a^2+b^2}}
+a\sin x + b\cos x = \sqrt{a^2 + b^2}\,\sin(x + \alpha)
+$$
+
+$$
+\cos\alpha = \frac{a}{\sqrt{a^2+b^2}},\ \sin\alpha = \frac{b}{\sqrt{a^2+b^2}}
 $$
 
 ## conditions

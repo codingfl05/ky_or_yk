@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\int x^n\,dx = \frac{x^{n+1}}{n+1} + C \ (n \neq -1), \qquad \int \frac{1}{x}\,dx = \ln|x| + C
+\int x^n\,dx = \frac{x^{n+1}}{n+1} + C \ (n \neq -1)
+$$
+
+$$
+\int \frac{1}{x}\,dx = \ln|x| + C
 $$
 
 $$
@@ -20,15 +24,27 @@ $$
 $$
 
 $$
-\int \sin x\,dx = -\cos x + C, \qquad \int \cos x\,dx = \sin x + C
+\int \sin x\,dx = -\cos x + C
 $$
 
 $$
-\int \sec^2 x\,dx = \tan x + C, \qquad \int \csc^2 x\,dx = -\cot x + C
+\int \cos x\,dx = \sin x + C
 $$
 
 $$
-\int \sec x \tan x\,dx = \sec x + C, \qquad \int \csc x \cot x\,dx = -\csc x + C
+\int \sec^2 x\,dx = \tan x + C
+$$
+
+$$
+\int \csc^2 x\,dx = -\cot x + C
+$$
+
+$$
+\int \sec x \tan x\,dx = \sec x + C
+$$
+
+$$
+\int \csc x \cot x\,dx = -\csc x + C
 $$
 
 ## conditions

@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-f(x) = \begin{cases} g(x) & (x \in \mathbb{Q}) \\ h(x) & (x \notin \mathbb{Q}) \end{cases} \text{ is continuous at } a \iff g(a) = h(a)
+\begin{aligned}
+&f(x) = \begin{cases} g(x) & (x \in \mathbb{Q}) \\ h(x) & (x \notin \mathbb{Q}) \end{cases} \text{ is continuous at } a \\
+&\quad {}\iff g(a) = h(a)
+\end{aligned}
 $$
 
 ## conditions

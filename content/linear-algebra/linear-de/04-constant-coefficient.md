@@ -12,11 +12,23 @@ verified: false
 
 ## formula
 $$
-ay''+by'+cy=0 \qquad\Longrightarrow\qquad ar^2+br+c=0
+ay''+by'+cy=0
 $$
 
 $$
-y=\begin{cases} c_1e^{r_1t}+c_2e^{r_2t} & (b^2-4ac>0) \\ c_1e^{kt}\cos(lt)+c_2e^{kt}\sin(lt) & (b^2-4ac<0,\ r=k\pm il) \\ c_1e^{r_1t}+c_2te^{r_1t} & (b^2-4ac=0) \end{cases}
+\Longrightarrow
+$$
+
+$$
+ar^2+br+c=0
+$$
+
+$$
+y=\begin{cases} c_1e^{r_1t}+c_2e^{r_2t} & (D>0) \\ e^{kt}\left(c_1\cos lt+c_2\sin lt\right) & (D<0,\ r=k\pm il) \\ (c_1+c_2t)\,e^{r_1t} & (D=0) \end{cases}
+$$
+
+$$
+D = b^2-4ac
 $$
 
 ## explanation

@@ -12,23 +12,43 @@ verified: false
 
 ## formula
 $$
-\int \tan x\,dx = \ln|\sec x| + C, \qquad \int \cot x\,dx = -\ln|\csc x| + C
+\int \tan x\,dx = \ln|\sec x| + C
 $$
 
 $$
-\int \sec x\,dx = \ln|\sec x + \tan x| + C, \qquad \int \csc x\,dx = \ln|\csc x - \cot x| + C
+\int \cot x\,dx = -\ln|\csc x| + C
 $$
 
 $$
-\int \frac{dx}{a^2 + x^2} = \frac{1}{a}\tan^{-1}\frac{x}{a} + C, \qquad \int \frac{dx}{\sqrt{a^2 - x^2}} = \sin^{-1}\frac{x}{a} + C
+\int \sec x\,dx = \ln|\sec x + \tan x| + C
 $$
 
 $$
-\int \sinh x\,dx = \cosh x + C, \qquad \int \cosh x\,dx = \sinh x + C
+\int \csc x\,dx = \ln|\csc x - \cot x| + C
 $$
 
 $$
-\int \tanh x\,dx = \ln \cosh x + C, \qquad \int \coth x\,dx = \ln|\sinh x| + C
+\int \frac{dx}{a^2 + x^2} = \frac{1}{a}\tan^{-1}\frac{x}{a} + C
+$$
+
+$$
+\int \frac{dx}{\sqrt{a^2 - x^2}} = \sin^{-1}\frac{x}{a} + C
+$$
+
+$$
+\int \sinh x\,dx = \cosh x + C
+$$
+
+$$
+\int \cosh x\,dx = \sinh x + C
+$$
+
+$$
+\int \tanh x\,dx = \ln \cosh x + C
+$$
+
+$$
+\int \coth x\,dx = \ln|\sinh x| + C
 $$
 
 ## conditions

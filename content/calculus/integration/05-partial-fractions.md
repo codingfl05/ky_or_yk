@@ -16,7 +16,11 @@ $$
 $$
 
 $$
-\frac{p(x)}{(x-a)(x-b)} = \frac{A}{x-a} + \frac{B}{x-b}, \qquad A = \frac{p(a)}{a-b}, \quad B = \frac{p(b)}{b-a}
+\frac{p(x)}{(x-a)(x-b)} = \frac{A}{x-a} + \frac{B}{x-b}
+$$
+
+$$
+A = \frac{p(a)}{a-b}, \quad B = \frac{p(b)}{b-a}
 $$
 
 $$

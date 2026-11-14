@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\lim_{(h, k) \to (0, 0)} \frac{f(a + h, b + k) - f(a, b) - f_x(a, b)h - f_y(a, b)k}{\sqrt{h^2 + k^2}} = 0
+\begin{aligned}
+&\lim_{(h, k) \to (0, 0)} \frac{\Delta f - f_x(a, b)h - f_y(a, b)k}{\sqrt{h^2 + k^2}} = 0, \\
+&\Delta f = f(a + h, b + k) - f(a, b)
+\end{aligned}
 $$
 
 $$

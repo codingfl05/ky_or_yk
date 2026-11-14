@@ -16,7 +16,11 @@ m_1v_{1i} + m_2v_{2i} = m_1v_{1f} + m_2v_{2f}
 $$
 
 $$
-e = -\frac{v_{1f} - v_{2f}}{v_{1i} - v_{2i}} \quad (e = 1: \text{elastic},\ 0<e<1,\ e = 0: \text{perfectly inelastic})
+\begin{aligned}
+&e = -\frac{v_{1f} - v_{2f}}{v_{1i} - v_{2i}} \\
+&e = 1: \text{elastic}, \quad 0<e<1: \text{inelastic}, \\
+&e = 0: \text{perfectly inelastic}
+\end{aligned}
 $$
 
 ## conditions
@@ -46,7 +50,10 @@ $$
 탄성 충돌: 운동량 보존 $m_1(v_{1i} - v_{1f}) = m_2(v_{2f} - v_{2i})$, 운동 에너지 보존 $m_1(v_{1i}^2 - v_{1f}^2) = m_2(v_{2f}^2 - v_{2i}^2)$. 둘째 식을 첫째 식으로 나누면
 
 $$
-v_{1i} + v_{1f} = v_{2i} + v_{2f} \ \Rightarrow\ v_{1f} - v_{2f} = -(v_{1i} - v_{2i})
+\begin{aligned}
+&v_{1i} + v_{1f} = v_{2i} + v_{2f} \\
+&\quad {}\Rightarrow v_{1f} - v_{2f} = -(v_{1i} - v_{2i})
+\end{aligned}
 $$
 
 ## supplement

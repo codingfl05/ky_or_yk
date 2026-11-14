@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\sin\!\left(\frac{\pi}{2} \cdot 2 + \theta\right) = -\sin\theta, \qquad \cos\!\left(\frac{\pi}{2} \cdot 3 + \theta\right) = \sin\theta
+\sin\!\left(\frac{\pi}{2} \cdot 2 + \theta\right) = -\sin\theta
 $$
 
 $$
-\tan\!\left(\frac{\pi}{2} \cdot 4 - \theta\right) = -\tan\theta, \qquad \tan\!\left(\frac{\pi}{2} - \theta\right) = \cot\theta
+\cos\!\left(\frac{\pi}{2} \cdot 3 + \theta\right) = \sin\theta
+$$
+
+$$
+\tan\!\left(\frac{\pi}{2} \cdot 4 - \theta\right) = -\tan\theta
+$$
+
+$$
+\tan\!\left(\frac{\pi}{2} - \theta\right) = \cot\theta
 $$
 
 ## conditions

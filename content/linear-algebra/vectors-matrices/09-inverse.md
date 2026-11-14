@@ -11,7 +11,14 @@ verified: false
 
 ## formula
 $$
-AI_n=A,\quad I_mA=A, \qquad A^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a\end{pmatrix}\ (2\times2,\ ad-bc\neq0)
+AI_n=A,\quad I_mA=A
+$$
+
+$$
+\begin{aligned}
+&A^{-1} \\
+&\quad {}= \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a\end{pmatrix}\ (2\times2,\ ad-bc\neq0)
+\end{aligned}
 $$
 
 $$

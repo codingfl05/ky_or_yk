@@ -12,15 +12,29 @@ verified: false
 
 ## formula
 $$
-\text{arc (angle } \theta\text{, radius } R\text{), at center: } E = \frac{2k\lambda}{R}\sin\frac{\theta}{2} \qquad \left(k=\frac{1}{4\pi\varepsilon_0},\ \lambda=\frac{q}{R\theta}\right)
+\begin{aligned}
+&\text{arc (angle } \theta\text{, radius } R\text{), at center:} \\
+&E = \frac{2k\lambda}{R}\sin\frac{\theta}{2}
+\end{aligned}
 $$
 
 $$
-\text{ring, on axis: } E_z = \frac{kqz}{(R^2+z^2)^{3/2}}, \qquad \text{disk, on axis: } E_z = \frac{\sigma}{2\varepsilon_0}\left(1-\frac{z}{\sqrt{R^2+z^2}}\right)
+\left(k=\frac{1}{4\pi\varepsilon_0},\ \lambda=\frac{q}{R\theta}\right)
 $$
 
 $$
-\text{rod (length } L\text{), perpendicular bisector at } y: E = \frac{kq}{y\sqrt{y^2+L^2/4}} \ \xrightarrow{L\to\infty}\ \frac{\lambda}{2\pi\varepsilon_0 y}
+\text{ring, on axis: } E_z = \frac{kqz}{(R^2+z^2)^{3/2}}
+$$
+
+$$
+\text{disk, on axis: } E_z = \frac{\sigma}{2\varepsilon_0}\left(1-\frac{z}{\sqrt{R^2+z^2}}\right)
+$$
+
+$$
+\begin{aligned}
+&\text{rod (length } L\text{), perpendicular bisector at } y: \\
+&E = \frac{kq}{y\sqrt{y^2+L^2/4}} \ \xrightarrow{L\to\infty}\ \frac{\lambda}{2\pi\varepsilon_0 y}
+\end{aligned}
 $$
 
 ## conditions

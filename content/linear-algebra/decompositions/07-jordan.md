@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-A = PJP^{-1}, \qquad J = \begin{pmatrix}J_1 & & \\ & \ddots & \\ & & J_k\end{pmatrix}, \qquad J_i = \begin{pmatrix}\lambda&1&&\\&\lambda&\ddots&\\&&\ddots&1\\&&&\lambda\end{pmatrix}
+A = PJP^{-1}
+$$
+
+$$
+J = \begin{pmatrix}J_1 & & \\ & \ddots & \\ & & J_k\end{pmatrix}
+$$
+
+$$
+J_i = \begin{pmatrix}\lambda&1&&\\&\lambda&\ddots&\\&&\ddots&1\\&&&\lambda\end{pmatrix}
 $$
 
 ## conditions

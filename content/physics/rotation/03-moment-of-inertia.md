@@ -16,7 +16,11 @@ I = \sum m_ir_i^2 = \int r^2\,dm
 $$
 
 $$
-I_{\text{ring}} = MR^2, \quad I_{\text{disk}} = \frac{1}{2}MR^2, \quad I_{\text{solid sphere}} = \frac{2}{5}MR^2, \quad I_{\text{shell}} = \frac{2}{3}MR^2, \quad I_{\text{rod,center}} = \frac{1}{12}ML^2
+\begin{aligned}
+&I_{\text{ring}} = MR^2, \quad I_{\text{disk}} = \frac{1}{2}MR^2, \\
+&I_{\text{solid sphere}} = \frac{2}{5}MR^2, \\
+&I_{\text{shell}} = \frac{2}{3}MR^2, \quad I_{\text{rod,center}} = \frac{1}{12}ML^2
+\end{aligned}
 $$
 
 ## conditions

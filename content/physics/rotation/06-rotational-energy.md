@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-K = \frac{1}{2}I\omega^2, \qquad W = \int\tau\,d\theta = \Delta K, \qquad P = \tau\omega
+K = \frac{1}{2}I\omega^2
+$$
+
+$$
+W = \int\tau\,d\theta = \Delta K
+$$
+
+$$
+P = \tau\omega
 $$
 
 ## conditions

@@ -76,7 +76,11 @@ RL 회로는 축전기 자리에 코일이 들어간다. 코일은 $L\dfrac{di}{
 저항이 없으면 영원히 반복된다. 용수철에 매달린 추와 수식까지 똑같다. 높이 규칙으로 한 바퀴 돌면 코일과 축전기가 먹는 높이의 합이 0이어야 한다.
 
 $$
-L\frac{di}{dt} + \frac{q}{C} = 0 \ \Rightarrow\ L\frac{d^2q}{dt^2} = -\frac{1}{C}\,q \qquad \left(\text{용수철: } m\frac{d^2x}{dt^2} = -kx\right)
+L\frac{di}{dt} + \frac{q}{C} = 0 \ \Rightarrow\ L\frac{d^2q}{dt^2} = -\frac{1}{C}\,q
+$$
+
+$$
+\left(\text{용수철: } m\frac{d^2x}{dt^2} = -kx\right)
 $$
 
 "변화의 변화가 자기 자신에 비례하고 부호가 반대"인 식은 언제나 왔다 갔다 하는 진동을 준다. 글자만 바꿔 읽으면 된다.

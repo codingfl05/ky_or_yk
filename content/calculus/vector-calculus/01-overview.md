@@ -12,7 +12,19 @@ verified: false
 
 ## formula
 $$
-\int_C f\,ds, \qquad \int_C \mathbf{F}\cdot d\mathbf{r}, \qquad \iint_S f\,dS, \qquad \iint_S \mathbf{F}\cdot\mathbf{n}\,dS
+\int_C f\,ds
+$$
+
+$$
+\int_C \mathbf{F}\cdot d\mathbf{r}
+$$
+
+$$
+\iint_S f\,dS
+$$
+
+$$
+\iint_S \mathbf{F}\cdot\mathbf{n}\,dS
 $$
 
 ## conditions

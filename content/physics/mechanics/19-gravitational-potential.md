@@ -24,7 +24,11 @@ $$
 같은 것을 다른 기준점에서 본 것이다. 지표면에서 $h$만큼 올라갈 때
 
 $$
-\Delta U = GMm\left(\frac{1}{R} - \frac{1}{R+h}\right) \approx \frac{GMm}{R^2}h = mgh \quad (h \ll R)
+\begin{aligned}
+&\Delta U = GMm\left(\frac{1}{R} - \frac{1}{R+h}\right) \\
+&\quad {}\approx \frac{GMm}{R^2}h = mgh \\
+&(h \ll R)
+\end{aligned}
 $$
 
 높이가 지구 반지름에 비해 클 때(인공위성, 탈출)는 반드시 $-\dfrac{GMm}{r}$을 쓴다.

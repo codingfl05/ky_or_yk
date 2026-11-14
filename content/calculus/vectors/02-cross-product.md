@@ -12,11 +12,23 @@ verified: false
 
 ## formula
 $$
-\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} = (a_2b_3 - a_3b_2)\mathbf{i} - (a_1b_3 - a_3b_1)\mathbf{j} + (a_1b_2 - a_2b_1)\mathbf{k}
+\begin{aligned}
+&\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} \\
+&\quad {}= (a_2b_3 - a_3b_2)\mathbf{i} - (a_1b_3 - a_3b_1)\mathbf{j} \\
+&\quad {}+ (a_1b_2 - a_2b_1)\mathbf{k}
+\end{aligned}
 $$
 
 $$
-|\mathbf{a}\times\mathbf{b}| = |\mathbf{a}||\mathbf{b}|\sin\theta, \qquad \mathbf{a}\times\mathbf{b} = -(\mathbf{b}\times\mathbf{a}), \qquad \mathbf{i}\times\mathbf{j} = \mathbf{k},\ \mathbf{j}\times\mathbf{k} = \mathbf{i},\ \mathbf{k}\times\mathbf{i} = \mathbf{j}
+|\mathbf{a}\times\mathbf{b}| = |\mathbf{a}||\mathbf{b}|\sin\theta
+$$
+
+$$
+\mathbf{a}\times\mathbf{b} = -(\mathbf{b}\times\mathbf{a})
+$$
+
+$$
+\mathbf{i}\times\mathbf{j} = \mathbf{k},\ \mathbf{j}\times\mathbf{k} = \mathbf{i},\ \mathbf{k}\times\mathbf{i} = \mathbf{j}
 $$
 
 ## conditions

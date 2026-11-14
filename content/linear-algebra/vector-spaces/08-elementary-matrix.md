@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-E \cdot A = (\text{one row operation applied to } A), \qquad [A\,|\,I] \to [I\,|\,A^{-1}]
+E \cdot A = (\text{one row operation applied to } A)
+$$
+
+$$
+[A\,|\,I] \to [I\,|\,A^{-1}]
 $$
 
 ## conditions

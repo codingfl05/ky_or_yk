@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\sin a \cos b = \frac{1}{2}\{\sin(a+b) + \sin(a-b)\}, \qquad \cos a \cos b = \frac{1}{2}\{\cos(a+b) + \cos(a-b)\}
+\sin a \cos b = \frac{1}{2}\{\sin(a+b) + \sin(a-b)\}
+$$
+
+$$
+\cos a \cos b = \frac{1}{2}\{\cos(a+b) + \cos(a-b)\}
 $$
 
 $$
@@ -20,11 +24,19 @@ $$
 $$
 
 $$
-\sin A + \sin B = 2\sin\frac{A+B}{2}\cos\frac{A-B}{2}, \qquad \sin A - \sin B = 2\cos\frac{A+B}{2}\sin\frac{A-B}{2}
+\sin A + \sin B = 2\sin\frac{A+B}{2}\cos\frac{A-B}{2}
 $$
 
 $$
-\cos A + \cos B = 2\cos\frac{A+B}{2}\cos\frac{A-B}{2}, \qquad \cos A - \cos B = -2\sin\frac{A+B}{2}\sin\frac{A-B}{2}
+\sin A - \sin B = 2\cos\frac{A+B}{2}\sin\frac{A-B}{2}
+$$
+
+$$
+\cos A + \cos B = 2\cos\frac{A+B}{2}\cos\frac{A-B}{2}
+$$
+
+$$
+\cos A - \cos B = -2\sin\frac{A+B}{2}\sin\frac{A-B}{2}
 $$
 
 ## conditions

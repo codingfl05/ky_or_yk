@@ -11,11 +11,19 @@ verified: false
 
 ## formula
 $$
-F \text{ injective} \iff F(x)=F(y)\Rightarrow x=y, \qquad F \text{ surjective} \iff F(S)=S'
+F \text{ injective} \iff F(x)=F(y)\Rightarrow x=y
 $$
 
 $$
-\text{bijective} = \text{injective} \cap \text{surjective}, \qquad F^{-1} \text{ exists} \iff F \text{ bijective}
+F \text{ surjective} \iff F(S)=S'
+$$
+
+$$
+\text{bijective} = \text{injective} \cap \text{surjective}
+$$
+
+$$
+F^{-1} \text{ exists} \iff F \text{ bijective}
 $$
 
 ## explanation

@@ -11,7 +11,14 @@ verified: false
 
 ## formula
 $$
-A=PDP^T \implies v^TAv = y^TDy = k_1y_1^2+\cdots+k_ny_n^2, \qquad y=P^Tv
+\begin{aligned}
+&A=PDP^T \implies v^TAv = y^TDy \\
+&\quad {}= k_1y_1^2+\cdots+k_ny_n^2
+\end{aligned}
+$$
+
+$$
+y=P^Tv
 $$
 
 ## explanation

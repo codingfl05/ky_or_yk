@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\mathbf{F} = k\frac{q_1q_2}{r^2}\,\hat{\mathbf{r}}, \qquad k=\frac{1}{4\pi\varepsilon_0}\approx 9\times10^9\,\text{N}\cdot\text{m}^2/\text{C}^2
+\mathbf{F} = k\frac{q_1q_2}{r^2}\,\hat{\mathbf{r}}
+$$
+
+$$
+k=\frac{1}{4\pi\varepsilon_0}\approx 9\times10^9\,\text{N}\cdot\text{m}^2/\text{C}^2
 $$
 
 $$

@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-e^{rt},\ te^{rt},\ t^2e^{rt},\ \ldots \qquad e^{kt}\cos(lt),\ te^{kt}\cos(lt),\ \ldots
+e^{rt},\ te^{rt},\ t^2e^{rt},\ \ldots
+$$
+
+$$
+e^{kt}\cos(lt),\ te^{kt}\cos(lt),\ \ldots
 $$
 
 ## explanation

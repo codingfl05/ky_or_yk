@@ -16,7 +16,15 @@ q = CV, \qquad C_{\text{parallel}} = \frac{\varepsilon_0 A}{d}
 $$
 
 $$
-C_{\text{cylinder}} = \frac{2\pi\varepsilon_0 L}{\ln(b/a)}, \qquad C_{\text{sphere}} = 4\pi\varepsilon_0\frac{ab}{b-a}, \qquad C_{\text{isolated sphere}} = 4\pi\varepsilon_0 a
+C_{\text{cylinder}} = \frac{2\pi\varepsilon_0 L}{\ln(b/a)}
+$$
+
+$$
+C_{\text{sphere}} = 4\pi\varepsilon_0\frac{ab}{b-a}
+$$
+
+$$
+C_{\text{isolated sphere}} = 4\pi\varepsilon_0 a
 $$
 
 ## conditions

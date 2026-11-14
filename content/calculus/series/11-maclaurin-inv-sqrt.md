@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\frac{1}{\sqrt{1-x^2}} = 1 + \frac{1}{2}x^2 + \frac{1}{2}\cdot\frac{3}{4}x^4 + \frac{1}{2}\cdot\frac{3}{4}\cdot\frac{5}{6}x^6 + \cdots = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2}\,x^{2n}
+\begin{aligned}
+&\frac{1}{\sqrt{1-x^2}} = 1 + \frac{1}{2}x^2 + \frac{1}{2}\cdot\frac{3}{4}x^4 \\
+&\quad {}+ \frac{1}{2}\cdot\frac{3}{4}\cdot\frac{5}{6}x^6 + \cdots = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2}\,x^{2n}
+\end{aligned}
 $$
 
 ## conditions

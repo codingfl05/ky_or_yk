@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-\lim (f \pm g) = L \pm M, \qquad \lim (fg) = LM, \qquad \lim \frac{f}{g} = \frac{L}{M} \quad (M \neq 0)
+\lim (f \pm g) = L \pm M
+$$
+
+$$
+\lim (fg) = LM
+$$
+
+$$
+\lim \frac{f}{g} = \frac{L}{M} \quad (M \neq 0)
 $$
 
 ## conditions

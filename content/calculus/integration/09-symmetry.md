@@ -20,7 +20,11 @@ $$
 $$
 
 $$
-\int_0^{\frac{\pi}{2}} f(\sin x)\,dx = \int_0^{\frac{\pi}{2}} f(\cos x)\,dx, \qquad \int_0^{\pi} x\,f(\sin x)\,dx = \frac{\pi}{2}\int_0^{\pi} f(\sin x)\,dx
+\int_0^{\frac{\pi}{2}} f(\sin x)\,dx = \int_0^{\frac{\pi}{2}} f(\cos x)\,dx
+$$
+
+$$
+\int_0^{\pi} x\,f(\sin x)\,dx = \frac{\pi}{2}\int_0^{\pi} f(\sin x)\,dx
 $$
 
 ## conditions

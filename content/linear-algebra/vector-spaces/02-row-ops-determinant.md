@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\det(A) = \pm\left(\prod \text{diagonal entries after triangularization}\right) \times \frac{1}{\prod \text{scaling factors}}
+\begin{aligned}
+&\det(A) = \pm\frac{\prod d_i}{\prod k_j} \\
+&d_i: \text{diagonal entries after triangularization} \\
+&k_j: \text{scaling factors}
+\end{aligned}
 $$
 
 ## conditions

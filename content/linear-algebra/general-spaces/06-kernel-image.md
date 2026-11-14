@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\ker F = \{v\in V \mid F(v)=O\}, \qquad \operatorname{Im}F = \{F(v)\mid v\in V\}
+\ker F = \{v\in V \mid F(v)=O\}
+$$
+
+$$
+\operatorname{Im}F = \{F(v)\mid v\in V\}
 $$
 
 $$

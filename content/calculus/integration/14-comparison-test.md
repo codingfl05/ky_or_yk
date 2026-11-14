@@ -12,15 +12,25 @@ verified: false
 
 ## formula
 $$
-0 \le f(x) \le g(x): \quad \int_a^\infty g \text{ converges} \Rightarrow \int_a^\infty f \text{ converges}
+\begin{aligned}
+&0 \le f(x) \le g(x): \\
+&\int_a^\infty g \text{ converges} \Rightarrow \int_a^\infty f \text{ converges}
+\end{aligned}
 $$
 
 $$
-0 \le f(x) \le g(x): \quad \int_a^\infty f \text{ diverges} \Rightarrow \int_a^\infty g \text{ diverges}
+\begin{aligned}
+&0 \le f(x) \le g(x): \\
+&\int_a^\infty f \text{ diverges} \Rightarrow \int_a^\infty g \text{ diverges}
+\end{aligned}
 $$
 
 $$
-f, g > 0,\ \lim_{x \to \infty}\frac{f(x)}{g(x)} = L \ (0 < L < \infty) \;\Rightarrow\; \int_a^\infty f \text{ and } \int_a^\infty g \text{ both converge or both diverge}
+\begin{aligned}
+&f, g > 0,\ \lim_{x \to \infty}\frac{f(x)}{g(x)} = L \ (0 < L < \infty) \\
+&\quad {}\Rightarrow \int_a^\infty f \text{ and } \int_a^\infty g \\
+&\qquad\ \text{both converge or both diverge}
+\end{aligned}
 $$
 
 ## conditions

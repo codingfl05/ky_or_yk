@@ -16,7 +16,19 @@ $$
 $$
 
 $$
-r = \frac{mv}{|q|B}, \qquad T = \frac{2\pi m}{|q|B}, \qquad f = \frac{|q|B}{2\pi m}, \qquad v = \frac{E}{B}\ (\text{velocity selector})
+r = \frac{mv}{|q|B}
+$$
+
+$$
+T = \frac{2\pi m}{|q|B}
+$$
+
+$$
+f = \frac{|q|B}{2\pi m}
+$$
+
+$$
+v = \frac{E}{B}\ (\text{velocity selector})
 $$
 
 ## conditions
@@ -42,7 +54,10 @@ $$
 질량 분석기 (교재 예제): 전압 $V$로 가속된 $+q$가 자기장 $B$에서 반원을 돌아 거리 $x$에 도달.
 
 $$
-qV=\frac{1}{2}mv^2,\quad r=\frac{mv}{qB},\quad x=2r \ \Rightarrow\ m=\frac{qB^2x^2}{8V}
+\begin{aligned}
+&qV=\frac{1}{2}mv^2, \quad r=\frac{mv}{qB}, \\
+&x=2r \ \Rightarrow\ m=\frac{qB^2x^2}{8V}
+\end{aligned}
 $$
 
 ## supplement

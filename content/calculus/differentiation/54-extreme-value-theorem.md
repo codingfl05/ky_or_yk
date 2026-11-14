@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-f \text{ continuous on } [a, b] \;\Longrightarrow\; f \text{ attains a maximum and a minimum on } [a, b]
+\begin{aligned}
+&f \text{ continuous on } [a, b] \\
+&\quad {}\Longrightarrow f \text{ attains a maximum} \\
+&\qquad\quad \text{and a minimum on } [a, b]
+\end{aligned}
 $$
 
 ## conditions

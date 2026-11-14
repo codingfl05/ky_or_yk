@@ -24,7 +24,11 @@ $$
 $$
 
 $$
-\sum_{k=1}^{n} b_k = S_n \ \Rightarrow\ b_1 = S_1, \qquad b_n = S_n - S_{n-1}\ (n \ge 2)
+\sum_{k=1}^{n} b_k = S_n \ \Rightarrow\ b_1 = S_1
+$$
+
+$$
+b_n = S_n - S_{n-1}\ (n \ge 2)
 $$
 
 ## conditions
@@ -36,13 +40,11 @@ $$
 ### 쪼개는 규칙: 맨 앞과 맨 뒤를 하나씩 뺀다
 분모가 연속된 인수의 곱이면, "맨 뒤 인수를 뺀 곱"과 "맨 앞 인수를 뺀 곱"의 차로 쓰고 (맨 뒤 − 맨 앞)으로 나눈다.
 
-| 원래 식 | 쪼갠 식 |
-|---|---|
-| $\dfrac{1}{n(n+1)}$ | $\dfrac{1}{n} - \dfrac{1}{n+1}$ |
-| $\dfrac{1}{n(n+2)}$ | $\dfrac{1}{2}\left(\dfrac{1}{n} - \dfrac{1}{n+2}\right)$ |
-| $\dfrac{1}{(2n-1)(2n+1)}$ | $\dfrac{1}{2}\left(\dfrac{1}{2n-1} - \dfrac{1}{2n+1}\right)$ |
-| $\dfrac{1}{n(n+1)(n+2)}$ | $\dfrac{1}{2}\left(\dfrac{1}{n(n+1)} - \dfrac{1}{(n+1)(n+2)}\right)$ |
-| $\dfrac{1}{(n+1)(n+2)(n+3)}$ | $\dfrac{1}{2}\left(\dfrac{1}{(n+1)(n+2)} - \dfrac{1}{(n+2)(n+3)}\right)$ |
+- $\dfrac{1}{n(n+1)} = \dfrac{1}{n} - \dfrac{1}{n+1}$
+- $\dfrac{1}{n(n+2)} = \dfrac{1}{2}\left(\dfrac{1}{n} - \dfrac{1}{n+2}\right)$
+- $\dfrac{1}{(2n-1)(2n+1)} = \dfrac{1}{2}\left(\dfrac{1}{2n-1} - \dfrac{1}{2n+1}\right)$
+- $\dfrac{1}{n(n+1)(n+2)} = \dfrac{1}{2}\left(\dfrac{1}{n(n+1)} - \dfrac{1}{(n+1)(n+2)}\right)$
+- $\dfrac{1}{(n+1)(n+2)(n+3)} = \dfrac{1}{2}\left(\dfrac{1}{(n+1)(n+2)} - \dfrac{1}{(n+2)(n+3)}\right)$
 
 검산은 통분 한 번이면 된다: $\dfrac{1}{AB} - \dfrac{1}{BC} = \dfrac{C - A}{ABC}$. 그래서 앞에 $\dfrac{1}{C - A}$를 곱해 맞춘다.
 

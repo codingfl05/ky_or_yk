@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-\mathbf{E}_{\text{inside}} = 0, \qquad V = \text{const (equipotential)}, \qquad E_{\text{surface}} = \frac{\sigma}{\varepsilon_0}\ (\perp \text{surface})
+\mathbf{E}_{\text{inside}} = 0
+$$
+
+$$
+V = \text{const (equipotential)}
+$$
+
+$$
+E_{\text{surface}} = \frac{\sigma}{\varepsilon_0}\ (\perp \text{surface})
 $$
 
 ## conditions

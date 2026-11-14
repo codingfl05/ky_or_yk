@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-\text{on: } i(t) = \frac{V_0}{R}\left(1-e^{-t/\tau_L}\right), \qquad \text{off: } i(t) = i_0e^{-t/\tau_L}, \qquad \tau_L = \frac{L}{R}
+\text{on: } i(t) = \frac{V_0}{R}\left(1-e^{-t/\tau_L}\right)
+$$
+
+$$
+\text{off: } i(t) = i_0e^{-t/\tau_L}
+$$
+
+$$
+\tau_L = \frac{L}{R}
 $$
 
 $$

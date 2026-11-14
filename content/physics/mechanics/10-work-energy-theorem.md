@@ -28,7 +28,10 @@ $$
 
 ## derivation
 $$
-W = \int F\,dx = \int m\frac{dv}{dt}\,dx = \int m\,v\,dv = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2
+\begin{aligned}
+&W = \int F\,dx = \int m\frac{dv}{dt}\,dx \\
+&\quad {}= \int m\,v\,dv = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2
+\end{aligned}
 $$
 
 ## supplement

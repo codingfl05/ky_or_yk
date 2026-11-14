@@ -16,7 +16,19 @@ a^0 = 1, \qquad a^{-n} = \frac{1}{a^n}, \qquad a^{\frac{m}{n}} = \sqrt[n]{a^m}
 $$
 
 $$
-a^m a^n = a^{m+n}, \qquad a^m \div a^n = a^{m-n}, \qquad (a^m)^n = a^{mn}, \qquad (ab)^n = a^n b^n
+a^m a^n = a^{m+n}
+$$
+
+$$
+a^m \div a^n = a^{m-n}
+$$
+
+$$
+(a^m)^n = a^{mn}
+$$
+
+$$
+(ab)^n = a^n b^n
 $$
 
 ## conditions

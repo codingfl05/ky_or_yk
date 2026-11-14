@@ -16,7 +16,10 @@ $$
 $$
 
 $$
-\lim f(x)^{g(x)} = e^{\lim g(x)\{f(x) - 1\}} \qquad (f \to 1,\ g \to \infty)
+\begin{aligned}
+&\lim f(x)^{g(x)} = e^{\lim g(x)\{f(x) - 1\}} \\
+&(f \to 1,\ g \to \infty)
+\end{aligned}
 $$
 
 ## conditions

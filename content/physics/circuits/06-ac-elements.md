@@ -16,7 +16,15 @@ v(t) = V_m\sin(\omega_d t)
 $$
 
 $$
-V_R = I_RR\ (\text{in phase}), \qquad V_C = I_CX_C,\ X_C = \frac{1}{\omega_dC}\ (i\ \text{leads } 90^\circ), \qquad V_L = I_LX_L,\ X_L = \omega_dL\ (i\ \text{lags } 90^\circ)
+V_R = I_RR\ (\text{in phase})
+$$
+
+$$
+V_C = I_CX_C,\ X_C = \frac{1}{\omega_dC}\ (i\ \text{leads } 90^\circ)
+$$
+
+$$
+V_L = I_LX_L,\ X_L = \omega_dL\ (i\ \text{lags } 90^\circ)
 $$
 
 ## conditions

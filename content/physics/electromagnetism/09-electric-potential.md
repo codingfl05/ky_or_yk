@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\Delta V = V_f - V_i = -\int_i^f \mathbf{E}\cdot d\mathbf{s}, \qquad E_x = -\frac{\partial V}{\partial x}\ \left(E=-\frac{dV}{dr}\right)
+\Delta V = V_f - V_i = -\int_i^f \mathbf{E}\cdot d\mathbf{s}
+$$
+
+$$
+E_x = -\frac{\partial V}{\partial x}\ \left(E=-\frac{dV}{dr}\right)
 $$
 
 $$
@@ -48,7 +52,17 @@ $$
 전자가 연직 아래 방향 $E=100\,\text{N/C}$인 전기장에서 위로 $500\,\text{m}$ 이동 (교재 예제):
 
 $$
-\Delta V = -\int\mathbf{E}\cdot d\mathbf{s} = -(-100)(500) = +5\times10^4\,\text{V}, \qquad \Delta U = q\Delta V = (-1.6\times10^{-19})(5\times10^4) = -8\times10^{-15}\,\text{J}
+\begin{aligned}
+&\Delta V = -\int\mathbf{E}\cdot d\mathbf{s} \\
+&\quad {}= -(-100)(500) = +5\times10^4\,\text{V}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&\Delta U = q\Delta V = (-1.6\times10^{-19})(5\times10^4) \\
+&\quad {}= -8\times10^{-15}\,\text{J}
+\end{aligned}
 $$
 
 전기장을 거슬러 올라가면 전위는 올라가고, 음전하라서 퍼텐셜 에너지는 오히려 줄어든다.

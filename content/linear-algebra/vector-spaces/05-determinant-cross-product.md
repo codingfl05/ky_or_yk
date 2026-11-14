@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\vec{u}\times\vec{v} = \det\begin{pmatrix}\vec i & \vec j & \vec k\\ u_1&u_2&u_3\\ v_1&v_2&v_3\end{pmatrix}, \qquad \vec u\cdot(\vec v\times\vec w) = \det[\vec u\ \vec v\ \vec w]
+\vec{u}\times\vec{v} = \det\begin{pmatrix}\vec i & \vec j & \vec k\\ u_1&u_2&u_3\\ v_1&v_2&v_3\end{pmatrix}
+$$
+
+$$
+\vec u\cdot(\vec v\times\vec w) = \det[\vec u\ \vec v\ \vec w]
 $$
 
 ## explanation

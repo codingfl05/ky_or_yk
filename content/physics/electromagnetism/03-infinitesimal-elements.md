@@ -16,7 +16,11 @@ X = \int dX \qquad (X = V,\ \mathbf{E},\ \mathbf{B},\ \mathbf{F})
 $$
 
 $$
-dq = \lambda\,dx = \sigma\,dA = \rho\,dV, \qquad di = \frac{i}{L}\,dr \quad (\text{uniform sheet of width } L)
+dq = \lambda\,dx = \sigma\,dA = \rho\,dV
+$$
+
+$$
+di = \frac{i}{L}\,dr \quad (\text{uniform sheet of width } L)
 $$
 
 ## conditions

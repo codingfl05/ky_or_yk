@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\operatorname{rank}(A) = \operatorname{rank}([A|b]) = n \Rightarrow \text{unique}, \qquad \operatorname{rank}(A) = \operatorname{rank}([A|b]) < n \Rightarrow \text{infinitely many}
+\operatorname{rank}(A) = \operatorname{rank}([A|b]) = n \Rightarrow \text{unique}
+$$
+
+$$
+\operatorname{rank}(A) = \operatorname{rank}([A|b]) < n \Rightarrow \text{infinitely many}
 $$
 
 $$

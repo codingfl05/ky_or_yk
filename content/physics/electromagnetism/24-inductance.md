@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-L = \frac{N\Phi_B}{i}, \qquad L_{\text{solenoid}} = \mu_0n^2Al, \qquad \mathcal{E}_L = -L\frac{di}{dt}
+L = \frac{N\Phi_B}{i}
 $$
 
 $$
-\mathcal{E}_2 = -M\frac{di_1}{dt}\ (M_{12}=M_{21}=M), \qquad U_B = \frac{1}{2}Li^2, \qquad u_B = \frac{B^2}{2\mu_0}
+L_{\text{solenoid}} = \mu_0n^2Al
+$$
+
+$$
+\mathcal{E}_L = -L\frac{di}{dt}
+$$
+
+$$
+\mathcal{E}_2 = -M\frac{di_1}{dt}\ (M_{12}=M_{21}=M)
+$$
+
+$$
+U_B = \frac{1}{2}Li^2
+$$
+
+$$
+u_B = \frac{B^2}{2\mu_0}
 $$
 
 ## conditions

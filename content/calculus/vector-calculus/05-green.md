@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\oint_C P\,dx + Q\,dy = \iint_D \begin{vmatrix} \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} \\ P & Q \end{vmatrix} dA = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA
+\begin{aligned}
+&\oint_C P\,dx + Q\,dy = \iint_D \begin{vmatrix} \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} \\ P & Q \end{vmatrix} dA \\
+&\quad {}= \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA
+\end{aligned}
 $$
 
 $$

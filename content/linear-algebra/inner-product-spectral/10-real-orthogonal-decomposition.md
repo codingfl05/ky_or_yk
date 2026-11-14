@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-V = V_1\oplus\cdots\oplus V_r\ (\dim V_i\in\{1,2\},\ \text{mutually orthogonal},\ T\text{-invariant})
+\begin{aligned}
+&V = V_1\oplus\cdots\oplus V_r \\
+&\dim V_i\in\{1,2\},\quad V_i \text{ mutually orthogonal}, \\
+&\text{each } V_i \text{ is } T\text{-invariant}
+\end{aligned}
 $$
 
 $$

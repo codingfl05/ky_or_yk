@@ -20,7 +20,11 @@ $$
 $$
 
 $$
-\text{shell:} \quad V = 2\pi\int_a^b (\text{radius})(\text{height})\,dx = 2\pi\int_a^b x\,f(x)\,dx \quad (\text{about the } y\text{-axis})
+\begin{aligned}
+&\text{shell (about the } y\text{-axis):} \\
+&V = 2\pi\int_a^b (\text{radius})(\text{height})\,dx \\
+&\quad {}= 2\pi\int_a^b x\,f(x)\,dx
+\end{aligned}
 $$
 
 ## conditions
@@ -57,7 +61,11 @@ $\pi\int_0^1 (x-x^2)^2\,dx$로 계산하면 $\dfrac{\pi}{30}$이 나와 틀린�
 예) $x$축, $y=x^2$, $x=2$로 둘러싸인 영역을 $y=-1$ 둘레로 회전 (상명대): $R=x^2+1$, $r=0-(-1)=1$
 
 $$
-V = \pi\int_0^2\left\{(x^2+1)^2-1^2\right\}dx = \pi\int_0^2\left(x^4+2x^2\right)dx = \pi\left(\frac{32}{5}+\frac{16}{3}\right) = \frac{176}{15}\pi
+\begin{aligned}
+&V = \pi\int_0^2\left\{(x^2+1)^2-1^2\right\}dx \\
+&\quad {}= \pi\int_0^2\left(x^4+2x^2\right)dx \\
+&\quad {}= \pi\left(\frac{32}{5}+\frac{16}{3}\right) = \frac{176}{15}\pi
+\end{aligned}
 $$
 
 $2\pi + \pi\int_0^2 x^4\,dx$로 계산하면 $\dfrac{42}{5}\pi$가 나와 틀린다.

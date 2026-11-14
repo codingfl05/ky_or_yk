@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-x' = Ax + g \quad (g \text{ constant}) \qquad\Longrightarrow\qquad x = x_h + x^*, \quad x^* = -A^{-1}g
+x' = Ax + g \quad (g \text{ constant})
+$$
+
+$$
+\Longrightarrow
+$$
+
+$$
+x = x_h + x^*, \quad x^* = -A^{-1}g
 $$
 
 ## explanation

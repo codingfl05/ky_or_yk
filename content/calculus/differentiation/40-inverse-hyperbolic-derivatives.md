@@ -12,15 +12,27 @@ verified: false
 
 ## formula
 $$
-(\sinh^{-1}x)' = \frac{1}{\sqrt{1+x^2}}, \qquad (\cosh^{-1}x)' = \frac{1}{\sqrt{x^2-1}}
+(\sinh^{-1}x)' = \frac{1}{\sqrt{1+x^2}}
 $$
 
 $$
-(\tanh^{-1}x)' = \frac{1}{1-x^2} \ (|x| < 1), \qquad (\coth^{-1}x)' = \frac{1}{1-x^2} \ (|x| > 1)
+(\cosh^{-1}x)' = \frac{1}{\sqrt{x^2-1}}
 $$
 
 $$
-(\operatorname{sech}^{-1}x)' = -\frac{1}{x\sqrt{1-x^2}}, \qquad (\operatorname{csch}^{-1}x)' = -\frac{1}{|x|\sqrt{1+x^2}}
+(\tanh^{-1}x)' = \frac{1}{1-x^2} \ (|x| < 1)
+$$
+
+$$
+(\coth^{-1}x)' = \frac{1}{1-x^2} \ (|x| > 1)
+$$
+
+$$
+(\operatorname{sech}^{-1}x)' = -\frac{1}{x\sqrt{1-x^2}}
+$$
+
+$$
+(\operatorname{csch}^{-1}x)' = -\frac{1}{|x|\sqrt{1+x^2}}
 $$
 
 ## conditions

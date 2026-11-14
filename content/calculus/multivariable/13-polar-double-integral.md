@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\iint_R f(x, y)\,dA = \int_\alpha^\beta\int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta, r\sin\theta)\,r\,dr\,d\theta
+\begin{aligned}
+&\iint_R f(x, y)\,dA \\
+&\quad {}= \int_\alpha^\beta\int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta, r\sin\theta)\,r\,dr\,d\theta
+\end{aligned}
 $$
 
 $$

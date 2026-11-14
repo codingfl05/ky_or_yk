@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta = a_1b_1 + a_2b_2 + a_3b_3 \quad (0 \le \theta \le \pi)
+\begin{aligned}
+&\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta = a_1b_1 + a_2b_2 + a_3b_3 \\
+&(0 \le \theta \le \pi)
+\end{aligned}
 $$
 
 $$
@@ -20,7 +23,11 @@ $$
 $$
 
 $$
-\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1, \qquad \cos\alpha = \frac{a_1}{|\mathbf{a}|},\ \cos\beta = \frac{a_2}{|\mathbf{a}|},\ \cos\gamma = \frac{a_3}{|\mathbf{a}|}
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1
+$$
+
+$$
+\cos\alpha = \frac{a_1}{|\mathbf{a}|},\ \cos\beta = \frac{a_2}{|\mathbf{a}|},\ \cos\gamma = \frac{a_3}{|\mathbf{a}|}
 $$
 
 ## conditions

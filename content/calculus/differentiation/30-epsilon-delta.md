@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\forall \varepsilon > 0,\ \exists \delta > 0: \quad 0 < |x - a| < \delta \;\Longrightarrow\; |f(x) - L| < \varepsilon
+\begin{aligned}
+&\forall \varepsilon > 0,\ \exists \delta > 0: \\
+&0 < |x - a| < \delta \;\Longrightarrow\; |f(x) - L| < \varepsilon
+\end{aligned}
 $$
 
 ## conditions

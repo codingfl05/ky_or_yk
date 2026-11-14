@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\int_a^{\infty} f(x)\,dx = \lim_{t \to \infty}\int_a^t f(x)\,dx, \qquad \int_{-\infty}^{\infty} f(x)\,dx = \int_{-\infty}^{c} f(x)\,dx + \int_{c}^{\infty} f(x)\,dx
+\int_a^{\infty} f(x)\,dx = \lim_{t \to \infty}\int_a^t f(x)\,dx
 $$
 
 $$
-\int_a^b f(x)\,dx = \lim_{t \to c^-}\int_a^t f(x)\,dx + \lim_{t \to c^+}\int_t^b f(x)\,dx \quad (c\text{: discontinuity})
+\int_{-\infty}^{\infty} f(x)\,dx = \int_{-\infty}^{c} f(x)\,dx + \int_{c}^{\infty} f(x)\,dx
+$$
+
+$$
+\begin{aligned}
+&\int_a^b f(x)\,dx \\
+&\quad {}= \lim_{t \to c^-}\int_a^t f(x)\,dx + \lim_{t \to c^+}\int_t^b f(x)\,dx \\
+&(c\text{: discontinuity})
+\end{aligned}
 $$
 
 ## conditions

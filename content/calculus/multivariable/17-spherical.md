@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-x = \rho\sin\phi\cos\theta, \quad y = \rho\sin\phi\sin\theta, \quad z = \rho\cos\phi
+\begin{aligned}
+&x = \rho\sin\phi\cos\theta, \\
+&y = \rho\sin\phi\sin\theta, \quad z = \rho\cos\phi
+\end{aligned}
 $$
 
 $$

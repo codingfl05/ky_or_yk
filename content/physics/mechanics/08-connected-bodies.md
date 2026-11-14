@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-a = \frac{F_{\text{ext}}}{m_1 + m_2 + \cdots}, \qquad \text{Atwood: } a = \frac{(m_1 - m_2)g}{m_1 + m_2},\quad T = \frac{2m_1m_2g}{m_1+m_2}
+a = \frac{F_{\text{ext}}}{m_1 + m_2 + \cdots}
+$$
+
+$$
+\text{Atwood: } a = \frac{(m_1 - m_2)g}{m_1 + m_2},\quad T = \frac{2m_1m_2g}{m_1+m_2}
 $$
 
 ## conditions

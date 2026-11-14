@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\int_C f\,ds = \int_a^b f(x(t), y(t), z(t))\sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2}\,dt
+\begin{aligned}
+&\int_C f\,ds = \int_a^b f(\mathbf{r}(t))\,|\mathbf{r}'(t)|\,dt, \\
+&|\mathbf{r}'(t)| = \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2}
+\end{aligned}
 $$
 
 ## conditions

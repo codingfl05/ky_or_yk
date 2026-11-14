@@ -11,7 +11,14 @@ verified: false
 
 ## formula
 $$
-\operatorname{rank}(A)=\operatorname{rank}(A^T)=\operatorname{rank}(AA^T)=\operatorname{rank}(A^TA), \qquad \operatorname{rank}(AB)\le\min\{\operatorname{rank}(A),\operatorname{rank}(B)\}
+\begin{aligned}
+&\operatorname{rank}(A) = \operatorname{rank}(A^T) \\
+&\quad {}= \operatorname{rank}(AA^T) = \operatorname{rank}(A^TA)
+\end{aligned}
+$$
+
+$$
+\operatorname{rank}(AB)\le\min\{\operatorname{rank}(A),\operatorname{rank}(B)\}
 $$
 
 $$
@@ -19,7 +26,15 @@ A, C \text{ invertible} \implies \operatorname{rank}(ABC)=\operatorname{rank}(B)
 $$
 
 $$
-\sum_i \lambda_i = \operatorname{tr}(A), \qquad \prod_i \lambda_i = \det(A), \qquad \operatorname{tr}(AB)=\operatorname{tr}(BA)
+\sum_i \lambda_i = \operatorname{tr}(A)
+$$
+
+$$
+\prod_i \lambda_i = \det(A)
+$$
+
+$$
+\operatorname{tr}(AB)=\operatorname{tr}(BA)
 $$
 
 ## explanation

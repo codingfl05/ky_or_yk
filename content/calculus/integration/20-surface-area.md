@@ -16,7 +16,10 @@ S = \int 2\pi r\,ds, \qquad ds = \sqrt{(dx)^2 + (dy)^2}
 $$
 
 $$
-y = f(x) \text{ about the } x\text{-axis:} \quad S = 2\pi\int_a^b |f(x)|\sqrt{1 + \{f'(x)\}^2}\,dx
+\begin{aligned}
+&y = f(x) \text{ about the } x\text{-axis:} \\
+&S = 2\pi\int_a^b |f(x)|\sqrt{1 + \{f'(x)\}^2}\,dx
+\end{aligned}
 $$
 
 ## conditions

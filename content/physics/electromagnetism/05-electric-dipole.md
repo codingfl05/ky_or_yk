@@ -15,7 +15,11 @@ p = qd\ (\text{direction: } -\to+), \qquad E_{\text{axis}} \approx \frac{1}{2\pi
 $$
 
 $$
-\boldsymbol{\tau} = \mathbf{p}\times\mathbf{E}\ (\tau = pE\sin\theta), \qquad U = -\mathbf{p}\cdot\mathbf{E} = -pE\cos\theta
+\boldsymbol{\tau} = \mathbf{p}\times\mathbf{E}\ (\tau = pE\sin\theta)
+$$
+
+$$
+U = -\mathbf{p}\cdot\mathbf{E} = -pE\cos\theta
 $$
 
 ## conditions
@@ -39,7 +43,11 @@ $$
 축 위 거리 $z$인 점에서
 
 $$
-E = kq\left[\frac{1}{(z-d/2)^2}-\frac{1}{(z+d/2)^2}\right] = \frac{kq}{z^2}\cdot\frac{2d/z}{\left(1-(d/2z)^2\right)^2} \approx \frac{2kqd}{z^3} = \frac{1}{2\pi\varepsilon_0}\frac{p}{z^3}
+\begin{aligned}
+&E = kq\left[\frac{1}{(z-d/2)^2}-\frac{1}{(z+d/2)^2}\right] \\
+&\quad {}= \frac{kq}{z^2}\cdot\frac{2d/z}{\left(1-(d/2z)^2\right)^2} \approx \frac{2kqd}{z^3} \\
+&\quad {}= \frac{1}{2\pi\varepsilon_0}\frac{p}{z^3}
+\end{aligned}
 $$
 
 ## supplement

@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-u = \sum_i \frac{u\cdot v_i}{\|v_i\|^2}v_i \ (\text{orthogonal}), \qquad u = \sum_i \langle u,v_i\rangle v_i \ (\text{orthonormal})
+u = \sum_i \frac{u\cdot v_i}{\|v_i\|^2}v_i \ (\text{orthogonal})
+$$
+
+$$
+u = \sum_i \langle u,v_i\rangle v_i \ (\text{orthonormal})
 $$
 
 ## explanation

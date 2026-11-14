@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots = \sum_{n=0}^{\infty} (-1)^n \frac{x^{n+1}}{n+1}
+\begin{aligned}
+&\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots \\
+&\quad {}= \sum_{n=0}^{\infty} (-1)^n \frac{x^{n+1}}{n+1}
+\end{aligned}
 $$
 
 ## conditions

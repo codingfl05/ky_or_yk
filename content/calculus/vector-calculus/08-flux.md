@@ -12,15 +12,27 @@ verified: false
 
 ## formula
 $$
-z = f(x, y): \quad \iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iint_D \mathbf{F}(x, y, f(x, y))\cdot\langle -f_x, -f_y, 1\rangle\,dA \quad (\text{upward } \mathbf{n})
+\begin{aligned}
+&z = f(x, y): \\
+&\iint_S \mathbf{F}\cdot\mathbf{n}\,dS \\
+&\quad {}= \iint_D \mathbf{F}(x, y, f(x, y))\cdot\langle -f_x, -f_y, 1\rangle\,dA \\
+&(\text{upward } \mathbf{n})
+\end{aligned}
 $$
 
 $$
-\mathbf{r}(u, v): \quad \iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iint_D \mathbf{F}(\mathbf{r}(u, v))\cdot(\mathbf{r}_u\times\mathbf{r}_v)\,du\,dv
+\begin{aligned}
+&\mathbf{r}(u, v): \\
+&\iint_S \mathbf{F}\cdot\mathbf{n}\,dS \\
+&\quad {}= \iint_D \mathbf{F}(\mathbf{r}(u, v))\cdot(\mathbf{r}_u\times\mathbf{r}_v)\,du\,dv
+\end{aligned}
 $$
 
 $$
-G(x, y, z) = 0: \quad \iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iint_{D_{xy}} \mathbf{F}\cdot\frac{\nabla G}{|G_z|}\,dA
+\begin{aligned}
+&G(x, y, z) = 0: \\
+&\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iint_{D_{xy}} \mathbf{F}\cdot\frac{\nabla G}{|G_z|}\,dA
+\end{aligned}
 $$
 
 ## conditions

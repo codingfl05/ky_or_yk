@@ -16,11 +16,18 @@ $$
 $$
 
 $$
-\mathbf{F} = \langle P, Q\rangle: \ \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}, \qquad \mathbf{F} = \langle P, Q, R\rangle: \ \operatorname{curl}\mathbf{F} = \nabla\times\mathbf{F} = \mathbf{0}
+\mathbf{F} = \langle P, Q\rangle: \ \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}
 $$
 
 $$
-\nabla\times\mathbf{F} = (R_y - Q_z)\,\mathbf{i} + (P_z - R_x)\,\mathbf{j} + (Q_x - P_y)\,\mathbf{k}
+\mathbf{F} = \langle P, Q, R\rangle: \ \operatorname{curl}\mathbf{F} = \nabla\times\mathbf{F} = \mathbf{0}
+$$
+
+$$
+\begin{aligned}
+&\nabla\times\mathbf{F} = (R_y - Q_z)\,\mathbf{i} + (P_z - R_x)\,\mathbf{j} \\
+&\quad {}+ (Q_x - P_y)\,\mathbf{k}
+\end{aligned}
 $$
 
 ## conditions

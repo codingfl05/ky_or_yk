@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-[F]_{\mathcal B'} = N^{-1}\,[F]_{\mathcal B}\,N, \qquad N = P_{\mathcal B'\to\mathcal B} = \big[\,(v'_1)_{\mathcal B}\ \cdots\ (v'_n)_{\mathcal B}\,\big]
+[F]_{\mathcal B'} = N^{-1}\,[F]_{\mathcal B}\,N
+$$
+
+$$
+N = P_{\mathcal B'\to\mathcal B} = \big[\,(v'_1)_{\mathcal B}\ \cdots\ (v'_n)_{\mathcal B}\,\big]
 $$
 
 ## conditions

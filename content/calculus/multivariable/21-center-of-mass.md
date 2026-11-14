@@ -16,7 +16,11 @@ $$
 $$
 
 $$
-\text{plane: } m = \iint_D \rho\,dA, \quad \bar{x} = \frac{1}{m}\iint_D x\rho\,dA = \frac{M_y}{m}, \quad \bar{y} = \frac{1}{m}\iint_D y\rho\,dA = \frac{M_x}{m}
+\begin{aligned}
+&\text{plane: } m = \iint_D \rho\,dA, \\
+&\bar{x} = \frac{1}{m}\iint_D x\rho\,dA = \frac{M_y}{m}, \\
+&\bar{y} = \frac{1}{m}\iint_D y\rho\,dA = \frac{M_x}{m}
+\end{aligned}
 $$
 
 $$

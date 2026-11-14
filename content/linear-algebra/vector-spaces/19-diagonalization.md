@@ -11,11 +11,26 @@ verified: false
 
 ## formula
 $$
-A = PDP^{-1}, \qquad D=\operatorname{diag}(\lambda_1,\ldots,\lambda_n), \qquad P=[\mathbf v_1\ \cdots\ \mathbf v_n]
+A = PDP^{-1}
 $$
 
 $$
-\operatorname{AM}(\lambda) \geq \operatorname{GM}(\lambda) \geq 1, \qquad A \text{ diagonalizable} \iff \operatorname{GM}(\lambda)=\operatorname{AM}(\lambda)\ \text{for all } \lambda
+D=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)
+$$
+
+$$
+P=[\mathbf v_1\ \cdots\ \mathbf v_n]
+$$
+
+$$
+\operatorname{AM}(\lambda) \geq \operatorname{GM}(\lambda) \geq 1
+$$
+
+$$
+\begin{aligned}
+&A \text{ diagonalizable} \\
+&\quad {}\iff \operatorname{GM}(\lambda)=\operatorname{AM}(\lambda)\ \text{for all } \lambda
+\end{aligned}
 $$
 
 ## conditions

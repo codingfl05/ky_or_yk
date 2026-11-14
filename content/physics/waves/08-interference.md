@@ -16,7 +16,15 @@ y = y_1 + y_2 = \left(2y_m\cos\frac{\phi}{2}\right)\sin\left(kx - \omega t + \fr
 $$
 
 $$
-\phi = \frac{2\pi\,\Delta L}{\lambda}, \qquad \text{constructive: } \Delta L = m\lambda, \qquad \text{destructive: } \Delta L = \left(m + \frac{1}{2}\right)\lambda
+\phi = \frac{2\pi\,\Delta L}{\lambda}
+$$
+
+$$
+\text{constructive: } \Delta L = m\lambda
+$$
+
+$$
+\text{destructive: } \Delta L = \left(m + \frac{1}{2}\right)\lambda
 $$
 
 ## conditions

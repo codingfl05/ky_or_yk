@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\text{Rolle:} \quad f(a) = f(b) \;\Longrightarrow\; \exists\, c \in (a, b):\ f'(c) = 0
+\begin{aligned}
+&\text{Rolle:} \\
+&f(a) = f(b) \;\Longrightarrow\; \exists\, c \in (a, b):\ f'(c) = 0
+\end{aligned}
 $$
 
 $$

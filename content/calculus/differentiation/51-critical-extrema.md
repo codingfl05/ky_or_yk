@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-c \text{ is critical} \iff f'(c) = 0 \text{ or } f'(c) \text{ does not exist} \quad (c \in \operatorname{dom} f)
+\begin{aligned}
+&c \text{ is critical} \\
+&\quad {}\iff f'(c) = 0 \text{ or } f'(c) \text{ does not exist} \\
+&(c \in \operatorname{dom} f)
+\end{aligned}
 $$
 
 $$
-f'(c) = 0,\ f''(c) > 0 \Rightarrow \text{local min}, \qquad f'(c) = 0,\ f''(c) < 0 \Rightarrow \text{local max}
+f'(c) = 0,\ f''(c) > 0 \Rightarrow \text{local min}
+$$
+
+$$
+f'(c) = 0,\ f''(c) < 0 \Rightarrow \text{local max}
 $$
 
 ## conditions

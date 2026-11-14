@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\text{domain} \to \text{symmetry} \to \text{critical points} \to \text{sign of } f' \to \lim_{x \to \pm\infty},\ \lim_{x \to a}
+\begin{aligned}
+&\text{domain} \to \text{symmetry} \to \text{critical points} \\
+&\quad {}\to \text{sign of } f' \to \lim_{x \to \pm\infty},\ \lim_{x \to a}
+\end{aligned}
 $$
 
 ## conditions

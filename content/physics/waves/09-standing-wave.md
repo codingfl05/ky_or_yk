@@ -16,11 +16,17 @@ y = (2y_m\sin kx)\cos\omega t
 $$
 
 $$
-\text{both fixed / both open: } \lambda_n = \frac{2L}{n}, \quad f_n = \frac{nv}{2L} \quad (n = 1, 2, 3, \ldots)
+\begin{aligned}
+&\text{both fixed / both open: } \lambda_n = \frac{2L}{n}, \\
+&f_n = \frac{nv}{2L} \quad (n = 1, 2, 3, \ldots)
+\end{aligned}
 $$
 
 $$
-\text{one end closed: } \lambda_n = \frac{4L}{n}, \quad f_n = \frac{nv}{4L} \quad (n = 1, 3, 5, \ldots)
+\begin{aligned}
+&\text{one end closed: } \lambda_n = \frac{4L}{n}, \\
+&f_n = \frac{nv}{4L} \quad (n = 1, 3, 5, \ldots)
+\end{aligned}
 $$
 
 ## conditions

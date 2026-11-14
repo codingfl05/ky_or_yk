@@ -12,11 +12,17 @@ verified: false
 
 ## formula
 $$
-f \text{ continuous on } [a, b],\ k \text{ between } f(a) \text{ and } f(b) \;\Longrightarrow\; \exists\, c \in (a, b):\ f(c) = k
+\begin{aligned}
+&f \text{ continuous on } [a, b],\ k \text{ between } f(a) \text{ and } f(b) \\
+&\quad {}\Longrightarrow \exists\, c \in (a, b):\ f(c) = k
+\end{aligned}
 $$
 
 $$
-f \text{ continuous on } [a, b],\ f(a)f(b) < 0 \;\Longrightarrow\; \exists\, c \in (a, b):\ f(c) = 0
+\begin{aligned}
+&f \text{ continuous on } [a, b],\ f(a)f(b) < 0 \\
+&\quad {}\Longrightarrow \exists\, c \in (a, b):\ f(c) = 0
+\end{aligned}
 $$
 
 ## conditions

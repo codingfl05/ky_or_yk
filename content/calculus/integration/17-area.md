@@ -12,11 +12,18 @@ verified: false
 
 ## formula
 $$
-A = \int_a^b |f(x) - g(x)|\,dx, \qquad A = \int_c^d |f(y) - g(y)|\,dy
+A = \int_a^b |f(x) - g(x)|\,dx
 $$
 
 $$
-x = f(t),\ y = g(t): \quad A = \int y\,dx = \int_{\alpha}^{\beta} g(t)\,f'(t)\,dt
+A = \int_c^d |f(y) - g(y)|\,dy
+$$
+
+$$
+\begin{aligned}
+&x = f(t),\ y = g(t): \\
+&A = \int y\,dx = \int_{\alpha}^{\beta} g(t)\,f'(t)\,dt
+\end{aligned}
 $$
 
 ## conditions

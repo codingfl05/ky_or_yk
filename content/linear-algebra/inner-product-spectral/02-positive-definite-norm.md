@@ -11,11 +11,22 @@ verified: false
 
 ## formula
 $$
-\langle v,v\rangle\ge 0,\ (v\ne 0\Rightarrow \langle v,v\rangle>0) \implies \text{positive definite}
+\begin{aligned}
+&\langle v,v\rangle\ge 0,\ (v\ne 0\Rightarrow \langle v,v\rangle>0) \\
+&\quad {}\implies \text{positive definite}
+\end{aligned}
 $$
 
 $$
-\|v\|=\sqrt{\langle v,v\rangle}, \qquad d(v,w)=\|v-w\|, \qquad \|v\|=1\ (\text{unit vector})
+\|v\|=\sqrt{\langle v,v\rangle}
+$$
+
+$$
+d(v,w)=\|v-w\|
+$$
+
+$$
+\|v\|=1\ (\text{unit vector})
 $$
 
 ## explanation

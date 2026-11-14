@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-B=\{\mathbf v_1,\ldots,\mathbf v_n\}\text{ is a basis of } V \iff B \text{ is linearly independent and } \operatorname{span}(B)=V
+\begin{aligned}
+&B=\{\mathbf v_1,\ldots,\mathbf v_n\}\text{ is a basis of } V \\
+&\quad {}\iff B \text{ is linearly independent} \\
+&\qquad\quad\ \text{and } \operatorname{span}(B)=V
+\end{aligned}
 $$
 
 $$

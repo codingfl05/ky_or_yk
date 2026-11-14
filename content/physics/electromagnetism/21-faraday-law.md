@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\Phi_B = \int\mathbf{B}\cdot d\mathbf{A}\ (=BA\cos\theta), \qquad \mathcal{E} = -N\frac{d\Phi_B}{dt}
+\Phi_B = \int\mathbf{B}\cdot d\mathbf{A}\ (=BA\cos\theta)
 $$
 
 $$
-B\ \text{const: } \mathcal{E} = -NB\frac{dA}{dt}, \qquad A\ \text{const: } \mathcal{E} = -NA\frac{dB}{dt}
+\mathcal{E} = -N\frac{d\Phi_B}{dt}
+$$
+
+$$
+B\ \text{const: } \mathcal{E} = -NB\frac{dA}{dt}
+$$
+
+$$
+A\ \text{const: } \mathcal{E} = -NA\frac{dB}{dt}
 $$
 
 ## conditions

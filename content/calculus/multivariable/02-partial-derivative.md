@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-f_x(a, b) = \lim_{h \to 0}\frac{f(a + h, b) - f(a, b)}{h}, \qquad f_y(a, b) = \lim_{h \to 0}\frac{f(a, b + h) - f(a, b)}{h}
+f_x(a, b) = \lim_{h \to 0}\frac{f(a + h, b) - f(a, b)}{h}
+$$
+
+$$
+f_y(a, b) = \lim_{h \to 0}\frac{f(a, b + h) - f(a, b)}{h}
 $$
 
 $$

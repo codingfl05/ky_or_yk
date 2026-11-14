@@ -16,7 +16,11 @@ D = f_{xx}f_{yy} - f_{xy}^2 = \begin{vmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy}
 $$
 
 $$
-D > 0,\ f_{xx} > 0 \Rightarrow \text{local min}; \quad D > 0,\ f_{xx} < 0 \Rightarrow \text{local max}; \quad D < 0 \Rightarrow \text{saddle}
+\begin{aligned}
+&D > 0,\ f_{xx} > 0 \Rightarrow \text{local min}; \\
+&D > 0,\ f_{xx} < 0 \Rightarrow \text{local max}; \\
+&D < 0 \Rightarrow \text{saddle}
+\end{aligned}
 $$
 
 ## conditions

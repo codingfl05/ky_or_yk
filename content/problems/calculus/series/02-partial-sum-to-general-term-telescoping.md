@@ -22,11 +22,17 @@ $\dfrac{5}{12}$
 
 ## solution
 $$
-\sum_{n=2}^{\infty}\frac{1}{(n+1)(n+2)(n+3)} = \frac{1}{2}\sum_{n=2}^{\infty}\left(\frac{1}{(n+1)(n+2)} - \frac{1}{(n+2)(n+3)}\right)
+\begin{aligned}
+&\sum_{n=2}^{\infty}\frac{1}{(n+1)(n+2)(n+3)} \\
+&= \frac{1}{2}\sum_{n=2}^{\infty}\left(\frac{1}{(n+1)(n+2)} - \frac{1}{(n+2)(n+3)}\right)
+\end{aligned}
 $$
 
 $$
-= \frac{1}{2}\left[\left(\frac{1}{3\cdot4} - \frac{1}{4\cdot5}\right) + \left(\frac{1}{4\cdot5} - \frac{1}{5\cdot6}\right) + \cdots\right] = \frac{1}{2}\cdot\frac{1}{12} = \frac{1}{24}
+\begin{aligned}
+&= \frac{1}{2}\left[\left(\frac{1}{3\cdot4} - \frac{1}{4\cdot5}\right) + \left(\frac{1}{4\cdot5} - \frac{1}{5\cdot6}\right) + \cdots\right] \\
+&= \frac{1}{2}\cdot\frac{1}{12} = \frac{1}{24}
+\end{aligned}
 $$
 
 가운데 항이 모두 지워지고 첫 항 $\dfrac{1}{3\cdot 4}$만 남는다 ($n = 2$부터 시작하므로 $\dfrac{1}{2\cdot 3}$이 아니다). 여기에 $a_1 = \dfrac{3}{8}$을 따로 더한다.

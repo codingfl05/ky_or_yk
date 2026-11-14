@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-U\ \text{unitary} \iff \text{preserves norm} \iff \text{preserves inner product} \iff \text{maps unit vectors to unit vectors}
+\begin{aligned}
+&U\ \text{unitary} \iff \text{preserves norm} \\
+&\quad {}\iff \text{preserves inner product} \\
+&\quad {}\iff \text{maps unit vectors to unit vectors}
+\end{aligned}
 $$
 
 $$

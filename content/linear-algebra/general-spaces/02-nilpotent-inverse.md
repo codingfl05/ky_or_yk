@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-A^n = O \implies (I-A)^{-1} = I+A+A^2+\cdots+A^{n-1}
+\begin{aligned}
+&A^n = O \implies (I-A)^{-1} \\
+&\quad {}= I+A+A^2+\cdots+A^{n-1}
+\end{aligned}
 $$
 
 ## explanation

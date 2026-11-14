@@ -12,11 +12,31 @@ verified: false
 
 ## formula
 $$
-x^2 + y^2 = a^2, \qquad z = x^2 + y^2, \qquad z = a^2 - x^2 - y^2, \qquad z^2 = x^2 + y^2
+x^2 + y^2 = a^2
 $$
 
 $$
-x^2 + y^2 + z^2 = a^2, \qquad x^2 + y^2 - z^2 = a^2, \qquad \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
+z = x^2 + y^2
+$$
+
+$$
+z = a^2 - x^2 - y^2
+$$
+
+$$
+z^2 = x^2 + y^2
+$$
+
+$$
+x^2 + y^2 + z^2 = a^2
+$$
+
+$$
+x^2 + y^2 - z^2 = a^2
+$$
+
+$$
+\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
 $$
 
 ## conditions

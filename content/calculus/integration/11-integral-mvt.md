@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\int_a^b f(x)\,dx = f(c)(b - a) \quad (\exists\, c \in [a, b]), \qquad f_{\text{avg}} = \frac{1}{b - a}\int_a^b f(x)\,dx
+\int_a^b f(x)\,dx = f(c)(b - a) \quad (\exists\, c \in [a, b])
+$$
+
+$$
+f_{\text{avg}} = \frac{1}{b - a}\int_a^b f(x)\,dx
 $$
 
 ## conditions

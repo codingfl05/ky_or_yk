@@ -20,7 +20,15 @@ B_{\text{infinite wire}} = \frac{\mu_0 i}{2\pi R}, \qquad B_{\text{half-infinite
 $$
 
 $$
-B_{\text{arc center}} = \frac{\mu_0 i\phi}{4\pi R}, \qquad B_{\text{loop center}} = \frac{\mu_0 i}{2R}, \qquad B_{\text{loop axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
+B_{\text{arc center}} = \frac{\mu_0 i\phi}{4\pi R}
+$$
+
+$$
+B_{\text{loop center}} = \frac{\mu_0 i}{2R}
+$$
+
+$$
+B_{\text{loop axis}} = \frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
 $$
 
 ## conditions

@@ -16,7 +16,15 @@ $$
 $$
 
 $$
-B_{\text{wire}} = \begin{cases}\dfrac{\mu_0 i}{2\pi R^2}\,r & (r<R)\\ \dfrac{\mu_0 i}{2\pi r} & (r\ge R)\end{cases}, \qquad B_{\text{solenoid}} = \mu_0 n i, \qquad B_{\text{toroid}} = \frac{\mu_0 N i}{2\pi r}
+B_{\text{wire}} = \begin{cases}\dfrac{\mu_0 i}{2\pi R^2}\,r & (r<R)\\ \dfrac{\mu_0 i}{2\pi r} & (r\ge R)\end{cases}
+$$
+
+$$
+B_{\text{solenoid}} = \mu_0 n i
+$$
+
+$$
+B_{\text{toroid}} = \frac{\mu_0 N i}{2\pi r}
 $$
 
 ## conditions
@@ -51,7 +59,14 @@ $$
 길이 $25\,\text{cm}$에 $150$번 감은 솔레노이드, $i=5\,\text{A}$, $\pi=3$ (교재 예제):
 
 $$
-n=\frac{150}{0.25}=600\,\text{m}^{-1}, \qquad B=\mu_0ni=(4\cdot3\times10^{-7})(600)(5)=3.6\times10^{-3}\,\text{T}
+n=\frac{150}{0.25}=600\,\text{m}^{-1}
+$$
+
+$$
+\begin{aligned}
+&B = \mu_0ni = (4\cdot3\times10^{-7})(600)(5) \\
+&\quad {}= 3.6\times10^{-3}\,\text{T}
+\end{aligned}
 $$
 
 ## supplement

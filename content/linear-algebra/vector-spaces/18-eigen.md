@@ -15,7 +15,15 @@ A\mathbf v = \lambda \mathbf v \ (\mathbf v\neq\mathbf 0) \quad\Longleftrightarr
 $$
 
 $$
-E_\lambda = \operatorname{Null}(A-\lambda I), \qquad \operatorname{tr}(A)=\sum\lambda_i, \qquad \det(A)=\prod\lambda_i
+E_\lambda = \operatorname{Null}(A-\lambda I)
+$$
+
+$$
+\operatorname{tr}(A)=\sum\lambda_i
+$$
+
+$$
+\det(A)=\prod\lambda_i
 $$
 
 ## conditions

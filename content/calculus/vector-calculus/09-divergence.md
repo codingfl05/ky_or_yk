@@ -12,11 +12,18 @@ verified: false
 
 ## formula
 $$
-\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_E \nabla\cdot\mathbf{F}\,dV, \qquad \nabla\cdot\mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
+\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_E \nabla\cdot\mathbf{F}\,dV
 $$
 
 $$
-\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_E \nabla\cdot\mathbf{F}\,dV - \iint_{S'} \mathbf{F}\cdot\mathbf{n}\,dS \qquad (S \cup S' \text{ closed})
+\nabla\cdot\mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
+$$
+
+$$
+\begin{aligned}
+&\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_E \nabla\cdot\mathbf{F}\,dV - \iint_{S'} \mathbf{F}\cdot\mathbf{n}\,dS \\
+&(S \cup S' \text{ closed})
+\end{aligned}
 $$
 
 ## conditions

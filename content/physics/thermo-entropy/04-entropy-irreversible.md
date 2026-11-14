@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\Delta S_{irr} = \int_i^f \frac{dQ_{rev}}{T} \quad (i \to f \text{를 잇는 임의의 가역 경로})
+\begin{aligned}
+&\Delta S_{irr} = \int_i^f \frac{dQ_{rev}}{T} \\
+&(i \to f \text{를 잇는 임의의 가역 경로})
+\end{aligned}
 $$
 
 ## conditions

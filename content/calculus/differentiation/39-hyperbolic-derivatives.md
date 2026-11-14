@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-(\sinh x)' = \cosh x, \qquad (\cosh x)' = \sinh x, \qquad (\tanh x)' = \operatorname{sech}^2 x
+(\sinh x)' = \cosh x
 $$
 
 $$
-(\coth x)' = -\operatorname{csch}^2 x, \qquad (\operatorname{sech} x)' = -\operatorname{sech} x \tanh x, \qquad (\operatorname{csch} x)' = -\operatorname{csch} x \coth x
+(\cosh x)' = \sinh x
+$$
+
+$$
+(\tanh x)' = \operatorname{sech}^2 x
+$$
+
+$$
+(\coth x)' = -\operatorname{csch}^2 x
+$$
+
+$$
+(\operatorname{sech} x)' = -\operatorname{sech} x \tanh x
+$$
+
+$$
+(\operatorname{csch} x)' = -\operatorname{csch} x \coth x
 $$
 
 ## conditions

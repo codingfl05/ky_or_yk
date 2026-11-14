@@ -16,7 +16,10 @@ $$
 $$
 
 $$
-\nabla f = \lambda\nabla g + \mu\nabla h \quad (\text{two constraints } g = k,\ h = c)
+\begin{aligned}
+&\nabla f = \lambda\nabla g + \mu\nabla h \\
+&(\text{two constraints } g = k,\ h = c)
+\end{aligned}
 $$
 
 $$

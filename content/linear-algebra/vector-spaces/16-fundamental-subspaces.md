@@ -11,11 +11,17 @@ verified: false
 
 ## formula
 $$
-\operatorname{Row}(A),\quad \operatorname{Col}(A),\quad \operatorname{Null}(A)=\{x: Ax=\mathbf 0\},\quad \operatorname{Null}(A^T)
+\begin{aligned}
+&\operatorname{Row}(A), \quad \operatorname{Col}(A), \\
+&\operatorname{Null}(A)=\{x: Ax=\mathbf 0\}, \quad \operatorname{Null}(A^T)
+\end{aligned}
 $$
 
 $$
-\operatorname{rank}(A) + \operatorname{nullity}(A) = n \quad (n = \text{number of columns})
+\begin{aligned}
+&\operatorname{rank}(A) + \operatorname{nullity}(A) = n \\
+&(n = \text{number of columns})
+\end{aligned}
 $$
 
 $$

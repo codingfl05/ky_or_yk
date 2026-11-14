@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\lim_{x \to 0} \frac{\sin x}{x} = \lim_{x \to 0} \frac{\tan x}{x} = \lim_{x \to 0} \frac{\sin^{-1}x}{x} = \lim_{x \to 0} \frac{\tan^{-1}x}{x} = 1
+\begin{aligned}
+&\lim_{x \to 0} \frac{\sin x}{x} = \lim_{x \to 0} \frac{\tan x}{x} \\
+&\quad {}= \lim_{x \to 0} \frac{\sin^{-1}x}{x} = \lim_{x \to 0} \frac{\tan^{-1}x}{x} = 1
+\end{aligned}
 $$
 
 $$

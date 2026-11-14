@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-\sinh x = \frac{e^x - e^{-x}}{2}, \qquad \cosh x = \frac{e^x + e^{-x}}{2}, \qquad \tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+\sinh x = \frac{e^x - e^{-x}}{2}
 $$
 
 $$
-\operatorname{csch} x = \frac{1}{\sinh x}, \qquad \operatorname{sech} x = \frac{1}{\cosh x}, \qquad \coth x = \frac{1}{\tanh x}
+\cosh x = \frac{e^x + e^{-x}}{2}
+$$
+
+$$
+\tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+$$
+
+$$
+\operatorname{csch} x = \frac{1}{\sinh x}
+$$
+
+$$
+\operatorname{sech} x = \frac{1}{\cosh x}
+$$
+
+$$
+\coth x = \frac{1}{\tanh x}
 $$
 
 ## conditions

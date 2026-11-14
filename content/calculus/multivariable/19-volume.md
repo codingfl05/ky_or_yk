@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-V = \iint_D f(x, y)\,dA, \qquad V = \iint_D \{f_{\text{top}}(x, y) - f_{\text{bottom}}(x, y)\}\,dA, \qquad V = \iiint_E 1\,dV
+V = \iint_D f(x, y)\,dA
+$$
+
+$$
+V = \iint_D \{f_{\text{top}}(x, y) - f_{\text{bottom}}(x, y)\}\,dA
+$$
+
+$$
+V = \iiint_E 1\,dV
 $$
 
 ## conditions

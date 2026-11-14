@@ -16,7 +16,11 @@ V_{\text{point}} = \frac{kq}{r}, \qquad V_{\text{dipole}} = \frac{k\,p\cos\theta
 $$
 
 $$
-V_{\text{ring, axis}} = \frac{kq}{\sqrt{z^2+R^2}}, \qquad V_{\text{disk, axis}} = \frac{\sigma}{2\varepsilon_0}\left(\sqrt{z^2+R^2}-z\right)
+V_{\text{ring, axis}} = \frac{kq}{\sqrt{z^2+R^2}}
+$$
+
+$$
+V_{\text{disk, axis}} = \frac{\sigma}{2\varepsilon_0}\left(\sqrt{z^2+R^2}-z\right)
 $$
 
 ## conditions

@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-\csc\theta = \frac{1}{\sin\theta}, \qquad \sec\theta = \frac{1}{\cos\theta}, \qquad \cot\theta = \frac{1}{\tan\theta}
+\csc\theta = \frac{1}{\sin\theta}
 $$
 
 $$
-\sin^2\theta + \cos^2\theta = 1, \qquad 1 + \tan^2\theta = \sec^2\theta, \qquad 1 + \cot^2\theta = \csc^2\theta
+\sec\theta = \frac{1}{\cos\theta}
+$$
+
+$$
+\cot\theta = \frac{1}{\tan\theta}
+$$
+
+$$
+\sin^2\theta + \cos^2\theta = 1
+$$
+
+$$
+1 + \tan^2\theta = \sec^2\theta
+$$
+
+$$
+1 + \cot^2\theta = \csc^2\theta
 $$
 
 ## conditions

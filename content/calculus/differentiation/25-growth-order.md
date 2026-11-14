@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-a^x\ (0 < a < 1) \;<\; \sin x,\ \cos x \;<\; \ln x \;<\; x^n \;<\; a^x\ (a > 1) \;<\; x! \;<\; x^x \;<\; (2x)!
+\begin{aligned}
+&a^x\ (0 < a < 1) \;<\; \sin x,\ \cos x \;<\; \ln x \\
+&\quad {}<\; x^n \;<\; a^x\ (a > 1) \;<\; x! \;<\; x^x \;<\; (2x)!
+\end{aligned}
 $$
 
 ## conditions

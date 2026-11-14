@@ -71,7 +71,14 @@ $\boldsymbol{\mu}$는 고리 면에 수직인 화살표다 (네 손가락을 전
 전기에도 똑같은 일이 있다. 2편에 나온 전기 쌍극자($+q$와 $-q$가 거리 $d$만큼 붙어 있는 쌍)를 균일한 전기장에 놓으면, $+q$는 전기장 방향으로 $-q$는 반대 방향으로 같은 크기의 힘을 받는다. 알짜힘은 0이지만 두 힘이 어긋나 있어 쌍극자를 전기장 방향으로 돌린다. 식도 글자만 다르다.
 
 $$
-\boldsymbol\tau = \mathbf{p}\times\mathbf{E}, \qquad U = -\mathbf{p}\cdot\mathbf{E} \qquad (p = qd,\ -\text{에서 } +\text{ 방향})
+\boldsymbol\tau = \mathbf{p}\times\mathbf{E}
+$$
+
+$$
+\begin{aligned}
+&U = -\mathbf{p}\cdot\mathbf{E} \\
+&(p = qd,\ -\text{에서 } +\text{ 방향})
+\end{aligned}
 $$
 
 ## summary

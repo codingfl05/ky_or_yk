@@ -12,11 +12,30 @@ verified: false
 
 ## formula
 $$
-A:V\to V \implies \exists!\, {}^tA:V\to V \ \text{s.t.}\ \langle Av,w\rangle = \langle v,{}^tAw\rangle \ \forall v,w, \qquad A = {}^tA \iff A\ \text{symmetric}
+\begin{aligned}
+&A:V\to V \implies \exists!\, {}^tA:V\to V \ \text{s.t.} \\
+&\quad \langle Av,w\rangle = \langle v,{}^tAw\rangle \ \ \forall v,w
+\end{aligned}
 $$
 
 $$
-{}^t(A+B)={}^tA+{}^tB, \qquad {}^t(AB)={}^tB\,{}^tA, \qquad {}^t(cA)=c\,{}^tA, \qquad {}^t({}^tA)=A
+A = {}^tA \iff A\ \text{symmetric}
+$$
+
+$$
+{}^t(A+B)={}^tA+{}^tB
+$$
+
+$$
+{}^t(AB)={}^tB\,{}^tA
+$$
+
+$$
+{}^t(cA)=c\,{}^tA
+$$
+
+$$
+{}^t({}^tA)=A
 $$
 
 ## conditions

@@ -24,7 +24,11 @@ $$
 질량중심에서 본 위치를 $\mathbf{r}'$, 새 축까지의 수직 변위를 $\mathbf{d}$라 하면 새 축에서 본 수직 위치는 $\mathbf{r}' + \mathbf{d}$:
 
 $$
-I = \int |\mathbf{r}' + \mathbf{d}|^2\, dm = \int r'^2\, dm + 2\,\mathbf{d}\cdot\int \mathbf{r}'\, dm + d^2 \int dm = I_{\text{cm}} + 0 + Md^2
+\begin{aligned}
+&I = \int |\mathbf{r}' + \mathbf{d}|^2\, dm \\
+&\quad {}= \int r'^2\, dm + 2\,\mathbf{d}\cdot\int \mathbf{r}'\, dm + d^2 \int dm \\
+&\quad {}= I_{\text{cm}} + 0 + Md^2
+\end{aligned}
 $$
 
 가운데 항은 질량중심의 정의 $\int \mathbf{r}'\,dm = 0$ 때문에 사라진다.

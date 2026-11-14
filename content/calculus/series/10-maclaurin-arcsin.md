@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\sin^{-1} x = x + \frac{1}{2}\cdot\frac{1}{3}x^3 + \frac{1}{2}\cdot\frac{3}{4}\cdot\frac{1}{5}x^5 + \frac{1}{2}\cdot\frac{3}{4}\cdot\frac{5}{6}\cdot\frac{1}{7}x^7 + \cdots
+\begin{aligned}
+&\sin^{-1} x = x + \frac{1}{2}\cdot\frac{1}{3}x^3 + \frac{1}{2}\cdot\frac{3}{4}\cdot\frac{1}{5}x^5 \\
+&\quad {}+ \frac{1}{2}\cdot\frac{3}{4}\cdot\frac{5}{6}\cdot\frac{1}{7}x^7 + \cdots
+\end{aligned}
 $$
 
 $$

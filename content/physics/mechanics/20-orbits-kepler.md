@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-v = \sqrt{\frac{GM}{r}}, \qquad K = \frac{GMm}{2r}, \qquad E = -\frac{GMm}{2r}
+v = \sqrt{\frac{GM}{r}}
+$$
+
+$$
+K = \frac{GMm}{2r}
+$$
+
+$$
+E = -\frac{GMm}{2r}
 $$
 
 $$

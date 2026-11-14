@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\sin^{-1}x + \cos^{-1}x = \frac{\pi}{2} \quad (-1 \le x \le 1), \qquad \tan^{-1}x + \cot^{-1}x = \frac{\pi}{2}
+\sin^{-1}x + \cos^{-1}x = \frac{\pi}{2} \quad (-1 \le x \le 1)
 $$
 
 $$
-\tan^{-1}x + \tan^{-1}\frac{1}{x} = \begin{cases} \dfrac{\pi}{2} & (x > 0) \\[1ex] -\dfrac{\pi}{2} & (x < 0) \end{cases}, \qquad \cot^{-1}x + \cot^{-1}\frac{1}{x} = \frac{\pi}{2} \quad (x > 0)
+\tan^{-1}x + \cot^{-1}x = \frac{\pi}{2}
+$$
+
+$$
+\tan^{-1}x + \tan^{-1}\frac{1}{x} = \begin{cases} \dfrac{\pi}{2} & (x > 0) \\[1ex] -\dfrac{\pi}{2} & (x < 0) \end{cases}
+$$
+
+$$
+\cot^{-1}x + \cot^{-1}\frac{1}{x} = \frac{\pi}{2} \quad (x > 0)
 $$
 
 $$

@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
+\begin{aligned}
+&\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \\
+&\quad {}= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
+\end{aligned}
 $$
 
 ## conditions

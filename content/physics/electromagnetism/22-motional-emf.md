@@ -12,7 +12,19 @@ verified: false
 
 ## formula
 $$
-\mathcal{E} = BLv, \qquad i = \frac{BLv}{R}, \qquad F = iLB = \frac{B^2L^2v}{R}, \qquad P = Fv = \frac{B^2L^2v^2}{R} = i^2R
+\mathcal{E} = BLv
+$$
+
+$$
+i = \frac{BLv}{R}
+$$
+
+$$
+F = iLB = \frac{B^2L^2v}{R}
+$$
+
+$$
+P = Fv = \frac{B^2L^2v^2}{R} = i^2R
 $$
 
 $$

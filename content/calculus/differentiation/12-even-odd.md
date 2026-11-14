@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\text{even:} \quad f(-x) = f(x), \qquad \text{odd:} \quad f(-x) = -f(x)
+\text{even:} \quad f(-x) = f(x)
+$$
+
+$$
+\text{odd:} \quad f(-x) = -f(x)
 $$
 
 ## conditions

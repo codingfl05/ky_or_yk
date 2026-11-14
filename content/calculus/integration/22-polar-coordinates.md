@@ -12,7 +12,19 @@ verified: false
 
 ## formula
 $$
-x = r\cos\theta, \qquad y = r\sin\theta, \qquad r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x}
+x = r\cos\theta
+$$
+
+$$
+y = r\sin\theta
+$$
+
+$$
+r^2 = x^2 + y^2
+$$
+
+$$
+\tan\theta = \frac{y}{x}
 $$
 
 $$

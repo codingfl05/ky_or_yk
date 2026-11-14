@@ -16,7 +16,11 @@ C = \kappa C_0, \qquad \varepsilon_0 \to \kappa\varepsilon_0
 $$
 
 $$
-q\ \text{fixed: } V = \frac{V_0}{\kappa},\ E = \frac{E_0}{\kappa},\ U = \frac{U_0}{\kappa} \qquad\qquad V\ \text{fixed: } q = \kappa q_0,\ E = E_0,\ U = \kappa U_0
+q\ \text{fixed: } V = \frac{V_0}{\kappa},\ E = \frac{E_0}{\kappa},\ U = \frac{U_0}{\kappa}
+$$
+
+$$
+V\ \text{fixed: } q = \kappa q_0,\ E = E_0,\ U = \kappa U_0
 $$
 
 ## conditions
@@ -42,7 +46,11 @@ $$
 $C=12\,\mu\text{F}$를 $2\,\text{V}$로 충전 후 전원 제거, $\kappa=6$인 유전체로 채움 (교재 예제):
 
 $$
-U_0=\frac{1}{2}(12\times10^{-6})(2)^2=24\,\mu\text{J}, \qquad U=\frac{U_0}{\kappa}=4\,\mu\text{J}
+U_0=\frac{1}{2}(12\times10^{-6})(2)^2=24\,\mu\text{J}
+$$
+
+$$
+U=\frac{U_0}{\kappa}=4\,\mu\text{J}
 $$
 
 ## supplement

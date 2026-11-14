@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-i = \frac{dq}{dt}, \qquad J = \frac{i}{A}\ \left(i = \int J\,dA\right), \qquad i = nAev_d \ \Rightarrow\ v_d = \frac{J}{ne}
+i = \frac{dq}{dt}
+$$
+
+$$
+J = \frac{i}{A}\ \left(i = \int J\,dA\right)
+$$
+
+$$
+i = nAev_d \ \Rightarrow\ v_d = \frac{J}{ne}
 $$
 
 ## conditions

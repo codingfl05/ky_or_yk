@@ -75,7 +75,15 @@ $$
 진자는 각이 작을 때 복원 돌림힘이 각에 비례한다 ($\sin\theta \approx \theta$). 용수철 식에서 $m$을 $I$로, $k$를 복원 상수로 바꾼다.
 
 $$
-T_{\text{simple}} = 2\pi\sqrt{\frac{L}{g}}, \qquad T_{\text{physical}} = 2\pi\sqrt{\frac{I}{mgd}}, \qquad T_{\text{torsion}} = 2\pi\sqrt{\frac{I}{\kappa}}
+T_{\text{simple}} = 2\pi\sqrt{\frac{L}{g}}
+$$
+
+$$
+T_{\text{physical}} = 2\pi\sqrt{\frac{I}{mgd}}
+$$
+
+$$
+T_{\text{torsion}} = 2\pi\sqrt{\frac{I}{\kappa}}
 $$
 
 단진자의 주기에는 질량이 없다. 무거운 추는 중력도 크게 받고 움직이기도 힘들어 둘이 비긴다. 엘리베이터가 위로 가속하면 $g$ 대신 $g + a$가 되어 빨라진다.

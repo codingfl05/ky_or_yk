@@ -16,7 +16,11 @@ f(tx, ty) = t^n f(x, y)
 $$
 
 $$
-x f_x + y f_y = n f, \qquad x^2 f_{xx} + 2xy f_{xy} + y^2 f_{yy} = n(n - 1) f
+x f_x + y f_y = n f
+$$
+
+$$
+x^2 f_{xx} + 2xy f_{xy} + y^2 f_{yy} = n(n - 1) f
 $$
 
 ## conditions

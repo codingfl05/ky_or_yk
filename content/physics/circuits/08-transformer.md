@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-\frac{V_2}{V_1} = \frac{N_2}{N_1}, \qquad V_1I_1 = V_2I_2\ \Rightarrow\ \frac{I_2}{I_1} = \frac{N_1}{N_2}, \qquad R_{\text{eq}} = \left(\frac{N_1}{N_2}\right)^2R
+\frac{V_2}{V_1} = \frac{N_2}{N_1}
+$$
+
+$$
+V_1I_1 = V_2I_2\ \Rightarrow\ \frac{I_2}{I_1} = \frac{N_1}{N_2}
+$$
+
+$$
+R_{\text{eq}} = \left(\frac{N_1}{N_2}\right)^2R
 $$
 
 ## conditions

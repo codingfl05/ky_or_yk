@@ -16,7 +16,11 @@ f_s \le \mu_sN, \qquad f_k = \mu_kN
 $$
 
 $$
-\text{incline: } N = mg\cos\theta, \qquad a = g\sin\theta - \mu_kg\cos\theta\ (\text{sliding down})
+\text{incline: } N = mg\cos\theta
+$$
+
+$$
+a = g\sin\theta - \mu_kg\cos\theta\ (\text{sliding down})
 $$
 
 ## conditions

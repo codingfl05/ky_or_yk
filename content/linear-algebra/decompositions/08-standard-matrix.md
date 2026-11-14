@@ -11,11 +11,23 @@ verified: false
 
 ## formula
 $$
-T_A(x)=Ax \qquad\Longrightarrow\qquad A = [\,T_A(e_1)\,|\,T_A(e_2)\,|\,\cdots\,|\,T_A(e_n)\,]
+T_A(x)=Ax
 $$
 
 $$
-\ker(T_A)=\{0\} \iff R(T_A)=\mathbb R^n \iff T_A \text{ is bijective} \iff A \text{ invertible}
+\Longrightarrow
+$$
+
+$$
+A = [\,T_A(e_1)\,|\,T_A(e_2)\,|\,\cdots\,|\,T_A(e_n)\,]
+$$
+
+$$
+\begin{aligned}
+&\ker(T_A)=\{0\} \iff R(T_A)=\mathbb R^n \\
+&\quad {}\iff T_A \text{ is bijective} \\
+&\quad {}\iff A \text{ invertible}
+\end{aligned}
 $$
 
 ## conditions

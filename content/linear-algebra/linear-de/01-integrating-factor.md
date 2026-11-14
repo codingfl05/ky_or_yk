@@ -12,11 +12,22 @@ verified: false
 
 ## formula
 $$
-y' + p(t)y = g(t) \qquad\Longrightarrow\qquad \mu(t) = \exp\left(\int p(t)\,dt\right)
+y' + p(t)y = g(t)
 $$
 
 $$
-\frac{d}{dt}\big(\mu(t)y\big) = \mu(t)g(t) \quad\Longrightarrow\quad \mu(t)y = \int \mu(t)g(t)\,dt + C
+\Longrightarrow
+$$
+
+$$
+\mu(t) = \exp\left(\int p(t)\,dt\right)
+$$
+
+$$
+\begin{aligned}
+&\frac{d}{dt}\big(\mu(t)y\big) = \mu(t)g(t) \quad \Longrightarrow \\
+&\mu(t)y = \int \mu(t)g(t)\,dt + C
+\end{aligned}
 $$
 
 ## explanation

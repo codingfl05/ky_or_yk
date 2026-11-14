@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-y = a\sin(bx + c) + d: \quad d - |a| \le y \le d + |a|, \qquad T = \frac{2\pi}{|b|}
+y = a\sin(bx + c) + d: \quad d - |a| \le y \le d + |a|
 $$
 
 $$
-y = a\tan(bx + c) + d: \quad T = \frac{\pi}{|b|}, \qquad bx + c \neq \frac{\pi}{2} + n\pi
+T = \frac{2\pi}{|b|}
+$$
+
+$$
+y = a\tan(bx + c) + d: \quad T = \frac{\pi}{|b|}
+$$
+
+$$
+bx + c \neq \frac{\pi}{2} + n\pi
 $$
 
 ## conditions

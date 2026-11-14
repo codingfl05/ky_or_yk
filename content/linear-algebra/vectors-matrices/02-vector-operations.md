@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\vec{u}+\vec{v} = \langle u_1+v_1,\, u_2+v_2,\, u_3+v_3\rangle, \qquad k\vec{u} = \langle ku_1, ku_2, ku_3\rangle
+\vec{u}+\vec{v} = \langle u_1+v_1,\, u_2+v_2,\, u_3+v_3\rangle
+$$
+
+$$
+k\vec{u} = \langle ku_1, ku_2, ku_3\rangle
 $$
 
 $$

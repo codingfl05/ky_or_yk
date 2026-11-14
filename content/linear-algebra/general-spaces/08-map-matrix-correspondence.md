@@ -11,11 +11,19 @@ verified: false
 
 ## formula
 $$
-L_A(X)=AX, \qquad L:K^n\to K^m \implies L=L_A \text{ for a unique } A
+L_A(X)=AX
 $$
 
 $$
-L_{A+B}=L_A+L_B, \quad L_{cA}=cL_A, \qquad L_B\circ L_A = L_{BA}
+L:K^n\to K^m \implies L=L_A \text{ for a unique } A
+$$
+
+$$
+L_{A+B}=L_A+L_B, \quad L_{cA}=cL_A
+$$
+
+$$
+L_B\circ L_A = L_{BA}
 $$
 
 ## explanation

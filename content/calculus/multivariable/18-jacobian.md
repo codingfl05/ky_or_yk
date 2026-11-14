@@ -12,11 +12,18 @@ verified: false
 
 ## formula
 $$
-\iint_R f(x, y)\,dx\,dy = \iint_S f(x(u, v), y(u, v))\left|\frac{\partial(x, y)}{\partial(u, v)}\right|du\,dv
+\begin{aligned}
+&\iint_R f(x, y)\,dx\,dy \\
+&\quad {}= \iint_S f(x(u, v), y(u, v))\left|\frac{\partial(x, y)}{\partial(u, v)}\right|du\,dv
+\end{aligned}
 $$
 
 $$
-\iiint_R f\,dx\,dy\,dz = \iiint_G f(x(u, v, w), y(u, v, w), z(u, v, w))\left|\frac{\partial(x, y, z)}{\partial(u, v, w)}\right|du\,dv\,dw
+\begin{aligned}
+&\iiint_R f\,dx\,dy\,dz \\
+&\quad {}= \iiint_G f(x, y, z)\left|\frac{\partial(x, y, z)}{\partial(u, v, w)}\right|du\,dv\,dw \\
+&(x, y, z \text{ as functions of } u, v, w)
+\end{aligned}
 $$
 
 $$

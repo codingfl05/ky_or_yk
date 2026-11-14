@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-Z = \sqrt{R^2+(X_L-X_C)^2}, \qquad I = \frac{V_m}{Z}, \qquad \tan\phi = \frac{X_L-X_C}{R}
+Z = \sqrt{R^2+(X_L-X_C)^2}
 $$
 
 $$
-\omega_{\text{res}} = \frac{1}{\sqrt{LC}}, \qquad V_{\text{rms}} = \frac{V_m}{\sqrt2}, \qquad P_{\text{avg}} = I_{\text{rms}}^2R = V_{\text{rms}}I_{\text{rms}}\cos\phi
+I = \frac{V_m}{Z}
+$$
+
+$$
+\tan\phi = \frac{X_L-X_C}{R}
+$$
+
+$$
+\omega_{\text{res}} = \frac{1}{\sqrt{LC}}
+$$
+
+$$
+V_{\text{rms}} = \frac{V_m}{\sqrt2}
+$$
+
+$$
+P_{\text{avg}} = I_{\text{rms}}^2R = V_{\text{rms}}I_{\text{rms}}\cos\phi
 $$
 
 ## conditions
@@ -28,7 +44,10 @@ $$
 직렬이니 전류를 기준으로 잡는다. $V_R$는 전류와 같은 위상, $V_L$은 $90^\circ$ 앞, $V_C$는 $90^\circ$ 뒤. 그래서 전압들을 화살표(위상자)로 그리면 $V_L$과 $V_C$는 정반대라 빼고, $V_R$과는 직각이라 피타고라스로 더한다.
 
 $$
-V_m^2 = V_R^2+(V_L-V_C)^2 \ \Rightarrow\ V_m = I\sqrt{R^2+(X_L-X_C)^2} = IZ
+\begin{aligned}
+&V_m^2 = V_R^2+(V_L-V_C)^2 \\
+&\quad {}\Rightarrow V_m = I\sqrt{R^2+(X_L-X_C)^2} = IZ
+\end{aligned}
 $$
 
 임피던스(impedance) $Z$는 교류 회로 전체의 "등가 저항"이다.

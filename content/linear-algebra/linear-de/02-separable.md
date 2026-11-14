@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-M(x) + N(y)\frac{dy}{dx} = 0 \qquad\Longrightarrow\qquad \int M(x)\,dx + \int N(y)\,dy = C
+M(x) + N(y)\frac{dy}{dx} = 0
+$$
+
+$$
+\Longrightarrow
+$$
+
+$$
+\int M(x)\,dx + \int N(y)\,dy = C
 $$
 
 ## explanation

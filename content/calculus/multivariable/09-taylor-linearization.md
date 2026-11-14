@@ -12,11 +12,17 @@ verified: false
 
 ## formula
 $$
-L(x, y) = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)
+\begin{aligned}
+&L(x, y) = f(a, b) + f_x(a, b)(x - a) \\
+&\quad {}+ f_y(a, b)(y - b)
+\end{aligned}
 $$
 
 $$
-f(x, y) \approx L(x, y) + \frac{1}{2}\left\{f_{xx}(x - a)^2 + 2f_{xy}(x - a)(y - b) + f_{yy}(y - b)^2\right\}
+\begin{aligned}
+&f(x, y) \approx L(x, y) + \frac{1}{2}\Big\{f_{xx}(x - a)^2 \\
+&\qquad {}+ 2f_{xy}(x - a)(y - b) + f_{yy}(y - b)^2\Big\}
+\end{aligned}
 $$
 
 ## conditions

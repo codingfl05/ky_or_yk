@@ -16,7 +16,10 @@ $$
 $$
 
 $$
-\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x
+\begin{aligned}
+&\cos 2x = \cos^2 x - \sin^2 x \\
+&\quad {}= 2\cos^2 x - 1 = 1 - 2\sin^2 x
+\end{aligned}
 $$
 
 $$
@@ -24,7 +27,11 @@ $$
 $$
 
 $$
-\sin 3x = 3\sin x - 4\sin^3 x, \qquad \cos 3x = 4\cos^3 x - 3\cos x
+\sin 3x = 3\sin x - 4\sin^3 x
+$$
+
+$$
+\cos 3x = 4\cos^3 x - 3\cos x
 $$
 
 ## conditions

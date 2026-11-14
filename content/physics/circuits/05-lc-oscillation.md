@@ -16,7 +16,15 @@ L\frac{d^2q}{dt^2}+\frac{q}{C}=0, \qquad \omega = \frac{1}{\sqrt{LC}}
 $$
 
 $$
-q = Q\cos(\omega t+\phi), \qquad i = -\omega Q\sin(\omega t+\phi), \qquad U = \frac{q^2}{2C}+\frac{1}{2}Li^2 = \frac{Q^2}{2C}
+q = Q\cos(\omega t+\phi)
+$$
+
+$$
+i = -\omega Q\sin(\omega t+\phi)
+$$
+
+$$
+U = \frac{q^2}{2C}+\frac{1}{2}Li^2 = \frac{Q^2}{2C}
 $$
 
 ## conditions

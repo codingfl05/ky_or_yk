@@ -15,7 +15,10 @@ $$
 $$
 
 $$
-\operatorname{proj}_W u = \langle u,v_1\rangle v_1 + \cdots + \langle u,v_r\rangle v_r \quad (\text{orthonormal basis})
+\begin{aligned}
+&\operatorname{proj}_W u = \langle u,v_1\rangle v_1 + \cdots + \langle u,v_r\rangle v_r \\
+&(\text{orthonormal basis})
+\end{aligned}
 $$
 
 ## conditions

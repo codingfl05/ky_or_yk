@@ -12,11 +12,18 @@ verified: false
 
 ## formula
 $$
-D_{\mathbf{u}}f(a, b) = \lim_{h \to 0}\frac{f(a + hu_1, b + hu_2) - f(a, b)}{h} \qquad (|\mathbf{u}| = 1)
+\begin{aligned}
+&D_{\mathbf{u}}f(a, b) = \lim_{h \to 0}\frac{f(a + hu_1, b + hu_2) - f(a, b)}{h} \\
+&(|\mathbf{u}| = 1)
+\end{aligned}
 $$
 
 $$
-D_{\mathbf{u}}f = \nabla f\cdot\mathbf{u} = |\nabla f|\cos\theta, \qquad \max D_{\mathbf{u}}f = |\nabla f| \ (\mathbf{u} \parallel \nabla f)
+D_{\mathbf{u}}f = \nabla f\cdot\mathbf{u} = |\nabla f|\cos\theta
+$$
+
+$$
+\max D_{\mathbf{u}}f = |\nabla f| \ (\mathbf{u} \parallel \nabla f)
 $$
 
 ## conditions

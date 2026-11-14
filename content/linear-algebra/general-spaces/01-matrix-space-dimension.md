@@ -11,7 +11,15 @@ verified: false
 
 ## formula
 $$
-\dim(\operatorname{Mat}_{m\times n}(K)) = mn, \qquad \dim(\text{symmetric } n\times n) = \frac{n(n+1)}{2}, \qquad \dim(\operatorname{tr}=0) = n^2-1
+\dim(\operatorname{Mat}_{m\times n}(K)) = mn
+$$
+
+$$
+\dim(\text{symmetric } n\times n) = \frac{n(n+1)}{2}
+$$
+
+$$
+\dim(\operatorname{tr}=0) = n^2-1
 $$
 
 ## conditions

@@ -12,11 +12,27 @@ verified: false
 
 ## formula
 $$
-(\sin x)' = \cos x, \qquad (\cos x)' = -\sin x, \qquad (\tan x)' = \sec^2 x
+(\sin x)' = \cos x
 $$
 
 $$
-(\cot x)' = -\csc^2 x, \qquad (\sec x)' = \sec x \tan x, \qquad (\csc x)' = -\csc x \cot x
+(\cos x)' = -\sin x
+$$
+
+$$
+(\tan x)' = \sec^2 x
+$$
+
+$$
+(\cot x)' = -\csc^2 x
+$$
+
+$$
+(\sec x)' = \sec x \tan x
+$$
+
+$$
+(\csc x)' = -\csc x \cot x
 $$
 
 ## conditions

@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\left|\int_a^t f(x)\,dx\right| \le M \ (\forall t \ge a), \quad g \text{ decreasing},\ \lim_{x \to \infty} g(x) = 0 \;\Rightarrow\; \int_a^\infty f(x)g(x)\,dx \text{ converges}
+\begin{aligned}
+&\left|\int_a^t f(x)\,dx\right| \le M \ (\forall t \ge a), \\
+&g \text{ decreasing},\ \lim_{x \to \infty} g(x) = 0 \\
+&\quad {}\Rightarrow \int_a^\infty f(x)g(x)\,dx \text{ converges}
+\end{aligned}
 $$
 
 ## conditions

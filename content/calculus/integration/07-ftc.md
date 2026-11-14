@@ -16,7 +16,11 @@ $$
 $$
 
 $$
-\frac{d}{dx}\int_{u(x)}^{v(x)} f(x, t)\,dt = f(x, v(x))\,v'(x) - f(x, u(x))\,u'(x) + \int_{u(x)}^{v(x)} \frac{\partial f}{\partial x}(x, t)\,dt
+\begin{aligned}
+&\frac{d}{dx}\int_{u(x)}^{v(x)} f(x, t)\,dt \\
+&\quad {}= f(x, v(x))\,v'(x) - f(x, u(x))\,u'(x) \\
+&\quad {}+ \int_{u(x)}^{v(x)} \frac{\partial f}{\partial x}(x, t)\,dt
+\end{aligned}
 $$
 
 ## conditions

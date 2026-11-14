@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-\sqrt{a^2 - x^2}: \ x = a\sin\theta, \qquad \sqrt{a^2 + x^2}: \ x = a\tan\theta, \qquad \sqrt{x^2 - a^2}: \ x = a\sec\theta
+\sqrt{a^2 - x^2}: \ x = a\sin\theta
+$$
+
+$$
+\sqrt{a^2 + x^2}: \ x = a\tan\theta
+$$
+
+$$
+\sqrt{x^2 - a^2}: \ x = a\sec\theta
 $$
 
 ## conditions

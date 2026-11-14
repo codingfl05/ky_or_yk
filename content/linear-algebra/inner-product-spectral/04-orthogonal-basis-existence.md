@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-V\ne\{0\},\ \text{positive definite inner product} \implies V\ \text{has an orthogonal basis}
+\begin{aligned}
+&V\ne\{0\},\ \text{positive definite inner product} \\
+&\quad {}\implies V\ \text{has an orthogonal basis}
+\end{aligned}
 $$
 
 $$

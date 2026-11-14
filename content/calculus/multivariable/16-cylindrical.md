@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-x = r\cos\theta, \quad y = r\sin\theta, \quad z = z, \qquad dV = r\,dz\,dr\,d\theta
+x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
 $$
 
 $$
-\iiint_E f\,dV = \int_\alpha^\beta\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r\cos\theta,\,r\sin\theta)}^{u_2(r\cos\theta,\,r\sin\theta)} f(r\cos\theta, r\sin\theta, z)\,r\,dz\,dr\,d\theta
+dV = r\,dz\,dr\,d\theta
+$$
+
+$$
+\begin{aligned}
+&\iiint_E f\,dV \\
+&\ {}= \int_\alpha^\beta\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1}^{u_2} f(r\cos\theta, r\sin\theta, z)\,r\,dz\,dr\,d\theta \\
+&(u_i = u_i(r\cos\theta,\ r\sin\theta))
+\end{aligned}
 $$
 
 ## conditions

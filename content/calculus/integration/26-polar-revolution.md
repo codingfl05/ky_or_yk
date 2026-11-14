@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-V_{\theta = 0} = \frac{2\pi}{3}\int_\alpha^\beta r^3\sin\theta\,d\theta, \qquad V_{\theta = \pi/2} = \frac{2\pi}{3}\int_\alpha^\beta r^3\cos\theta\,d\theta
+V_{\theta = 0} = \frac{2\pi}{3}\int_\alpha^\beta r^3\sin\theta\,d\theta
+$$
+
+$$
+V_{\theta = \pi/2} = \frac{2\pi}{3}\int_\alpha^\beta r^3\cos\theta\,d\theta
 $$
 
 ## conditions

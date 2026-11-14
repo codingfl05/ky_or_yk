@@ -12,15 +12,27 @@ verified: false
 
 ## formula
 $$
-\sin^{-1}(\sin x) = x \quad \left(-\frac{\pi}{2} \le x \le \frac{\pi}{2}\right), \qquad \sin(\sin^{-1}x) = x \quad (-1 \le x \le 1)
+\sin^{-1}(\sin x) = x \quad \left(-\frac{\pi}{2} \le x \le \frac{\pi}{2}\right)
 $$
 
 $$
-\cos^{-1}(\cos x) = x \quad (0 \le x \le \pi), \qquad \cos(\cos^{-1}x) = x \quad (-1 \le x \le 1)
+\sin(\sin^{-1}x) = x \quad (-1 \le x \le 1)
 $$
 
 $$
-\tan^{-1}(\tan x) = x \quad \left(-\frac{\pi}{2} < x < \frac{\pi}{2}\right), \qquad \tan(\tan^{-1}x) = x \quad (\text{all } x)
+\cos^{-1}(\cos x) = x \quad (0 \le x \le \pi)
+$$
+
+$$
+\cos(\cos^{-1}x) = x \quad (-1 \le x \le 1)
+$$
+
+$$
+\tan^{-1}(\tan x) = x \quad \left(-\frac{\pi}{2} < x < \frac{\pi}{2}\right)
+$$
+
+$$
+\tan(\tan^{-1}x) = x \quad (\text{all } x)
 $$
 
 ## conditions

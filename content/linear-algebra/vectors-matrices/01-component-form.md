@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\vec{v} = \langle v_1, v_2, v_3 \rangle, \qquad \overrightarrow{PQ} = \langle x_2-x_1,\ y_2-y_1,\ z_2-z_1 \rangle
+\vec{v} = \langle v_1, v_2, v_3 \rangle
+$$
+
+$$
+\overrightarrow{PQ} = \langle x_2-x_1,\ y_2-y_1,\ z_2-z_1 \rangle
 $$
 
 $$

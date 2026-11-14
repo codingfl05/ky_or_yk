@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\iint_S g\,dS = \iint_D g(x, y, f(x, y))\sqrt{1 + f_x^2 + f_y^2}\,dA \qquad (z = f(x, y))
+\begin{aligned}
+&\iint_S g\,dS = \iint_D g(x, y, f(x, y))\sqrt{1 + f_x^2 + f_y^2}\,dA \\
+&(z = f(x, y))
+\end{aligned}
 $$
 
 $$

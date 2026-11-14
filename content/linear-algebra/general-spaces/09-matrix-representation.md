@@ -12,11 +12,22 @@ verified: false
 
 ## formula
 $$
-[F]_{\mathcal B\to\mathcal B'} = \big[\,(F(v_1))_{\mathcal B'} \,\big|\, (F(v_2))_{\mathcal B'} \,\big|\, \cdots \,\big|\, (F(v_n))_{\mathcal B'}\,\big]
+\begin{aligned}
+&[F]_{\mathcal B\to\mathcal B'} \\
+&\quad {}= \big[\,(F(v_1))_{\mathcal B'} \,\big|\, (F(v_2))_{\mathcal B'} \,\big|\, \cdots \,\big|\, (F(v_n))_{\mathcal B'}\,\big]
+\end{aligned}
 $$
 
 $$
-[F+G]=[F]+[G], \qquad [cF]=c[F], \qquad [G\circ F]_{\mathcal B\to\mathcal B''} = [G]_{\mathcal B'\to\mathcal B''}\,[F]_{\mathcal B\to\mathcal B'}
+[F+G]=[F]+[G]
+$$
+
+$$
+[cF]=c[F]
+$$
+
+$$
+[G\circ F]_{\mathcal B\to\mathcal B''} = [G]_{\mathcal B'\to\mathcal B''}\,[F]_{\mathcal B\to\mathcal B'}
 $$
 
 ## conditions

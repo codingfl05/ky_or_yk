@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-f(x) \le g(x) \le h(x), \quad \lim_{x \to a} f(x) = \lim_{x \to a} h(x) = L \;\Longrightarrow\; \lim_{x \to a} g(x) = L
+\begin{aligned}
+&f(x) \le g(x) \le h(x), \\
+&\lim_{x \to a} f(x) = \lim_{x \to a} h(x) = L \\
+&\quad {}\Longrightarrow \lim_{x \to a} g(x) = L
+\end{aligned}
 $$
 
 ## conditions

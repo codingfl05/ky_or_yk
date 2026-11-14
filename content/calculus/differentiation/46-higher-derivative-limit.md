@@ -16,7 +16,11 @@ f''(x) = \lim_{h \to 0} \frac{f(x + 2h) - 2f(x + h) + f(x)}{h^2}
 $$
 
 $$
-f'''(x) = \lim_{h \to 0} \frac{f(x + 3h) - 3f(x + 2h) + 3f(x + h) - f(x)}{h^3}
+\begin{aligned}
+&f'''(x) = \lim_{h \to 0} \frac{N}{h^3}, \\
+&N = f(x + 3h) - 3f(x + 2h) \\
+&\qquad {}+ 3f(x + h) - f(x)
+\end{aligned}
 $$
 
 ## conditions

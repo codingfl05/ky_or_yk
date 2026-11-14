@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-\|\vec u+\vec v\| \le \|\vec u\|+\|\vec v\|, \qquad d(\vec u,\vec v)\le d(\vec u,\vec w)+d(\vec w,\vec v)
+\|\vec u+\vec v\| \le \|\vec u\|+\|\vec v\|
+$$
+
+$$
+d(\vec u,\vec v)\le d(\vec u,\vec w)+d(\vec w,\vec v)
 $$
 
 ## explanation

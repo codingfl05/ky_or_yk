@@ -12,7 +12,15 @@ verified: false
 
 ## formula
 $$
-T_{\text{simple}} = 2\pi\sqrt{\frac{L}{g}}, \qquad T_{\text{physical}} = 2\pi\sqrt{\frac{I}{mgd}}, \qquad T_{\text{torsion}} = 2\pi\sqrt{\frac{I}{\kappa}}
+T_{\text{simple}} = 2\pi\sqrt{\frac{L}{g}}
+$$
+
+$$
+T_{\text{physical}} = 2\pi\sqrt{\frac{I}{mgd}}
+$$
+
+$$
+T_{\text{torsion}} = 2\pi\sqrt{\frac{I}{\kappa}}
 $$
 
 ## conditions

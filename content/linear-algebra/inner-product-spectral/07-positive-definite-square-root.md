@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-A\ \text{symmetric, positive definite} \iff \exists N\ (\text{invertible})\ \text{s.t.}\ A={}^tNN
+\begin{aligned}
+&A\ \text{symmetric, positive definite} \\
+&\quad {}\iff \exists N\ (\text{invertible})\ \text{s.t.}\ A={}^tNN
+\end{aligned}
 $$
 
 $$

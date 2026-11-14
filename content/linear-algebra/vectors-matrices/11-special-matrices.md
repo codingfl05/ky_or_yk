@@ -11,7 +11,19 @@ verified: false
 
 ## formula
 $$
-(AB)^T=B^TA^T, \qquad A=A^T \ (\text{symmetric}), \qquad A^T=-A \ (\text{skew}), \qquad A^2=A \ (\text{idempotent})
+(AB)^T=B^TA^T
+$$
+
+$$
+A=A^T \ (\text{symmetric})
+$$
+
+$$
+A^T=-A \ (\text{skew})
+$$
+
+$$
+A^2=A \ (\text{idempotent})
 $$
 
 $$

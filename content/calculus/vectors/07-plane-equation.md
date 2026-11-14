@@ -12,11 +12,17 @@ verified: false
 
 ## formula
 $$
-a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \qquad (\mathbf{n} = \langle a, b, c\rangle)
+\begin{aligned}
+&a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \\
+&(\mathbf{n} = \langle a, b, c\rangle)
+\end{aligned}
 $$
 
 $$
-(a_1x + b_1y + c_1z - d_1) + k(a_2x + b_2y + c_2z - d_2) = 0
+\begin{aligned}
+&(a_1x + b_1y + c_1z - d_1) \\
+&\quad {}+ k(a_2x + b_2y + c_2z - d_2) = 0
+\end{aligned}
 $$
 
 ## conditions

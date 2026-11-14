@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-[\mathbf u]_{B'} = P_{B\to B'}\,[\mathbf u]_B, \qquad P_{B\to B'} = \big[\,[\mathbf v_1]_{B'} \ \cdots\ [\mathbf v_n]_{B'}\,\big]
+[\mathbf u]_{B'} = P_{B\to B'}\,[\mathbf u]_B
+$$
+
+$$
+P_{B\to B'} = \big[\,[\mathbf v_1]_{B'} \ \cdots\ [\mathbf v_n]_{B'}\,\big]
 $$
 
 $$

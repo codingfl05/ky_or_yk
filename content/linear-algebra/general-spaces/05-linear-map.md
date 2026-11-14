@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-F \text{ linear} \iff F(u+v)=F(u)+F(v) \ \text{and}\ F(cv)=cF(v)
+\begin{aligned}
+&F \text{ linear} \iff \\
+&\quad F(u+v)=F(u)+F(v) \ \text{and}\ F(cv)=cF(v)
+\end{aligned}
 $$
 
 ## explanation

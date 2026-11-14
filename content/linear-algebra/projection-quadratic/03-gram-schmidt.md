@@ -16,7 +16,11 @@ v_1 = u_1, \qquad v_2 = u_2 - \frac{u_2\cdot v_1}{\|v_1\|^2}v_1
 $$
 
 $$
-v_3 = u_3 - \operatorname{proj}_{v_1}u_3 - \operatorname{proj}_{v_2}u_3, \qquad v_k = u_k - \sum_{i=1}^{k-1}\operatorname{proj}_{v_i}u_k
+v_3 = u_3 - \operatorname{proj}_{v_1}u_3 - \operatorname{proj}_{v_2}u_3
+$$
+
+$$
+v_k = u_k - \sum_{i=1}^{k-1}\operatorname{proj}_{v_i}u_k
 $$
 
 ## explanation

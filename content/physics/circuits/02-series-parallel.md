@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\text{series: } R_{\text{eq}} = R_1+R_2+\cdots, \qquad \frac{1}{C_{\text{eq}}} = \frac{1}{C_1}+\frac{1}{C_2}+\cdots
+\text{series: } R_{\text{eq}} = R_1+R_2+\cdots
 $$
 
 $$
-\text{parallel: } \frac{1}{R_{\text{eq}}} = \frac{1}{R_1}+\frac{1}{R_2}+\cdots, \qquad C_{\text{eq}} = C_1+C_2+\cdots
+\frac{1}{C_{\text{eq}}} = \frac{1}{C_1}+\frac{1}{C_2}+\cdots
+$$
+
+$$
+\text{parallel: } \frac{1}{R_{\text{eq}}} = \frac{1}{R_1}+\frac{1}{R_2}+\cdots
+$$
+
+$$
+C_{\text{eq}} = C_1+C_2+\cdots
 $$
 
 ## conditions
@@ -45,7 +53,15 @@ $R=\rho\dfrac{L}{A}$와 $C=\dfrac{\varepsilon_0A}{d}$를 떠올리면 공식이 
 충전된 축전기를 다른 빈 축전기에 연결 (교재 예제): $C_1=4\,\mu\text{F}$를 $6\,\text{V}$로 충전 후 전원을 떼고 $C_2=8\,\mu\text{F}$를 연결. 전하 $q_0=24\,\mu\text{C}$가 보존되고 평형에서 두 축전기의 전압이 같다 (병렬):
 
 $$
-V=\frac{q_0}{C_1+C_2}=2\,\text{V}, \qquad q_1=8\,\mu\text{C}, \qquad q_2=16\,\mu\text{C}
+V=\frac{q_0}{C_1+C_2}=2\,\text{V}
+$$
+
+$$
+q_1=8\,\mu\text{C}
+$$
+
+$$
+q_2=16\,\mu\text{C}
 $$
 
 ## supplement

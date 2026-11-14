@@ -11,7 +11,10 @@ verified: false
 
 ## formula
 $$
-A^0=I,\quad A^{-n}=(A^{-1})^n,\quad A^rA^s=A^{r+s},\quad (A^r)^s=A^{rs}
+\begin{aligned}
+&A^0=I, \quad A^{-n}=(A^{-1})^n, \\
+&A^rA^s=A^{r+s}, \quad (A^r)^s=A^{rs}
+\end{aligned}
 $$
 
 ## explanation

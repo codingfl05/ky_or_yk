@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-(\sin^{-1}x)' = \frac{1}{\sqrt{1-x^2}}, \qquad (\cos^{-1}x)' = -\frac{1}{\sqrt{1-x^2}}
+(\sin^{-1}x)' = \frac{1}{\sqrt{1-x^2}}
+$$
+
+$$
+(\cos^{-1}x)' = -\frac{1}{\sqrt{1-x^2}}
 $$
 
 $$
@@ -20,7 +24,11 @@ $$
 $$
 
 $$
-(\sec^{-1}x)' = \frac{1}{|x|\sqrt{x^2-1}}, \qquad (\csc^{-1}x)' = -\frac{1}{|x|\sqrt{x^2-1}}
+(\sec^{-1}x)' = \frac{1}{|x|\sqrt{x^2-1}}
+$$
+
+$$
+(\csc^{-1}x)' = -\frac{1}{|x|\sqrt{x^2-1}}
 $$
 
 ## conditions

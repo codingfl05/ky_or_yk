@@ -12,11 +12,19 @@ verified: false
 
 ## formula
 $$
-\text{increasing:} \quad x_1 < x_2 \Rightarrow f(x_1) \le f(x_2), \qquad \text{strictly increasing:} \quad x_1 < x_2 \Rightarrow f(x_1) < f(x_2)
+\text{increasing:} \quad x_1 < x_2 \Rightarrow f(x_1) \le f(x_2)
 $$
 
 $$
-f' \ge 0 \text{ on } I \iff f \text{ increasing on } I, \qquad f' > 0 \text{ on } I \Rightarrow f \text{ strictly increasing on } I
+\text{strictly increasing:} \quad x_1 < x_2 \Rightarrow f(x_1) < f(x_2)
+$$
+
+$$
+f' \ge 0 \text{ on } I \iff f \text{ increasing on } I
+$$
+
+$$
+f' > 0 \text{ on } I \Rightarrow f \text{ strictly increasing on } I
 $$
 
 ## conditions

@@ -11,7 +11,19 @@ verified: false
 
 ## formula
 $$
-u = w_1 + w_2, \qquad w_1 = ka \ (k\in\mathbb R),\quad w_2 \perp a \qquad\Longrightarrow\qquad k = \frac{u\cdot a}{\|a\|^2}
+u = w_1 + w_2
+$$
+
+$$
+w_1 = ka \ (k\in\mathbb R),\quad w_2 \perp a
+$$
+
+$$
+\Longrightarrow
+$$
+
+$$
+k = \frac{u\cdot a}{\|a\|^2}
 $$
 
 $$

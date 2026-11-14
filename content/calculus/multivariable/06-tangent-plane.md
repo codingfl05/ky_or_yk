@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-F_x(x - x_0) + F_y(y - y_0) + F_z(z - z_0) = 0 \qquad (\nabla F = \langle F_x, F_y, F_z\rangle \text{ at } P_0)
+\begin{aligned}
+&F_x(x - x_0) + F_y(y - y_0) + F_z(z - z_0) = 0 \\
+&(\nabla F = \langle F_x, F_y, F_z\rangle \text{ at } P_0)
+\end{aligned}
 $$
 
 $$
@@ -20,7 +23,11 @@ z - z_0 = f_x(a, b)(x - a) + f_y(a, b)(y - b)
 $$
 
 $$
-\mathbf{n} = \mathbf{r}_u\times\mathbf{r}_v \ (\text{parametric surface}), \qquad \mathbf{d} = \nabla g\times\nabla h \ (\text{curve } g = 0,\ h = 0)
+\mathbf{n} = \mathbf{r}_u\times\mathbf{r}_v \ (\text{parametric surface})
+$$
+
+$$
+\mathbf{d} = \nabla g\times\nabla h \ (\text{curve } g = 0,\ h = 0)
 $$
 
 ## conditions

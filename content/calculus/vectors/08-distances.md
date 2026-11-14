@@ -12,11 +12,18 @@ verified: false
 
 ## formula
 $$
-d(P, \text{plane}) = \frac{|ax_0 + by_0 + cz_0 - d|}{\sqrt{a^2 + b^2 + c^2}} \qquad (ax + by + cz = d)
+\begin{aligned}
+&d(P, \text{plane}) = \frac{|ax_0 + by_0 + cz_0 - d|}{\sqrt{a^2 + b^2 + c^2}} \\
+&(ax + by + cz = d)
+\end{aligned}
 $$
 
 $$
-d(\text{parallel planes}) = \frac{|d_1 - d_2|}{\sqrt{a^2 + b^2 + c^2}}, \qquad d(P, \text{line}) = \frac{|\overrightarrow{QP}\times\mathbf{u}|}{|\mathbf{u}|}
+d(\text{parallel planes}) = \frac{|d_1 - d_2|}{\sqrt{a^2 + b^2 + c^2}}
+$$
+
+$$
+d(P, \text{line}) = \frac{|\overrightarrow{QP}\times\mathbf{u}|}{|\mathbf{u}|}
 $$
 
 $$

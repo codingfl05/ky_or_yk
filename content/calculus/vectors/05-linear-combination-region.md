@@ -16,7 +16,15 @@ $$
 $$
 
 $$
-r + s = 1 \to \text{line}, \qquad r, s \ge 0,\ r + s \le 1 \to \text{triangle}, \qquad 0 \le r, s \le 1 \to \text{parallelogram}
+r + s = 1 \to \text{line}
+$$
+
+$$
+r, s \ge 0,\ r + s \le 1 \to \text{triangle}
+$$
+
+$$
+0 \le r, s \le 1 \to \text{parallelogram}
 $$
 
 ## conditions

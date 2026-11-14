@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\nabla F(P) = \langle F_x, F_y, F_z\rangle \ \perp\ \text{level surface } F = c \text{ at } P
+\begin{aligned}
+&\nabla F(P) = \langle F_x, F_y, F_z\rangle \\
+&\quad \perp\ \text{level surface } F = c \text{ at } P
+\end{aligned}
 $$
 
 곡면 $F(x, y, z) = c$ 위의 점 $P$에서:
@@ -102,13 +105,20 @@ $$
 $F = x^2 + y^2 - z$로 두면 $\nabla F = \langle 2x, 2y, -1\rangle = k\langle 1, 2, -1\rangle$ → $k = 1$, $x = \dfrac{1}{2}$, $y = 1$, 곡면 식에서 $z = \dfrac{5}{4}$.
 
 $$
-\left(x - \frac{1}{2}\right) + 2(y - 1) - \left(z - \frac{5}{4}\right) = 0 \ \Rightarrow\ x + 2y - z = \frac{5}{4}
+\begin{aligned}
+&\left(x - \frac{1}{2}\right) + 2(y - 1) - \left(z - \frac{5}{4}\right) = 0 \\
+&\quad {}\Rightarrow x + 2y - z = \frac{5}{4}
+\end{aligned}
 $$
 
 두 곡면 $x^2 + y^2 + z^2 = 6$과 $z = x^2 + y^2$의 교선 위 점 $(1, 1, 2)$에서 접선의 방향:
 
 $$
-\nabla F = \langle 2, 2, 4\rangle,\quad \nabla G = \langle 2, 2, -1\rangle \ (G = x^2 + y^2 - z),\quad \nabla F\times\nabla G = \langle -10, 10, 0\rangle \parallel \langle -1, 1, 0\rangle
+\begin{aligned}
+&\nabla F = \langle 2, 2, 4\rangle, \\
+&\nabla G = \langle 2, 2, -1\rangle \ (G = x^2 + y^2 - z), \\
+&\nabla F\times\nabla G = \langle -10, 10, 0\rangle \parallel \langle -1, 1, 0\rangle
+\end{aligned}
 $$
 
 접선 $\mathbf{x} = \langle 1, 1, 2\rangle + t\langle -1, 1, 0\rangle$, 법평면 $-(x - 1) + (y - 1) = 0$, 곧 $y = x$.

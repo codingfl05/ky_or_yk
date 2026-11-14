@@ -41,7 +41,11 @@ $$
 $mgh$와 다른 식처럼 보이지만 같은 것을 다른 기준으로 본 것뿐이다. 지표면에서 $h$만큼 올라갈 때의 차이를 계산해 보면
 
 $$
-\Delta U = -\frac{GMm}{R+h} + \frac{GMm}{R} = \frac{GMm\,h}{R(R+h)} \approx \frac{GM}{R^2}\,mh = mgh \qquad (h \ll R)
+\begin{aligned}
+&\Delta U = -\frac{GMm}{R+h} + \frac{GMm}{R} \\
+&\quad {}= \frac{GMm\,h}{R(R+h)} \approx \frac{GM}{R^2}\,mh = mgh \\
+&(h \ll R)
+\end{aligned}
 $$
 
 ### 탈출 속력

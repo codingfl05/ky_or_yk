@@ -12,7 +12,10 @@ verified: false
 
 ## formula
 $$
-\sinh x = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots = \sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}
+\begin{aligned}
+&\sinh x = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots \\
+&\quad {}= \sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}
+\end{aligned}
 $$
 
 ## conditions

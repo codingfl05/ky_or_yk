@@ -12,7 +12,14 @@ verified: false
 
 ## formula
 $$
-\lim_{(x, y) \to (a, b)} f(x, y) = L, \qquad \text{continuous at } (a, b) \iff \lim_{(x, y) \to (a, b)} f(x, y) = f(a, b)
+\lim_{(x, y) \to (a, b)} f(x, y) = L
+$$
+
+$$
+\begin{aligned}
+&\text{continuous at } (a, b) \\
+&\quad {}\iff \lim_{(x, y) \to (a, b)} f(x, y) = f(a, b)
+\end{aligned}
 $$
 
 ## conditions

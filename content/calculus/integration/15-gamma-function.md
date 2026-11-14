@@ -12,7 +12,11 @@ verified: false
 
 ## formula
 $$
-\Gamma(t) = \int_0^{\infty} x^{t-1}e^{-x}\,dx \ (t > 0), \qquad \Gamma(t+1) = \int_0^{\infty} x^{t}e^{-x}\,dx = t\,\Gamma(t)
+\Gamma(t) = \int_0^{\infty} x^{t-1}e^{-x}\,dx \ (t > 0)
+$$
+
+$$
+\Gamma(t+1) = \int_0^{\infty} x^{t}e^{-x}\,dx = t\,\Gamma(t)
 $$
 
 $$

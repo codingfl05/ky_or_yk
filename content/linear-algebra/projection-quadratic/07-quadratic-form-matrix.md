@@ -11,7 +11,11 @@ verified: false
 
 ## formula
 $$
-f(x,y)=ax^2+2bxy+cy^2 = v^TAv, \qquad v=(x,y),\ A=\begin{pmatrix}a&b\\b&c\end{pmatrix}
+f(x,y)=ax^2+2bxy+cy^2 = v^TAv
+$$
+
+$$
+v=(x,y),\ A=\begin{pmatrix}a&b\\b&c\end{pmatrix}
 $$
 
 ## explanation
