@@ -15,11 +15,7 @@ x' = Ax + g \quad (g \text{ constant})
 $$
 
 $$
-\Longrightarrow
-$$
-
-$$
-x = x_h + x^*, \quad x^* = -A^{-1}g
+\Longrightarrow\quad x = x_h + x^*, \quad x^* = -A^{-1}g
 $$
 
 ## explanation

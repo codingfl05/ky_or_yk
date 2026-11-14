@@ -16,8 +16,8 @@ $$
 
 $$
 \begin{aligned}
-&A^{-1} \\
-&\quad {}= \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a\end{pmatrix}\ (2\times2,\ ad-bc\neq0)
+&A = \begin{pmatrix} a & b \\ c & d\end{pmatrix},\ ad-bc\neq0 \\
+&\quad {}\implies A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a\end{pmatrix}
 \end{aligned}
 $$
 
@@ -31,4 +31,4 @@ $$
 - $cA=0 \Rightarrow c=0 \text{ or } A=0$은 스칼라 방정식과 똑같이 성립하지만, 행렬 곱셈에서는 **$AB=0$이라고 $A=0$ 또는 $B=0$이 성립하지 않음** (영인자 존재) — 이 비대칭성이 자주 출제됨.
 
 ## supplement
-노션 정리 문서를 거의 그대로 옮겼습니다 (표현만 카드 형식에 맞춤).
+노션 정리 문서를 거의 그대로 옮겼습니다 (표현만 카드 형식에 맞춤). 검토 보완: 2×2 역행렬 공식에 A의 성분 표기(a, b, c, d)를 명시했습니다.

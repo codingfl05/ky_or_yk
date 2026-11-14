@@ -16,11 +16,7 @@ ay''+by'+cy=0
 $$
 
 $$
-\Longrightarrow
-$$
-
-$$
-ar^2+br+c=0
+\Longrightarrow\quad ar^2+br+c=0
 $$
 
 $$

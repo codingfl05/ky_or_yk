@@ -15,11 +15,7 @@ T_A(x)=Ax
 $$
 
 $$
-\Longrightarrow
-$$
-
-$$
-A = [\,T_A(e_1)\,|\,T_A(e_2)\,|\,\cdots\,|\,T_A(e_n)\,]
+\Longrightarrow\quad A = [\,T_A(e_1)\,|\,T_A(e_2)\,|\,\cdots\,|\,T_A(e_n)\,]
 $$
 
 $$

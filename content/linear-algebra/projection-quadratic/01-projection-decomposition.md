@@ -19,11 +19,7 @@ w_1 = ka \ (k\in\mathbb R),\quad w_2 \perp a
 $$
 
 $$
-\Longrightarrow
-$$
-
-$$
-k = \frac{u\cdot a}{\|a\|^2}
+\Longrightarrow\quad k = \frac{u\cdot a}{\|a\|^2}
 $$
 
 $$

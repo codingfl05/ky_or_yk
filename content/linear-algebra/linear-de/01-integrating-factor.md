@@ -16,11 +16,7 @@ y' + p(t)y = g(t)
 $$
 
 $$
-\Longrightarrow
-$$
-
-$$
-\mu(t) = \exp\left(\int p(t)\,dt\right)
+\Longrightarrow\quad \mu(t) = \exp\left(\int p(t)\,dt\right)
 $$
 
 $$
