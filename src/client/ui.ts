@@ -59,6 +59,12 @@ document.addEventListener('click', (e) => {
 
   if (act === 'fav') return toggleFav(id);
   if (act === 'wrong') return toggleWrong(id);
+  if (act === 'note' && actEl) {
+    // 약점 메모 페이지로: 어느 카드에서 왔는지 같이 넘긴다
+    const q = new URLSearchParams({ ref: id, t: actEl.dataset.noteTitle ?? id, href: actEl.dataset.noteHref ?? '' });
+    location.href = `${BASE}notes/?${q}`;
+    return;
+  }
   if (act === 'review') {
     // 검토 필요 배지: 그 카드의 보완 내용을 펼치고/접는다
     const show = !card.classList.contains('show-supp');

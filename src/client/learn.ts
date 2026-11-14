@@ -102,6 +102,16 @@ function syncContinue() {
 }
 document.addEventListener('kyyk:state', syncContinue);
 
+// ---- 홈의 약점 메모 개수 (아직 보내지 않은 것)
+function syncNoteCount() {
+  const el = document.querySelector<HTMLElement>('[data-note-count]');
+  if (!el) return;
+  const n = getState().notes.filter((x) => !x.sent).length;
+  el.textContent = n ? String(n) : '';
+}
+document.addEventListener('kyyk:state', syncNoteCount);
+syncNoteCount();
+
 // ---- 레슨 읽기 진행 막대
 const readBar = document.querySelector<HTMLElement>('[data-read-progress]');
 if (readBar) {

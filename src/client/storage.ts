@@ -20,12 +20,25 @@ export interface Settings {
   study?: Record<string, number>;
 }
 
+/** 약점 메모 한 줄 */
+export interface Note {
+  id: string;
+  text: string;
+  added: number;
+  /** 클로드에게 보낸(복사한) 메모 */
+  sent: boolean;
+  /** 어느 카드·레슨에서 적었는지 */
+  ref?: { id: string; title: string; href: string };
+}
+
 export interface State {
   version: 1;
   favorites: Record<string, number>;
   wrong: Record<string, WrongEntry>;
   /** 학습 섹션: 다 읽은 레슨 id → 시각 */
   lessons: Record<string, number>;
+  /** 약점 메모 */
+  notes: Note[];
   settings: Settings;
 }
 
@@ -38,6 +51,7 @@ const defaults = (): State => ({
   favorites: {},
   wrong: {},
   lessons: {},
+  notes: [],
   settings: { theme: 'system', fontStep: 1, hideFormulas: false, reviewMode: false },
 });
 
@@ -54,6 +68,13 @@ function sanitize(raw: any): State {
   }
   if (raw.lessons && typeof raw.lessons === 'object') {
     for (const [k, v] of Object.entries(raw.lessons)) if (typeof v === 'number') s.lessons[k] = v;
+  }
+  if (Array.isArray(raw.notes)) {
+    for (const n of raw.notes) {
+      if (!n || typeof n.text !== 'string' || !n.text.trim()) continue;
+      const ref = n.ref && typeof n.ref.id === 'string' ? { id: String(n.ref.id), title: String(n.ref.title ?? n.ref.id), href: String(n.ref.href ?? '') } : undefined;
+      s.notes.push({ id: String(n.id ?? `${n.added}-${s.notes.length}`), text: n.text.slice(0, 2000), added: Number(n.added) || Date.now(), sent: !!n.sent, ref });
+    }
   }
   const st = raw.settings ?? {};
   if (['system', 'light', 'dark'].includes(st.theme)) s.settings.theme = st.theme;
@@ -138,6 +159,26 @@ export function setLessonDone(id: string, done: boolean) {
   save();
 }
 
+export function addNote(text: string, ref?: Note['ref']) {
+  state.notes.push({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, text: text.slice(0, 2000), added: Date.now(), sent: false, ref });
+  save();
+}
+
+export function removeNote(id: string) {
+  state.notes = state.notes.filter((n) => n.id !== id);
+  save();
+}
+
+export function markNotesSent(ids: string[]) {
+  for (const n of state.notes) if (ids.includes(n.id)) n.sent = true;
+  save();
+}
+
+export function clearSentNotes() {
+  state.notes = state.notes.filter((n) => !n.sent);
+  save();
+}
+
 export function updateSettings(patch: Partial<Settings>) {
   state.settings = { ...state.settings, ...patch };
   save();
@@ -154,6 +195,7 @@ export function exportJson(): string {
       favorites: state.favorites,
       wrong: state.wrong,
       lessons: state.lessons,
+      notes: state.notes,
       settings: state.settings,
     },
     null,

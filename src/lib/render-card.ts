@@ -69,6 +69,7 @@ ${sec('핵심 아이디어', c.keyIdeaHtml)}${sec('내가 막힌 곳', c.mistake
 ${fold('풀이', c.solutionHtml)}
 ${chips('관련 공식·문제', c.related)}${supplementOf(c)}
 <div class="card-foot">${tagsOf(c)}<span class="src">출처: ${esc(c.source)}</span></div>
+<button class="note-add" type="button" data-act="note" data-note-title="${esc(c.title_ko)}" data-note-href="${esc(c.href)}">＋ 이 카드에서 약한 부분 적기</button>
 </div>
 </article>`;
 }
@@ -88,6 +89,7 @@ ${c.formulaHtml ? `<div class="formula" data-act="formula">${c.formulaHtml}</div
 ${sec('조건', c.conditionsHtml)}${sec('설명', c.explanationHtml)}${sec('💬 스토리', c.storyHtml, 'story')}
 ${fold('유도', c.derivationHtml)}${fold('예제', c.exampleHtml)}${chips('관련', c.related)}${chips('이 공식을 쓰는 문제', c.usedBy)}${supplementOf(c)}
 <div class="card-foot">${tagsOf(c)}<span class="src">출처: ${esc(c.source)}</span></div>
+<button class="note-add" type="button" data-act="note" data-note-title="${esc(c.title_ko)}" data-note-href="${esc(c.href)}">＋ 이 카드에서 약한 부분 적기</button>
 </div>
 </article>`;
 }

@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { lessons } from '../../../lib/site';
+import { base, lessons } from '../../../lib/site';
 
 export function getStaticPaths() {
   return lessons().tracks.flatMap((t) => t.lessons.map((l) => ({ params: { track: t.id, lesson: l.slug } })));
@@ -53,6 +53,7 @@ const next = track.lessons[i + 1];
       <span class="when-off">다 읽었어요</span>
       <span class="when-on">읽음 ✓ (탭하면 취소)</span>
     </button>
+    <a class="note-add" href={`${base}notes/?${new URLSearchParams({ ref: lesson.id, t: `${track.title} ${lesson.n}편 ${lesson.title}`, href: lesson.href })}`}>＋ 이 레슨에서 약한 부분 적기</a>
     <nav class="lesson-nav">
       {prev ? <a class="btn" href={prev.href}>← {prev.n}. {prev.title}</a> : <span />}
       {next ? <a class="btn" href={next.href}>{next.n}. {next.title} →</a> : <a class="btn" href={track.href}>목차로 →</a>}

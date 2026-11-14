@@ -34,6 +34,17 @@ const count = (sid: string) => formulas.filter((c) => c.subject === sid).length;
       </div>
     </>
   )}
+  <p class="section-title">내 약점</p>
+  <div class="rows">
+    <a class="row" href={`${base}notes/`}>
+      <div class="row-main">
+        <div class="row-title">약점 메모</div>
+        <div class="row-sub">약한 부분을 적어 두고, 모아서 클로드에게 정리 요청</div>
+      </div>
+      <span class="row-count" data-note-count></span>
+      <span class="chev" set:html={icons.chevron} />
+    </a>
+  </div>
   <p class="section-title">문제 복습</p>
   <div class="rows">
     <a class:list={['row', { disabled: problems.length === 0 }]} href={`${base}problems/`}>

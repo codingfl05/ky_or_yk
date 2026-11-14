@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { base } from '../../lib/site';
+---
+<Base title="약점 메모" subtitle="적어 두고, 모아서 클로드에게 보내기" back={base} nav="home">
+  <form id="note-form" class="note-form">
+    <p class="note-ref" id="note-ref" hidden></p>
+    <textarea id="note-text" rows="3" placeholder="예) 유도 전류 방향을 자꾸 반대로 잡는다 / 쪼개서 더할 때 di를 dr로 바꾸는 게 헷갈린다"></textarea>
+    <button class="btn primary block" type="submit">적어 두기</button>
+  </form>
+
+  <div class="toolbar note-tools" id="note-tools" hidden>
+    <span id="note-count"></span>
+    <span class="btn-row-inline">
+      <button class="btn" type="button" id="note-copy">클로드에게 보낼 내용 복사</button>
+    </span>
+  </div>
+  <p class="note-after" id="note-after" hidden>
+    복사했습니다. 클로드 채팅에 붙여넣으면 됩니다.
+    <button class="btn" type="button" id="note-mark">방금 보낸 항목을 "보냄"으로 표시</button>
+  </p>
+  <textarea id="note-fallback" class="note-fallback" rows="8" readonly hidden></textarea>
+
+  <div id="note-list" class="note-list"></div>
+  <p class="empty" id="note-empty" hidden>아직 적어 둔 메모가 없습니다.<br />문제를 풀다 막힌 곳, 자꾸 틀리는 것을 한 줄씩 적어 두세요.</p>
+  <button class="btn danger" type="button" id="note-clear" hidden>보낸 항목 지우기</button>
+  <p class="flash-hint">메모는 이 기기의 브라우저에만 저장됩니다 (설정의 백업에 포함).</p>
+
+  <script>
+    import '../../client/notes';
+  </script>
+</Base>

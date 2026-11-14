@@ -1663,6 +1663,96 @@ html.nav-hidden .answer-bar {
   min-height: 36px;
 }
 
+/* ------------------------------------------------------------ 약점 메모 */
+.note-form textarea {
+  min-height: 84px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.note-ref {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0 2px 6px;
+}
+.note-tools {
+  margin: 18px 0 8px;
+  justify-content: space-between;
+}
+.note-after {
+  font-size: 0.86rem;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.note-after .btn {
+  margin-top: 8px;
+  white-space: normal;
+}
+.note-fallback {
+  margin-bottom: 10px;
+}
+.note-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+.note {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  padding: 10px 6px 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.note.sent {
+  background: var(--surface);
+  color: var(--muted);
+}
+.note-main {
+  flex: 1;
+  min-width: 0;
+}
+.note-main p {
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.note-meta {
+  margin-top: 4px;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+.note-del {
+  flex: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+}
+#note-clear {
+  margin-top: 12px;
+}
+.note-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px;
+  margin-top: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: none;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+.note-add:active {
+  background: var(--surface);
+}
+
 /* ------------------------------------------------------------ 폰 전용 (웹은 그대로) */
 @media (max-width: 640px) {
   /* 상단 제목: 말줄임 대신 두 줄까지 */
