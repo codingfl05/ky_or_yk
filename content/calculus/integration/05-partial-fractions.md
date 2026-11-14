@@ -5,7 +5,7 @@ title_en: "Partial fractions"
 question: "유리함수를 부분분수로 나누는 방법과 Heaviside 방법은?"
 tags: [부분분수, 유리함수 적분, 헤비사이드, partial fractions, heaviside cover-up]
 importance: 3
-related: [calc-int-trig-substitution]
+related: [calc-int-trig-substitution, calc-telescoping-partial-fractions]
 source: "book:BLIS편입 적분 1장 (05 유리함수의 적분법)"
 verified: false
 ---
