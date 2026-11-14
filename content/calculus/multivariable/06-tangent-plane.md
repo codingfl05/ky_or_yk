@@ -5,7 +5,7 @@ title_en: "Tangent planes and normal lines"
 question: "곡면 F(x, y, z)=0과 z=f(x, y) 위의 점에서의 접평면, 두 곡면의 교선의 접선은?"
 tags: [접평면, 법선, 그래디언트, 교선, tangent plane, normal line]
 importance: 3
-related: [calc-mv-directional-derivative, calc-vec-plane-equation]
+related: [calc-mv-gradient-geometry-summary, calc-mv-directional-derivative, calc-vec-plane-equation]
 source: "book:BLIS편입 다변수 3장 (01 접평면의 방정식)"
 verified: false
 ---

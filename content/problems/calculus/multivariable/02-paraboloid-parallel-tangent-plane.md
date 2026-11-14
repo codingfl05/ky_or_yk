@@ -4,7 +4,7 @@ title_ko: "포물면 z = x² + y²의 접평면 중 주어진 평면에 평행�
 source: "BLIS편입 미적분학 총정리 문제풀이 06번"
 difficulty: 1
 tags: [접평면, 그래디언트, 법선벡터, 평행, 포물면, tangent plane, gradient, normal vector]
-related: [calc-mv-tangent-plane]
+related: [calc-mv-tangent-plane, calc-mv-gradient-geometry-summary]
 images: []
 verified: false
 ---

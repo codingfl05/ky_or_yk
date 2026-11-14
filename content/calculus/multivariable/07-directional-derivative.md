@@ -5,7 +5,7 @@ title_en: "Directional derivatives and the gradient"
 question: "방향도함수의 정의와 ∇f·u 공식, 최대 증가 방향과 최댓값은?"
 tags: [방향도함수, 그래디언트, 기울기 벡터, directional derivative, gradient]
 importance: 3
-related: [calc-mv-tangent-plane, calc-mv-differentiability]
+related: [calc-mv-gradient-geometry-summary, calc-mv-tangent-plane, calc-mv-differentiability]
 source: "book:BLIS편입 다변수 3장 (02 방향도함수)"
 verified: false
 ---
