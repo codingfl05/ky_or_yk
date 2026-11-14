@@ -13,6 +13,7 @@ import remarkMath from 'remark-math';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
+import { figures } from './figures';
 import type { CardView, FormulaCardView, ProblemCardView, SubjectInfo } from './types';
 
 const ROOT = process.cwd();
@@ -108,6 +109,51 @@ export function markdownToHtml(md: string): { html: string; errors: string[] } {
     .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(md);
   return { html: String(file), errors };
+}
+
+/**
+ * 카드 섹션 마크다운 + "::fig 이름 | 캡션" 줄 (src/lib/figures.ts의 그림).
+ * 연달아 쓴 ::fig 줄은 한 줄에 여러 개 놓이는 격자(.fig-grid)로 묶는다.
+ */
+export function renderWithFigures(src: string): { html: string; errors: string[] } {
+  const errors: string[] = [];
+  let html = '';
+  let buf: string[] = [];
+  let figs: string[] = [];
+  const flushText = () => {
+    if (buf.join('').trim()) {
+      const r = markdownToHtml(buf.join('\n'));
+      errors.push(...r.errors);
+      html += r.html;
+    }
+    buf = [];
+  };
+  const flushFigs = () => {
+    if (figs.length) html += figs.length > 1 ? `<div class="fig-grid">${figs.join('')}</div>` : figs[0];
+    figs = [];
+  };
+  for (const line of src.split('\n')) {
+    const d = /^::fig\s+([a-z0-9-]+)\s*(?:\|\s*(.*))?$/.exec(line.trim());
+    if (!d) {
+      if (figs.length && !line.trim()) continue; // 그림 사이 빈 줄은 격자를 끊지 않는다
+      flushFigs();
+      buf.push(line);
+      continue;
+    }
+    flushText();
+    const svg = figures[d[1]];
+    if (!svg) errors.push(`없는 그림: ${d[1]} (src/lib/figures.ts)`);
+    let cap = '';
+    if (d[2]) {
+      const r = markdownToHtml(d[2]);
+      errors.push(...r.errors);
+      cap = `<figcaption>${r.html.replace(/^<p>|<\/p>\s*$/g, '')}</figcaption>`;
+    }
+    figs.push(`<figure class="fig">${svg ?? ''}${cap}</figure>`);
+  }
+  flushFigs();
+  flushText();
+  return { html, errors };
 }
 
 export function escapeHtml(s: string): string {
@@ -367,7 +413,7 @@ export function loadContent(base = '/'): LoadResult {
     for (const key of allowed) {
       const src = sections[key];
       if (!src) continue;
-      const r = markdownToHtml(src);
+      const r = renderWithFigures(src);
       r.errors.forEach((e) => err(`## ${key}`, e, id));
       html[key] = r.html;
     }

@@ -99,6 +99,7 @@ frontmatter에는 LaTeX를 쓰지 않는다 (`\`, `$`가 있으면 validate 에�
 | `## supplement` | 검토 모드에서만 | 원본 노트에 없던 내용을 보완한 부분이 무엇인지 |
 
 - 첫 섹션 앞에 내용을 두지 않는다. `###` 이하 소제목은 섹션 안에서 자유롭게.
+- 그림: 섹션 안에 `::fig <이름> | 캡션` 줄을 쓰면 `src/lib/figures.ts`의 SVG 그림이 들어간다 (극곡선 그림은 `src/lib/polar-figures.ts`, r(θ)를 계산해서 그림). 연달아 쓴 `::fig` 줄은 2열(넓은 화면 3열) 격자로 묶인다. 없는 이름은 validate 에러.
 - 플래시카드: 앞면 = `question` (없으면 title_ko + conditions), 뒷면 = formula + explanation.
 - 검토 모드: 설정 → 검토 모드를 켜거나, 카드의 "검토 필요" 배지를 탭하거나, 검토 페이지(`/review/`)에서 supplement가 보인다.
 

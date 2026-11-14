@@ -461,7 +461,10 @@ function bernoulliPipe() {
   );
 }
 
+import { polarFigures } from './polar-figures';
+
 export const figures: Record<string, string> = {
+  ...polarFigures,
   coulomb: coulomb(),
   'ring-axis': ringAxis(),
   'gauss-bag': gaussBag(),
