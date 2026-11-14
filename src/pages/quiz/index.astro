@@ -8,6 +8,13 @@ import PracticeSwitch from '../../components/PracticeSwitch.astro';
   <!-- 설정 -->
   <section id="q-setup">
     <div class="field">
+      <span class="label">모드</span>
+      <div class="seg" id="q-mode">
+        <button type="button" data-v="quiz">퀴즈</button>
+        <button type="button" data-v="remind">공식 리마인드</button>
+      </div>
+    </div>
+    <div class="field">
       <span class="label">구분</span>
       <div class="seg" id="q-group"></div>
     </div>
@@ -15,11 +22,11 @@ import PracticeSwitch from '../../components/PracticeSwitch.astro';
       <span class="label">단원 <small class="q-sub">(아무것도 안 고르면 전체)</small></span>
       <div class="chips" id="q-chapters"></div>
     </div>
-    <div class="field">
+    <div class="field quiz-only">
       <span class="label">유형</span>
       <div class="chips" id="q-types"></div>
     </div>
-    <div class="field">
+    <div class="field quiz-only">
       <span class="label">문항 수</span>
       <div class="seg" id="q-count">
         <button type="button" data-v="10">10</button>
@@ -42,6 +49,20 @@ import PracticeSwitch from '../../components/PracticeSwitch.astro';
     <div id="q-box" class="quiz-box"></div>
     <div class="quiz-next" id="q-nextbar" hidden>
       <button id="q-next" class="btn primary block" type="button">다음</button>
+    </div>
+  </section>
+
+  <!-- 공식 리마인드 -->
+  <section id="r-session" hidden>
+    <div class="flash-top">
+      <span id="r-pos"></span>
+      <button id="r-quit" class="btn" type="button">종료</button>
+    </div>
+    <div id="r-box" class="quiz-box remind-box" role="button" tabindex="0" aria-label="탭하면 다음 공식"></div>
+    <p class="flash-hint">탭하거나 왼쪽으로 밀면 다음, 오른쪽으로 밀면 이전 공식</p>
+    <div class="answer-bar remind-bar">
+      <button id="r-prev" class="btn" type="button">이전</button>
+      <button id="r-next" class="btn primary" type="button">다음</button>
     </div>
   </section>
 

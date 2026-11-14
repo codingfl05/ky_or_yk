@@ -2020,3 +2020,44 @@ html.nav-hidden .answer-bar {
 .q-audit {
   margin: 10px 0;
 }
+
+/* 공식 리마인드 */
+.remind-box {
+  min-height: 46vh;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.r-title {
+  font-size: 1.15rem;
+  margin: 2px 0 0;
+}
+.r-en {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.r-formula .fx {
+  padding-left: 0;
+  padding-right: 0;
+}
+.remind-bar {
+  box-shadow: 0 0 0 6px var(--bg);
+  background: var(--bg);
+  border-radius: 12px;
+}
+.remind-bar .btn {
+  min-height: 52px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+.remind-bar .btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.remind-bar .btn:disabled {
+  opacity: 0.45;
+}
