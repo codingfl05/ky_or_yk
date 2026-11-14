@@ -1,7 +1,7 @@
 ---
 id: prob-phys-em-orbiting-electron-dipole-torque
 title_ko: "원궤도를 도는 전자의 자기쌍극자모멘트와 돌림힘"
-source: "문제 81 (교재명 미상)"
+source: "뿌리물리 워크북 81번"
 difficulty: 1
 tags: [자기 쌍극자 모멘트, 돌림힘, 등가 전류, 전자 궤도, magnetic dipole moment, torque, equivalent current, orbiting electron]
 related: [phys-em-magnetic-dipole]
