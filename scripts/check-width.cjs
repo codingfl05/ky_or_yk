@@ -48,7 +48,8 @@ function pages() {
     // 카드·문제·레슨이 그려지는 쪽만 (과목 폴더, problems, learn)
     if (f.isDirectory() && !['_astro', 'data', 'icons', 'img', 'flash', 'study', 'search', 'saved', 'settings', 'review', 'notes'].includes(f.name)) walk(path.join(DIST, f.name));
   }
-  return out.sort();
+  // 퀴즈는 ?audit=1이면 모든 문제를 해설까지 펼쳐 그린다
+  return out.sort().map((u) => (u === '/quiz/' ? '/quiz/?audit=1' : u));
 }
 
 function fileOfCard(id) {
@@ -74,7 +75,7 @@ function fileOfCard(id) {
   let audited = false;
   for (const u of pages()) {
     await page.goto(base + u, { waitUntil: 'load' });
-    await page.waitForTimeout(120);
+    await page.waitForTimeout(u.includes('audit') ? 1500 : 120);
     const res = await page.evaluate(() => {
       // 접힌 내용까지 모두 펼친 상태로 잰다
       document.querySelectorAll('.card').forEach((c) => c.classList.add('open', 'show-supp'));

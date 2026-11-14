@@ -1,0 +1,12 @@
+---
+// 연습 탭 맨 위: 플래시카드 ↔ 퀴즈 전환. 마지막으로 연 쪽을 기억해 하단 탭이 그쪽으로 열린다 (src/client/ui.ts).
+interface Props {
+  current: 'flash' | 'quiz';
+}
+const { current } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<nav class="seg practice-switch" aria-label="연습 종류" data-practice={current}>
+  <a href={`${base}flash/`} aria-pressed={current === 'flash' ? 'true' : 'false'}>플래시카드</a>
+  <a href={`${base}quiz/`} aria-pressed={current === 'quiz' ? 'true' : 'false'}>퀴즈</a>
+</nav>

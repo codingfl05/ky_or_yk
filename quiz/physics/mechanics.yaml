@@ -1,0 +1,712 @@
+# 역학 구분(역학·회전·진동과 파동·유체·열역학) 직접 쓴 문제.
+# type: concept(틀린 설명 고르기 등 객관식) / tf(참거짓, answer: true|false) / ratio(비례·기호)
+# 보기 순서는 화면에서 섞이므로 "위 모두" 같은 위치 의존 보기는 쓰지 않는다. answer는 보기 번호(0부터).
+
+# ---------------------------------------------------------------- 역학
+- id: qm-newton3-pair
+  chapter: mechanics
+  type: concept
+  q: 책상 위에 정지한 책에 대한 설명으로 **틀린** 것은?
+  choices:
+    - 책이 받는 중력과 수직항력은 크기가 같다
+    - 책이 받는 중력과 수직항력은 작용·반작용 쌍이다
+    - 책이 책상을 누르는 힘의 반작용은 책상이 책을 미는 힘이다
+    - 책이 받는 중력의 반작용은 책이 지구를 당기는 힘이다
+  answer: 1
+  explain: 중력과 수직항력은 **같은 물체(책)**에 작용하는 두 힘이라 "힘의 평형"이다. 작용·반작용은 항상 **서로 다른 두 물체**에 작용하고, 종류도 같다 (중력 ↔ 중력, 접촉력 ↔ 접촉력).
+  cards: [phys-mech-newton-first-third]
+
+- id: qm-friction-static
+  chapter: mechanics
+  type: concept
+  q: 수평면에 정지한 상자를 아주 약한 힘 $F$로 밀었는데 움직이지 않았다. 이때 정지 마찰력의 크기는?
+  choices:
+    - $F$
+    - $\mu_s N$
+    - $\mu_k N$
+    - $0$
+  answer: 0
+  explain: 정지 마찰력은 미는 힘만큼만 생겨서 평형을 맞춘다. $\mu_s N$은 정지 마찰력의 **최댓값**(미끄러지기 직전)일 뿐이다.
+  cards: [phys-mech-normal-friction]
+
+- id: qm-incline-normal
+  chapter: mechanics
+  type: ratio
+  q: 경사각 $\theta$인 빗면 위 질량 $m$인 물체가 받는 수직항력은? (빗면에 수직인 다른 힘은 없다)
+  choices:
+    - $mg\cos\theta$
+    - $mg\sin\theta$
+    - $mg$
+    - $\dfrac{mg}{\cos\theta}$
+  answer: 0
+  explain: 중력을 빗면 방향 $mg\sin\theta$와 빗면에 수직인 방향 $mg\cos\theta$로 나누면, 수직 방향은 가속도가 없으므로 $N = mg\cos\theta$.
+  cards: [phys-mech-normal-friction]
+
+- id: qm-projectile-top
+  chapter: mechanics
+  type: tf
+  q: 비스듬히 던진 물체가 최고점에 있을 때 속도는 0이다.
+  answer: false
+  explain: 최고점에서는 **연직 속도만 0**이고, 수평 속도 $v_0\cos\theta$는 그대로 남는다. 가속도는 내내 $g$(아래 방향)다.
+  cards: [phys-mech-projectile]
+
+- id: qm-projectile-range
+  chapter: mechanics
+  type: concept
+  q: 같은 속력으로 던질 때 수평 도달 거리가 같은 두 발사각의 짝은? (같은 높이로 떨어진다)
+  choices:
+    - $30^\circ$와 $60^\circ$
+    - $30^\circ$와 $45^\circ$
+    - $20^\circ$와 $80^\circ$
+    - $45^\circ$와 $90^\circ$
+  answer: 0
+  explain: $R = \dfrac{v_0^2\sin 2\theta}{g}$라서 $\sin 2\theta$가 같은 $\theta$와 $90^\circ - \theta$는 거리가 같다. 최대 거리는 $45^\circ$.
+  cards: [phys-mech-projectile]
+
+- id: qm-uniform-time-sq
+  chapter: mechanics
+  type: ratio
+  q: 정지 상태에서 등가속도로 출발한 물체가 처음 1초 동안 간 거리가 $d$일 때, 처음 3초 동안 간 거리는?
+  choices:
+    - $9d$
+    - $3d$
+    - $6d$
+    - $5d$
+  answer: 0
+  explain: $x = \dfrac{1}{2}at^2$이라 거리는 시간의 제곱에 비례한다. 3초면 $3^2 = 9$배. ($5d$는 "3번째 1초 동안" 간 거리)
+  cards: [phys-mech-uniform-acceleration]
+
+- id: qm-work-perp
+  chapter: mechanics
+  type: tf
+  q: 등속 원운동하는 물체에 구심력이 한 일은 0이다.
+  answer: true
+  explain: 구심력은 항상 속도(이동 방향)에 수직이라 $W = Fd\cos 90^\circ = 0$. 그래서 속력(운동 에너지)이 변하지 않는다.
+  cards: [phys-mech-work, phys-rot-centripetal-force]
+
+- id: qm-work-energy-net
+  chapter: mechanics
+  type: concept
+  q: 일-운동 에너지 정리 $W = \Delta K$에서 $W$는?
+  choices:
+    - 물체에 작용한 모든 힘(알짜힘)이 한 일
+    - 중력이 한 일만
+    - 마찰력을 뺀 힘들이 한 일
+    - 보존력이 한 일만
+  answer: 0
+  explain: 일-운동 에너지 정리의 $W$는 **알짜힘**이 한 일이다. 보존력의 일만 따로 퍼텐셜 에너지로 옮기면 역학적 에너지 보존식이 된다.
+  cards: [phys-mech-work-energy-theorem]
+
+- id: qm-ke-speed
+  chapter: mechanics
+  type: ratio
+  q: 같은 물체의 속력이 3배가 되면 운동 에너지는 몇 배가 되는가?
+  choices:
+    - $9$배
+    - $3$배
+    - $\sqrt3$배
+    - $6$배
+  answer: 0
+  explain: $K = \dfrac{1}{2}mv^2 \propto v^2$. 운동량 $p = mv$는 3배.
+  cards: [phys-mech-work-energy-theorem, phys-mech-momentum-impulse]
+
+- id: qm-p-k-relation
+  chapter: mechanics
+  type: ratio
+  q: '운동 에너지가 같은 두 물체의 질량이 $m$과 $4m$이다. 운동량의 크기 비 $p_m : p_{4m}$은?'
+  choices:
+    - '$1 : 2$'
+    - '$1 : 4$'
+    - '$2 : 1$'
+    - '$1 : 1$'
+  answer: 0
+  explain: '$p = \sqrt{2mK}$라서 $K$가 같으면 $p \propto \sqrt m$. 따라서 $1 : 2$.'
+  cards: [phys-mech-momentum-impulse]
+
+- id: qm-conservative-loop
+  chapter: mechanics
+  type: concept
+  q: 보존력에 대한 설명으로 **틀린** 것은?
+  choices:
+    - 운동 마찰력은 보존력이다
+    - 닫힌 경로를 한 바퀴 돌면 보존력이 한 일은 0이다
+    - 보존력이 한 일은 경로와 관계없다
+    - 보존력은 $F = -\dfrac{dU}{dx}$로 퍼텐셜 에너지에서 구할 수 있다
+  answer: 0
+  explain: 운동 마찰력은 경로가 길수록 일을 더 많이 해서(항상 운동 반대) 경로에 따라 일이 달라진다. 비보존력이다. 중력·탄성력·전기력이 보존력.
+  cards: [phys-mech-conservative-potential]
+
+- id: qm-potential-slope
+  chapter: mechanics
+  type: concept
+  q: 퍼텐셜 에너지 그래프 $U(x)$에서 기울기가 양수인 지점에서 물체가 받는 힘의 방향은?
+  choices:
+    - $-x$ 방향
+    - $+x$ 방향
+    - 힘이 0
+    - 그래프만으로는 알 수 없다
+  answer: 0
+  explain: $F = -\dfrac{dU}{dx}$라서 기울기가 양수면 힘은 음의 방향이다. 힘은 항상 $U$가 낮아지는 쪽(내리막)으로 향한다.
+  cards: [phys-mech-conservative-potential]
+
+- id: qm-momentum-inelastic-ke
+  chapter: mechanics
+  type: concept
+  q: 완전 비탄성 충돌에 대한 설명으로 옳은 것은?
+  choices:
+    - 운동량은 보존되고, 운동 에너지는 줄어든다
+    - 운동량과 운동 에너지가 모두 보존된다
+    - 운동 에너지는 보존되고, 운동량은 줄어든다
+    - 운동량과 운동 에너지가 모두 줄어든다
+  answer: 0
+  explain: 외력이 없으면 충돌 종류와 상관없이 운동량은 보존된다. 붙어서 한 덩어리가 되면 운동 에너지 일부가 열·변형으로 사라지고, 그 손실이 가장 크다.
+  cards: [phys-mech-momentum-conservation]
+
+- id: qm-elastic-equal-mass
+  chapter: mechanics
+  type: concept
+  q: 질량이 같은 두 공 중 움직이는 공이 정지한 공에 정면으로 **탄성** 충돌했다. 충돌 후는?
+  choices:
+    - 움직이던 공은 멈추고, 정지했던 공이 같은 속도로 나간다
+    - 두 공이 붙어 절반의 속도로 함께 움직인다
+    - 두 공이 같은 속도로 같은 방향으로 움직인다
+    - 움직이던 공이 같은 속력으로 튕겨 나온다
+  answer: 0
+  explain: 질량이 같은 1차원 탄성 충돌은 속도를 서로 맞바꾼다. 붙어서 절반이 되는 것은 완전 비탄성 충돌.
+  cards: [phys-mech-momentum-conservation]
+
+- id: qm-impulse-area
+  chapter: mechanics
+  type: concept
+  q: 힘–시간 그래프의 넓이가 뜻하는 것은?
+  choices:
+    - 충격량 (운동량의 변화)
+    - 일
+    - 운동 에너지의 변화
+    - 일률
+  answer: 0
+  explain: $J = \int F\,dt = \Delta p$. 힘–**변위** 그래프의 넓이가 일이다.
+  cards: [phys-mech-momentum-impulse]
+
+- id: qm-cm-explosion
+  chapter: mechanics
+  type: tf
+  q: 포물선을 그리며 날아가던 포탄이 공중에서 폭발해도, 조각들의 질량 중심은 원래 포물선을 그대로 따라간다 (공기 저항 무시, 조각이 땅에 닿기 전까지).
+  answer: true
+  explain: 폭발력은 내력이라 서로 상쇄된다. 외력은 중력뿐이므로 질량 중심의 가속도는 그대로 $g$다.
+  cards: [phys-mech-center-of-mass]
+
+- id: qm-power-fv
+  chapter: mechanics
+  type: ratio
+  q: 같은 출력으로 달리는 자동차가 속력을 2배로 올리면 낼 수 있는 견인력은?
+  choices:
+    - $\dfrac{1}{2}$배
+    - $2$배
+    - $4$배
+    - 변하지 않는다
+  answer: 0
+  explain: $P = Fv$에서 $P$가 일정하면 $F \propto \dfrac{1}{v}$.
+  cards: [phys-mech-power]
+
+- id: qm-g-height
+  chapter: mechanics
+  type: ratio
+  q: 지표면에서 높이 $R$(지구 반지름)인 곳의 중력가속도는 지표면의 몇 배인가?
+  choices:
+    - $\dfrac{1}{4}$배
+    - $\dfrac{1}{2}$배
+    - $1$배
+    - $\dfrac{1}{8}$배
+  answer: 0
+  explain: 중심에서 거리가 $2R$이므로 $g \propto \dfrac{1}{r^2}$에서 $\dfrac{1}{4}$배. 높이 $h$가 아니라 **중심에서의 거리**로 잰다.
+  cards: [phys-mech-gravitation]
+
+- id: qm-g-inside
+  chapter: mechanics
+  type: concept
+  q: 밀도가 균일한 지구 내부, 중심에서 거리 $r$($r < R$)인 곳의 중력가속도는 $r$에 어떻게 비례하는가?
+  choices:
+    - $r$에 비례
+    - $\dfrac{1}{r^2}$에 비례
+    - $r^2$에 비례
+    - $r$과 관계없이 일정
+  answer: 0
+  explain: 껍질 정리로 $r$보다 바깥 껍질은 힘을 주지 않고, 안쪽 질량 $M\dfrac{r^3}{R^3}$만 당긴다. $g = \dfrac{GM}{R^3}r$이라 중심에서 0이 된다.
+  cards: [phys-mech-gravitation]
+
+- id: qm-kepler3
+  chapter: mechanics
+  type: ratio
+  q: 원궤도 반지름이 4배인 위성의 공전 주기는 몇 배인가?
+  choices:
+    - $8$배
+    - $4$배
+    - $16$배
+    - $2$배
+  answer: 0
+  explain: 케플러 제3법칙 $T^2 \propto r^3$에서 $T \propto r^{3/2} = 4^{3/2} = 8$.
+  cards: [phys-mech-orbits-kepler]
+
+- id: qm-orbit-energy
+  chapter: mechanics
+  type: concept
+  q: 원궤도 위성의 운동 에너지 $K$, 퍼텐셜 에너지 $U$, 역학적 에너지 $E$의 관계로 옳은 것은?
+  choices:
+    - $U = -2K$, $E = -K$
+    - $U = -K$, $E = 0$
+    - $U = 2K$, $E = 3K$
+    - $U = -\dfrac{K}{2}$, $E = \dfrac{K}{2}$
+  answer: 0
+  explain: $K = \dfrac{GMm}{2r}$, $U = -\dfrac{GMm}{r}$, $E = -\dfrac{GMm}{2r}$. 에너지가 음수라 묶여 있는 궤도다.
+  cards: [phys-mech-orbits-kepler]
+
+- id: qm-escape-mass
+  chapter: mechanics
+  type: tf
+  q: 탈출 속력은 쏘아 올리는 물체의 질량이 클수록 크다.
+  answer: false
+  explain: $\dfrac{1}{2}mv^2 = \dfrac{GMm}{R}$에서 $m$이 약분되어 $v_{\text{esc}} = \sqrt{\dfrac{2GM}{R}}$. 물체의 질량과 무관하다.
+  cards: [phys-mech-gravitational-potential]
+
+- id: qm-equilibrium-pivot
+  chapter: mechanics
+  type: concept
+  q: 정적 평형 문제에서 돌림힘의 기준점을 잡는 요령으로 가장 좋은 것은?
+  choices:
+    - 모르는 힘이 가장 많이 지나는 점
+    - 항상 물체의 질량 중심
+    - 항상 물체의 한쪽 끝
+    - 힘이 하나도 작용하지 않는 점
+  answer: 0
+  explain: 평형이면 어느 점을 기준으로 잡아도 돌림힘의 합이 0이다. 모르는 힘이 지나는 점을 잡으면 그 힘의 돌림힘이 0이 되어 미지수가 줄어든다.
+  cards: [phys-mech-static-equilibrium]
+
+# ---------------------------------------------------------------- 회전
+- id: qr-inertia-order
+  chapter: rotation
+  type: concept
+  q: 질량 $M$, 반지름 $R$이 같은 네 물체를 중심축에 대해 돌릴 때 관성모멘트가 가장 큰 것은?
+  choices:
+    - 얇은 고리
+    - 원판
+    - 속이 찬 구
+    - 얇은 구 껍질
+  answer: 0
+  explain: 고리 $MR^2$ > 구 껍질 $\dfrac{2}{3}MR^2$ > 원판 $\dfrac{1}{2}MR^2$ > 속이 찬 구 $\dfrac{2}{5}MR^2$. 질량이 축에서 멀리 있을수록 크다.
+  cards: [phys-rot-moment-of-inertia]
+
+- id: qr-rolling-race
+  chapter: rotation
+  type: concept
+  q: 같은 빗면을 미끄러지지 않고 굴러 내려오는 고리, 원판, 속이 찬 구 중 바닥에 가장 먼저 도착하는 것은?
+  choices:
+    - 속이 찬 구
+    - 고리
+    - 원판
+    - 셋이 동시에
+  answer: 0
+  explain: $a = \dfrac{g\sin\theta}{1 + I/(MR^2)}$라서 $\dfrac{I}{MR^2}$가 작을수록 빠르다. 구 $\dfrac{2}{5}$ < 원판 $\dfrac{1}{2}$ < 고리 $1$. 질량·반지름과는 무관하다.
+  cards: [phys-rot-rolling]
+
+- id: qr-rolling-top
+  chapter: rotation
+  type: ratio
+  q: 속력 $v$로 미끄러지지 않고 구르는 바퀴에서, 땅에 닿은 점과 맨 위 점의 속력은 각각?
+  choices:
+    - $0$과 $2v$
+    - $v$와 $v$
+    - $0$과 $v$
+    - $v$와 $2v$
+  answer: 0
+  explain: 구름 = 중심의 병진 $v$ + 중심 둘레 회전 $R\omega = v$. 아래 점은 두 속도가 반대라 0, 위 점은 같은 방향이라 $2v$.
+  cards: [phys-rot-rolling]
+
+- id: qr-skater
+  chapter: rotation
+  type: concept
+  q: 회전하던 피겨 선수가 팔을 오므렸다. 옳은 것은? (마찰 무시)
+  choices:
+    - 각운동량은 그대로이고 회전 운동 에너지는 늘어난다
+    - 각운동량과 회전 운동 에너지가 모두 그대로다
+    - 각운동량이 늘어나서 빨리 돈다
+    - 회전 운동 에너지는 그대로이고 각운동량이 늘어난다
+  answer: 0
+  explain: 외부 돌림힘이 없어 $L = I\omega$는 보존된다. $I$가 줄면 $\omega$가 커지고, $K = \dfrac{L^2}{2I}$는 커진다. 늘어난 에너지는 팔을 당긴 근육이 한 일이다.
+  cards: [phys-rot-angular-momentum, phys-rot-rotational-energy]
+
+- id: qr-torque-def
+  chapter: rotation
+  type: ratio
+  q: 같은 힘으로 문을 밀 때, 경첩에서 거리가 2배인 곳을 문에 수직으로 밀면 돌림힘은 몇 배인가?
+  choices:
+    - $2$배
+    - $4$배
+    - $\dfrac{1}{2}$배
+    - 변하지 않는다
+  answer: 0
+  explain: $\tau = rF\sin\phi$라서 거리에 비례한다.
+  cards: [phys-rot-torque]
+
+- id: qr-parallel-axis-min
+  chapter: rotation
+  type: tf
+  q: 같은 방향의 평행한 축들 중에서 관성모멘트가 가장 작은 축은 질량 중심을 지나는 축이다.
+  answer: true
+  explain: $I = I_{\text{cm}} + Md^2$이고 $Md^2 \ge 0$이라 $d = 0$(질량 중심)일 때 최소다.
+  cards: [phys-rot-parallel-axis]
+
+- id: qr-centripetal-not-new
+  chapter: rotation
+  type: concept
+  q: 구심력에 대한 설명으로 **틀린** 것은?
+  choices:
+    - 원운동하면 중력·장력 외에 구심력이라는 힘이 하나 더 생긴다
+    - 원의 중심을 향하는 알짜힘을 구심력이라 부른다
+    - 크기는 $\dfrac{mv^2}{r}$이다
+    - 줄의 장력이나 마찰력이 구심력 역할을 할 수 있다
+  answer: 0
+  explain: 구심력은 새로운 힘이 아니라 이미 있는 힘들의 중심 방향 합력이다. 힘 그림에 "구심력"을 따로 그리면 이중으로 센다.
+  cards: [phys-rot-centripetal-force]
+
+- id: qr-loop-top
+  chapter: rotation
+  type: ratio
+  q: 반지름 $r$인 연직 원을 도는 물체(줄에 매달림)가 꼭대기에서 줄이 늘어지지 않을 최소 속력은?
+  choices:
+    - $\sqrt{gr}$
+    - $\sqrt{2gr}$
+    - $\sqrt{5gr}$
+    - $0$
+  answer: 0
+  explain: 꼭대기에서 $mg + T = \dfrac{mv^2}{r}$이고 장력 $T \ge 0$이므로 $v \ge \sqrt{gr}$. $\sqrt{5gr}$은 그러기 위해 바닥에서 필요한 속력.
+  cards: [phys-rot-centripetal-force]
+
+- id: qr-symbol-alpha
+  chapter: rotation
+  type: concept
+  q: 회전 운동 공식 $\tau = I\alpha$에서 직선 운동의 $m$에 대응하는 것은?
+  choices:
+    - $I$ (관성모멘트)
+    - $\alpha$ (각가속도)
+    - $\tau$ (돌림힘)
+    - $\omega$ (각속도)
+  answer: 0
+  explain: $F = ma$ ↔ $\tau = I\alpha$. 질량 ↔ 관성모멘트, 힘 ↔ 돌림힘, 가속도 ↔ 각가속도.
+  cards: [phys-rot-torque, phys-rot-rotational-energy]
+
+# ---------------------------------------------------------------- 진동과 파동
+- id: qw-spring-period-mass
+  chapter: waves
+  type: ratio
+  q: 용수철 진자의 질량을 4배로 하면 주기는 몇 배인가?
+  choices:
+    - $2$배
+    - $4$배
+    - $\dfrac{1}{2}$배
+    - $16$배
+  answer: 0
+  explain: $T = 2\pi\sqrt{\dfrac{m}{k}} \propto \sqrt m$.
+  cards: [phys-wave-spring-shm]
+
+- id: qw-pendulum-mass
+  chapter: waves
+  type: tf
+  q: 단진자의 추를 더 무거운 것으로 바꾸면 주기가 길어진다.
+  answer: false
+  explain: $T = 2\pi\sqrt{\dfrac{L}{g}}$에는 질량이 없다. 길이와 중력가속도만 주기를 바꾼다.
+  cards: [phys-wave-pendulums]
+
+- id: qw-vertical-spring
+  chapter: waves
+  type: tf
+  q: 같은 용수철 진자를 수평으로 놓을 때와 연직으로 매달 때의 주기는 같다.
+  answer: true
+  explain: 연직으로 매달면 평형 위치만 $\dfrac{mg}{k}$만큼 내려갈 뿐, 그 평형점을 중심으로 같은 $\omega = \sqrt{k/m}$로 진동한다.
+  cards: [phys-wave-spring-shm]
+
+- id: qw-shm-max
+  chapter: waves
+  type: concept
+  q: 단진동하는 물체가 평형 위치를 지날 때에 대한 설명으로 옳은 것은?
+  choices:
+    - 속력이 최대이고 가속도는 0이다
+    - 속력과 가속도가 모두 최대이다
+    - 속력이 0이고 가속도가 최대이다
+    - 속력과 가속도가 모두 0이다
+  answer: 0
+  explain: $a = -\omega^2x$라서 $x = 0$이면 가속도 0. 에너지가 전부 운동 에너지라 속력은 최대 $\omega x_m$. 양 끝에서는 반대로 속력 0, 가속도 최대.
+  cards: [phys-wave-shm, phys-wave-shm-energy]
+
+- id: qw-shm-energy-half
+  chapter: waves
+  type: ratio
+  q: 단진동에서 운동 에너지와 퍼텐셜 에너지가 같아지는 위치는? (진폭 $x_m$)
+  choices:
+    - $\pm\dfrac{x_m}{\sqrt2}$
+    - $\pm\dfrac{x_m}{2}$
+    - $0$
+    - $\pm x_m$
+  answer: 0
+  explain: $U = \dfrac{1}{2}kx^2 = \dfrac{1}{2}E = \dfrac{1}{4}kx_m^2$에서 $x = \dfrac{x_m}{\sqrt2}$. 진폭의 절반이 아니다.
+  cards: [phys-wave-shm-energy]
+
+- id: qw-wave-speed-medium
+  chapter: waves
+  type: concept
+  q: 같은 줄에서 진동수를 2배로 올렸을 때 옳은 것은?
+  choices:
+    - 속력은 그대로이고 파장이 절반이 된다
+    - 파장은 그대로이고 속력이 2배가 된다
+    - 속력과 파장이 모두 2배가 된다
+    - 속력이 절반이 된다
+  answer: 0
+  explain: 파동의 속력은 매질(줄의 장력·선밀도)이 정한다. $v = f\lambda$가 일정하므로 $f$가 2배면 $\lambda$가 절반.
+  cards: [phys-wave-traveling-wave, phys-wave-string-speed]
+
+- id: qw-string-tension
+  chapter: waves
+  type: ratio
+  q: 줄의 장력을 4배로 하면 줄에서 파동의 속력은 몇 배인가?
+  choices:
+    - $2$배
+    - $4$배
+    - $16$배
+    - $\dfrac{1}{2}$배
+  answer: 0
+  explain: $v = \sqrt{\dfrac{\tau}{\mu}}$라서 장력의 제곱근에 비례한다.
+  cards: [phys-wave-string-speed]
+
+- id: qw-wave-sign
+  chapter: waves
+  type: concept
+  q: $y = y_m\sin(kx + \omega t)$로 표현되는 파동의 진행 방향은?
+  choices:
+    - $-x$ 방향
+    - $+x$ 방향
+    - 진행하지 않는 정상파
+    - $+y$ 방향
+  answer: 0
+  explain: $kx$와 $\omega t$의 부호가 같으면 $-x$ 방향, 다르면($kx - \omega t$) $+x$ 방향으로 진행한다.
+  cards: [phys-wave-traveling-wave]
+
+- id: qw-intensity-distance
+  chapter: waves
+  type: ratio
+  q: 사방으로 고르게 퍼지는 점음원에서 거리가 3배가 되면 소리의 세기는 몇 배인가?
+  choices:
+    - $\dfrac{1}{9}$배
+    - $\dfrac{1}{3}$배
+    - $\dfrac{1}{27}$배
+    - $\dfrac{1}{\sqrt3}$배
+  answer: 0
+  explain: 일률이 구면 넓이 $4\pi r^2$에 퍼지므로 $I = \dfrac{P}{4\pi r^2} \propto \dfrac{1}{r^2}$. 진폭은 $\dfrac{1}{r}$에 비례.
+  cards: [phys-wave-wave-power-intensity]
+
+- id: qw-interference-half
+  chapter: waves
+  type: concept
+  q: 같은 위상의 두 음원에서 온 소리의 경로차가 $\dfrac{\lambda}{2}$인 곳에서는?
+  choices:
+    - 상쇄 간섭 (가장 작게 들림)
+    - 보강 간섭 (가장 크게 들림)
+    - 진폭이 $\sqrt2$배
+    - 진동수가 절반이 됨
+  answer: 0
+  explain: 경로차가 $\lambda$의 정수배면 보강, 반정수배($\dfrac{\lambda}{2}, \dfrac{3\lambda}{2}, \ldots$)면 상쇄. 진동수는 간섭으로 변하지 않는다.
+  cards: [phys-wave-interference]
+
+- id: qw-closed-pipe
+  chapter: waves
+  type: concept
+  q: 한쪽 끝만 막힌 관(길이 $L$)에서 생길 수 있는 소리에 대한 설명으로 옳은 것은?
+  choices:
+    - 기본 파장은 $4L$이고 홀수 배음만 생긴다
+    - 기본 파장은 $2L$이고 모든 배음이 생긴다
+    - 기본 파장은 $4L$이고 짝수 배음만 생긴다
+    - 기본 파장은 $L$이다
+  answer: 0
+  explain: 막힌 끝은 마디, 열린 끝은 배라서 기본 진동은 $\dfrac{\lambda}{4} = L$. 이후 $\lambda_n = \dfrac{4L}{n}$ ($n = 1, 3, 5, \ldots$). 양끝 열림·양끝 고정은 $\dfrac{2L}{n}$, 모든 $n$.
+  cards: [phys-wave-standing-wave]
+
+- id: qw-doppler-direction
+  chapter: waves
+  type: concept
+  q: 음원이 관찰자에게서 멀어질 때 관찰자가 듣는 소리는?
+  choices:
+    - 진동수가 낮아진다
+    - 진동수가 높아진다
+    - 진동수는 그대로이고 소리만 작아진다
+    - 음속이 느려진다
+  answer: 0
+  explain: 멀어지면 파면 간격(파장)이 늘어나 진동수가 낮게 들린다. 공기 속 음속은 음원의 운동과 관계없이 매질이 정한다.
+  cards: [phys-wave-doppler]
+
+# ---------------------------------------------------------------- 유체
+- id: qf-pressure-shape
+  chapter: fluids
+  type: tf
+  q: 같은 액체를 담은 그릇이라면, 바닥의 압력은 그릇 모양과 관계없이 수면에서 바닥까지의 깊이로 정해진다.
+  answer: true
+  explain: $P = P_0 + \rho gh$에는 깊이만 들어간다 (정수압 역설). 바닥이 받는 **힘**은 바닥 넓이에 따라 다르다.
+  cards: [phys-fluid-hydrostatic-pressure]
+
+- id: qf-buoyancy-depth
+  chapter: fluids
+  type: concept
+  q: 물에 완전히 잠긴 돌을 더 깊이 내렸을 때 부력은?
+  choices:
+    - 변하지 않는다
+    - 깊이에 비례해 커진다
+    - 작아진다
+    - 돌의 무게와 같아진다
+  answer: 0
+  explain: 부력 $F_B = \rho_{\text{fluid}}Vg$는 잠긴 부피로만 정해진다. 위아래 압력이 함께 커져서 그 차이는 그대로다.
+  cards: [phys-fluid-buoyancy]
+
+- id: qf-ice-fraction
+  chapter: fluids
+  type: ratio
+  q: 밀도가 물의 $0.9$배인 얼음이 물에 떠 있다. 물에 잠긴 부피는 전체의 몇 %인가?
+  choices:
+    - $90\%$
+    - $10\%$
+    - $50\%$
+    - $100\%$
+  answer: 0
+  explain: 뜬 물체는 무게 = 부력이라 $\dfrac{V_{\text{잠김}}}{V} = \dfrac{\rho_{\text{물체}}}{\rho_{\text{유체}}} = 0.9$.
+  cards: [phys-fluid-buoyancy]
+
+- id: qf-continuity-area
+  chapter: fluids
+  type: ratio
+  q: 관의 지름이 절반으로 좁아지는 곳에서 물의 속력은 몇 배가 되는가?
+  choices:
+    - $4$배
+    - $2$배
+    - $\dfrac{1}{2}$배
+    - $\sqrt2$배
+  answer: 0
+  explain: $A_1v_1 = A_2v_2$이고 단면적은 지름의 제곱에 비례한다. 지름이 절반이면 넓이 $\dfrac{1}{4}$, 속력 4배.
+  cards: [phys-fluid-continuity]
+
+- id: qf-bernoulli-fast-low
+  chapter: fluids
+  type: concept
+  q: 같은 높이의 수평관에서 관이 좁아지는 곳의 압력은?
+  choices:
+    - 더 낮다
+    - 더 높다
+    - 같다
+    - 관의 길이에 따라 다르다
+  answer: 0
+  explain: 좁은 곳에서 빨라지고(연속 방정식), 높이가 같으면 $P + \dfrac{1}{2}\rho v^2$이 일정하므로 빠른 곳의 압력이 낮다.
+  cards: [phys-fluid-bernoulli, phys-fluid-continuity]
+
+- id: qf-torricelli
+  chapter: fluids
+  type: ratio
+  q: 수면에서 깊이 $h$인 작은 구멍으로 나오는 물의 속력은?
+  choices:
+    - $\sqrt{2gh}$
+    - $\sqrt{gh}$
+    - $2gh$
+    - $\dfrac{1}{2}gh$
+  answer: 0
+  explain: 베르누이 식(토리첼리 정리). 높이 $h$에서 자유 낙하한 속력과 같다.
+  cards: [phys-fluid-bernoulli]
+
+- id: qf-pascal
+  chapter: fluids
+  type: ratio
+  q: 유압기에서 큰 피스톤의 넓이가 작은 피스톤의 50배이다. 작은 피스톤을 $10\,\text{N}$으로 누르면 큰 피스톤이 받는 힘은?
+  choices:
+    - $500\,\text{N}$
+    - $10\,\text{N}$
+    - $50\,\text{N}$
+    - $0.2\,\text{N}$
+  answer: 0
+  explain: 파스칼의 원리로 압력이 같아 $\dfrac{F_1}{A_1} = \dfrac{F_2}{A_2}$. 대신 큰 피스톤이 움직이는 거리는 $\dfrac{1}{50}$이라 일은 같다.
+  cards: [phys-fluid-pascal]
+
+# ---------------------------------------------------------------- 열역학
+- id: qt-first-law-sign
+  chapter: thermodynamics
+  type: concept
+  q: $\Delta E_{\text{int}} = Q - W$ 규약에서, 기체가 열 $100\,\text{J}$을 받고 외부에 $30\,\text{J}$의 일을 했다. 내부 에너지 변화는?
+  choices:
+    - $+70\,\text{J}$
+    - $+130\,\text{J}$
+    - $-70\,\text{J}$
+    - $-130\,\text{J}$
+  answer: 0
+  explain: 이 규약에서 $W$는 기체가 **한** 일이다. $100 - 30 = 70$. 교재에 따라 $\Delta U = Q + W$($W$ = 기체가 **받은** 일)로 쓰기도 하니 규약을 먼저 본다.
+  cards: [phys-thermo-first-law]
+
+- id: qt-isothermal-u
+  chapter: thermodynamics
+  type: tf
+  q: 이상기체의 등온 과정에서는 내부 에너지가 변하지 않으므로, 받은 열은 모두 외부에 한 일이 된다.
+  answer: true
+  explain: 이상기체의 내부 에너지는 온도만의 함수라 등온이면 $\Delta E_{\text{int}} = 0$, 곧 $Q = W$.
+  cards: [phys-thermo-first-law]
+
+- id: qt-adiabatic
+  chapter: thermodynamics
+  type: concept
+  q: 기체가 단열 팽창할 때 온도가 내려가는 이유는?
+  choices:
+    - 열을 받지 않은 채 외부에 일을 해서 내부 에너지가 줄기 때문
+    - 열이 밖으로 빠져나가기 때문
+    - 압력이 일정하기 때문
+    - 부피가 늘면 분자 수가 줄기 때문
+  answer: 0
+  explain: 단열이면 $Q = 0$이라 $\Delta E_{\text{int}} = -W$. 팽창하면 $W > 0$이므로 내부 에너지(온도)가 내려간다.
+  cards: [phys-thermo-first-law]
+
+- id: qt-entropy-state
+  chapter: thermo-entropy
+  type: concept
+  q: 다음 중 상태함수가 **아닌** 것은?
+  choices:
+    - 열 $Q$
+    - 엔트로피 $S$
+    - 내부 에너지 $E_{\text{int}}$
+    - 온도 $T$
+  answer: 0
+  explain: 열과 일은 경로에 따라 달라지는 양이다. 엔트로피·내부 에너지·온도·압력·부피는 상태만으로 정해진다.
+  cards: [thermo-entropy-state-function]
+
+- id: qt-free-expansion
+  chapter: thermo-entropy
+  type: concept
+  q: 이상기체가 단열된 용기 안에서 진공으로 자유 팽창해 부피가 2배가 되었다. 엔트로피 변화는?
+  choices:
+    - $nR\ln 2$ (증가)
+    - $0$ ($Q = 0$이므로)
+    - $-nR\ln 2$ (감소)
+    - $nC_V\ln 2$
+  answer: 0
+  explain: 실제 과정은 $Q = 0$이지만 비가역이라 $\int dQ/T$를 그대로 쓸 수 없다. 처음·나중 상태가 같은 등온 가역 팽창으로 우회하면 $\Delta S = nR\ln\dfrac{V_f}{V_i} = nR\ln 2$.
+  cards: [thermo-entropy-irreversible, thermo-entropy-ideal-gas]
+
+- id: qt-entropy-temp
+  chapter: thermo-entropy
+  type: tf
+  q: 같은 양의 열을 가역적으로 받는다면, 온도가 낮은 계일수록 엔트로피가 더 크게 증가한다.
+  answer: true
+  explain: $\Delta S = \dfrac{Q}{T}$라서 $T$가 작을수록 크다. 열이 뜨거운 곳에서 차가운 곳으로 흐르면 전체 엔트로피가 느는 이유다.
+  cards: [thermo-entropy-reversible]
+
+- id: qt-boltzmann-log
+  chapter: thermo-entropy
+  type: concept
+  q: 볼츠만 엔트로피 $S = k_B\ln\Omega$에 로그를 쓰는 이유는?
+  choices:
+    - 두 계를 합치면 경우의 수는 곱해지지만 엔트로피는 더해져야 하므로
+    - 경우의 수가 음수일 수 있으므로
+    - 온도와 단위를 맞추기 위해
+    - 엔트로피가 항상 1보다 작게 하려고
+  answer: 0
+  explain: $\Omega = \Omega_1\Omega_2$일 때 $\ln\Omega = \ln\Omega_1 + \ln\Omega_2$라서 $S = S_1 + S_2$가 된다.
+  cards: [thermo-entropy-boltzmann]

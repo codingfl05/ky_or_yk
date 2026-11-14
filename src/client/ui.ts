@@ -206,3 +206,13 @@ if (document.querySelector('.lesson, .study-wrap, .doc')) {
     { passive: true },
   );
 }
+
+// 연습 탭(플래시카드·퀴즈): 지금 연 쪽을 기억하고, 하단 탭이 마지막으로 연 쪽으로 가게 한다.
+{
+  const sw = document.querySelector<HTMLElement>('.practice-switch');
+  const cur = sw?.dataset.practice;
+  if ((cur === 'flash' || cur === 'quiz') && getState().settings.practice !== cur) updateSettings({ practice: cur });
+  const last = getState().settings.practice;
+  const tab = document.querySelector<HTMLAnchorElement>('.bottomnav a[href$="/flash/"]');
+  if (tab && last === 'quiz') tab.href = tab.href.replace(/flash\/$/, 'quiz/');
+}

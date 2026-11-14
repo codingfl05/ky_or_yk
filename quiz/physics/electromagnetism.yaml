@@ -1,0 +1,631 @@
+# 비역학 구분(전자기학·회로) 직접 쓴 문제. 형식은 mechanics.yaml 머리말과 같다.
+# 값에 ": "(콜론+공백)이 들어가면 작은따옴표로 감싼다.
+
+# ---------------------------------------------------------------- 전기장·가우스
+- id: qe-coulomb-distance
+  chapter: electromagnetism
+  type: ratio
+  q: 두 점전하 사이 거리를 3배로 하면 전기력은 몇 배가 되는가?
+  choices:
+    - $\dfrac{1}{9}$배
+    - $\dfrac{1}{3}$배
+    - $9$배
+    - $3$배
+  answer: 0
+  explain: $F = k\dfrac{q_1q_2}{r^2} \propto \dfrac{1}{r^2}$.
+  cards: [phys-em-coulomb-law]
+
+- id: qe-field-test-charge
+  chapter: electromagnetism
+  type: tf
+  q: 어떤 점의 전기장은 그 점에 놓는 시험 전하의 크기에 따라 달라진다.
+  answer: false
+  explain: $\mathbf{E} = \dfrac{\mathbf{F}}{q_0}$에서 힘이 $q_0$에 비례하므로 나누면 $q_0$이 사라진다. 전기장은 원천 전하가 정한다.
+  cards: [phys-em-electric-field]
+
+- id: qe-field-lines
+  chapter: electromagnetism
+  type: concept
+  q: 전기력선에 대한 설명으로 **틀린** 것은?
+  choices:
+    - 전기력선은 서로 교차할 수 있다
+    - 양전하에서 나와 음전하로 들어간다
+    - 촘촘한 곳일수록 전기장이 세다
+    - 한 점에서의 접선 방향이 그 점의 전기장 방향이다
+  answer: 0
+  explain: 한 점의 전기장 방향은 하나뿐이라 전기력선은 교차하지 않는다.
+  cards: [phys-em-electric-field]
+
+- id: qe-gauss-outside
+  chapter: electromagnetism
+  type: concept
+  q: 폐곡면 **바깥**에 점전하가 하나 있다. 이 폐곡면을 지나는 알짜 전기선속은?
+  choices:
+    - $0$
+    - $\dfrac{q}{\varepsilon_0}$
+    - $\dfrac{q}{2\varepsilon_0}$
+    - 곡면 모양에 따라 다르다
+  answer: 0
+  explain: 바깥 전하의 전기력선은 들어온 만큼 나간다. 가우스 법칙의 $q_{\text{enc}}$는 **안쪽** 전하만이다. 다만 곡면 위 각 점의 $E$에는 바깥 전하도 기여한다.
+  cards: [phys-em-gauss-law]
+
+- id: qe-gauss-cube
+  chapter: electromagnetism
+  type: ratio
+  q: 정육면체 중심에 점전하 $q$가 있다. 한 면을 지나는 전기선속은?
+  choices:
+    - $\dfrac{q}{6\varepsilon_0}$
+    - $\dfrac{q}{\varepsilon_0}$
+    - $\dfrac{q}{4\varepsilon_0}$
+    - $\dfrac{q}{8\varepsilon_0}$
+  answer: 0
+  explain: 전체 선속 $\dfrac{q}{\varepsilon_0}$가 대칭인 6개 면에 똑같이 나뉜다.
+  cards: [phys-em-gauss-law]
+
+- id: qe-gauss-e-zero
+  chapter: electromagnetism
+  type: tf
+  q: 폐곡면을 지나는 알짜 전기선속이 0이면 그 곡면 위 모든 점에서 전기장이 0이다.
+  answer: false
+  explain: 선속 0은 들어오고 나가는 양이 같다는 뜻일 뿐이다. 바깥 전하가 있으면 곡면 위의 $E$는 0이 아니다.
+  cards: [phys-em-gauss-law]
+
+- id: qe-line-sheet-ratio
+  chapter: electromagnetism
+  type: concept
+  q: 거리 $r$에 따른 전기장의 크기로 옳게 짝지은 것은?
+  choices:
+    - 점전하 $\propto \dfrac{1}{r^2}$, 무한 직선 $\propto \dfrac{1}{r}$, 무한 평면 $\propto r^0$ (일정)
+    - 점전하 $\propto \dfrac{1}{r}$, 무한 직선 $\propto \dfrac{1}{r^2}$, 무한 평면 $\propto \dfrac{1}{r}$
+    - 점전하 $\propto \dfrac{1}{r^2}$, 무한 직선 $\propto \dfrac{1}{r^2}$, 무한 평면 $\propto \dfrac{1}{r}$
+    - 셋 다 $\propto \dfrac{1}{r^2}$
+  answer: 0
+  explain: 가우스 면의 넓이가 구 $4\pi r^2$, 원통 옆면 $2\pi rL$, 평면은 $r$과 무관 $2A$라서 차례로 $\dfrac{1}{r^2}$, $\dfrac{1}{r}$, 일정.
+  cards: [phys-em-gauss-applications]
+
+- id: qe-sphere-inside
+  chapter: electromagnetism
+  type: concept
+  q: 전하가 고르게 퍼진 **부도체** 구 내부(중심에서 $r < R$)의 전기장은?
+  choices:
+    - $r$에 비례해서 커진다
+    - $0$이다
+    - $\dfrac{1}{r^2}$에 비례한다
+    - 구 표면과 같은 값으로 일정하다
+  answer: 0
+  explain: 가우스 면 안의 전하가 $q\dfrac{r^3}{R^3}$이라 $E = \dfrac{kq}{R^3}r$. 내부가 0인 것은 **도체**(또는 얇은 껍질)일 때다.
+  cards: [phys-em-gauss-applications, phys-em-conductors]
+
+- id: qe-conductor-inside
+  chapter: electromagnetism
+  type: concept
+  q: 정전기 평형인 도체에 대한 설명으로 **틀린** 것은?
+  choices:
+    - 도체 내부의 전위는 0이다
+    - 도체 내부의 전기장은 0이다
+    - 남는 전하는 모두 표면에 있다
+    - 표면 바로 바깥의 전기장은 표면에 수직이다
+  answer: 0
+  explain: 내부 전기장이 0이라 도체 전체가 **같은 전위**(등전위)일 뿐, 그 값이 0일 필요는 없다.
+  cards: [phys-em-conductors]
+
+- id: qe-dipole-stable
+  chapter: electromagnetism
+  type: concept
+  q: 균일한 전기장 속 전기 쌍극자가 가장 안정한 방향은?
+  choices:
+    - $\mathbf{p}$가 $\mathbf{E}$와 같은 방향
+    - $\mathbf{p}$가 $\mathbf{E}$와 반대 방향
+    - $\mathbf{p}$가 $\mathbf{E}$에 수직
+    - 방향과 관계없이 모두 같다
+  answer: 0
+  explain: $U = -\mathbf{p}\cdot\mathbf{E}$가 $\theta = 0$에서 최소($-pE$). 수직일 때는 돌림힘이 최대다.
+  cards: [phys-em-electric-dipole]
+
+- id: qe-dipole-net-force
+  chapter: electromagnetism
+  type: tf
+  q: 균일한 전기장 속의 전기 쌍극자가 받는 알짜힘은 0이다.
+  answer: true
+  explain: $+q$와 $-q$가 받는 힘은 크기가 같고 반대라 알짜힘은 0. 작용점이 달라서 돌림힘만 생긴다.
+  cards: [phys-em-electric-dipole]
+
+# ---------------------------------------------------------------- 전위·축전기
+- id: qe-potential-scalar
+  chapter: electromagnetism
+  type: concept
+  q: 정사각형 네 꼭짓점에 $+q$, $-q$, $+q$, $-q$가 번갈아 놓여 있다. 중심의 전기장과 전위는?
+  choices:
+    - 전기장 $0$, 전위 $0$
+    - 전기장 $0$, 전위 $0$이 아님
+    - 전기장 $0$이 아님, 전위 $0$
+    - 둘 다 $0$이 아님
+  answer: 0
+  explain: 마주 보는 같은 부호 전하끼리 전기장이 상쇄되어 $E = 0$. 전위는 스칼라 합 $k\dfrac{q - q + q - q}{r} = 0$.
+  cards: [phys-em-potential-distributions, phys-em-electric-field]
+
+- id: qe-potential-direction
+  chapter: electromagnetism
+  type: concept
+  q: 전기장 방향으로 이동하면 전위는?
+  choices:
+    - 낮아진다
+    - 높아진다
+    - 변하지 않는다
+    - 전하의 부호에 따라 다르다
+  answer: 0
+  explain: $\Delta V = -\int\mathbf{E}\cdot d\mathbf{s}$. 전기장은 전위가 높은 곳에서 낮은 곳을 향한다. 전위 자체는 시험 전하와 무관하다 (퍼텐셜 에너지 $qV$는 부호에 따라 다름).
+  cards: [phys-em-electric-potential]
+
+- id: qe-electron-energy
+  chapter: electromagnetism
+  type: concept
+  q: 정지한 전자를 놓아 두면 어느 쪽으로 움직이고, 퍼텐셜 에너지는 어떻게 되는가?
+  choices:
+    - 전위가 높은 쪽으로, 퍼텐셜 에너지는 줄어든다
+    - 전위가 낮은 쪽으로, 퍼텐셜 에너지는 줄어든다
+    - 전위가 높은 쪽으로, 퍼텐셜 에너지는 늘어난다
+    - 움직이지 않는다
+  answer: 0
+  explain: 전자는 음전하라 전기장 반대, 곧 전위가 높은 쪽으로 간다. $U = qV$에서 $q < 0$이라 $V$가 커지면 $U$는 작아진다. 저절로 움직이면 항상 $U$가 줄어든다.
+  cards: [phys-em-electric-potential]
+
+- id: qe-capacitance-depends
+  chapter: electromagnetism
+  type: concept
+  q: 평행판 축전기의 전기용량을 바꾸지 **않는** 것은?
+  choices:
+    - 걸어 준 전압
+    - 판의 넓이
+    - 판 사이 간격
+    - 판 사이에 넣은 유전체
+  answer: 0
+  explain: $C = \kappa\dfrac{\varepsilon_0A}{d}$는 모양과 유전체로만 정해진다. 전압을 바꾸면 전하가 비례해서 바뀔 뿐 $C = \dfrac{q}{V}$는 그대로.
+  cards: [phys-em-capacitance]
+
+- id: qe-capacitor-gap
+  chapter: electromagnetism
+  type: ratio
+  q: 평행판 축전기의 판 간격을 2배로 하면 전기용량은 몇 배인가?
+  choices:
+    - $\dfrac{1}{2}$배
+    - $2$배
+    - $4$배
+    - $\dfrac{1}{4}$배
+  answer: 0
+  explain: $C = \dfrac{\varepsilon_0A}{d} \propto \dfrac{1}{d}$.
+  cards: [phys-em-capacitance]
+
+- id: qe-dielectric-battery-off
+  chapter: electromagnetism
+  type: concept
+  q: 충전 후 전지를 **떼어 낸** 축전기에 유전 상수 $\kappa$인 유전체를 채웠다. 옳은 것은?
+  choices:
+    - 전하는 그대로, 전압은 $\dfrac{1}{\kappa}$배, 에너지는 $\dfrac{1}{\kappa}$배
+    - 전압은 그대로, 전하는 $\kappa$배, 에너지는 $\kappa$배
+    - 전하는 그대로, 전압은 $\kappa$배
+    - 전하와 전압이 모두 그대로
+  answer: 0
+  explain: 고립되어 $q$ 일정. $C$가 $\kappa$배이므로 $V = \dfrac{q}{C}$와 $U = \dfrac{q^2}{2C}$가 $\dfrac{1}{\kappa}$배. 전지에 **연결된 채**라면 $V$가 일정하고 $q$와 $U$가 $\kappa$배.
+  cards: [phys-em-dielectric]
+
+- id: qe-capacitor-energy-v
+  chapter: electromagnetism
+  type: ratio
+  q: 같은 축전기에 거는 전압을 2배로 하면 저장 에너지는 몇 배인가?
+  choices:
+    - $4$배
+    - $2$배
+    - $\sqrt2$배
+    - 변하지 않는다
+  answer: 0
+  explain: $U = \dfrac{1}{2}CV^2 \propto V^2$.
+  cards: [phys-em-capacitor-energy]
+
+- id: qe-energy-density
+  chapter: electromagnetism
+  type: concept
+  q: 전기장 에너지 밀도 $u_E = \dfrac{1}{2}\varepsilon_0E^2$에 대응하는 자기장 에너지 밀도는?
+  choices:
+    - $\dfrac{B^2}{2\mu_0}$
+    - $\dfrac{1}{2}\mu_0B^2$
+    - $\dfrac{B}{2\mu_0}$
+    - $\dfrac{1}{2}\mu_0 B$
+  answer: 0
+  explain: $u_B = \dfrac{B^2}{2\mu_0}$. $\mu_0$는 분모에 들어간다 ($\varepsilon_0$와 위치가 반대).
+  cards: [phys-em-capacitor-energy, phys-em-inductance]
+
+# ---------------------------------------------------------------- 전류·저항
+- id: qe-resistance-geometry
+  chapter: electromagnetism
+  type: ratio
+  q: 같은 물질의 도선 길이를 2배, 지름을 2배로 하면 저항은 몇 배인가?
+  choices:
+    - $\dfrac{1}{2}$배
+    - $1$배
+    - $2$배
+    - $\dfrac{1}{4}$배
+  answer: 0
+  explain: $R = \rho\dfrac{L}{A}$. 길이 2배, 단면적(지름 제곱) 4배라 $\dfrac{2}{4} = \dfrac{1}{2}$.
+  cards: [phys-em-ohm-law]
+
+- id: qe-drift-slow
+  chapter: electromagnetism
+  type: tf
+  q: 스위치를 켜면 전등이 바로 켜지는 것은 도선 속 전자의 유동 속력이 매우 빠르기 때문이다.
+  answer: false
+  explain: 유동 속력은 보통 $10^{-4}\,\text{m/s}$ 정도로 매우 느리다. 전기장이 도선 전체에 거의 빛의 속력으로 퍼져 모든 전자가 동시에 움직이기 시작하기 때문이다.
+  cards: [phys-em-current-drift]
+
+- id: qe-power-forms
+  chapter: electromagnetism
+  type: concept
+  q: 같은 전압에 연결한 두 저항 중 저항이 작은 쪽의 소비 전력은?
+  choices:
+    - 더 크다
+    - 더 작다
+    - 같다
+    - 전류를 모르면 알 수 없다
+  answer: 0
+  explain: 병렬처럼 전압이 같으면 $P = \dfrac{V^2}{R}$이라 저항이 작을수록 크다. 직렬처럼 **전류**가 같으면 $P = I^2R$이라 반대로 저항이 클수록 크다.
+  cards: [phys-em-ohm-law, phys-circ-series-parallel]
+
+# ---------------------------------------------------------------- 자기력·자기장
+- id: qe-magnetic-no-work
+  chapter: electromagnetism
+  type: tf
+  q: 자기장이 운동하는 전하에 작용하는 힘은 전하의 속력을 바꿀 수 없다.
+  answer: true
+  explain: $\mathbf{F} = q\mathbf{v}\times\mathbf{B}$는 항상 속도에 수직이라 일을 하지 않는다. 방향만 바꾸므로 원·나선 운동을 한다.
+  cards: [phys-em-lorentz-force]
+
+- id: qe-cyclotron-radius
+  chapter: electromagnetism
+  type: ratio
+  q: 균일한 자기장에 수직으로 들어온 대전 입자의 속력을 2배로 하면 원운동의 반지름과 주기는?
+  choices:
+    - 반지름 $2$배, 주기 그대로
+    - 반지름 $2$배, 주기 $2$배
+    - 반지름 그대로, 주기 $\dfrac{1}{2}$배
+    - 반지름 $4$배, 주기 그대로
+  answer: 0
+  explain: $r = \dfrac{mv}{qB} \propto v$. 주기 $T = \dfrac{2\pi m}{qB}$에는 $v$가 없다 (사이클로트론의 원리).
+  cards: [phys-em-lorentz-force]
+
+- id: qe-parallel-wires
+  chapter: electromagnetism
+  type: concept
+  q: 나란한 두 직선 도선에 **같은 방향**으로 전류가 흐를 때 두 도선은?
+  choices:
+    - 서로 당긴다
+    - 서로 민다
+    - 힘을 주고받지 않는다
+    - 서로 비틀린다
+  answer: 0
+  explain: 같은 방향 전류는 인력, 반대 방향은 척력. 전하(같은 부호는 척력)와 반대라 헷갈리기 쉽다.
+  cards: [phys-em-force-on-current]
+
+- id: qe-loop-center-field
+  chapter: electromagnetism
+  type: ratio
+  q: 원형 전류 고리의 반지름을 2배로 하면 (전류 그대로) 중심의 자기장은 몇 배인가?
+  choices:
+    - $\dfrac{1}{2}$배
+    - $\dfrac{1}{4}$배
+    - $2$배
+    - 변하지 않는다
+  answer: 0
+  explain: $B = \dfrac{\mu_0 i}{2R} \propto \dfrac{1}{R}$.
+  cards: [phys-em-biot-savart]
+
+- id: qe-wire-field-distance
+  chapter: electromagnetism
+  type: ratio
+  q: 긴 직선 도선에서 거리가 3배인 곳의 자기장은 몇 배인가?
+  choices:
+    - $\dfrac{1}{3}$배
+    - $\dfrac{1}{9}$배
+    - $3$배
+    - 변하지 않는다
+  answer: 0
+  explain: $B = \dfrac{\mu_0 i}{2\pi r} \propto \dfrac{1}{r}$. 무한 직선 전하의 전기장과 같은 꼴.
+  cards: [phys-em-ampere-law, phys-em-biot-savart]
+
+- id: qe-solenoid
+  chapter: electromagnetism
+  type: concept
+  q: 긴 솔레노이드 내부 자기장 $B = \mu_0 ni$에서 $n$은?
+  choices:
+    - 단위 길이당 감은 수
+    - 전체 감은 수
+    - 단면의 반지름
+    - 전자의 개수 밀도
+  answer: 0
+  explain: $n = \dfrac{N}{L}$. 그래서 같은 $n$이면 솔레노이드의 길이·굵기와 관계없이 내부 $B$가 같다.
+  cards: [phys-em-ampere-law]
+
+- id: qe-ampere-inside
+  chapter: electromagnetism
+  type: concept
+  q: 전류가 고르게 흐르는 굵은 원통 도선 **내부**(중심에서 $r < R$)의 자기장은?
+  choices:
+    - $r$에 비례한다
+    - $0$이다
+    - $\dfrac{1}{r}$에 비례한다
+    - 표면 값으로 일정하다
+  answer: 0
+  explain: 앙페르 고리가 감싼 전류가 $i\dfrac{r^2}{R^2}$라서 $B = \dfrac{\mu_0 i r}{2\pi R^2}$. 바깥에서는 $\dfrac{1}{r}$로 줄어든다 (균일하게 대전된 구의 전기장과 같은 모양).
+  cards: [phys-em-ampere-law]
+
+- id: qe-dipole-symbol
+  chapter: electromagnetism
+  type: concept
+  q: 자기 쌍극자 모멘트 $\mu = NiA$에서 $A$는?
+  choices:
+    - 고리가 둘러싼 넓이
+    - 도선의 단면적
+    - 고리 둘레의 길이
+    - 자기장의 세기
+  answer: 0
+  explain: 고리가 감싸는 면의 넓이다. 방향은 오른손 네 손가락을 전류 방향으로 감을 때 엄지 방향(면의 법선).
+  cards: [phys-em-magnetic-dipole]
+
+- id: qe-mu0-units
+  chapter: electromagnetism
+  type: concept
+  q: 다음 중 진공의 투자율 $\mu_0$의 값은?
+  choices:
+    - $4\pi\times10^{-7}\,\text{T}\cdot\text{m/A}$
+    - $8.85\times10^{-12}\,\text{C}^2/(\text{N}\cdot\text{m}^2)$
+    - $9.0\times10^{9}\,\text{N}\cdot\text{m}^2/\text{C}^2$
+    - $1.6\times10^{-19}\,\text{C}$
+  answer: 0
+  explain: 차례로 $\mu_0$, $\varepsilon_0$, 쿨롱 상수 $k = \dfrac{1}{4\pi\varepsilon_0}$, 기본 전하량 $e$.
+  cards: [phys-em-biot-savart]
+
+# ---------------------------------------------------------------- 유도
+- id: qe-faraday-constant-b
+  chapter: electromagnetism
+  type: tf
+  q: 자기장이 아주 강해도 코일을 지나는 자기선속이 변하지 않으면 유도 기전력은 0이다.
+  answer: true
+  explain: $\mathcal{E} = -\dfrac{d\Phi_B}{dt}$. 선속의 **크기**가 아니라 **변화율**이 기전력을 만든다.
+  cards: [phys-em-faraday-law]
+
+- id: qe-lenz
+  chapter: electromagnetism
+  type: concept
+  q: 막대자석의 N극을 코일에 가까이 할 때, 코일의 유도 전류가 만드는 자기장은?
+  choices:
+    - 자석 쪽 코일 끝이 N극이 되어 자석을 밀어낸다
+    - 자석 쪽 코일 끝이 S극이 되어 자석을 끌어당긴다
+    - 자기장을 만들지 않는다
+    - 자석과 수직인 방향의 자기장을 만든다
+  answer: 0
+  explain: 렌츠 법칙. 들어오는 선속이 늘어나는 변화를 막으려고, 다가오는 N극을 밀어내는 쪽(N극)으로 전류가 흐른다.
+  cards: [phys-em-faraday-law]
+
+- id: qe-faraday-n
+  chapter: electromagnetism
+  type: ratio
+  q: 같은 자기장 변화에서 코일의 감은 수만 3배로 하면 유도 기전력은 몇 배인가?
+  choices:
+    - $3$배
+    - $9$배
+    - $\dfrac{1}{3}$배
+    - 변하지 않는다
+  answer: 0
+  explain: $\mathcal{E} = -N\dfrac{d\Phi_B}{dt}$. 감김마다 기전력이 생겨 직렬로 더해진다.
+  cards: [phys-em-faraday-law]
+
+- id: qe-motional-blv
+  chapter: electromagnetism
+  type: concept
+  q: 레일 위 막대의 운동 기전력 $\mathcal{E} = BLv$에서 $L$은?
+  choices:
+    - 레일 사이 간격(막대에서 회로를 이루는 길이)
+    - 막대가 움직인 거리
+    - 회로의 자체유도계수
+    - 레일의 전체 길이
+  answer: 0
+  explain: $\dfrac{d\Phi_B}{dt} = B\dfrac{d(Lx)}{dt} = BLv$. 이 회로에서 $L$은 인덕턴스가 아니라 길이다.
+  cards: [phys-em-motional-emf]
+
+- id: qe-rotating-rod
+  chapter: electromagnetism
+  type: ratio
+  q: 균일한 자기장 $B$에 수직인 면에서 길이 $L$인 금속 막대가 한쪽 끝을 축으로 각속도 $\omega$로 돈다. 양 끝 사이 기전력은?
+  choices:
+    - $\dfrac{1}{2}B\omega L^2$
+    - $B\omega L^2$
+    - $BL\omega$
+    - $2B\omega L^2$
+  answer: 0
+  explain: 축에서 거리 $r$인 조각의 속력이 $\omega r$이라 $\int_0^L B\omega r\,dr = \dfrac{1}{2}B\omega L^2$. 쓸고 지나간 부채꼴 넓이의 변화율로 봐도 같다.
+  cards: [phys-em-motional-emf]
+
+- id: qe-induced-e-nonconservative
+  chapter: electromagnetism
+  type: concept
+  q: 변하는 자기장이 만드는 유도 전기장에 대한 설명으로 옳은 것은?
+  choices:
+    - 전기력선이 닫힌 고리를 이루고, 전위를 정의할 수 없다
+    - 정지 전하가 만드는 전기장과 똑같이 전위를 정의할 수 있다
+    - 도체가 있어야만 생긴다
+    - 자기장이 일정해도 생긴다
+  answer: 0
+  explain: $\oint\mathbf{E}\cdot d\mathbf{s} = -\dfrac{d\Phi_B}{dt} \ne 0$이라 비보존적이다. 도선이 없어도 빈 공간에 생긴다.
+  cards: [phys-em-induced-electric-field]
+
+- id: qe-inductance-n2
+  chapter: electromagnetism
+  type: ratio
+  q: 같은 길이·단면적의 솔레노이드에서 감은 수를 2배로 하면 자체유도계수는 몇 배인가?
+  choices:
+    - $4$배
+    - $2$배
+    - $\sqrt2$배
+    - 변하지 않는다
+  answer: 0
+  explain: $L = \mu_0 n^2 A l$. 감은 수가 2배면 자기장도 2배, 그 선속을 엮는 감김도 2배라 $n^2$.
+  cards: [phys-em-inductance]
+
+- id: qe-flux-linkage
+  chapter: electromagnetism
+  type: concept
+  q: 감은 수 $N$인 코일의 자기선속결합(flux linkage)은?
+  choices:
+    - $N\Phi_B$ (한 감김의 선속 × 감은 수)
+    - $\Phi_B$ (한 감김의 선속)
+    - $\dfrac{\Phi_B}{N}$
+    - $LI^2$
+  answer: 0
+  explain: 같은 선속이 $N$번 엮여 있으므로 $N\Phi_B$. 패러데이 법칙과 $L = \dfrac{N\Phi_B}{i}$에 들어가는 양이다.
+  cards: [phys-em-inductance]
+
+# ---------------------------------------------------------------- 회로
+- id: qc-series-current
+  chapter: circuits
+  type: concept
+  q: 저항의 직렬·병렬 연결에서 같은 것끼리 옳게 짝지은 것은?
+  choices:
+    - 직렬은 전류가 같고, 병렬은 전압이 같다
+    - 직렬은 전압이 같고, 병렬은 전류가 같다
+    - 직렬과 병렬 모두 전류가 같다
+    - 직렬과 병렬 모두 전압이 같다
+  answer: 0
+  explain: 직렬은 한 길이라 전류가 같고, 병렬은 양 끝이 같은 두 점이라 전압이 같다. 축전기도 같은 원리 (직렬이면 전하가 같다).
+  cards: [phys-circ-series-parallel]
+
+- id: qc-capacitor-series
+  chapter: circuits
+  type: concept
+  q: 축전기 $C_1$, $C_2$를 직렬로 연결한 합성 전기용량은?
+  choices:
+    - $\dfrac{C_1C_2}{C_1 + C_2}$
+    - $C_1 + C_2$
+    - $\sqrt{C_1C_2}$
+    - $\dfrac{C_1 + C_2}{2}$
+  answer: 0
+  explain: 축전기는 저항과 반대다. 직렬이 $\dfrac{1}{C} = \dfrac{1}{C_1} + \dfrac{1}{C_2}$, 병렬이 $C_1 + C_2$.
+  cards: [phys-circ-series-parallel]
+
+- id: qc-rc-start
+  chapter: circuits
+  type: concept
+  q: 처음에 비어 있던 축전기가 있는 RC 회로에서 스위치를 닫은 **직후**, 축전기는 무엇처럼 행동하는가?
+  choices:
+    - 도선 (전압 0)
+    - 끊어진 회로 (전류 0)
+    - 저항 $R$
+    - 전지
+  answer: 0
+  explain: 전하가 0이라 $V_C = \dfrac{q}{C} = 0$, 도선처럼 전류가 $\dfrac{\mathcal{E}}{R}$로 흐른다. 충분히 오래 지나면 다 차서 끊어진 회로처럼 된다.
+  cards: [phys-circ-rc-circuit]
+
+- id: qc-rl-start
+  chapter: circuits
+  type: concept
+  q: RL 회로에서 스위치를 닫은 **직후**, 코일은 무엇처럼 행동하는가?
+  choices:
+    - 끊어진 회로 (전류 0)
+    - 도선 (전압 0)
+    - 축전기
+    - 저항 $R$
+  answer: 0
+  explain: 코일은 전류의 급변을 막아 직후 전류가 0이다. 오래 지나면 전류가 일정해져 역기전력이 0, 도선처럼 된다. RC와 정반대.
+  cards: [phys-circ-rl-circuit]
+
+- id: qc-time-constants
+  chapter: circuits
+  type: concept
+  q: RC 회로와 RL 회로의 시간 상수로 옳은 것은?
+  choices:
+    - $RC$와 $\dfrac{L}{R}$
+    - $\dfrac{R}{C}$와 $RL$
+    - $RC$와 $RL$
+    - $\dfrac{1}{RC}$와 $\dfrac{R}{L}$
+  answer: 0
+  explain: $\tau_{RC} = RC$, $\tau_{RL} = \dfrac{L}{R}$. $R$이 크면 RC는 느려지고 RL은 빨라진다.
+  cards: [phys-circ-rc-circuit, phys-circ-rl-circuit]
+
+- id: qc-lc-omega
+  chapter: circuits
+  type: ratio
+  q: LC 회로의 각진동수는?
+  choices:
+    - $\dfrac{1}{\sqrt{LC}}$
+    - $\sqrt{LC}$
+    - $\dfrac{1}{LC}$
+    - $\sqrt{\dfrac{L}{C}}$
+  answer: 0
+  explain: '용수철 진동 $\omega = \sqrt{\dfrac{k}{m}}$와 대응: $L \leftrightarrow m$, $\dfrac{1}{C} \leftrightarrow k$.'
+  cards: [phys-circ-lc-oscillation]
+
+- id: qc-reactance-freq
+  chapter: circuits
+  type: concept
+  q: 교류 진동수를 높이면 축전기와 코일의 리액턴스는?
+  choices:
+    - 축전기는 작아지고, 코일은 커진다
+    - 둘 다 커진다
+    - 축전기는 커지고, 코일은 작아진다
+    - 둘 다 변하지 않는다
+  answer: 0
+  explain: $X_C = \dfrac{1}{\omega C}$, $X_L = \omega L$. 고주파는 축전기를 잘 통과하고 코일에 막힌다.
+  cards: [phys-circ-ac-elements]
+
+- id: qc-phase-eli
+  chapter: circuits
+  type: concept
+  q: 교류 회로에서 전압과 전류의 위상 관계로 옳은 것은?
+  choices:
+    - 코일은 전압이 전류보다 $90^\circ$ 앞서고, 축전기는 전류가 전압보다 $90^\circ$ 앞선다
+    - 코일은 전류가 앞서고, 축전기는 전압이 앞선다
+    - 둘 다 전압과 전류의 위상이 같다
+    - 저항은 전압이 전류보다 $90^\circ$ 앞선다
+  answer: 0
+  explain: '"ELI the ICE man": 코일(L)에서는 E(전압)가 I보다 먼저, 축전기(C)에서는 I가 E보다 먼저. 저항은 위상이 같다.'
+  cards: [phys-circ-ac-elements]
+
+- id: qc-resonance
+  chapter: circuits
+  type: concept
+  q: RLC 직렬 회로가 공명할 때에 대한 설명으로 **틀린** 것은?
+  choices:
+    - 임피던스가 최대가 된다
+    - $X_L = X_C$이다
+    - 전류가 최대가 된다
+    - 전압과 전류의 위상차가 0이다
+  answer: 0
+  explain: 공명이면 $X_L - X_C = 0$이라 임피던스 $Z = \sqrt{R^2 + (X_L - X_C)^2}$가 **최소**($R$)가 되고 전류가 최대가 된다.
+  cards: [phys-circ-rlc-series]
+
+- id: qc-avg-power
+  chapter: circuits
+  type: tf
+  q: 이상적인 코일과 축전기는 한 주기 동안 평균적으로 전력을 소비하지 않는다.
+  answer: true
+  explain: 에너지를 저장했다가 돌려줄 뿐이다. 교류 회로에서 평균 전력은 저항에서만 소비된다 ($P_{\text{avg}} = I_{\text{rms}}^2R$).
+  cards: [phys-circ-rlc-series]
+
+- id: qc-transformer
+  chapter: circuits
+  type: ratio
+  q: 1차 코일 200회, 2차 코일 1000회인 이상적인 변압기에 1차 전압 $100\,\text{V}$를 걸었다. 2차 전압과 전류 비 $\dfrac{I_2}{I_1}$은?
+  choices:
+    - '$500\,\text{V}$, $\dfrac{1}{5}$'
+    - '$500\,\text{V}$, $5$'
+    - '$20\,\text{V}$, $5$'
+    - '$100\,\text{V}$, $1$'
+  answer: 0
+  explain: 전압은 감은 수에 비례($\dfrac{V_2}{V_1} = \dfrac{N_2}{N_1} = 5$). 전력이 같으므로 전류는 반비례해서 $\dfrac{1}{5}$.
+  cards: [phys-circ-transformer]
+
+- id: qc-transformer-dc
+  chapter: circuits
+  type: tf
+  q: 변압기는 직류 전압도 높이거나 낮출 수 있다.
+  answer: false
+  explain: 변압기는 1차 코일 전류의 **변화**가 만드는 선속 변화(상호 유도)로 작동한다. 직류는 선속이 일정해 2차 코일에 기전력이 생기지 않는다.
+  cards: [phys-circ-transformer, phys-em-faraday-law]

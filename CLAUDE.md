@@ -24,6 +24,7 @@ validate가 실패하면 Render 빌드도 실패해서 배포되지 않는다. �
 - `src/lib/content.ts`: 로더 + 검증기 (schema는 여기의 `CardFrontmatter`, `ChapterFrontmatter`). 빌드와 validate가 같은 코드를 쓴다.
 - `sources/notion/`, `sources/pdf/`: 원본 자료. 여기서 카드로 변환한다.
 - `lessons/`: 학습 섹션(이야기 레슨) 원고. 아래 "학습 섹션" 참고.
+- `quiz/`: 퀴즈 문제 (연습 탭 → 퀴즈). 아래 "퀴즈" 참고.
 - `inbox/`: Gemini/Antigravity 결과물 임시 폴더. `scripts/ingest.ts`(`npm run ingest`)가 처리한다. `main`에는 README만 둔다.
 - `docs/gemini-instructions.md`: Gemini/Antigravity에게 주는 문제 카드 작성 지시문.
 - `.agents/rules/problem-cards.md`: Antigravity 워크스페이스 규칙 (위 지시문을 참조). 지시문을 바꾸면 같이 확인.
@@ -204,6 +205,48 @@ verified: false
 - 로더·검증은 `src/lib/lessons.ts` (`npm run validate`에 포함). 페이지는 `src/pages/learn/`, 클라이언트는 `src/client/learn.ts`.
 - 글투: 한국어 "~다"체. 트랙마다 소개의 비유 표(역학: 운동 에너지 = 지갑, 퍼텐셜 = 통장 / 전자기: 전위 = 높이, 전류 = 물, 축전기 = 물탱크, 코일 = 물레방아 등)를 그 트랙의 모든 레슨에서 일관되게 쓴다. 수식 규칙은 카드와 같다.
 - 레슨 내용은 Claude가 쓴 것이다. 물리 내용을 고칠 때는 관련 공식 카드와 어긋나지 않는지 확인한다.
+
+## 퀴즈 — 연습 탭 `/quiz/`
+
+하단 "연습" 탭 = 플래시카드(`/flash/`) + 퀴즈(`/quiz/`). 맨 위 전환 버튼(`src/components/PracticeSwitch.astro`)으로 오가고, 탭은 마지막으로 연 쪽으로 열린다 (`src/client/ui.ts`). 지금은 물리만 있다.
+
+- 구분: 역학 / 비역학(전자기·회로). 비역학 단원 목록은 `src/lib/quiz.ts`의 `QUIZ_GROUPS`, 거기 없는 물리 단원은 모두 역학으로 들어간다. 설정 화면에서 단원·유형·문항 수를 고른다.
+- 로더·검증은 `src/lib/quiz.ts` (`npm run validate`에 포함), 데이터는 `/data/quiz.json`, 화면은 `src/pages/quiz/`, `src/client/quiz.ts`. 문제는 계산 없이 눈으로 보고 푸는 개념 문제만 낸다.
+
+### `quiz/physics/situations.yaml` — 상황 → 공식·법칙
+
+```yaml
+- card: phys-em-biot-savart      # 정답 공식 카드
+  label: 비오-사바르 법칙          # 보기에 보일 짧은 이름 (없으면 카드 제목)
+  prompts:                        # 문제 1개 = 상황 1줄
+    - 원형 전류 고리 중심의 자기장을 구한다
+  avoid: [phys-em-infinitesimal-elements]   # 이 상황에도 답이 될 수 있어 오답 보기로 쓰면 안 되는 카드
+```
+
+- 보기 4개는 풀 때마다 같은 구분의 다른 항목에서 뽑는다 (같은 단원 먼저). 고르고 나면 정답 카드의 첫 공식 블록이 해설로 나온다.
+- 공식 카드를 새로 만들면 여기에도 항목을 추가한다. 카드 하나에 한 항목(상황은 `prompts`에 여러 줄).
+- 다른 카드도 정답이 될 수 있는 상황이면 그 카드를 `avoid`에 넣는다 (양방향으로 적용됨).
+
+### `quiz/physics/<이름>.yaml` — 직접 쓴 문제
+
+```yaml
+- id: qe-gauss-cube             # 전역 유일 (역학 qm-/qr-/qw-/qf-/qt-, 전자기 qe-, 회로 qc-)
+  chapter: electromagnetism     # 물리 단원 id
+  type: ratio                   # concept(틀린 설명 고르기 등) / tf(참거짓) / ratio(비례·기호)
+  q: 정육면체 중심에 점전하 $q$가 있다. 한 면을 지나는 전기선속은?
+  choices:                      # tf는 쓰지 않음 (보기 = 참/거짓)
+    - $\dfrac{q}{6\varepsilon_0}$
+    - $\dfrac{q}{\varepsilon_0}$
+  answer: 0                     # 보기 번호(0부터). tf는 true/false
+  explain: 전체 선속이 대칭인 6개 면에 똑같이 나뉜다.
+  cards: [phys-em-gauss-law]    # 해설 아래 "관련 카드" (탭하면 그 자리에서 카드가 열림)
+```
+
+- 보기 순서는 화면에서 섞인다. "위 모두", "①과 ②" 같은 위치에 의존하는 보기는 쓰지 않는다. 보기는 4개가 기본.
+- "틀린 것은?"을 물을 때는 `q`에 `**틀린**`을 굵게 쓴다.
+- 문제·해설은 반드시 기존 카드·레슨 내용에 근거하고, 해설에는 왜 그 답인지와 헷갈리는 반대 경우를 한 줄로 쓴다.
+- YAML: 값에 `: `(콜론+공백)이 있거나 `*`·`"`로 시작하면 작은따옴표로 감싼다 (안의 `'`는 `''`).
+- 수식은 카드와 같은 KaTeX 규칙. 보기 안 수식도 폰 폭에 맞게 짧게 쓴다. `npm run check:width`가 `/quiz/?audit=1`(모든 문제를 해설까지 펼친 점검 화면)도 잰다.
 
 ## 약점 메모 정리 — 사용자가 "[약점 메모 정리 요청]"을 붙여넣으면
 

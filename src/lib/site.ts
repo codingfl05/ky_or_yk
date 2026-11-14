@@ -1,5 +1,6 @@
 import { getContent, formatError } from './content';
 import { loadLessons, type LessonsResult } from './lessons';
+import { loadQuiz, type QuizPayload } from './quiz';
 import { BUILD_ID } from './build';
 import type { CardKind, CardView, IndexPayload } from './types';
 
@@ -41,4 +42,14 @@ export function indexPayload(): IndexPayload {
 export function subjectHref(subjectId: string): string {
   const s = content().subjects.find((x) => x.id === subjectId)!;
   return s.chapters.length === 1 ? `${base}${s.id}/${s.chapters[0].id}/` : `${base}${s.id}/`;
+}
+
+let quizCache: QuizPayload | null = null;
+/** 퀴즈 데이터. 에러가 있으면 빌드를 멈춘다. */
+export function quizPayload(): QuizPayload {
+  if (quizCache && process.env.NODE_ENV === 'production') return quizCache;
+  const r = loadQuiz(content());
+  if (r.errors.length) throw new Error(`퀴즈 에러 ${r.errors.length}개 (npm run validate 로 확인):\n` + r.errors.map(formatError).join('\n'));
+  quizCache = r.payload;
+  return r.payload;
 }

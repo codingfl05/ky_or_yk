@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import PracticeSwitch from '../../components/PracticeSwitch.astro';
+---
+<Base title="퀴즈" nav="flash">
+  <PracticeSwitch current="quiz" />
+
+  <!-- 설정 -->
+  <section id="q-setup">
+    <div class="field">
+      <span class="label">구분</span>
+      <div class="seg" id="q-group"></div>
+    </div>
+    <div class="field">
+      <span class="label">단원 <small class="q-sub">(아무것도 안 고르면 전체)</small></span>
+      <div class="chips" id="q-chapters"></div>
+    </div>
+    <div class="field">
+      <span class="label">유형</span>
+      <div class="chips" id="q-types"></div>
+    </div>
+    <div class="field">
+      <span class="label">문항 수</span>
+      <div class="seg" id="q-count">
+        <button type="button" data-v="10">10</button>
+        <button type="button" data-v="20">20</button>
+        <button type="button" data-v="0">전체</button>
+      </div>
+    </div>
+    <p class="flash-hint" id="q-avail"></p>
+    <button id="q-start" class="btn primary block" type="button" disabled>불러오는 중…</button>
+  </section>
+
+  <!-- 진행 -->
+  <section id="q-session" hidden>
+    <div class="flash-top">
+      <span id="q-pos"></span>
+      <span id="q-score" class="q-score"></span>
+      <button id="q-quit" class="btn" type="button">종료</button>
+    </div>
+    <div class="progress"><i id="q-bar"></i></div>
+    <div id="q-box" class="quiz-box"></div>
+    <div class="quiz-next" id="q-nextbar" hidden>
+      <button id="q-next" class="btn primary block" type="button">다음</button>
+    </div>
+  </section>
+
+  <!-- 결과 -->
+  <section id="q-done" hidden>
+    <div class="result">
+      <div class="big" id="q-r-score"></div>
+      <div class="stats"><span>맞음 <b class="ok" id="q-r-ok"></b></span><span>틀림 <b class="ng" id="q-r-ng"></b></span></div>
+    </div>
+    <div id="q-r-wrong"></div>
+    <div class="stack">
+      <button id="q-retry-wrong" class="btn primary block" type="button">틀린 것만 다시</button>
+      <button id="q-retry" class="btn block" type="button">같은 설정으로 새로 풀기</button>
+      <button id="q-back" class="btn block" type="button">설정으로</button>
+    </div>
+  </section>
+
+  <script>
+    import '../../client/quiz';
+  </script>
+</Base>

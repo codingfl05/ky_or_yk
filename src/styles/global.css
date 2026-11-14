@@ -15,6 +15,7 @@
   --review: #9a5b00;
   --review-soft: #fff1d6;
   --ok: #1f8a4c;
+  --ok-soft: #e3f4ea;
   --topbar-h: 52px;
   --nav-h: 56px;
   --radius: 10px;
@@ -37,6 +38,7 @@
     --review: #f0b65a;
     --review-soft: #36290f;
     --ok: #4cc488;
+    --ok-soft: #173a28;
     color-scheme: dark;
   }
 }
@@ -56,6 +58,7 @@
   --review: #f0b65a;
   --review-soft: #36290f;
   --ok: #4cc488;
+  --ok-soft: #173a28;
   color-scheme: dark;
 }
 
@@ -1823,4 +1826,197 @@ html.nav-hidden .answer-bar {
   .study-card {
     padding: 12px 10px 14px;
   }
+}
+
+/* ------------------------------------------------------------ 연습 탭: 플래시카드 ↔ 퀴즈 전환 */
+.practice-switch {
+  margin-bottom: 14px;
+}
+.practice-switch a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.practice-switch a[aria-pressed='true'] {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 650;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+/* ------------------------------------------------------------ 퀴즈 */
+#q-setup .field {
+  margin-bottom: 12px;
+}
+#q-setup .label {
+  display: block;
+  margin-bottom: 6px;
+}
+.q-sub {
+  font-weight: 400;
+  color: var(--muted);
+}
+#q-start {
+  position: sticky;
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 8px);
+  z-index: 5;
+  box-shadow: 0 0 0 6px var(--bg);
+}
+.q-score {
+  color: var(--ok);
+  font-weight: 600;
+}
+.quiz-box {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg);
+  padding: 14px 12px 12px;
+}
+.q-tag {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.q-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.q-lead {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+.q-situation {
+  font-size: 1.04rem;
+  font-weight: 600;
+}
+.quiz-choices {
+  display: grid;
+  gap: 8px;
+}
+.quiz-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+.quiz-choice:not(:disabled):active {
+  background: var(--surface-2);
+}
+.quiz-choice .q-num {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.quiz-choice .q-text {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+.quiz-choice:disabled {
+  color: var(--muted);
+}
+.quiz-choice.is-answer {
+  border-color: var(--ok);
+  background: var(--ok-soft, var(--accent-soft));
+  color: var(--text);
+}
+.quiz-choice.is-answer .q-num {
+  background: var(--ok);
+  color: var(--on-accent);
+}
+.quiz-choice.is-wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-soft);
+  color: var(--text);
+}
+.quiz-choice.is-wrong .q-num {
+  background: var(--wrong);
+  color: var(--on-accent);
+}
+.q-explain {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.92rem;
+}
+.q-verdict {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.q-verdict.ok {
+  color: var(--ok);
+}
+.q-verdict.ng {
+  color: var(--wrong);
+}
+.q-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+.q-cards > span {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.q-card-view:not(:empty) {
+  margin-top: 10px;
+}
+.quiz-next {
+  position: sticky;
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 8px);
+  margin-top: 12px;
+  z-index: 5;
+  box-shadow: 0 0 0 6px var(--bg);
+  border-radius: 8px;
+}
+.q-r-h {
+  font-size: 0.9rem;
+  margin: 8px 0 6px;
+}
+.q-r-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: grid;
+  gap: 6px;
+}
+.q-r-list li {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.88rem;
+  display: grid;
+  gap: 2px;
+}
+.q-r-list .q-tag {
+  margin: 0;
+}
+.q-audit {
+  margin: 10px 0;
 }

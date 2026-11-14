@@ -3,16 +3,19 @@
 //   npm run validate
 import { loadContent, formatError } from '../src/lib/content.ts';
 import { loadLessons } from '../src/lib/lessons.ts';
+import { loadQuiz } from '../src/lib/quiz.ts';
 
 const loaded = loadContent('/');
 const { cards, subjects } = loaded;
 const learn = loadLessons('/', loaded);
-const errors = [...loaded.errors, ...learn.errors];
-const warnings = [...loaded.warnings, ...learn.warnings];
+const quiz = loadQuiz(loaded);
+const errors = [...loaded.errors, ...learn.errors, ...quiz.errors];
+const warnings = [...loaded.warnings, ...learn.warnings, ...quiz.warnings];
 
 const unverified = cards.filter((c) => !c.verified);
 console.log(`카드 ${cards.length}개 검사 (과목 ${subjects.length}개)`);
 for (const t of learn.tracks) console.log(`학습 트랙 "${t.title}": 레슨 ${t.lessons.length}개, 흐름도 노드 ${t.flow.length}개, 비교 ${t.pairs.length}개, 요약 ${t.sheet.length}개`);
+for (const q of quiz.payload.subjects) console.log(`퀴즈 "${q.name}": 상황 항목 ${q.situations.length}개(상황 ${q.situations.reduce((a, s) => a + s.prompts.length, 0)}개), 직접 쓴 문제 ${q.questions.length}개`);
 if (unverified.length) {
   console.log(`\n검토 필요(verified: false) ${unverified.length}개:`);
   for (const c of unverified) console.log(`  - ${c.id}  (${c.source})`);
