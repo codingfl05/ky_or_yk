@@ -1,7 +1,7 @@
 ---
 id: prob-phys-em-rotating-rod-semicircle-emf
 title_ko: "반원형 도선 위를 회전하는 금속 막대의 유도 기전력과 전류 방향"
-source: "문제 168 (교재명 미상)"
+source: "뿌리물리 핵심 문제집 168번"
 difficulty: 2
 tags: [유도 기전력, 패러데이 법칙, 렌츠 법칙, 회전 막대, 자기선속, 부채꼴 넓이, induced emf, Faraday's law, Lenz's law, rotating rod, magnetic flux]
 related: [phys-em-faraday-law, phys-em-motional-emf]

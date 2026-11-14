@@ -1,7 +1,7 @@
 ---
 id: prob-phys-em-falling-rod-terminal-power
 title_ko: "연직 ㄷ자 도선 위에서 낙하하는 막대의 종단 속력과 중력의 일률"
-source: "문제 169 (교재명 미상)"
+source: "뿌리물리 핵심 문제집 169번"
 difficulty: 2
 tags: [운동 기전력, 종단 속도, 일률, 자기력, 렌츠 법칙, motional emf, terminal velocity, power, magnetic force]
 related: [phys-em-faraday-law, phys-em-motional-emf]

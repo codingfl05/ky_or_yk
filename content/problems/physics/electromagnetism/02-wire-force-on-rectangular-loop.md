@@ -1,7 +1,7 @@
 ---
 id: prob-phys-em-wire-force-on-rectangular-loop
 title_ko: "무한 직선 도선이 직사각형 고리에 주는 알짜 자기력"
-source: "문제 165 (교재명 미상)"
+source: "뿌리물리 핵심 문제집 165번"
 difficulty: 2
 tags: [자기력, 평행 도선, 직사각형 고리, 직선 도선 자기장, 미소 요소, magnetic force, parallel currents, current loop]
 related: [phys-em-infinitesimal-elements, phys-em-symmetry-cancellation, phys-em-force-on-current]
