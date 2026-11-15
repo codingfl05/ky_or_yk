@@ -463,10 +463,12 @@ function bernoulliPipe() {
 
 import { polarFigures } from './polar-figures';
 import { physicsFigures } from './physics-figures';
+import { modernFigures } from './modern-figures';
 
 export const figures: Record<string, string> = {
   ...polarFigures,
   ...physicsFigures,
+  ...modernFigures,
   coulomb: coulomb(),
   'ring-axis': ringAxis(),
   'gauss-bag': gaussBag(),

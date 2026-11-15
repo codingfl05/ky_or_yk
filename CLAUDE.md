@@ -85,7 +85,7 @@ frontmatter에는 LaTeX를 쓰지 않는다 (`\`, `$`가 있으면 validate 에�
 
 - 미적분학: 미분 `calc-diff-`, 적분 `calc-int-`, 급수 `calc-`, 벡터와 공간도형 `calc-vec-`, 다변수 미적분 `calc-mv-`, 선적분과 면적분 `calc-vc-` / 선형대수학: 벡터와 행렬 `la-vm-`, 벡터공간 `la-vs-`, 사영과 이차형식 `la-pq-`, 선형 미분방정식 `la-de-`, 행렬 분해 `la-dec-`, 일반 벡터공간과 선형사상 `la-gs-`, 내적공간과 스펙트럼 `la-ip-`
 - 미분방정식: 1계 `de-first-`, 고계 선형 `de-linear-`, 라플라스 `de-laplace-`, 연립 `de-system-`, 급수해 `de-series-`
-- 일반물리: 역학 `phys-mech-`, 회전 `phys-rot-`, 진동과 파동 `phys-wave-`, 유체 `phys-fluid-`, 열역학 `phys-thermo-`, 전자기 `phys-em-`, 회로 `phys-circ-`, 열역학 완결(엔트로피와 열기관) `thermo-`
+- 일반물리: 역학 `phys-mech-`, 회전 `phys-rot-`, 진동과 파동 `phys-wave-`, 유체 `phys-fluid-`, 열역학 `phys-thermo-`, 전자기 `phys-em-`, 회로 `phys-circ-`, 상대성 이론 `phys-rel-`, 빛과 물질의 이중성(양자) `phys-qm-`, 원자와 전자 `phys-atom-`, 핵물리와 입자물리 `phys-nuc-`, 열역학 완결(엔트로피와 열기관) `thermo-`
 
 ### 본문 섹션
 
@@ -102,7 +102,7 @@ frontmatter에는 LaTeX를 쓰지 않는다 (`\`, `$`가 있으면 validate 에�
 | `## supplement` | 검토 모드에서만 | 원본 노트에 없던 내용을 보완한 부분이 무엇인지 |
 
 - 첫 섹션 앞에 내용을 두지 않는다. `###` 이하 소제목은 섹션 안에서 자유롭게.
-- 그림: 섹션 안에 `::fig <이름> | 캡션` 줄을 쓰면 SVG 그림이 들어간다. 그림은 `src/lib/figures.ts`(레슨용), `src/lib/physics-figures.ts`(물리 카드용, 도우미는 `fig-helpers.ts`), `src/lib/polar-figures.ts`(극곡선, r(θ)를 계산해서 그림)에 있고 이름은 모두 한 목록으로 합쳐진다. 연달아 3개 이상 쓴 `::fig` 줄은 2열(넓은 화면 3열) 격자로 묶이고, 1~2개는 한 줄에 하나씩 크게 나온다. 없는 이름은 validate 에러.
+- 그림: 섹션 안에 `::fig <이름> | 캡션` 줄을 쓰면 SVG 그림이 들어간다. 그림은 `src/lib/figures.ts`(레슨용), `src/lib/physics-figures.ts`(물리 카드용, 도우미는 `fig-helpers.ts`), `src/lib/modern-figures.ts`(현대물리 카드용), `src/lib/polar-figures.ts`(극곡선, r(θ)를 계산해서 그림)에 있고 이름은 모두 한 목록으로 합쳐진다. 연달아 3개 이상 쓴 `::fig` 줄은 2열(넓은 화면 3열) 격자로 묶이고, 1~2개는 한 줄에 하나씩 크게 나온다. 없는 이름은 validate 에러.
 - 물리 공식 카드의 설명 구성: 맨 위에 그림, `### 먼저 떠올릴 것`(앞 단원 개념을 이름만 대지 말고 한두 줄로 다시 설명), `### 기호 풀이`(적분·내적 같은 기호를 말로), `### 한 번 따라 하기`(공식이 나오는 과정이나 숫자 예)를 필요한 만큼 둔다. 고등학생이 읽어도 막히지 않게 쓴다.
 - 플래시카드: 앞면 = `question` (없으면 title_ko + conditions), 뒷면 = formula + explanation.
 - 검토 모드: 설정 → 검토 모드를 켜거나, 카드의 "검토 필요" 배지를 탭하거나, 검토 페이지(`/review/`)에서 supplement가 보인다.
@@ -211,7 +211,7 @@ verified: false
 
 하단 "연습" 탭 = 플래시카드(`/flash/`) + 퀴즈(`/quiz/`). 맨 위 전환 버튼(`src/components/PracticeSwitch.astro`)으로 오가고, 탭은 마지막으로 연 쪽으로 열린다 (`src/client/ui.ts`). 지금은 물리만 있다.
 
-- 구분: 역학 / 비역학(전자기·회로). 비역학 단원 목록은 `src/lib/quiz.ts`의 `QUIZ_GROUPS`, 거기 없는 물리 단원은 모두 역학으로 들어간다. 설정 화면에서 단원·유형·문항 수를 고른다.
+- 구분: 역학 / 비역학(전자기·회로) / 현대물리(상대성 이론·양자·원자·핵). 비역학과 현대물리의 단원 목록은 `src/lib/quiz.ts`의 `QUIZ_GROUPS`, 거기 없는 물리 단원은 모두 역학으로 들어간다. 현대물리는 아직 퀴즈 문제가 없어 공식 리마인드에서만 나온다. 설정 화면에서 단원·유형·문항 수를 고른다.
 - 로더·검증은 `src/lib/quiz.ts` (`npm run validate`에 포함), 데이터는 `/data/quiz.json`, 화면은 `src/pages/quiz/`, `src/client/quiz.ts`. 문제는 계산 없이 눈으로 보고 푸는 개념 문제만 낸다.
 - 모드가 두 개다: 퀴즈(채점) / 공식 리마인드(채점 없이 고른 범위의 물리 공식 카드를 이름 + 공식으로 한 장씩 계속 보여 줌. 탭·왼쪽 밀기 = 다음, 오른쪽 밀기 = 이전). 리마인드는 한 바퀴마다 중요도 3은 항상, 2는 2/3, 1은 1/3 확률로 덱에 넣고 섞는다 (한 바퀴 안에서는 중복 없음). 공식 카드의 `## formula`가 그대로 나오므로 따로 데이터를 쓸 필요가 없다.
 

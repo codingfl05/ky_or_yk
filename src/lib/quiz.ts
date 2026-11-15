@@ -16,6 +16,7 @@ export const QUIZ_GROUPS: Record<string, { id: string; name: string; chapters?: 
   physics: [
     { id: 'mech', name: '역학' },
     { id: 'em', name: '비역학 (전자기·회로)', chapters: ['electromagnetism', 'circuits'] },
+    { id: 'modern', name: '현대물리', chapters: ['relativity', 'quantum', 'atoms', 'nuclear'] },
   ],
 };
 export const QUIZ_TYPES = [

@@ -51,5 +51,10 @@ subjects:
       - { id: thermodynamics, name: 열역학, name_en: Thermodynamics, prefix: phys-thermo }
       - { id: electromagnetism, name: 전자기학, name_en: Electromagnetism, prefix: phys-em }
       - { id: circuits, name: 회로, name_en: Circuits, prefix: phys-circ }
+      # 현대물리 (BLIS편입 일반물리 PART3 Ch21~24)
+      - { id: relativity, name: 상대성 이론, name_en: Special relativity, prefix: phys-rel }
+      - { id: quantum, name: 빛과 물질의 이중성, name_en: Wave-particle duality and quantum mechanics, prefix: phys-qm }
+      - { id: atoms, name: 원자와 전자, name_en: Atoms and electrons, prefix: phys-atom }
+      - { id: nuclear, name: 핵물리와 입자물리, name_en: Nuclear and particle physics, prefix: phys-nuc }
       # 이름·소개는 content/physics/thermo-entropy/_chapter.md. 위치는 임시(맨 끝)
       - { id: thermo-entropy, prefix: thermo }
