@@ -316,6 +316,56 @@ function decayCurve() {
   );
 }
 
+// ================================================================ 학습 섹션(레슨)용
+
+function bohrWave() {
+  const ring = (cx: number, n: number, cls: Cls, lab1: string, lab2: string) => {
+    let d = '';
+    const N = 240;
+    for (let i = 0; i <= N; i++) {
+      const t = (2 * Math.PI * i) / N;
+      const r = 44 + 7 * Math.sin(n * t);
+      d += `${i ? 'L' : 'M'}${r1(cx + r * Math.cos(t))} ${r1(78 - r * Math.sin(t))}`;
+    }
+    return circle(cx, 78, 44, 'c-mut', `stroke-width="1" ${dash}`) + dot(cx, 78, 'c-pos', 3.5) + path(d, cls, 1.8) +
+      text(cx, 146, lab1, 'c-text', 'middle', 10) + text(cx, 160, lab2, cls, 'middle', 10);
+  };
+  return svg(
+    168,
+    '궤도 둘레에 물질파가 정수 개 들어가면 한 바퀴 돌아 제자리에 이어지고, 아니면 어긋나서 사라진다',
+    ring(84, 4, 'c-acc', '둘레 = 4λ', '이어진다 → 허용') + ring(236, 4.5, 'c-pos', '둘레 = 4.5λ', '어긋난다 → 불가'),
+  );
+}
+
+function wavePacket() {
+  const X = (x: number) => 20 + x * 280;
+  return svg(
+    150,
+    '끝없이 이어진 파동은 파장이 뚜렷하지만 위치가 없고, 한곳에 모인 파동은 위치가 뚜렷하지만 여러 파장이 섞여 있다',
+    line(20, 40, 300, 40, 'c-mut', thin) + curve((x) => Math.sin(x * 2 * Math.PI * 9), 0, 1, X, (y) => 40 - y * 16, 'c-acc', 1.8) +
+      text(160, 14, '파장 하나 → 운동량 정확, 위치는 모름', 'c-text', 'middle', 10) +
+      line(20, 110, 300, 110, 'c-mut', thin) +
+      curve((x) => Math.sin(x * 2 * Math.PI * 9) * Math.exp(-(((x - 0.5) / 0.09) ** 2)), 0, 1, X, (y) => 110 - y * 22, 'c-pos', 1.8) +
+      arrow(X(0.4), 136, X(0.6), 136, 'c-mut', 1) + arrow(X(0.6), 136, X(0.4), 136, 'c-mut', 1) + text(X(0.5), 148, 'Δx', 'c-mut', 'middle', 9) +
+      text(160, 82, '한곳에 모음 → 위치 정확, 파장이 여럿 섞임', 'c-text', 'middle', 10),
+  );
+}
+
+function bindingCurve() {
+  const ox = 44, oy = 124, w = 222, h = 96;
+  const X = (a: number) => ox + (a / 240) * w, Y = (b: number) => oy - (b / 9.5) * h;
+  const f = (a: number) => 8.9 * (1 - Math.exp(-a / 7)) - 0.0058 * Math.max(0, a - 40);
+  return svg(
+    152,
+    '핵자당 결합 에너지는 철 근처에서 가장 크다. 가벼운 핵은 합쳐서, 무거운 핵은 쪼개서 봉우리 쪽으로 간다',
+    axes(ox, oy, w + 14, h + 10, 'A', '') + text(ox + 4, oy - h - 12, '핵자당 결합 에너지', 'c-mut', 'start', 9) + text(ox + w - 20, oy + 13, '질량수 A', 'c-mut', 'middle', 9) +
+      curve(f, 1, 240, X, Y, 'c-acc', 2) + line(X(56), oy, X(56), Y(f(56)), 'c-mut', thin) + dot(X(56), Y(f(56)), 'c-pos', 3) +
+      text(X(56), oy + 13, '56 (철)', 'c-pos', 'middle', 9) + text(X(56) + 4, Y(f(56)) - 8, '가장 안정', 'c-pos', 'start', 9) +
+      arrow(X(6), Y(3.2), X(34), Y(3.2), 'c-ok', 1.4) + text(X(40), Y(3.2) + 4, '융합', 'c-ok', 'start', 10) +
+      arrow(X(232), Y(5.6), X(170), Y(5.6), 'c-text', 1.4) + text(X(200), Y(5.6) + 14, '분열', 'c-text', 'middle', 10),
+  );
+}
+
 export const modernFigures: Record<string, string> = {
   simultaneity: simultaneity(),
   'light-clock': lightClock(),
@@ -335,4 +385,7 @@ export const modernFigures: Record<string, string> = {
   'fermi-dirac': fermiDirac(),
   'diode-iv': diodeIv(),
   'decay-curve': decayCurve(),
+  'bohr-wave': bohrWave(),
+  'wave-packet': wavePacket(),
+  'binding-curve': bindingCurve(),
 };
