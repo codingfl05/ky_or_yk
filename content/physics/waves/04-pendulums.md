@@ -28,6 +28,17 @@ $$
 - 물리 진자: $I$는 매달린 축에 대한 관성모멘트, $d$는 축에서 질량 중심까지 거리. 비틀림 진자: $\tau = -\kappa\theta$.
 
 ## explanation
+::fig pendulum-forces | 중력을 줄 방향과 접선 방향으로 나누면, 접선 성분 mg sinθ가 추를 가운데로 되돌린다.
+
+### 한 번 따라 하기: 단진자의 주기
+먼저 떠올릴 것: 돌림힘 $\tau = I\alpha$ (회전 단원), 점 질량의 관성모멘트 $I = mL^2$.
+1. 매단 점을 축으로 보면 장력은 축을 지나 돌림힘이 0이고, 중력의 돌림힘만 남는다: $\tau = -mgL\sin\theta$ ($-$는 되돌리는 방향).
+2. 각이 작으면 $\sin\theta \approx \theta$ (라디안): $\tau \approx -mgL\,\theta$.
+3. $\tau = I\alpha$에 넣으면 $mL^2\alpha = -mgL\theta$ → $\alpha = -\dfrac{g}{L}\theta$.
+4. "각가속도가 각에 비례하고 반대"이므로 단진동이고 $\omega^2 = \dfrac{g}{L}$, $T = 2\pi\sqrt{\dfrac{L}{g}}$.
+
+질량 $m$이 양변에서 약분된다. 무거운 추는 중력도 크게 받지만 그만큼 움직이기도 힘들어서 주기가 같다.
+
 ### 공통 구조
 복원 돌림힘이 각에 비례하면 각에 대한 단진동이다: $\tau = -(\text{상수})\theta = I\alpha$ → $\omega^2 = \dfrac{\text{상수}}{I}$.
 - 물리 진자: 상수 $= mgd$.
@@ -40,4 +51,4 @@ $$
 - 진폭이 커도 주기는 거의 같다 (작은 각 범위에서).
 
 ## supplement
-교재 내용을 옮기고, 쉬운 설명·스토리는 Claude가 추가했습니다.
+교재 내용을 옮기고, 쉬운 설명·스토리는 Claude가 추가했습니다. 쉬운 설명·그림 보강: 단진자 주기 유도와 그림(pendulum-forces).

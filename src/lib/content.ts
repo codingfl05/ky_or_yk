@@ -116,7 +116,7 @@ export function markdownToHtml(md: string): { html: string; errors: string[] } {
 
 /**
  * 카드 섹션 마크다운 + "::fig 이름 | 캡션" 줄 (src/lib/figures.ts의 그림).
- * 연달아 쓴 ::fig 줄은 한 줄에 여러 개 놓이는 격자(.fig-grid)로 묶는다.
+ * 연달아 3개 이상 쓴 ::fig 줄은 한 줄에 여러 개 놓이는 격자(.fig-grid)로 묶는다 (1~2개는 한 줄에 하나씩).
  */
 export function renderWithFigures(src: string): { html: string; errors: string[] } {
   const errors: string[] = [];
@@ -132,7 +132,8 @@ export function renderWithFigures(src: string): { html: string; errors: string[]
     buf = [];
   };
   const flushFigs = () => {
-    if (figs.length) html += figs.length > 1 ? `<div class="fig-grid">${figs.join('')}</div>` : figs[0];
+    // 3개 이상 이어지면 격자, 1~2개는 한 줄에 하나씩 크게
+    if (figs.length) html += figs.length > 2 ? `<div class="fig-grid">${figs.join('')}</div>` : figs.join('');
     figs = [];
   };
   for (const line of src.split('\n')) {
