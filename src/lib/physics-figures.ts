@@ -671,6 +671,38 @@ function pvWork() {
   );
 }
 
+function parallelRlc() {
+  // 왼쪽: 병렬 회로, 오른쪽: 공통 전압 V를 기준으로 그린 전류 위상자
+  const res = (x: number, y: number) => path(`M ${x} ${y} l 6 -6 l 8 12 l 8 -12 l 8 12 l 8 -12 l 6 6`, 'c-text', 1.4);
+  const coil = (x: number, y: number) => path(`M ${x} ${y} ` + [0, 1, 2, 3].map((k) => `a 5 5 0 0 1 10 0`).join(' '), 'c-text', 1.4);
+  const cap = (x: number, y: number) => line(x, y, x + 20, y) + line(x + 20, y - 9, x + 20, y + 9, 'c-text', 'stroke-width="2"') + line(x + 26, y - 9, x + 26, y + 9, 'c-text', 'stroke-width="2"') + line(x + 26, y, x + 46, y);
+  const L0 = 24, R0 = 108;
+  const circ =
+    line(L0, 30, L0, 132) + line(R0, 30, R0, 132) +
+    line(L0, 30, 44, 30) + res(44, 30) + line(88, 30, R0, 30) +
+    line(L0, 62, 46, 62) + coil(46, 62) + line(86, 62, R0, 62) +
+    line(L0, 94, 43, 94) + cap(43, 94) + line(89, 94, R0, 94) +
+    line(L0, 132, 52, 132) + circle(66, 132, 12, 'c-pos', 'fill="var(--bg)"') + arrow(60, 132, 73, 132, 'c-pos', 1.4) + line(80, 132, R0, 132) +
+    text(66, 156, '전류원 I (진폭 고정)', 'c-pos', 'middle', 9) +
+    text(66, 12, '모두 같은 전압 V', 'c-acc', 'middle', 10) +
+    text(14, 34, 'R', 'c-mut', 'middle', 9) + text(14, 66, 'L', 'c-mut', 'middle', 9) + text(14, 98, 'C', 'c-mut', 'middle', 9);
+  const ox = 160, oy = 96;
+  const ph =
+    line(ox - 6, oy, 306, oy, 'c-mut', `stroke-width="1" ${dash}`) +
+    arrow(ox, oy, 296, oy, 'c-acc', 1.4) + text(300, oy - 6, 'V', 'c-acc', 'end', 9) +
+    arrow(ox, oy, 250, oy, 'c-text', 2.2) + text(206, oy + 16, 'I_R = V/R (같은 위상)', 'c-text', 'middle', 9) +
+    arrow(ox, oy, ox, oy - 74, 'c-ok', 2) + text(ox + 6, oy - 66, 'I_C = V/X_C (90° 앞)', 'c-ok', 'start', 9) +
+    arrow(ox, oy, ox, oy + 48, 'c-pos', 2) + text(ox + 6, oy + 46, 'I_L = V/X_L (90° 뒤)', 'c-pos', 'start', 9) +
+    line(250, oy, 250, oy - 26, 'c-mut', `stroke-width="1" ${dash}`) +
+    arrow(ox, oy, 250, oy - 26, 'c-text', 1.6) + text(254, oy - 26, 'I', 'c-text', 'start', 11) +
+    text(ox - 6, oy - 30, 'I_C − I_L', 'c-mut', 'end', 9);
+  return svg(
+    168,
+    '병렬 RLC: 전압이 같으니 전압을 기준으로 놓고, 세 전류를 위상자로 더한다',
+    circ + ph + text(232, 162, 'I = √(I_R² + (I_C − I_L)²)', 'c-text', 'middle', 10),
+  );
+}
+
 export const physicsFigures: Record<string, string> = {
   'field-lines': fieldLines(),
   'rod-dq': rodDq(),
@@ -711,4 +743,5 @@ export const physicsFigures: Record<string, string> = {
   'pascal-press': pascalPress(),
   'buoyancy-forces': buoyancyForces(),
   'pv-work': pvWork(),
+  'parallel-rlc': parallelRlc(),
 };
