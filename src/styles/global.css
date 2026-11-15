@@ -1299,6 +1299,12 @@ details.quiz > div {
   text-align: center;
   overflow-x: auto;
 }
+.fig-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
 .fig {
   margin: 14px 0 16px;
   padding: 10px;

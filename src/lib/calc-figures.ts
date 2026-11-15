@@ -50,7 +50,30 @@ function osculatingCircle() {
   );
 }
 
+/** 두 곡면의 교선: 두 법선벡터에 모두 수직인 방향이 교선의 접선 방향 */
+function intersectionTangent() {
+  const P = [160, 104];
+  return svg(
+    190,
+    '두 곡면이 만나는 교선 C의 접선은 두 곡면의 법선벡터 모두에 수직이므로, 두 그래디언트의 외적 방향이다',
+    poly([[30, 136], [206, 136], [290, 72], [114, 72]], 'c-acc', soft) + text(46, 130, 'g = 0', 'c-acc', 'start', 10) +
+      poly([[118, 136], [202, 72], [202, 16], [118, 80]], 'c-ok', soft) + poly([[118, 136], [202, 72], [202, 112], [118, 176]], 'c-ok', soft) +
+      text(124, 172, 'h = 0', 'c-ok', 'start', 10) +
+      line(118, 136, 202, 72, 'c-text', 'stroke-width="2.4"') + text(112, 150, 'C', 'c-text', 'end', 11) +
+      arrow(P[0], P[1], P[0], P[1] - 62, 'c-acc', 2) + text(P[0] - 6, P[1] - 56, '∇g', 'c-acc', 'end', 11) +
+      arrow(P[0], P[1], P[0] + 72, P[1], 'c-ok', 2) + text(P[0] + 76, P[1] + 4, '∇h', 'c-ok', 'start', 11) +
+      arrow(P[0], P[1], P[0] + 50, P[1] - 38, 'c-pos', 2.4) + text(P[0] + 56, P[1] - 40, 'd = ∇g × ∇h', 'c-pos', 'start', 11) +
+      dot(P[0], P[1], 'c-text', 3) + text(P[0] - 8, P[1] + 14, 'P', 'c-text', 'end', 11),
+  );
+}
+
+/** 교재 그림 사진 (public/img/cards/) */
+const photo = (file: string, alt: string) => `<img class="fig-photo" src="/img/cards/${file}" alt="${alt}" loading="lazy" width="720">`;
+
 export const calcFigures: Record<string, string> = {
   'tnb-frame': tnbFrame(),
   'osculating-circle': osculatingCircle(),
+  'intersection-tangent': intersectionTangent(),
+  'tangent-plane-gradient': photo('tangent-plane-gradient.webp', '곡면 위의 점 P에서 그래디언트는 접평면에 수직이고, 곡면 위 곡선의 접선벡터는 접평면 안에 있다'),
+  'parametric-surface-patch': photo('parametric-surface-patch.webp', '매개변수 곡면의 작은 조각. u만 바꾼 방향의 벡터 a와 v만 바꾼 방향의 벡터 b가 조각의 두 변이다'),
 };
