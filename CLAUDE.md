@@ -102,7 +102,7 @@ frontmatter에는 LaTeX를 쓰지 않는다 (`\`, `$`가 있으면 validate 에�
 | `## supplement` | 검토 모드에서만 | 원본 노트에 없던 내용을 보완한 부분이 무엇인지 |
 
 - 첫 섹션 앞에 내용을 두지 않는다. `###` 이하 소제목은 섹션 안에서 자유롭게.
-- 그림: 섹션 안에 `::fig <이름> | 캡션` 줄을 쓰면 SVG 그림이 들어간다. 그림은 `src/lib/figures.ts`(레슨용), `src/lib/physics-figures.ts`(물리 카드용, 도우미는 `fig-helpers.ts`), `src/lib/modern-figures.ts`(현대물리 카드·레슨용), `src/lib/polar-figures.ts`(극곡선, r(θ)를 계산해서 그림)에 있고 이름은 모두 한 목록으로 합쳐진다. 연달아 3개 이상 쓴 `::fig` 줄은 2열(넓은 화면 3열) 격자로 묶이고, 1~2개는 한 줄에 하나씩 크게 나온다. 없는 이름은 validate 에러.
+- 그림: 섹션 안에 `::fig <이름> | 캡션` 줄을 쓰면 SVG 그림이 들어간다. 그림은 `src/lib/figures.ts`(레슨용), `src/lib/physics-figures.ts`(물리 카드용, 도우미는 `fig-helpers.ts`), `src/lib/modern-figures.ts`(현대물리 카드·레슨용), `src/lib/polar-figures.ts`(극곡선, r(θ)를 계산해서 그림), `src/lib/calc-figures.ts`(그 밖의 미적분 카드용)에 있고 이름은 모두 한 목록으로 합쳐진다. 연달아 3개 이상 쓴 `::fig` 줄은 2열(넓은 화면 3열) 격자로 묶이고, 1~2개는 한 줄에 하나씩 크게 나온다. 없는 이름은 validate 에러.
 - 물리 공식 카드의 설명 구성: 맨 위에 그림, `### 먼저 떠올릴 것`(앞 단원 개념을 이름만 대지 말고 한두 줄로 다시 설명), `### 기호 풀이`(적분·내적 같은 기호를 말로), `### 한 번 따라 하기`(공식이 나오는 과정이나 숫자 예)를 필요한 만큼 둔다. 고등학생이 읽어도 막히지 않게 쓴다.
 - 플래시카드: 앞면 = `question` (없으면 title_ko + conditions), 뒷면 = formula + explanation.
 - 검토 모드: 설정 → 검토 모드를 켜거나, 카드의 "검토 필요" 배지를 탭하거나, 검토 페이지(`/review/`)에서 supplement가 보인다.
